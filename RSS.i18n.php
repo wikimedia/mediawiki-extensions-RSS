@@ -22,7 +22,6 @@ $messages['qqq'] = array(
 	'rss-item' => 'Do not translate',
 );
 
-
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */

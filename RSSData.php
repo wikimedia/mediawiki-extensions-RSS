@@ -5,7 +5,7 @@ class RSSData {
 	public $items;
 
 	function __construct( $xml ) {
-		if( !( $xml instanceOf DOMDocument ) ) {
+		if ( !( $xml instanceOf DOMDocument ) ) {
 			return null;
 		}
 		$xpath = new DOMXPath( $xml );

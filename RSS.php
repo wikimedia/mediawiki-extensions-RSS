@@ -84,7 +84,7 @@ class RSS {
 		}
 		$parser->disableCache();
 
-		$rss = new RSS($input, $args);
+		$rss = new RSS( $input, $args );
 
 		$status = $rss->fetch();
 
@@ -95,7 +95,7 @@ class RSS {
 		if ( isset( $rss->ERROR ) )
 			return wfMsg( 'rss-error', $rss->ERROR );
 
-		return $rss->renderFeed($parser, $frame);
+		return $rss->renderFeed( $parser, $frame );
 	}
 
 	static function explodeOnSpaces( $str ) {
@@ -103,9 +103,9 @@ class RSS {
 		return is_array( $found ) ? $found : array();
 	}
 
-	function __construct($url, $args) {
+	function __construct( $url, $args ) {
 
-		if( isset($url) ) {
+		if ( isset( $url ) ) {
 			$this->url = $url;
 		}
 
@@ -149,9 +149,9 @@ class RSS {
 		}
 
 		if ( isset( $args['template'] ) ) {
-			$titleObject = Title::newFromText($args['template'], NS_TEMPLATE);
-			$article = new Article($titleObject, 0);
-			$this->itemTemplate = $article->fetchContent(0);
+			$titleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
+			$article = new Article( $titleObject, 0 );
+			$this->itemTemplate = $article->fetchContent( 0 );
 		} else {
 			$this->itemTemplate = wfMsgNoTrans( 'rss-item' );
 		}
@@ -188,29 +188,29 @@ class RSS {
 		// 3. if cached obj fails freshness check, fetch remote
 		// 4. if remote fails, return stale object, or error
 		$key = wfMemcKey( $this->url );
-		$cachedFeed = $this->loadFromCache($key);
-		if( $cachedFeed !== false ) {
-			wfDebugLog( 'RSS', 'Outputting cached feed for '.$this->url );
+		$cachedFeed = $this->loadFromCache( $key );
+		if ( $cachedFeed !== false ) {
+			wfDebugLog( 'RSS', 'Outputting cached feed for ' . $this->url );
 			return true;
 		}
-		wfDebugLog( 'RSS', 'Cache Failed '.$this->url );
+		wfDebugLog( 'RSS', 'Cache Failed ' . $this->url );
 
-		$status = $this->fetchRemote($key);
+		$status = $this->fetchRemote( $key );
 		return $status;
 	}
 
 	function loadFromCache( $key ) {
 		global $parserMemc;
 
-		$data = $parserMemc->get($key);
-		if ($data === false) {
+		$data = $parserMemc->get( $key );
+		if ( $data === false ) {
 			return false;
 		}
 
-		list($etag, $last_modified, $rss) =
-			unserialize($data);
+		list( $etag, $last_modified, $rss ) =
+			unserialize( $data );
 
-		if( !isset( $rss->items ) ) {
+		if ( !isset( $rss->items ) ) {
 			return false;
 		}
 
@@ -242,11 +242,11 @@ class RSS {
 		global $wgRSSFetchTimeout, $wgRSSUseGzip;
 
 		if ( $this->etag ) {
-			wfDebugLog( 'RSS', 'Used etag: '.$this->etag );
+			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
 			$headers['If-None-Match'] = $this->etag;
 		}
 		if ( $this->last_modified ) {
-			wfDebugLog( 'RSS', 'Used last modified: '.$this->last_modified );
+			wfDebugLog( 'RSS', 'Used last modified: ' . $this->last_modified );
 			$headers['If-Last-Modified'] = $this->last_modified;
 		}
 
@@ -266,11 +266,11 @@ class RSS {
 		$this->client = $client;
 
 		if ( !$fetch->isGood() ) {
-			wfDebug( 'RSS', 'Request Failed: '.$fetch->getWikiText() );
+			wfDebug( 'RSS', 'Request Failed: ' . $fetch->getWikiText() );
 			return $fetch;
 		}
 
-		$ret = $this->responseToXML($key);
+		$ret = $this->responseToXML( $key );
 		return $ret;
 	}
 
@@ -278,7 +278,7 @@ class RSS {
 		$output = "";
 		if ( $this->itemTemplate ) {
 			$headcnt = 0;
-			if ($this->reversed) {
+			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );
 			}
 
@@ -300,9 +300,9 @@ class RSS {
 		$parts = explode( '|', $this->itemTemplate );
 
 		$output = "";
-		if( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
+		if ( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
 			$rendered = array();
-			foreach( $parts as $part ) {
+			foreach ( $parts as $part ) {
 				$bits = explode( '=', $part );
 				$left = null;
 
@@ -311,13 +311,13 @@ class RSS {
 				}
 
 				if ( isset( $item[$left] ) ) {
-					$leftValue = preg_replace( '#{{{'.$left.'}}}#', $item[$left], $bits[1] );
+					$leftValue = preg_replace( '#{{{' . $left . '}}}#', $item[$left], $bits[1] );
 					$rendered[] = implode( '=', array( $left, $leftValue ) );
 				} else {
 					$rendered[] = $part;
 				}
 			}
-			$rssTemp = implode(" | ", $rendered);
+			$rssTemp = implode( " | ", $rendered );
 			$output .= $parser->recursiveTagParse( $rssTemp, $frame );
 		}
 		return $output;
@@ -335,9 +335,9 @@ class RSS {
 
 		// if RSS parsed successfully
 		if ( $this->rss && !$this->rss->ERROR ) {
-			$this->etag = $this->client->getResponseHeader('Etag');
-			$this->last_modified = $this->client->getResponseHeader('Last-Modified');
-			wfDebugLog( 'RSS', 'Stored etag ('.$this->etag.') and Last-Modified ('.$this->last_modified.') and items ('.count($this->rss->items).')!' );
+			$this->etag = $this->client->getResponseHeader( 'Etag' );
+			$this->last_modified = $this->client->getResponseHeader( 'Last-Modified' );
+			wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' . $this->last_modified . ') and items (' . count( $this->rss->items ) . ')!' );
 			$this->storeInCache( $key );
 
 			return Status::newGood();
@@ -347,15 +347,14 @@ class RSS {
 	}
 
 	function canDisplay( $item ) {
-		if($this->filter($item['description'], 'filterOut')) {
-			error_log($item['description']);
+		if ( $this->filter( $item['description'], 'filterOut' ) ) {
 			return true;
 		}
 		return false;
 	}
 
 	function filter( $text, $filterType ) {
-		if($filterType === 'filterOut') {
+		if ( $filterType === 'filterOut' ) {
 			$keep = false;
 			$filter = $this->filterOut;
 		} else {
@@ -363,9 +362,9 @@ class RSS {
 			$filter = $this->filter;
 		}
 
-		if( count($filter) == 0 ) return !$keep;
+		if ( count( $filter ) == 0 ) return !$keep;
 
-		foreach( $filter as $term ) {
+		foreach ( $filter as $term ) {
 			if ( $term ) {
 				$match = preg_match( "|$term|i", $text );
 				if ( $match ) {

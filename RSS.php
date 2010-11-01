@@ -227,12 +227,12 @@ class RSS {
 	function storeInCache( $key ) {
 		global $wgMemc, $wgRSSCacheAge;
 
-		if( !isset( $this->rss ) ) {
+		if ( !isset( $this->rss ) ) {
 			return false;
 		}
-		$wgMemc->set($key,
-			serialize( array($this->etag, $this->lastModified, $this->rss) ),
-			$wgRSSCacheAge);
+		$wgMemc->set( $key,
+			serialize( array( $this->etag, $this->lastModified, $this->rss ) ),
+			$wgRSSCacheAge );
 
 		wfDebugLog( 'RSS', "Stored '$key' in cache" );
 		return true;

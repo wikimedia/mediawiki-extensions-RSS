@@ -18,6 +18,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
 
+define( 'RSS_USER_AGENT', 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension' );
+
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'RSS feed',
@@ -90,7 +92,7 @@ class RSS {
 		$status = $rss->fetch();
 
 		# Check for errors.
-		if ( $status === false || !is_array( $rss->rss->items ) )
+		if ( $status === false || !is_object( $rss->rss ) || !is_array( $rss->rss->items ) )
 			return wfMsg( 'rss-empty', $input );
 
 		if ( isset( $rss->ERROR ) )
@@ -179,7 +181,7 @@ class RSS {
 		global $wgRSSDetectEncoding, $wgRSSUseGzip;
 
 		if ( !isset( $this->url ) ) {
-			wfDebugLog( 'RSS: fetch called without a URL!' );
+			wfDebugLog( 'RSS', 'Fetch called without a URL!' );
 			return false;
 		}
 
@@ -259,7 +261,7 @@ class RSS {
 
 		$client =
 			HttpRequest::factory( $this->url, array( 'timeout' => $wgRSSFetchTimeout ) );
-		$client->setUserAgent( 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension' );
+		$client->setUserAgent( RSS_USER_AGENT );
 		/* $client->use_gzip = $wgRSSUseGzip; */
 		if ( is_array( $headers ) && count( $headers ) > 0 ) {
 			foreach ( $headers as $h ) {
@@ -331,8 +333,7 @@ class RSS {
 					$rendered[] = $part;
 				}
 			}
-			$rssTemp = implode( " | ", $rendered );
-			$output .= $parser->recursiveTagParse( $rssTemp, $frame );
+			$output .= $parser->recursiveTagParse( implode( " | ", $rendered ), $frame );
 		}
 		return $output;
 	}

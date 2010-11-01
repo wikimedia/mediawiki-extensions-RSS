@@ -68,6 +68,7 @@ class RSS {
 	protected $lastModified;
 	protected $xml;
 	protected $ERROR;
+	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
 
 	public $client;
 
@@ -308,6 +309,12 @@ class RSS {
 		$output = "";
 		if ( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
 			$rendered = array();
+			foreach ( $this->displayFields as $field ) {
+				if ( isset( $item[$field] ) ) {
+					$item[$field] = $this->highlightTerms( $item[$field] );
+				}
+			}
+
 			foreach ( $parts as $part ) {
 				$bits = explode( '=', $part );
 				$left = null;
@@ -317,7 +324,8 @@ class RSS {
 				}
 
 				if ( isset( $item[$left] ) ) {
-					$leftValue = preg_replace( '#{{{' . $left . '}}}#', $item[$left], $bits[1] );
+					$leftValue = preg_replace( '#{{{' . $left . '}}}#',
+						$item[$left], $bits[1] );
 					$rendered[] = implode( '=', array( $left, $leftValue ) );
 				} else {
 					$rendered[] = $part;
@@ -343,7 +351,8 @@ class RSS {
 		if ( $this->rss && !$this->rss->ERROR ) {
 			$this->etag = $this->client->getResponseHeader( 'Etag' );
 			$this->lastModified = $this->client->getResponseHeader( 'Last-Modified' );
-			wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' . $this->lastModified . ') and items (' . count( $this->rss->items ) . ')!' );
+			wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' .
+				$this->lastModified . ') and items (' . count( $this->rss->items ) . ')!' );
 			$this->storeInCache( $key );
 
 			return Status::newGood();
@@ -353,7 +362,17 @@ class RSS {
 	}
 
 	function canDisplay( $item ) {
-		if ( $this->filter( $item['description'], 'filterOut' ) ) {
+		$check = "";
+		foreach ( $this->displayFields as $field ) {
+			if ( isset( $item[$field] ) ) {
+				$check .= $item[$field];
+			}
+		}
+
+		if ( $this->filter( $check, 'filterOut' ) ) {
+			return false;
+		}
+		if ( $this->filter( $check, 'filter' ) ) {
 			return true;
 		}
 		return false;
@@ -361,27 +380,19 @@ class RSS {
 
 	function filter( $text, $filterType ) {
 		if ( $filterType === 'filterOut' ) {
-			$keep = false;
 			$filter = $this->filterOut;
 		} else {
-			$keep = true;
 			$filter = $this->filter;
 		}
 
-		if ( count( $filter ) == 0 ) return !$keep;
+		if ( count( $filter ) == 0 ) return $filterType !== 'filterOut';
 
-		foreach ( $filter as $term ) {
-			if ( $term ) {
-				$match = preg_match( "|$term|i", $text );
+		$match = preg_match( '#(' . implode( "|", $filter ) . ')#i', $text );
 				if ( $match ) {
-					return $keep;
+			return true;
 				}
+		return false;
 			}
-			return !$keep;
-		}
-
-	}
-
 
 	function highlightTerms( $text ) {
 		$i = 0;

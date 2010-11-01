@@ -16,6 +16,12 @@ class RSSData {
 			foreach ( $item->childNodes as $n ) {
 				$name = $this->rssTokenToName( $n->nodeName );
 				if ( $name != null ) {
+					/* Because for DOMElements the nodeValue is just
+					 * the text of the containing element, without any
+					 * tags, it makes this a safe, if unattractive,
+					 * value to use. If you want to allow people to
+					 * mark up their RSS, some more precautions are
+					 * needed. */
 					$bit[$name] = $n->nodeValue;
 				}
 			}

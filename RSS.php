@@ -65,7 +65,7 @@ class RSS {
 	protected $itemTemplate;
 	protected $url;
 	protected $etag;
-	protected $last_modified;
+	protected $lastModified;
 	protected $xml;
 	protected $ERROR;
 
@@ -200,36 +200,42 @@ class RSS {
 	}
 
 	function loadFromCache( $key ) {
-		global $parserMemc;
+		global $wgMemc;
 
-		$data = $parserMemc->get( $key );
+		$data = $wgMemc->get( $key );
 		if ( $data === false ) {
 			return false;
 		}
 
-		list( $etag, $last_modified, $rss ) =
+		list( $etag, $lastModified, $rss ) =
 			unserialize( $data );
 
 		if ( !isset( $rss->items ) ) {
 			return false;
 		}
 
+		wfDebugLog( 'RSS', "Got '$key' from cache" );
+
 		# Now that we've verified that we got useful data, keep it around.
 		$this->rss = $rss;
 		$this->etag = $etag;
-		$this->last_modified = $last_modified;
+		$this->lastModified = $lastModified;
 
 		return true;
 	}
 
 	function storeInCache( $key ) {
-		global $parserMemc, $wgRSSCacheAge;
+		global $wgMemc, $wgRSSCacheAge;
 
-		if( isset( $this->rss ) ) {
-			return $parserMemc->set($key,
-				serialize( array($this->etag, $this->last_modified,
-						$this->rss) ), $wgRSSCacheAge);
+		if( !isset( $this->rss ) ) {
+			return false;
 		}
+		$wgMemc->set($key,
+			serialize( array($this->etag, $this->lastModified, $this->rss) ),
+			$wgRSSCacheAge);
+
+		wfDebugLog( 'RSS', "Stored '$key' in cache" );
+		return true;
 	}
 
 	/**
@@ -245,9 +251,9 @@ class RSS {
 			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
 			$headers['If-None-Match'] = $this->etag;
 		}
-		if ( $this->last_modified ) {
-			wfDebugLog( 'RSS', 'Used last modified: ' . $this->last_modified );
-			$headers['If-Last-Modified'] = $this->last_modified;
+		if ( $this->lastModified ) {
+			wfDebugLog( 'RSS', 'Used last modified: ' . $this->lastModified );
+			$headers['If-Last-Modified'] = $this->lastModified;
 		}
 
 		$client =
@@ -336,8 +342,8 @@ class RSS {
 		// if RSS parsed successfully
 		if ( $this->rss && !$this->rss->ERROR ) {
 			$this->etag = $this->client->getResponseHeader( 'Etag' );
-			$this->last_modified = $this->client->getResponseHeader( 'Last-Modified' );
-			wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' . $this->last_modified . ') and items (' . count( $this->rss->items ) . ')!' );
+			$this->lastModified = $this->client->getResponseHeader( 'Last-Modified' );
+			wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' . $this->lastModified . ') and items (' . count( $this->rss->items ) . ')!' );
 			$this->storeInCache( $key );
 
 			return Status::newGood();

@@ -44,220 +44,353 @@ $wgExtensionCredits['parserhook'][] = array(
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['RSS'] = $dir . 'RSS.i18n.php';
 $wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
-$wgAutoloadClasses['RSSCache'] = $dir . 'RSSCache.php';
 
-$wgHooks['ParserFirstCallInit'][] = 'wfRssExtension';
+$wgHooks['ParserFirstCallInit'][] = 'RSS::parserInit';
 
-# Extension hook callback function
-function wfRssExtension( &$parser ) {
-	# Install parser hook for <rss> tags
-	$parser->setHook( 'rss', 'renderRss' );
-	return true;
-}
+$wgRSSCacheAge = 3600; // one hour
+$wgRSSCacheFreshOnly = false;
+$wgRSSOutputEncoding = 'ISO-8859-1';
+$wgRSSInputEncoding = null;
+$wgRSSDetectEncoding = true;
+$wgRSSFetchTimeout = 5; // 5 second timeout
+$wgRSSUseGzip = true;
 
-# Parser hook callback function
-function renderRss( $input, $args, $parser, $frame ) {
-	global $wgOutputEncoding;
+class RSS {
+	protected $charset;
+	protected $maxheads = 32;
+	protected $reversed = false;
+	protected $highlight = array();
+	protected $filter = array();
+	protected $filterOut = array();
+	protected $itemTemplate;
+	protected $url;
+	protected $etag;
+	protected $last_modified;
+	protected $xml;
+	protected $ERROR;
 
-	// Kill parser cache
-	$parser->disableCache();
+	public $client;
 
-	if ( !$input ) {
-		return ''; # if <rss>-section is empty, return nothing
+	static function parserInit( $parser ) {
+		# Install parser hook for <rss> tags
+		$parser->setHook( 'rss', array( __CLASS__, 'renderRss' ) );
+		return true;
 	}
 
-	# Parse fields in rss section
-	$url = $input;
+	# Parser hook callback function
+	static function renderRss( $input, $args, $parser, $frame ) {
+		if ( !$input ) {
+			return ''; # if <rss>-section is empty, return nothing
+		}
+		$parser->disableCache();
 
-	# Get charset from argument array
-	if ( isset( $args['charset'] ) ) {
-		$charset = $args['charset'];
-	} else {
-		$charset = $wgOutputEncoding;
+		$rss = new RSS($input, $args);
+
+		$status = $rss->fetch();
+
+		# Check for errors.
+		if ( $status === false || !is_array( $rss->rss->items ) )
+			return wfMsg( 'rss-empty', $input );
+
+		if ( isset( $rss->ERROR ) )
+			return wfMsg( 'rss-error', $rss->ERROR );
+
+		return $rss->renderFeed($parser, $frame);
 	}
 
-	# Get max number of headlines from argument-array
-	if ( isset( $args['max'] ) ) {
-		$maxheads = $args['max'];
-	} else {
-		$maxheads = 32;
+	static function explodeOnSpaces( $str ) {
+		$found = preg_split( '# +#', $str );
+		return is_array( $found ) ? $found : array();
 	}
 
-	# Get short flag from argument array
-	# If short is set, no description text is printed
-	if ( isset( $args['short'] ) ) {
-		$short = true;
-	} else {
-		$short = false;
+	function __construct($url, $args) {
+
+		if( isset($url) ) {
+			$this->url = $url;
+		}
+
+		# Get charset from argument array
+		if ( isset( $args['charset'] ) ) {
+			$this->charset = $args['charset'];
+		} else {
+			global $wgOutputEncoding;
+			$args['charset'] = $wgOutputEncoding;
+		}
+
+		# Get max number of headlines from argument-array
+		if ( isset( $args['max'] ) ) {
+			$this->maxheads = $args['max'];
+		}
+
+		# Get reverse flag from argument array
+		if ( isset( $args['reverse'] ) ) {
+			$this->reversed = true;
+		}
+
+		# Get date format from argument array
+		# FIXME: not used yet
+		if ( isset( $args['date'] ) ) {
+			$this->date = $args['date'];
+		}
+
+		# Get highlight terms from argument array
+		if ( isset( $args['highlight'] ) ) {
+			$this->highlight = self::explodeOnSpaces( $args['highlight'] );
+		}
+
+		# Get filter terms from argument array
+		if ( isset( $args['filter'] ) ) {
+			$this->filter = self::explodeOnSpaces( $args['filter'] );
+		}
+
+		if ( isset( $args['filterout'] ) ) {
+			$this->filterOut = self::explodeOnSpaces( $args['filterout'] );
+
+		}
+
+		if ( isset( $args['template'] ) ) {
+			$titleObject = Title::newFromText($args['template'], NS_TEMPLATE);
+			$article = new Article($titleObject, 0);
+			$this->itemTemplate = $article->fetchContent(0);
+		} else {
+			$this->itemTemplate = wfMsgNoTrans( 'rss-item' );
+		}
 	}
-
-	# Get reverse flag from argument array
-	if ( isset( $args['reverse'] ) ) {
-		$rss->items = array_reverse( $rss->items );
-	}
-
-	# Get date format from argument array
-	if ( isset( $args['date'] ) ) {
-		$date = $args['date'];
-	} else {
-		$date = 'd M Y H:i';
-	}
-
-	# Get highlight terms from argument array
-	if ( isset( $args['highlight'] ) ) {
-		$rssHighlight = $args['highlight'];
-		$rssHighlight = str_replace( '  ', ' ', $rssHighlight );
-		$rssHighlight = explode( ' ', trim( $rssHighlight ) );
-	} else {
-		$rssHighlight = false;
-	}
-
-	# Get filter terms from argument array
-	if ( isset( $args['filter'] ) ) {
-		$rssFilter = $args['filter'];
-		$rssFilter = str_replace( '  ', ' ', $rssFilter );
-		$rssFilter = explode( ' ', trim( $rssFilter ) );
-	} else {
-		$rssFilter = false;
-	}
-
-	# Filterout terms
-	if ( isset( $args['filterout'] ) ) {
-		$rssFilterout = $args['filterout'];
-		$rssFilterout = str_replace( '  ', ' ', $rssFilterout );
-		$rssFilterout = explode( ' ', trim( $rssFilterout ) );
-	} else {
-		$rssFilterout = false;
-	}
-
-	if ( isset( $args['template'] ) ) {
-		$template = 'Template:' . $args['template'];
-	} else {
-		$template = wfMsgNoTrans( 'rss-item' );
-	}
-
-	$headcnt = 0;
-
-	# Fetch RSS. May be cached locally.
-	# Refer to the documentation of MagpieRSS for details.
-	if ( !function_exists( 'fetch_rss' ) ) {
-		include( dirname( __FILE__ ) . '/RSSFetch.php' ); // provides fetch_rss() function
-	}
-	$rss = fetch_rss( $url );
-
-	# Check for errors.
-	if ( empty( $rss ) ) {
-		return wfMsg( 'rss-empty', $url );
-	}
-
-	if ( $rss->ERROR ) {
-		return '<div>' . wfMsg( 'rss-error', $url, $rss->ERROR ) . '</div>';
-	}
-
-	if ( !is_array( $rss->items ) ) {
-		return '<div>' . wfMsg( 'rss-empty', $url ) . '</div>';
-	}
-
-	$output = '';
 
 	/**
-	 * This would be better served by preg_replace_callback, but
-	 * I can't create a callback that carries $item in PHP < 5.3
+	* Return RSS object for the given URL, maintaining caching.
+	*
+	* NOTES ON RETRIEVING REMOTE FILES:
+	* If conditional gets are on (MAGPIE_CONDITIONAL_GET_ON) fetch_rss will
+	* return a cached object, and touch the cache object upon recieving a 304.
+	*
+	* NOTES ON FAILED REQUESTS:
+	* If there is an HTTP error while fetching an RSS object, the cached version
+	* will be returned, if it exists (and if $wgRSSCacheFreshOnly is off
+	*
+	* @param $url String: URL of RSS file
+	* @return boolean true if the fetch worked.
+	*/
+	function fetch( ) {
+		global $wgRSSCacheAge, $wgRSSCacheFreshOnly;
+		global $wgRSSCacheDirectory, $wgRSSFetchTimeout;
+		global $wgRSSOutputEncoding, $wgRSSInputEncoding;
+		global $wgRSSDetectEncoding, $wgRSSUseGzip;
+
+		if ( !isset( $this->url ) ) {
+			wfDebugLog( 'RSS: fetch called without a URL!' );
+			return false;
+		}
+
+		// Flow
+		// 1. check cache
+		// 2. if there is a hit, make sure its fresh
+		// 3. if cached obj fails freshness check, fetch remote
+		// 4. if remote fails, return stale object, or error
+		$key = wfMemcKey( $this->url );
+		$cachedFeed = $this->loadFromCache($key);
+		if( $cachedFeed !== false ) {
+			wfDebugLog( 'RSS', 'Outputting cached feed for '.$this->url );
+			return true;
+		}
+		wfDebugLog( 'RSS', 'Cache Failed '.$this->url );
+
+		$status = $this->fetchRemote($key);
+		return $status;
+	}
+
+	function loadFromCache( $key ) {
+		global $parserMemc;
+
+		$data = $parserMemc->get($key);
+		if ($data === false) {
+			return false;
+		}
+
+		list($etag, $last_modified, $rss) =
+			unserialize($data);
+
+		if( !isset( $rss->items ) ) {
+			return false;
+		}
+
+		# Now that we've verified that we got useful data, keep it around.
+		$this->rss = $rss;
+		$this->etag = $etag;
+		$this->last_modified = $last_modified;
+
+		return true;
+	}
+
+	function storeInCache( $key ) {
+		global $parserMemc, $wgRSSCacheAge;
+
+		if( isset( $this->rss ) ) {
+			return $parserMemc->set($key,
+				serialize( array($this->etag, $this->last_modified,
+						$this->rss) ), $wgRSSCacheAge);
+		}
+	}
+
+	/**
+	 * Retrieve a feed.
+	 * @param $url String: URL of the feed.
+	 * @param $headers Array: headers to send along with the request
+	 * @return Status object
 	 */
-	if ( $template ) {
-		$headcnt = 0;
-		foreach ( $rss->items as $item ) {
-			if ( $maxheads > 0 && $headcnt >= $maxheads ) {
-				continue;
+	protected function fetchRemote( $key, $headers = '' ) {
+		global $wgRSSFetchTimeout, $wgRSSUseGzip;
+
+		if ( $this->etag ) {
+			wfDebugLog( 'RSS', 'Used etag: '.$this->etag );
+			$headers['If-None-Match'] = $this->etag;
+		}
+		if ( $this->last_modified ) {
+			wfDebugLog( 'RSS', 'Used last modified: '.$this->last_modified );
+			$headers['If-Last-Modified'] = $this->last_modified;
+		}
+
+		$client =
+			HttpRequest::factory( $this->url, array( 'timeout' => $wgRSSFetchTimeout ) );
+		$client->setUserAgent( 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension' );
+		/* $client->use_gzip = $wgRSSUseGzip; */
+		if ( is_array( $headers ) && count( $headers ) > 0 ) {
+			foreach ( $headers as $h ) {
+				if ( count( $h ) > 1 ) {
+					$client->setHeader( $h[0], $h[1] );
+				}
+			}
+		}
+
+		$fetch = $client->execute();
+		$this->client = $client;
+
+		if ( !$fetch->isGood() ) {
+			wfDebug( 'RSS', 'Request Failed: '.$fetch->getWikiText() );
+			return $fetch;
+		}
+
+		$ret = $this->responseToXML($key);
+		return $ret;
+	}
+
+	function renderFeed( $parser, $frame ) {
+		$output = "";
+		if ( $this->itemTemplate ) {
+			$headcnt = 0;
+			if ($this->reversed) {
+				$this->rss->items = array_reverse( $this->rss->items );
 			}
 
-			$decision = true;
-			foreach ( array( 'title', 'author', 'description', 'category' ) as $check ) {
-				if ( isset( $item[$check] ) ) {
-					$decision &= wfRssFilter( $item[$check], $rssFilter ) & wfRssFilterout( $item[$check], $rssFilterout );
-					if ( !$decision ) {
-						continue 2;
-					}
-
-					$item[$check] = wfRssHighlight( $item[$check], $rssHighlight );
+			foreach ( $this->rss->items as $item ) {
+				if ( $this->maxheads > 0 && $headcnt >= $this->maxheads ) {
+					continue;
 				}
 
+				if ( $this->canDisplay( $item ) ) {
+					$output .= $this->renderItem( $item, $parser, $frame );
+					$headcnt++;
+				}
 			}
+		}
+		return $output;
+	}
 
-			$rssTemp = '';
+	function renderItem( $item, $parser, $frame ) {
+		$parts = explode( '|', $this->itemTemplate );
 
-			foreach ( explode( '|', $template ) as $bit ) {
-				$bits = explode( '=', $bit );
+		$output = "";
+		if( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
+			$rendered = array();
+			foreach( $parts as $part ) {
+				$bits = explode( '=', $part );
+				$left = null;
+
 				if ( count( $bits ) == 2 ) {
 					$left = trim( $bits[0] );
+				}
 
-					if ( isset( $item[$left] ) ) {
-						$right = $item[$left];
-					}
-
-					$rssTemp .= implode( ' = ', array( $left, $right ) );
+				if ( isset( $item[$left] ) ) {
+					$leftValue = preg_replace( '#{{{'.$left.'}}}#', $item[$left], $bits[1] );
+					$rendered[] = implode( '=', array( $left, $leftValue ) );
 				} else {
-					$rssTemp .= $bit;
+					$rendered[] = $part;
 				}
-				$rssTemp .= '|';
 			}
-			$rssTemp .= '}}';
-
+			$rssTemp = implode(" | ", $rendered);
 			$output .= $parser->recursiveTagParse( $rssTemp, $frame );
-			$headcnt++;
+		}
+		return $output;
+	}
+
+	/**
+	 * Parse an HTTP response object into an RSS object.
+	 * @param $resp Object: an HTTP response object (see Snoopy)
+	 * @return parsed RSS object (see RSSParse) or false
+	 */
+	function responseToXML( $key ) {
+		$this->xml = new DOMDocument;
+		$this->xml->loadXML( $this->client->getContent() );
+		$this->rss = new RSSData( $this->xml );
+
+		// if RSS parsed successfully
+		if ( $this->rss && !$this->rss->ERROR ) {
+			$this->etag = $this->client->getResponseHeader('Etag');
+			$this->last_modified = $this->client->getResponseHeader('Last-Modified');
+			wfDebugLog( 'RSS', 'Stored etag ('.$this->etag.') and Last-Modified ('.$this->last_modified.') and items ('.count($this->rss->items).')!' );
+			$this->storeInCache( $key );
+
+			return Status::newGood();
+		} else {
+			return Status::newfatal( 'rss-parse-error', $this->rss->ERROR );
 		}
 	}
-	return $output;
-}
 
-function wfRssFilter( $text, $rssFilter ) {
-	$display = true;
-	if ( is_array( $rssFilter ) ) {
-		foreach ( $rssFilter as $term ) {
+	function canDisplay( $item ) {
+		if($this->filter($item['description'], 'filterOut')) {
+			error_log($item['description']);
+			return true;
+		}
+		return false;
+	}
+
+	function filter( $text, $filterType ) {
+		if($filterType === 'filterOut') {
+			$keep = false;
+			$filter = $this->filterOut;
+		} else {
+			$keep = true;
+			$filter = $this->filter;
+		}
+
+		if( count($filter) == 0 ) return !$keep;
+
+		foreach( $filter as $term ) {
 			if ( $term ) {
-				$display = false;
-				if ( preg_match( "|$term|i", $text, $a ) ) {
-					$display = true;
-					return $display;
+				$match = preg_match( "|$term|i", $text );
+				if ( $match ) {
+					return $keep;
 				}
 			}
-			if ( $display ) {
-				break;
-			}
+			return !$keep;
 		}
+
 	}
-	return $display;
-}
 
-function wfRssFilterout( $text, $rssFilterout ) {
-	$display = true;
-	if ( is_array( $rssFilterout ) ) {
-		foreach ( $rssFilterout as $term ) {
-			if ( $term ) {
-				if ( preg_match( "|$term|i", $text, $a ) ) {
-					$display = false;
-					return $display;
-				}
-			}
-		}
-	}
-	return $display;
-}
 
-function wfRssHighlight( $text, $rssHighlight ) {
-	$i = 0;
-	$starttag = 'v8x5u3t3u8h';
-	$endtag = 'q8n4f6n4n4x';
+	function highlightTerms( $text ) {
+		$i = 0;
+		$starttag = 'v8x5u3t3u8h';
+		$endtag = 'q8n4f6n4n4x';
 
-	$color[] = 'coral';
-	$color[] = 'greenyellow';
-	$color[] = 'lightskyblue';
-	$color[] = 'gold';
-	$color[] = 'violet';
-	$count_color = count( $color );
+		$color[] = 'coral';
+		$color[] = 'greenyellow';
+		$color[] = 'lightskyblue';
+		$color[] = 'gold';
+		$color[] = 'violet';
+		$count_color = count( $color );
 
-	if ( is_array( $rssHighlight ) ) {
-		foreach ( $rssHighlight as $term ) {
+		foreach ( $this->highlight as $term ) {
 			if ( $term ) {
 				$text = preg_replace( "|\b(\w*?" . $term . "\w*?)\b|i", "$starttag" . "_" . $i . "\\1$endtag", $text );
 				$i++;
@@ -266,13 +399,13 @@ function wfRssHighlight( $text, $rssHighlight ) {
 				}
 			}
 		}
-	}
 
-	# To avoid trouble should someone wants to highlight the terms "span", "style", …
-	for ( $i = 0; $i < 5; $i++ ) {
-		$text = preg_replace( "|$starttag" . "_" . $i . "|", "<span style=\"background-color:" . $color[$i] . "; font-weight: bold;\">", $text );
-		$text = preg_replace( "|$endtag|", '</span>', $text );
-	}
+		# To avoid trouble should someone wants to highlight the terms "span", "style", …
+		for ( $i = 0; $i < 5; $i++ ) {
+			$text = preg_replace( "|$starttag" . "_" . $i . "|", "<span style=\"background-color:" . $color[$i] . "; font-weight: bold;\">", $text );
+			$text = preg_replace( "|$endtag|", '</span>', $text );
+		}
 
-	return $text;
+		return $text;
+	}
 }

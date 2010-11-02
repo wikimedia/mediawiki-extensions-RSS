@@ -138,7 +138,8 @@ class RSS {
 
 		# Get highlight terms from argument array
 		if ( isset( $args['highlight'] ) ) {
-			$this->highlight = self::explodeOnSpaces( $args['highlight'] );
+			# mapping to lowercase here so the regex can be case insensitive below.
+			$this->highlight = array_flip( array_map( 'strtolower', self::explodeOnSpaces( $args['highlight'] ) ) );
 		}
 
 		# Get filter terms from argument array
@@ -396,36 +397,31 @@ class RSS {
 		return false;
 	}
 
+	static function highlightThis( $term, $match ) {
+		$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
+		$styleEnd   = "</span>";
+
+		# bg colors cribbed from Google's highlighting of search teerms
+		$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
+			'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
+			'0, 70, 153', '153, 0, 153' );
+		# Spelling out the fg colors instead of using processing time to create this list
+		$color = array("black", "black", "black", "black", "black",
+			"white", "white", "white", "white", "white" );
+
+		$index = $term[strtolower($match[0])] % count( $bgcolor );
+
+		return sprintf($styleStart, $bgcolor[$index], $color[$index]). $match[0] .$styleEnd;
+	}
 
 	function highlightTerms( $text ) {
-		$i = 0;
-		$starttag = 'v8x5u3t3u8h';
-		$endtag = 'q8n4f6n4n4x';
-
-		$color[] = 'coral';
-		$color[] = 'greenyellow';
-		$color[] = 'lightskyblue';
-		$color[] = 'gold';
-		$color[] = 'violet';
-		$count_color = count( $color );
-
-		foreach ( $this->highlight as $term ) {
-			if ( $term ) {
-				$text = preg_replace( "/\b(\w*?" . preg_quote( $term, '/' ) . "\w*?)\b/i", "$starttag" . "_" . $i . "\\1$endtag", $text );
-				$i++;
-				if ( $i == $count_color ) {
-					$i = 0;
-				}
-			}
+		if ( count( $this->highlight ) === 0 ) {
+			return $text;
 		}
+		# SIGH ... anonymous functions are not available until 5.3
+		$f = create_function('$match', '$term = '.var_export($this->highlight, true).'; return RSS::highlightThis($term, $match);');
 
-		# To avoid trouble should someone wants to highlight the terms "span", "style", …
-		for ( $i = 0; $i < 5; $i++ ) {
-			$text = preg_replace( "/$starttag" . "_" . preg_quote( $i, '/' ) . "/",
-				"<span style=\"background-color:" . $color[$i] . "; font-weight: bold;\">", $text );
-			$text = preg_replace( "|$endtag|", '</span>', $text );
-		}
-
-		return $text;
+		$highlight = '/'. implode( "|", array_map( 'preg_quote', array_keys( $this->highlight ) ) ) . '/i';
+		return preg_replace_callback( $highlight, $f, $text );
 	}
 }

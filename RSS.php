@@ -326,7 +326,7 @@ class RSS {
 				}
 
 				if ( isset( $item[$left] ) ) {
-					$leftValue = preg_replace( '#{{{' . $left . '}}}#',
+					$leftValue = preg_replace( '/{{{' . preg_quote( $left, '/' ) . '}}}/',
 						$item[$left], $bits[1] );
 					$rendered[] = implode( '=', array( $left, $leftValue ) );
 				} else {
@@ -388,12 +388,14 @@ class RSS {
 
 		if ( count( $filter ) == 0 ) return $filterType !== 'filterOut';
 
-		$match = preg_match( '#(' . implode( "|", $filter ) . ')#i', $text );
-				if ( $match ) {
+		/* Using : for delimiter here since it'll be quoted automatically. */
+		$match = preg_match( ':(' . implode( "|", array_map('preg_quote', $filter ) ) . '):i', $text ) ;
+		if ( $match ) {
 			return true;
-				}
+		}
 		return false;
-			}
+	}
+
 
 	function highlightTerms( $text ) {
 		$i = 0;
@@ -409,7 +411,7 @@ class RSS {
 
 		foreach ( $this->highlight as $term ) {
 			if ( $term ) {
-				$text = preg_replace( "|\b(\w*?" . $term . "\w*?)\b|i", "$starttag" . "_" . $i . "\\1$endtag", $text );
+				$text = preg_replace( "/\b(\w*?" . preg_quote( $term, '/' ) . "\w*?)\b/i", "$starttag" . "_" . $i . "\\1$endtag", $text );
 				$i++;
 				if ( $i == $count_color ) {
 					$i = 0;
@@ -419,7 +421,8 @@ class RSS {
 
 		# To avoid trouble should someone wants to highlight the terms "span", "style", …
 		for ( $i = 0; $i < 5; $i++ ) {
-			$text = preg_replace( "|$starttag" . "_" . $i . "|", "<span style=\"background-color:" . $color[$i] . "; font-weight: bold;\">", $text );
+			$text = preg_replace( "/$starttag" . "_" . preg_quote( $i, '/' ) . "/",
+				"<span style=\"background-color:" . $color[$i] . "; font-weight: bold;\">", $text );
 			$text = preg_replace( "|$endtag|", '</span>', $text );
 		}
 

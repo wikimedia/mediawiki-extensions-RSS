@@ -4,32 +4,52 @@ class RSSData {
 	public $ERROR;
 	public $items;
 
+	/**
+	 * Constructor, takes a DOMDocument and returns an array of parsed items.
+	 * @param DOMDocument The pre-parsed XML Document
+	 * @returns Object RSSData object with a member items that is an array of parsed items,
+	 */
 	function __construct( $xml ) {
 		if ( !( $xml instanceOf DOMDocument ) ) {
-			return null;
+			$this->ERROR = "Not passed DOMDocument object.";
+			return;
 		}
 		$xpath = new DOMXPath( $xml );
-		$items = $xpath->evaluate( '/rss/channel/item' );
+		$items = $xpath->query( '/rss/channel/item' );
 
-		foreach ( $items as $item ) {
-			$bit = array();
-			foreach ( $item->childNodes as $n ) {
-				$name = $this->rssTokenToName( $n->nodeName );
-				if ( $name != null ) {
-					/* Because for DOMElements the nodeValue is just
-					 * the text of the containing element, without any
-					 * tags, it makes this a safe, if unattractive,
-					 * value to use. If you want to allow people to
-					 * mark up their RSS, some more precautions are
-					 * needed. */
-					$bit[$name] = $n->nodeValue;
+		if($items->length !== 0) {
+			foreach ( $items as $item ) {
+				$bit = array();
+				foreach ( $item->childNodes as $n ) {
+					$name = $this->rssTokenToName( $n->nodeName );
+					if ( $name != null ) {
+						/* Because for DOMElements the nodeValue is just
+						 * the text of the containing element, without any
+						 * tags, it makes this a safe, if unattractive,
+						 * value to use. If you want to allow people to
+						 * mark up their RSS, some more precautions are
+						 * needed. */
+						$bit[$name] = $n->nodeValue;
+					}
 				}
+				$this->items[] = $bit;
 			}
-			$this->items[] = $bit;
+		} else {
+			$this->ERROR = "No RSS items found.";
+			return;
 		}
 	}
 
-	function rssTokenToName( $n ) {
+	/**
+	 * Return a string that will be used to map RSS elements that
+	 * contain similar data (e.g. dc:date, date, and pubDate) to the
+	 * same array key.  This works on WordPress feeds as-is, but it
+	 * probably needs a way to concert dc:date format dates to be the
+	 * same as pubDate.
+	 * @param String $elementName Name of the element we have
+	 * @returns String Name to map it to
+	 */
+	protected function rssTokenToName( $n ) {
 		switch( $n ) {
 			case 'dc:date':
 				return 'date';

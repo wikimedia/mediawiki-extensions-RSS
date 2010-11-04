@@ -15,6 +15,9 @@ $messages['en'] = array(
 	'rss-desc' => 'Displays an RSS feed on a wiki page',
 	'rss-error' => 'Failed to load RSS feed from $1: $2',
 	'rss-empty' => 'Failed to load RSS feed from $1!',
+	'rss-fetch-nourl' => 'Fetch called without a URL!',
+	'rss-invalid-url' => 'Not a valid URL: $1',
+	'rss-parse-error' => 'Error parsing XML for RSS',
 	'rss-item' => '{{RSSPost | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} }}',
 );
 

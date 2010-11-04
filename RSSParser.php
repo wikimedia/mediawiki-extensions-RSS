@@ -229,7 +229,7 @@ class RSSParser {
 	 */
 	function renderFeed( $parser, $frame ) {
 		$output = "";
-		if ( $this->itemTemplate ) {
+		if ( isset( $this->itemTemplate ) ) {
 			$headcnt = 0;
 			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );

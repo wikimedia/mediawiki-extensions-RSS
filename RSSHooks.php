@@ -38,7 +38,7 @@ class RSSHooks {
 		if ( !$status->isGood() )
 			return wfMsg( 'rss-error', htmlspecialchars( $input), $status->getWikiText() );
 
-		if ( !$status->isGood() || !is_object( $rss->rss ) || !is_array( $rss->rss->items ) )
+		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) )
 			return wfMsg( 'rss-empty', htmlspecialchars( $input ) );
 
 		return $rss->renderFeed( $parser, $frame );

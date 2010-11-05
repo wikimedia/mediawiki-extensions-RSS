@@ -1,4 +1,5 @@
 <?php
+
 class RSSHooks {
 	/**
 	 * Tell the parser how to handle <rss> elements
@@ -12,9 +13,10 @@ class RSSHooks {
 
 	/**
 	 * Static function wrapping RSSParser to handle rendering of RSS elements
-	 * @param String Text inside the tags.
-	 * @param Array value associative list of the element attributes and their values.
-	 * @param Frame parser context
+	 * @param $input String: text inside the tags.
+	 * @param $args Array: value associative list of the element attributes and
+	 * 						their values.
+	 * @param $frame Frame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare;
@@ -35,11 +37,13 @@ class RSSHooks {
 		$status = $rss->fetch();
 
 		# Check for errors.
-		if ( !$status->isGood() )
-			return wfMsg( 'rss-error', htmlspecialchars( $input), $status->getWikiText() );
+		if ( !$status->isGood() ) {
+			return wfMsg( 'rss-error', htmlspecialchars( $input ), $status->getWikiText() );
+		}
 
-		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) )
+		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
 			return wfMsg( 'rss-empty', htmlspecialchars( $input ) );
+		}
 
 		return $rss->renderFeed( $parser, $frame );
 	}

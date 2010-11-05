@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.7
+ * @version 1.8
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -17,9 +17,6 @@
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
 }
-
-// Agent to use for fetching feeds
-$wgRSSUserAgent='MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
 
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
@@ -62,3 +59,6 @@ $wgRSSOutputEncoding = 'ISO-8859-1';
 $wgRSSInputEncoding = null;
 $wgRSSDetectEncoding = true;
 $wgRSSFetchTimeout = 5; // 5 second timeout
+
+// Agent to use for fetching feeds
+$wgRSSUserAgent = 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';

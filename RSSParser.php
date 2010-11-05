@@ -19,8 +19,8 @@ class RSSParser {
 
 	/**
 	 * Convenience function that takes a space-separated string and returns an array of words
-	 * @param String list of words
-	 * @returns Array words found
+	 * @param $str String: list of words
+	 * @return Array words found
 	 */
 	private static function explodeOnSpaces( $str ) {
 		$found = preg_split( '# +#', $str );
@@ -33,7 +33,6 @@ class RSSParser {
 	 * and return an object that can produce rendered output.
 	 */
 	function __construct( $url, $args ) {
-
 		$this->url = $url;
 
 		# Get charset from argument array
@@ -74,32 +73,30 @@ class RSSParser {
 
 		if ( isset( $args['filterout'] ) ) {
 			$this->filterOut = self::explodeOnSpaces( $args['filterout'] );
-
 		}
 
 		if ( isset( $args['template'] ) ) {
 			$titleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
 			$article = new Article( $titleObject, 0 );
-			$this->itemTemplate = $article->fetchContent( );
+			$this->itemTemplate = $article->fetchContent();
 		} else {
 			$this->itemTemplate = wfMsgNoTrans( 'rss-item' );
 		}
 	}
 
 	/**
-	* Return RSS object for the given URL, maintaining caching.
-	*
-	* NOTES ON RETRIEVING REMOTE FILES:
-	* No attempt will be made to fetch remote files if there is something in cache.
-	*
-	* NOTES ON FAILED REQUESTS:
-	* If there is an HTTP error while fetching an RSS object, the cached version
-	* will be returned, if it exists (and if $wgRSSCacheFreshOnly is false)
-	*
-	* @param $url String: URL of RSS file
-	* @return boolean Status object
-	*/
-	function fetch( ) {
+	 * Return RSS object for the given URL, maintaining caching.
+	 *
+	 * NOTES ON RETRIEVING REMOTE FILES:
+	 * No attempt will be made to fetch remote files if there is something in cache.
+	 *
+	 * NOTES ON FAILED REQUESTS:
+	 * If there is an HTTP error while fetching an RSS object, the cached version
+	 * will be returned, if it exists (and if $wgRSSCacheFreshOnly is false)
+	 *
+	 * @return boolean Status object
+	 */
+	function fetch() {
 		global $wgRSSCacheAge, $wgRSSCacheFreshOnly;
 		global $wgRSSCacheDirectory, $wgRSSFetchTimeout;
 		global $wgRSSOutputEncoding, $wgRSSInputEncoding;
@@ -120,7 +117,7 @@ class RSSParser {
 			wfDebugLog( 'RSS', 'Outputting cached feed for ' . $this->url );
 			return Status::newGood();
 		}
-		wfDebugLog( 'RSS', 'Cache Failed, fetching ' . $this->url. ' from remote.' );
+		wfDebugLog( 'RSS', 'Cache Failed, fetching ' . $this->url . ' from remote.' );
 
 		$status = $this->fetchRemote( $key );
 		return $status;
@@ -128,8 +125,8 @@ class RSSParser {
 
 	/**
 	 * Retrieve the URL from the cache
-	 * @param string $key lookup key to associate with this item
-	 * @returns boolean
+	 * @param $key String: lookup key to associate with this item
+	 * @return boolean
 	 */
 	protected function loadFromCache( $key ) {
 		global $wgMemc, $wgRSSCacheCompare;
@@ -155,7 +152,7 @@ class RSSParser {
 
 		// We only care if $wgRSSCacheCompare is > 0
 		if ( $wgRSSCacheCompare && time() - $wgRSSCacheCompare > $lastModified ) {
-			wfDebugLog( 'RSS', "Content is old enough that we need to check cached content");
+			wfDebugLog( 'RSS', 'Content is old enough that we need to check cached content' );
 			return false;
 		}
 
@@ -164,8 +161,8 @@ class RSSParser {
 
 	/**
 	 * Store this objects (e.g. etag, lastModified, and RSS) in the cache.
-	 * @param string $key lookup key to associate with this item
-	 * @returns boolean
+	 * @param $key String: lookup key to associate with this item
+	 * @return boolean
 	 */
 	protected function storeInCache( $key ) {
 		global $wgMemc, $wgRSSCacheAge;
@@ -183,20 +180,19 @@ class RSSParser {
 
 	/**
 	 * Retrieve a feed.
-	 * @param $url String: URL of the feed.
+	 * @param $key String:
 	 * @param $headers Array: headers to send along with the request
 	 * @return Status object
 	 */
 	protected function fetchRemote( $key, array $headers = array()) {
-		global $wgRSSFetchTimeout;
-		global $wgRSSUserAgent;
+		global $wgRSSFetchTimeout, $wgRSSUserAgent;
 
 		if ( $this->etag ) {
 			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
 			$headers['If-None-Match'] = $this->etag;
 		}
 		if ( $this->lastModified ) {
-			$lm = gmdate('r', $this->lastModified);
+			$lm = gmdate( 'r', $this->lastModified );
 			wfDebugLog( 'RSS', "Used last modified: $lm" );
 			$headers['If-Modified-Since'] = $lm;
 		}
@@ -228,7 +224,7 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
-		$output = "";
+		$output = '';
 		if ( isset( $this->itemTemplate ) ) {
 			$headcnt = 0;
 			if ( $this->reversed ) {
@@ -250,15 +246,17 @@ class RSSParser {
 	}
 
 	/**
-	 * Render each item, filtering it out if necessary, applying any highlighting,
-	 * @param $item an array produced by RSSData where keys are the names of the RSS elements
+	 * Render each item, filtering it out if necessary, applying any highlighting.
+	 *
+	 * @param $item Array: an array produced by RSSData where keys are the
+	 * 						names of the RSS elements
 	 * @param $parser the parser param to pass to recursiveTagParse()
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	protected function renderItem( $item, $parser, $frame ) {
 		$parts = explode( '|', $this->itemTemplate );
 
-		$output = "";
+		$output = '';
 		if ( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
 			$rendered = array();
 			foreach ( $this->displayFields as $field ) {
@@ -272,7 +270,7 @@ class RSSParser {
 				$left = null;
 
 				if ( count( $bits ) == 2 ) {
-				$left = trim( $bits[0] );
+					$left = trim( $bits[0] );
 				}
 
 				if ( isset( $item[$left] ) ) {
@@ -282,18 +280,19 @@ class RSSParser {
 					$rendered[] = $part;
 				}
 			}
-			$output .= $parser->recursiveTagParse( implode( " | ", $rendered ), $frame );
+			$output .= $parser->recursiveTagParse( implode( ' | ', $rendered ), $frame );
 		}
 		return $output;
 	}
 
 	/**
 	 * Parse an HTTP response object into an array of relevant RSS data
-	 * @param $key the to use to store the parsaed response in the cache
+	 *
+	 * @param $key String: the key to use to store the parsed response in the cache
 	 * @return parsed RSS object (see RSSParse) or false
 	 */
 	protected function responseToXML( $key ) {
-		wfDebugLog( 'RSS', "Got '".$this->client->getStatus()."', updating cache for $key" );
+		wfDebugLog( 'RSS', "Got '" . $this->client->getStatus() . "', updating cache for $key" );
 		if ( $this->client->getStatus() === 304 ) {
 			# Not modified, update cache
 			wfDebugLog( 'RSS', "Got 304, updating cache for $key" );
@@ -302,8 +301,8 @@ class RSSParser {
 			$this->xml = new DOMDocument;
 			$raw_xml = $this->client->getContent();
 
-			if( $raw_xml == "" ) {
-				return Status::newFatal( 'rss-parse-error', "No XML content" );	
+			if( $raw_xml == '' ) {
+				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
 			wfSuppressWarnings();
@@ -331,11 +330,12 @@ class RSSParser {
 
 	/**
 	 * Determine if a given item should or should not be displayed
-	 * @param associative array that RSSData produced for an <item>
-	 * @returns boolean
+	 *
+	 * @param $item Array: associative array that RSSData produced for an <item>
+	 * @return boolean
 	 */
 	protected function canDisplay( array $item ) {
-		$check = "";
+		$check = '';
 
 		/* We're only going to check the displayable fields */
 		foreach ( $this->displayFields as $field ) {
@@ -355,9 +355,12 @@ class RSSParser {
 
 	/**
 	 * Filters items in or out if the match a string we're looking for.
-	 * @param String the text to examine
-	 * @param String "filterOut" to check for matches in the filterOut member list.  Otherwise, uses the filter member list.
-	 * @returns boolean decision to filter or not.
+	 *
+	 * @param $text String: the text to examine
+	 * @param $filterType String: "filterOut" to check for matches in the
+	 * 								filterOut member list.
+	 *								Otherwise, uses the filter member list.
+	 * @return Boolean: decision to filter or not.
 	 */
 	protected function filter( $text, $filterType ) {
 		if ( $filterType === 'filterOut' ) {
@@ -366,10 +369,12 @@ class RSSParser {
 			$filter = $this->filter;
 		}
 
-		if ( count( $filter ) == 0 ) return $filterType !== 'filterOut';
+		if ( count( $filter ) == 0 ) {
+			return $filterType !== 'filterOut';
+		}
 
 		/* Using : for delimiter here since it'll be quoted automatically. */
-		$match = preg_match( ':(' . implode( "|", array_map('preg_quote', $filter ) ) . '):i', $text ) ;
+		$match = preg_match( ':(' . implode( '|', array_map( 'preg_quote', $filter ) ) . '):i', $text ) ;
 		if ( $match ) {
 			return true;
 		}
@@ -378,8 +383,9 @@ class RSSParser {
 
 	/**
 	 * Highlight the words we're supposed to be looking for
-	 * @param String the text to look in.
-	 * @returns String with matched text highlighted in a <span> element
+	 *
+	 * @param $text String: the text to look in.
+	 * @return String with matched text highlighted in a <span> element
 	 */
 	protected function highlightTerms( $text ) {
 		if ( count( $this->highlight ) === 0 ) {
@@ -387,7 +393,7 @@ class RSSParser {
 		}
 
 		RSSHighlighter::setTerms( $this->highlight );
-		$highlight = ':'. implode( "|", array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
+		$highlight = ':'. implode( '|', array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
 		return preg_replace_callback( $highlight, 'RSSHighlighter::highlightThis', $text );
 	}
 }
@@ -398,7 +404,7 @@ class RSSHighlighter {
 
 	/**
 	 * Set the list of terms to match for the next highlighting session
-	 * @param List of words to match.
+	 * @param $terms Array: list of words to match.
 	 */
 	static function setTerms( array $terms ) {
 		self::$terms = array_flip( array_map( 'strtolower', $terms ) );
@@ -406,23 +412,25 @@ class RSSHighlighter {
 
 	/**
 	 * Actually replace the supplied list of words with HTML code to highlight the words.
-	 * @param List of matched words to highlight.  The words are assigned colors based upon the order they were supplied in setTerms()
-	 * @returns String word wrapped in HTML code.
+	 * @param $match Array: list of matched words to highlight.
+	 * 						The words are assigned colors based upon the order
+	 * 						they were supplied in setTerms()
+	 * @return String word wrapped in HTML code.
 	 */
 	static function highlightThis( $match ) {
 		$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
-		$styleEnd   = "</span>";
+		$styleEnd   = '</span>';
 
 		# bg colors cribbed from Google's highlighting of search teerms
 		$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
 			'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
 			'0, 70, 153', '153, 0, 153' );
 		# Spelling out the fg colors instead of using processing time to create this list
-		$color = array("black", "black", "black", "black", "black",
-			"white", "white", "white", "white", "white" );
+		$color = array( 'black', 'black', 'black', 'black', 'black',
+			'white', 'white', 'white', 'white', 'white' );
 
-		$index = self::$terms[strtolower($match[0])] % count( $bgcolor );
+		$index = self::$terms[strtolower( $match[0] )] % count( $bgcolor );
 
-		return sprintf($styleStart, $bgcolor[$index], $color[$index]). $match[0] .$styleEnd;
+		return sprintf( $styleStart, $bgcolor[$index], $color[$index] ) . $match[0] . $styleEnd;
 	}
 }

@@ -69,6 +69,9 @@ $messages['de'] = array(
 	'rss-desc' => 'Ermöglicht es, einen RSS-Feed auf einer Wikiseite anzuzeigen',
 	'rss-error' => 'Der RSS-Feed konnte nicht von $1 geladen werden: $2',
 	'rss-empty' => 'Der RSS-Feed konnte nicht von $1 geladen werden!',
+	'rss-fetch-nourl' => 'Abruf ohne Angabe einer URL!',
+	'rss-invalid-url' => 'Ungültige URL: $1',
+	'rss-parse-error' => 'Fehler beim Parsen von XML für RSS',
 );
 
 /** Lower Sorbian (Dolnoserbski)

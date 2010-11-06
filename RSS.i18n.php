@@ -116,6 +116,9 @@ $messages['gl'] = array(
 	'rss-desc' => 'Mostra unha fonte de novas RSS nunha páxina wiki',
 	'rss-error' => 'Erro ao cargar a fonte de novas RSS de "$1": $2',
 	'rss-empty' => 'Erro ao cargar a fonte de novas RSS de "$1"!',
+	'rss-fetch-nourl' => 'Non deu ningún enderezo URL!',
+	'rss-invalid-url' => 'O enderezo URL non é válido: $1',
+	'rss-parse-error' => 'Erro analítico de XML para o RSS',
 );
 
 /** Swiss German (Alemannisch)
@@ -125,6 +128,9 @@ $messages['gsw'] = array(
 	'rss-desc' => 'Zeigt e RSS-Feed uf ere Wikisyte aa',
 	'rss-error' => 'Dr RSS-Feed het nit vu $1 chenne glade wäre: $2',
 	'rss-empty' => 'Dr RSS-Feed het nit vu $1 chenne glade wäre!',
+	'rss-fetch-nourl' => 'Abruef ohni Aagab vun ere URL!',
+	'rss-invalid-url' => 'Uugiltigi URL: $1',
+	'rss-parse-error' => 'Fähler bim Parse vu XML fir RSS',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -143,6 +149,8 @@ $messages['ia'] = array(
 	'rss-desc' => 'Monstra un syndication RSS in un pagina wiki',
 	'rss-error' => 'Falleva de cargar le syndication RSS de $1: $2',
 	'rss-empty' => 'Falleva de cargar le syndication RSS de $1!',
+	'rss-invalid-url' => 'URL non valide: $1',
+	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -164,12 +172,16 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Iwai.masaharu
  * @author 青子守歌
  */
 $messages['ja'] = array(
 	'rss-desc' => 'ウィキページのRSSフィードを表示',
 	'rss-error' => '$1からのRSSフィードの読み込みに失敗しました：$2',
 	'rss-empty' => '$1からのRSSフィードの読み込みに失敗しました！',
+	'rss-fetch-nourl' => '取得する URL が指定されていません！',
+	'rss-invalid-url' => '無効な URL: $1',
+	'rss-parse-error' => 'RSS の XML 解析エラー',
 );
 
 /** Colognian (Ripoarisch)
@@ -197,6 +209,9 @@ $messages['mk'] = array(
 	'rss-desc' => 'Прикажува RSS-канал на викистраница',
 	'rss-error' => 'Не успеав да го вчитам RSS-каналот од $1: $2',
 	'rss-empty' => 'Не успеав да го вчитам RSS-каналот од $1!',
+	'rss-fetch-nourl' => 'Повикувањето за добивање нема URL!',
+	'rss-invalid-url' => 'Не претставува важечка URL: $1',
+	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
 );
 
 /** Dutch (Nederlands)
@@ -207,6 +222,9 @@ $messages['nl'] = array(
 	'rss-desc' => 'Biedt een RSS-feed voor een wikipagina',
 	'rss-error' => 'Kon RSS feed van $1 niet laden, fout: $2',
 	'rss-empty' => 'Kon RSS feed van $1 niet laden!',
+	'rss-fetch-nourl' => 'Fetch is aangeroepen zonder een URL!',
+	'rss-invalid-url' => 'Geen geldige URL: $1',
+	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -254,6 +272,7 @@ $messages['pt-br'] = array(
 	'rss-desc' => 'Mostra um feed RSS em uma página wiki',
 	'rss-error' => 'Falha ao carregar feed RSS de $1: $2',
 	'rss-empty' => 'Falha ao carregar feed RSS de $1!',
+	'rss-invalid-url' => 'Não é uma URL válida: $1',
 );
 
 /** Romanian (Română)

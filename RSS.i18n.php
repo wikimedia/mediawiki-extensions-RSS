@@ -149,6 +149,7 @@ $messages['ia'] = array(
 	'rss-desc' => 'Monstra un syndication RSS in un pagina wiki',
 	'rss-error' => 'Falleva de cargar le syndication RSS de $1: $2',
 	'rss-empty' => 'Falleva de cargar le syndication RSS de $1!',
+	'rss-fetch-nourl' => 'Tentativa de obtention sin URL!',
 	'rss-invalid-url' => 'URL non valide: $1',
 	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
 );
@@ -243,6 +244,9 @@ $messages['pl'] = array(
 	'rss-desc' => 'Wyświetla kanał RSS na stronie wiki',
 	'rss-error' => 'Nie udało się odczytać kanału $1: $2',
 	'rss-empty' => 'Nie udało się odczytać kanału $1!',
+	'rss-fetch-nourl' => 'Wywołano pobieranie bez adresu URL!',
+	'rss-invalid-url' => 'Nieprawidłowy adres URL – $1',
+	'rss-parse-error' => 'Błąd analizowania XML dla RSS',
 );
 
 /** Piedmontese (Piemontèis)

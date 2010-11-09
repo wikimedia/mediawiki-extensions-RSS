@@ -264,6 +264,9 @@ $messages['pms'] = array(
 	'rss-desc' => 'A mostra un fluss RSS su na pàgina dla wiki',
 	'rss-error' => 'Falì a carié ël fluss RSS da $1: $2',
 	'rss-empty' => 'Falì a carié ël fluss RSS da $1!',
+	'rss-fetch-nourl' => "Fetch ciamà sensa n'anliura!",
+	'rss-invalid-url' => "Pa n'anliura bon-a: $1",
+	'rss-parse-error' => 'Eror an parsificand XML për RSS',
 );
 
 /** Portuguese (Português)
@@ -316,6 +319,9 @@ $messages['ru'] = array(
 	'rss-desc' => 'Показывает RSS-канал на викистранице',
 	'rss-error' => 'Не удалось загрузить RSS-канал из $1: $2',
 	'rss-empty' => 'Не удалось загрузить RSS-канал из $1!',
+	'rss-fetch-nourl' => 'Выборка вызвана без URL!',
+	'rss-invalid-url' => 'Недопустимый URL: $1',
+	'rss-parse-error' => 'Ошибка разбора XML для RSS',
 );
 
 /** Tagalog (Tagalog)

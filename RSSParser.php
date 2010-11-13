@@ -111,7 +111,7 @@ class RSSParser {
 		// 2. if there is a hit, make sure its fresh
 		// 3. if cached obj fails freshness check, fetch remote
 		// 4. if remote fails, return stale object, or error
-		$key = wfMemcKey( $this->url );
+		$key = wfMemcKey( 'rss', $this->url );
 		$cachedFeed = $this->loadFromCache( $key );
 		if ( $cachedFeed !== false ) {
 			wfDebugLog( 'RSS', 'Outputting cached feed for ' . $this->url );
@@ -132,7 +132,7 @@ class RSSParser {
 		global $wgMemc, $wgRSSCacheCompare;
 
 		$data = $wgMemc->get( $key );
-		if ( $data === false ) {
+		if ( !is_array( $data ) ) {
 			return false;
 		}
 
@@ -160,7 +160,7 @@ class RSSParser {
 	}
 
 	/**
-	 * Store this objects (e.g. etag, lastModified, and RSS) in the cache.
+	 * Store these objects (i.e. etag, lastModified, and RSS) in the cache.
 	 * @param $key String: lookup key to associate with this item
 	 * @return boolean
 	 */

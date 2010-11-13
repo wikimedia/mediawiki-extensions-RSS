@@ -21,7 +21,7 @@ class RSSHooks {
 	static function renderRss( $input, $args, $parser, $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare;
 
-		if ( !HTTP::isValidURI( $input ) ) {
+		if ( !Http::isValidURI( $input ) ) {
 			return wfMsg( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 		if ( $wgRSSCacheCompare ) {

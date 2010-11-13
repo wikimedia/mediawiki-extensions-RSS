@@ -12,7 +12,7 @@ class RSSParser {
 	protected $etag;
 	protected $lastModified;
 	protected $xml;
-	protected $ERROR;
+	protected $error;
 	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
 
 	public $client;
@@ -312,7 +312,7 @@ class RSSParser {
 			$this->rss = new RSSData( $this->xml );
 
 			// if RSS parsed successfully
-			if ( $this->rss && !$this->rss->ERROR ) {
+			if ( $this->rss && !$this->rss->error ) {
 				$this->etag = $this->client->getResponseHeader( 'Etag' );
 				$this->lastModified =
 					strtotime( $this->client->getResponseHeader( 'Last-Modified' ) );
@@ -322,7 +322,7 @@ class RSSParser {
 					count( $this->rss->items ) . ')!' );
 				$this->storeInCache( $key );
 			} else {
-				return Status::newFatal( 'rss-parse-error', $this->rss->ERROR );
+				return Status::newFatal( 'rss-parse-error', $this->rss->error );
 			}
 		}
 		return Status::newGood();

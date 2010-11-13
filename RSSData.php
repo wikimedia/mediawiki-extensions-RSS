@@ -1,7 +1,7 @@
 <?php
 
 class RSSData {
-	public $ERROR;
+	public $error;
 	public $items;
 
 	/**
@@ -10,8 +10,8 @@ class RSSData {
 	 * @return Object RSSData object with a member items that is an array of parsed items,
 	 */
 	function __construct( $xml ) {
-		if ( !( $xml instanceOf DOMDocument ) ) {
-			$this->ERROR = "Not passed DOMDocument object.";
+		if ( !( $xml instanceof DOMDocument ) ) {
+			$this->error = "Not passed DOMDocument object.";
 			return;
 		}
 		$xpath = new DOMXPath( $xml );
@@ -37,7 +37,7 @@ class RSSData {
 				$this->items[] = $bit;
 			}
 		} else {
-			$this->ERROR = 'No RSS items found.';
+			$this->error = 'No RSS items found.';
 			return;
 		}
 	}

@@ -30,7 +30,7 @@ class RSSHooks {
 			$timeout = $wgRSSCacheAge;
 		}
 		$parser->disableCache();
-		/* $parser->getOutput()->updateCacheExpiry( $timeout ); */
+		$parser->getOutput()->updateCacheExpiry( $timeout );
 
 		$rss = new RSSParser( $input, $args );
 

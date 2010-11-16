@@ -254,33 +254,26 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	protected function renderItem( $item, $parser, $frame ) {
-		$parts = explode( '|', $this->itemTemplate );
-
-		$output = '';
-		if ( count( $parts ) > 1 && isset( $parser ) && isset( $frame ) ) {
+		$output = "";
+		if ( isset( $parser ) && isset( $frame ) ) {
 			$rendered = array();
 			foreach ( $this->displayFields as $field ) {
 				if ( isset($item[$field] ) ) {
-					$item[$field] = $this->highlightTerms( wfEscapeWikiText( $item[$field] ) );
+					$item[$field] = $this->highlightTerms( $item[$field] );
 				}
 			}
 
-			foreach ( $parts as $part ) {
-				$bits = explode( '=', $part );
-				$left = null;
-
-				if ( count( $bits ) == 2 ) {
-					$left = trim( $bits[0] );
-				}
-
-				if ( isset( $item[$left] ) ) {
-					$leftValue = str_replace( '{{{' . $left . '}}}', $item[$left], $bits[1] );
-					$rendered[] = "$left = $leftValue";
-				} else {
-					$rendered[] = $part;
-				}
+			$rendered = $this->itemTemplate;
+			// $info will only be an XML element name, so we're safe
+			// using it.  $item[$info] is handled by the XML parser --
+			// and that means bad RSS with stuff like
+			// <description><script>alert("hi")</script></description> will find its
+			// rogue <script> tags neutered.
+			foreach ( array_keys( $item ) as $info ) {
+				$rendered = str_replace( '{{{' . $info . '}}}', wfEscapeWikiText( $item[$info] ),
+					$rendered );
 			}
-			$output .= $parser->recursiveTagParse( implode( ' | ', $rendered ), $frame );
+			$output .= $parser->recursiveTagParse( $rendered, $frame );
 		}
 		return $output;
 	}
@@ -421,7 +414,7 @@ class RSSHighlighter {
 		$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
 		$styleEnd   = '</span>';
 
-		# bg colors cribbed from Google's highlighting of search teerms
+		# bg colors cribbed from Google's highlighting of search terms
 		$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
 			'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
 			'0, 70, 153', '153, 0, 153' );

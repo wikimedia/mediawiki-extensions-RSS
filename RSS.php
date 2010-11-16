@@ -50,14 +50,10 @@ $wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
 $wgHooks['ParserFirstCallInit'][] = 'RSSHooks::parserInit';
 
 $wgRSSCacheAge = 3600; // one hour
-$wgRSSCacheFreshOnly = false;
 $wgRSSCacheCompare = false; // Check cached content, if available, against remote.
 						   // $wgRSSCacheCompare should be set to false or a timeout
 						   // (less than $wgRSSCacheAge) after which a comparison will
 						   // be made.
-$wgRSSOutputEncoding = 'ISO-8859-1';
-$wgRSSInputEncoding = null;
-$wgRSSDetectEncoding = true;
 $wgRSSFetchTimeout = 5; // 5 second timeout
 
 // Agent to use for fetching feeds

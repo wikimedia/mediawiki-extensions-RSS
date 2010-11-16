@@ -1,7 +1,6 @@
 <?php
 
 class RSSParser {
-	protected $charset;
 	protected $maxheads = 32;
 	protected $reversed = false;
 	protected $highlight = array();
@@ -34,15 +33,6 @@ class RSSParser {
 	 */
 	function __construct( $url, $args ) {
 		$this->url = $url;
-
-		# Get charset from argument array
-		# FIXME: not used yet
-		if ( isset( $args['charset'] ) ) {
-			$this->charset = $args['charset'];
-		} else {
-			global $wgOutputEncoding;
-			$this->charset = $wgOutputEncoding;
-		}
 
 		# Get max number of headlines from argument-array
 		if ( isset( $args['max'] ) ) {
@@ -92,16 +82,11 @@ class RSSParser {
 	 *
 	 * NOTES ON FAILED REQUESTS:
 	 * If there is an HTTP error while fetching an RSS object, the cached version
-	 * will be returned, if it exists (and if $wgRSSCacheFreshOnly is false)
+	 * will be returned, if it exists.
 	 *
 	 * @return boolean Status object
 	 */
 	function fetch() {
-		global $wgRSSCacheAge, $wgRSSCacheFreshOnly;
-		global $wgRSSCacheDirectory, $wgRSSFetchTimeout;
-		global $wgRSSOutputEncoding, $wgRSSInputEncoding;
-		global $wgRSSDetectEncoding;
-
 		if ( !isset( $this->url ) ) {
 			return Status::newFatal( 'rss-fetch-nourl' );
 		}
@@ -256,22 +241,21 @@ class RSSParser {
 	protected function renderItem( $item, $parser, $frame ) {
 		$output = "";
 		if ( isset( $parser ) && isset( $frame ) ) {
-			$rendered = array();
-			foreach ( $this->displayFields as $field ) {
-				if ( isset($item[$field] ) ) {
-					$item[$field] = $this->highlightTerms( $item[$field] );
-				}
-			}
-
+			$displayFields = array_flip( $this->displayFields );
 			$rendered = $this->itemTemplate;
+
 			// $info will only be an XML element name, so we're safe
 			// using it.  $item[$info] is handled by the XML parser --
 			// and that means bad RSS with stuff like
 			// <description><script>alert("hi")</script></description> will find its
 			// rogue <script> tags neutered.
 			foreach ( array_keys( $item ) as $info ) {
-				$rendered = str_replace( '{{{' . $info . '}}}', wfEscapeWikiText( $item[$info] ),
-					$rendered );
+				if ( isset( $displayFields[ $info ] ) ) {
+					$txt = $this->highlightTerms( htmlspecialchars( $item[ $info ] ) );
+				} else {
+					$txt = htmlspecialchars( $item[ $info ] );
+				}
+				$rendered = str_replace( '{{{' . $info . '}}}', $txt, $rendered );
 			}
 			$output .= $parser->recursiveTagParse( $rendered, $frame );
 		}

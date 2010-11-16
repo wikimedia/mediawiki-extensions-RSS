@@ -8,7 +8,7 @@ Extension page on mediawiki.org: http://www.mediawiki.org/wiki/Extension:RSS
 *extended by Niffler 28.02.2006 
 *modified by Dzag 07.2006 
 *modified by Alxndr 09.2006
-*modified by Svanslyck 02.2008, replacing all « and » with "
+*modified by Svanslyck 02.2008, replacing all Â« and Â» with "
 *<del>This has been updated to work better on newer (1.9) MediaWiki software, with the help of [[User:Duesentrieb]]. --[[User:CryptoQuick|CryptoQuick]] 14:26, 24 January 2007 (UTC)</del>
 **This appears not to be true; I have received numerous emails about it not working with 1.9+. I would love to help debug and fix the extension, but my host has not upgraded to PHP 5 and I'm thus stuck at MediaWiki 1.6.8, so that's as far as this is guaranteed to work properly. If anyone develops a fix, please post a link to it here! &#x2014;[[User:Alxndr|Alxndr]]&#x00a0;<sup>([[User talk:Alxndr|t]])</sup> 02:02, 16 June 2007 (UTC)
 ***I just found [http://nako.us/2007/03/16/mediawiki-19-fix-for-wfstrencode/ this fork] that purports to have a fix for the new loss of wfStrEncode(). I can't test it though so can anyone else verify that it works? &#x2014;[[User:Alxndr|Alxndr]]&#x00a0;<sup>([[User talk:Alxndr|t]])</sup> 02:18, 16 June 2007 (UTC)

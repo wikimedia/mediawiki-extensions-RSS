@@ -42,6 +42,9 @@ $messages['be-tarask'] = array(
 	'rss-desc' => 'Паказвае RSS-стужкі на вікі-старонках',
 	'rss-error' => 'Памылка загрузкі RSS-стужкі з $1: $2',
 	'rss-empty' => 'Памылка загрузкі RSS-стужкі з $1!',
+	'rss-fetch-nourl' => 'Выбарка выкліканая без URL-адрасу!',
+	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
+	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 );
 
 /** Breton (Brezhoneg)

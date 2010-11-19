@@ -13,6 +13,7 @@ class RSSParser {
 	protected $xml;
 	protected $error;
 	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
+	protected $validScheme = array( 'http', 'https', 'ftp' );
 
 	public $client;
 
@@ -241,8 +242,8 @@ class RSSParser {
 	protected function renderItem( $item, $parser, $frame ) {
 		$output = "";
 		if ( isset( $parser ) && isset( $frame ) ) {
-			$displayFields = array_flip( $this->displayFields );
 			$rendered = $this->itemTemplate;
+			$validScheme = array_flip( $this->validScheme );
 
 			// $info will only be an XML element name, so we're safe
 			// using it.  $item[$info] is handled by the XML parser --
@@ -250,14 +251,21 @@ class RSSParser {
 			// <description><script>alert("hi")</script></description> will find its
 			// rogue <script> tags neutered.
 			foreach ( array_keys( $item ) as $info ) {
-				if ( isset( $displayFields[ $info ] ) ) {
+				if ( $info != 'link' ) {
 					$txt = $this->highlightTerms( wfEscapeWikiText( $item[ $info ] ) );
 				} else {
-					$txt = wfEscapeWikiText( $item[ $info ] );
+					$url = $item[ $info ];
+					$scheme = parse_url( $url, PHP_URL_SCHEME );
+					if( isset( $validScheme[$scheme] ) ) {
+						$txt = $url;
+					} else {
+						$txt = wfEscapeWikiText( $url );
+					}
 				}
 				$rendered = str_replace( '{{{' . $info . '}}}', $txt, $rendered );
 			}
-			$output .= $parser->recursiveTagParse( $rendered, $frame );
+
+			$output = $parser->recursiveTagParse( $rendered, $frame );
 		}
 		return $output;
 	}

@@ -251,9 +251,9 @@ class RSSParser {
 			// rogue <script> tags neutered.
 			foreach ( array_keys( $item ) as $info ) {
 				if ( isset( $displayFields[ $info ] ) ) {
-					$txt = $this->highlightTerms( htmlspecialchars( $item[ $info ] ) );
+					$txt = $this->highlightTerms( wfEscapeWikiText( $item[ $info ] ) );
 				} else {
-					$txt = htmlspecialchars( $item[ $info ] );
+					$txt = wfEscapeWikiText( $item[ $info ] );
 				}
 				$rendered = str_replace( '{{{' . $info . '}}}', $txt, $rendered );
 			}

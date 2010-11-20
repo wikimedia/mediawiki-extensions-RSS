@@ -169,11 +169,15 @@ $messages['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
+ * @author IvanLanin
  */
 $messages['id'] = array(
 	'rss-desc' => 'Menampilkan arus RSS di halaman wiki',
 	'rss-error' => 'Gagal memuat arus RSS dari $1: $2',
 	'rss-empty' => 'Gagal memuat arus RSS dari $1!',
+	'rss-fetch-nourl' => 'Pengambilan dilakukan tanpa URL!',
+	'rss-invalid-url' => 'Bukan URL yang sah: $1',
+	'rss-parse-error' => 'Kesalahan parsing XML untuk RSS',
 );
 
 /** Italian (Italiano)

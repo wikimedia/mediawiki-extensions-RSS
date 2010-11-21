@@ -48,12 +48,16 @@ $messages['be-tarask'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fulup
  * @author Y-M D
  */
 $messages['br'] = array(
 	'rss-desc' => 'Diskouez ur gwazh RSS war ur bajenn eus ar wiki',
 	'rss-error' => 'Dibosupl eo kargañ ar gwazh RSS eus $1 : $2',
 	'rss-empty' => 'Dibosupl eo kargañ gwazh RSS eus $1 !',
+	'rss-fetch-nourl' => 'Galvadenn klask hep URL !',
+	'rss-invalid-url' => 'URL direizh : $1',
+	'rss-parse-error' => 'Fazi en dielfennañ XML evit RSS',
 );
 
 /** Bosnian (Bosanski)
@@ -63,6 +67,9 @@ $messages['bs'] = array(
 	'rss-desc' => 'Prikazuje RSS fid na wiki stranici',
 	'rss-error' => 'Nije uspjelo učitavanje RSS fida iz $1: $2',
 	'rss-empty' => 'Nije uspjelo učitavanje RSS fida iz $1!',
+	'rss-fetch-nourl' => 'Akcija pozvana bez URL!',
+	'rss-invalid-url' => 'Nije valjan URL: $1',
+	'rss-parse-error' => 'Greška pri parsiranju XML za RSS',
 );
 
 /** German (Deutsch)

@@ -13,7 +13,6 @@ class RSSParser {
 	protected $xml;
 	protected $error;
 	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
-	protected $validScheme = array( 'http', 'https', 'ftp' );
 
 	public $client;
 
@@ -243,8 +242,6 @@ class RSSParser {
 		$output = "";
 		if ( isset( $parser ) && isset( $frame ) ) {
 			$rendered = $this->itemTemplate;
-			$validScheme = array_flip( $this->validScheme );
-
 			// $info will only be an XML element name, so we're safe
 			// using it.  $item[$info] is handled by the XML parser --
 			// and that means bad RSS with stuff like
@@ -252,15 +249,9 @@ class RSSParser {
 			// rogue <script> tags neutered.
 			foreach ( array_keys( $item ) as $info ) {
 				if ( $info != 'link' ) {
-					$txt = $this->highlightTerms( wfEscapeWikiText( $item[ $info ] ) );
+					$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
 				} else {
-					$url = $item[ $info ];
-					$scheme = parse_url( $url, PHP_URL_SCHEME );
-					if( isset( $validScheme[$scheme] ) ) {
-						$txt = $url;
-					} else {
-						$txt = wfEscapeWikiText( $url );
-					}
+					$txt = $this->sanitizeUrl( $item[ $info ] );
 				}
 				$rendered = str_replace( '{{{' . $info . '}}}', $txt, $rendered );
 			}
@@ -268,6 +259,48 @@ class RSSParser {
 			$output = $parser->recursiveTagParse( $rendered, $frame );
 		}
 		return $output;
+	}
+
+	/**
+	 * Sanitize a URL for inclusion in wikitext. Escapes characters that have 
+	 * a special meaning in wikitext, replacing them with URL escape codes, so
+	 * that arbitrary input can be included as a free or bracketed external
+	 * link and both work and be safe.
+	 */
+	protected function sanitizeUrl( $url ) {
+		# Remove control characters
+		$url = preg_replace( '/[\000-\037\177]/', '', $url );
+		# Escape other problematic characters
+		$i = 0;
+		$out = '';
+		for ( $i = 0; $i < strlen( $url ); $i++ ) {
+			$boringLength = strcspn( $url, '<>"[|]\ {', $i );
+			if ( $boringLength ) {
+				$out .= substr( $url, $i, $boringLength );
+				$i += $boringLength;
+			}
+			if ( $i < strlen( $url ) ) {
+				$out .= rawurlencode( $url[$i] );
+			}
+		}
+		return $out;
+	}
+
+	/**
+	 * Sanitize user input for inclusion as a template parameter.
+	 * Unlike in wfEscapeWikiText() as of r77127, this escapes }} in addition
+	 * to the other kinds of markup, to avoid user input ending a template 
+	 * invocation.
+	 */
+	protected function escapeTemplateParameter( $text ) {
+		$text = str_replace(
+			array( '[',     '|',      ']',     '\'',    'ISBN ',     
+				'RFC ',     '://',     "\n=",     '{{',           '}}' ),
+			array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
+				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;' ),
+			htmlspecialchars( $text )
+		);
+		return $text;
 	}
 
 	/**

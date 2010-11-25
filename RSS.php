@@ -58,3 +58,6 @@ $wgRSSFetchTimeout = 5; // 5 second timeout
 
 // Agent to use for fetching feeds
 $wgRSSUserAgent = 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
+
+// Proxy server to use for fetching feeds
+$wgRSSProxy = false;

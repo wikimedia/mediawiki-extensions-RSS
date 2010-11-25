@@ -170,7 +170,7 @@ class RSSParser {
 	 * @return Status object
 	 */
 	protected function fetchRemote( $key, array $headers = array()) {
-		global $wgRSSFetchTimeout, $wgRSSUserAgent;
+		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy;
 
 		if ( $this->etag ) {
 			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
@@ -182,8 +182,11 @@ class RSSParser {
 			$headers['If-Modified-Since'] = $lm;
 		}
 
-		$client =
-			HttpRequest::factory( $this->url, array( 'timeout' => $wgRSSFetchTimeout ) );
+		$client = HttpRequest::factory( $this->url, array( 
+			'timeout' => $wgRSSFetchTimeout,
+			'proxy' => $wgRSSProxy
+
+		) );
 		$client->setUserAgent( $wgRSSUserAgent );
 		foreach ( $headers as $header => $value ) {
 			$client->setHeader( $header, $value );

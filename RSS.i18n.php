@@ -239,6 +239,17 @@ $messages['mk'] = array(
 	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'rss-desc' => 'വിക്കി താളിൽ ആർ.എസ്.എസ്. ഫീഡ് പ്രദർശിപ്പിക്കുന്നു',
+	'rss-empty' => '$1 എന്നതിന്റെ ആർ.എസ്.എസ്. ഫീഡ് എടുക്കൽ പരാജയപ്പെട്ടു!',
+	'rss-fetch-nourl' => 'യൂ.ആർ.എൽ. ഇല്ലാതെ ശേഖരിക്കാൻ ആവശ്യപ്പെട്ടിരിക്കുന്നു!',
+	'rss-invalid-url' => 'സാധുവായ യൂ.ആർ.എൽ. അല്ല: $1',
+	'rss-parse-error' => 'അർ.എസ്.എസിനായി എക്സ്.എം.എൽ. പാഴ്സ് ചെയ്തപ്പോൾ പിഴവുണ്ടായി',
+);
+
 /** Dutch (Nederlands)
  * @author Mitchel Corstjens
  * @author Siebrand
@@ -341,6 +352,18 @@ $messages['ru'] = array(
 	'rss-parse-error' => 'Ошибка разбора XML для RSS',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'rss-desc' => 'Prikaže vir RSS na wikistrani',
+	'rss-error' => 'Napaka pri nalaganju RSS z $1: $2',
+	'rss-empty' => 'Napaka pri nalaganju RSS z $1!',
+	'rss-fetch-nourl' => 'Pridobivanje klicano brez URL!',
+	'rss-invalid-url' => 'Neveljavni URL: $1',
+	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
@@ -366,6 +389,18 @@ $messages['uk'] = array(
 	'rss-desc' => 'Відображає канал RSS на сторінці вікі',
 	'rss-error' => 'Не вдалося завантажити RSS-канал від $1: $2',
 	'rss-empty' => 'Не вдалося завантажити RSS-канал від $1!',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'rss-desc' => 'Hiển thị nguồn cấp RSS trên trang wiki',
+	'rss-error' => 'Thất bại khi tải nguồn cấp RSS từ $1: $2',
+	'rss-empty' => 'Thất bại khi tải nguồn cấp RSS từ $1!',
+	'rss-fetch-nourl' => 'Cần URL để tải!',
+	'rss-invalid-url' => 'URL không hợp lệ: $1',
+	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

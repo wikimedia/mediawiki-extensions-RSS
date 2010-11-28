@@ -72,6 +72,18 @@ $messages['bs'] = array(
 	'rss-parse-error' => 'Greška pri parsiranju XML za RSS',
 );
 
+/** Czech (Česky)
+ * @author Mormegil
+ */
+$messages['cs'] = array(
+	'rss-desc' => 'Zobrazuje na wikistránce RSS kanál',
+	'rss-error' => 'Nepodařilo se načíst RSS kanál z $1: $2',
+	'rss-empty' => 'Nepodařilo se načíst RSS kanál z $1!',
+	'rss-fetch-nourl' => 'Nebylo určeno URL, které se má načíst!',
+	'rss-invalid-url' => 'Není platné URL: $1',
+	'rss-parse-error' => 'Chyba parsování XML pro RSS',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
@@ -225,6 +237,7 @@ $messages['lb'] = array(
 	'rss-desc' => 'Weist en RSS-Feed op enger Wiki-Säit',
 	'rss-error' => 'Den RSS-Feed vun $1 konnt net geluede ginn: $2',
 	'rss-empty' => 'Den RSS-Feed vun $1 konnt net geluede ginn!',
+	'rss-invalid-url' => 'Keng valabel URL: $1',
 );
 
 /** Macedonian (Македонски)

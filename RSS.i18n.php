@@ -108,6 +108,13 @@ $messages['dsb'] = array(
 	'rss-parse-error' => 'Zmólka pśi parsowanju XML za RSS',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'rss-desc' => 'Montras RSS-fluon en vikia paĝo',
+);
+
 /** Spanish (Español)
  * @author Locos epraix
  */

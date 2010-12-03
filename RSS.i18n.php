@@ -124,6 +124,13 @@ $messages['es'] = array(
 	'rss-empty' => 'No se pudo cargar feed RSS desde $1!',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'rss-invalid-url' => 'نشانی اینترنتی نامعتبر: $1',
+);
+
 /** Finnish (Suomi)
  * @author Jack Phoenix <jack@countervandalism.net>
  */

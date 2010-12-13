@@ -391,6 +391,18 @@ $messages['sl'] = array(
 	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
 );
 
+/** Swedish (Svenska)
+ * @author Ainali
+ */
+$messages['sv'] = array(
+	'rss-desc' => 'Visar en RSS-feed på en wiki-sida',
+	'rss-error' => 'Det gick inte att läsa in RSS-feed från $1: $2',
+	'rss-empty' => 'Det gick inte att läsa in RSS-feed från $1!',
+	'rss-fetch-nourl' => 'Hämtningsförök utan en URL!',
+	'rss-invalid-url' => 'Inte en giltig URL: $1',
+	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

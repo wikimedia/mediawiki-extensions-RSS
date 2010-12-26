@@ -188,6 +188,18 @@ $messages['he'] = array(
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
 );
 
+/** Croatian (Hrvatski)
+ * @author SpeedyGonsales
+ */
+$messages['hr'] = array(
+	'rss-desc' => 'Prikazuje RSS slijed na wiki stranici',
+	'rss-error' => 'Nije uspjelo učitavanje RSS slijeda iz $1: $2',
+	'rss-empty' => 'Nije uspjelo učitavanje RSS slijeda iz $1!',
+	'rss-fetch-nourl' => 'Akcija pozvana bez URL-a!',
+	'rss-invalid-url' => 'Nevaljan URL: $1',
+	'rss-parse-error' => 'Pogreška pri parsiranju XML za RSS',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */

@@ -238,12 +238,15 @@ $messages['id'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Gianfranco
  */
 $messages['it'] = array(
 	'rss-desc' => 'Visualizza un feed RSS in una pagina wiki',
 	'rss-error' => 'Non è stato possibile caricare da $1 il feed RSS: $2',
 	'rss-empty' => 'Non è stato possibile possibile caricare feed RSS da $1!',
+	'rss-invalid-url' => 'Non è un URL valido: $1',
+	'rss-parse-error' => 'Errore di parsing XML per RSS',
 );
 
 /** Japanese (日本語)
@@ -471,10 +474,14 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Chenxiaoqino
+ * @author Hydra
  */
 $messages['zh-hans'] = array(
 	'rss-desc' => '在维基页面上显示一个RSS源',
 	'rss-error' => '自$1: $2加载RSS失败',
 	'rss-empty' => '自$1加载RSS失败',
+	'rss-fetch-nourl' => '读取不网址的情况下调用！',
+	'rss-invalid-url' => '不是有效的网址：$1',
+	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 );
 

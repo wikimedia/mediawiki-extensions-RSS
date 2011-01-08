@@ -3,7 +3,7 @@
 class RSSHooks {
 	/**
 	 * Tell the parser how to handle <rss> elements
-	 * @param Parser Object
+	 * @param $parser Parser Object
 	 */
 	static function parserInit( $parser ) {
 		# Install parser hook for <rss> tags
@@ -16,6 +16,7 @@ class RSSHooks {
 	 * @param $input String: text inside the tags.
 	 * @param $args Array: value associative list of the element attributes and
 	 * 						their values.
+	 * @param $parser Parser
 	 * @param $frame Frame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {

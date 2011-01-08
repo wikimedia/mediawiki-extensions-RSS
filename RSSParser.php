@@ -84,7 +84,7 @@ class RSSParser {
 	 * If there is an HTTP error while fetching an RSS object, the cached version
 	 * will be returned, if it exists.
 	 *
-	 * @return boolean Status object
+	 * @return Status object
 	 */
 	function fetch() {
 		if ( !isset( $this->url ) ) {
@@ -238,7 +238,7 @@ class RSSParser {
 	 *
 	 * @param $item Array: an array produced by RSSData where keys are the
 	 * 						names of the RSS elements
-	 * @param $parser the parser param to pass to recursiveTagParse()
+	 * @param $parser Parser the parser param to pass to recursiveTagParse()
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	protected function renderItem( $item, $parser, $frame ) {
@@ -296,14 +296,13 @@ class RSSParser {
 	 * invocation.
 	 */
 	protected function escapeTemplateParameter( $text ) {
-		$text = str_replace(
+		return str_replace(
 			array( '[',     '|',      ']',     '\'',    'ISBN ',     
 				'RFC ',     '://',     "\n=",     '{{',           '}}' ),
 			array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
 				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;' ),
 			htmlspecialchars( $text )
 		);
-		return $text;
 	}
 
 	/**

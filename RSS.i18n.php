@@ -108,6 +108,17 @@ $messages['dsb'] = array(
 	'rss-parse-error' => 'Zmólka pśi parsowanju XML za RSS',
 );
 
+/** Greek (Ελληνικά)
+ * @author Evropi
+ */
+$messages['el'] = array(
+	'rss-desc' => 'Εμφανίζει μια τροφοδοσία RSS σε μια σελίδα wiki',
+	'rss-error' => 'Απέτυχε η φόρτωση της τροφοδοσίας RSS από το $1: $2',
+	'rss-empty' => 'Απέτυχε η φόρτωση της τροφοδοσίας RSS από το $1!',
+	'rss-invalid-url' => 'Άκυρη διεύθυνση URL: $1',
+	'rss-parse-error' => 'Σφάλμα κατά την ανάλυση XML για RSS',
+);
+
 /** Esperanto (Esperanto)
  * @author Yekrats
  */

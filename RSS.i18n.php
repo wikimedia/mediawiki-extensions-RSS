@@ -496,3 +496,13 @@ $messages['zh-hans'] = array(
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 );
 
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Mark85296341
+ */
+$messages['zh-hant'] = array(
+	'rss-error' => '自 $1：$2 載入 RSS 失敗',
+	'rss-empty' => '自 $1 載入 RSS 失敗',
+	'rss-invalid-url' => '不是有效的網址：$1',
+	'rss-parse-error' => 'RSS 解析 XML 時出現錯誤',
+);
+

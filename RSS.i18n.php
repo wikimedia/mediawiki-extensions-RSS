@@ -21,10 +21,6 @@ $messages['en'] = array(
 	'rss-item' => '{{RSSPost | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} }}',
 );
 
-$messages['qqq'] = array(
-	'rss-item' => 'Do not translate',
-);
-
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -34,7 +30,7 @@ $messages['af'] = array(
 	'rss-empty' => 'Kon nie die RSS-voer van $1 laai nie!',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  */

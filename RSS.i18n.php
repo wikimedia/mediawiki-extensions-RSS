@@ -356,9 +356,9 @@ $messages['pms'] = array(
 	'rss-desc' => 'A mostra un fluss RSS su na pàgina dla wiki',
 	'rss-error' => 'Falì a carié ël fluss RSS da $1: $2',
 	'rss-empty' => 'Falì a carié ël fluss RSS da $1!',
-	'rss-fetch-nourl' => "Fetch ciamà sensa n'anliura!",
+	'rss-fetch-nourl' => "Arcesta fàita sensa n'adrëssa dl'aragnà!",
 	'rss-invalid-url' => "Pa n'anliura bon-a: $1",
-	'rss-parse-error' => 'Eror an parsificand XML për RSS',
+	'rss-parse-error' => "Eror ant l'anàlisi XML për RSS",
 );
 
 /** Portuguese (Português)

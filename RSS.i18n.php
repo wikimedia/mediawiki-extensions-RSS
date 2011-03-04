@@ -276,6 +276,9 @@ $messages['ksh'] = array(
 	'rss-desc' => 'Zeisch ene RSS-Kannaal op en Sigg em Wiki.',
 	'rss-error' => 'Mer kunnte dä RSS-Kannaal vun $1 nit laade: $2',
 	'rss-empty' => 'Mer kunnte dä RSS-Kannaal vun $1 nit laade.',
+	'rss-fetch-nourl' => 'Et Affroofe (<code lang="en">fetch</code>) der ohne ene URL jeiht nit!',
+	'rss-invalid-url' => '„$1“ es keine jöltijje URL.',
+	'rss-parse-error' => 'Ene Fähler es opjetrodde beim Ongersöhke vun dämm XML för dat RSS.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)

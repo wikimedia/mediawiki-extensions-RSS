@@ -269,6 +269,13 @@ $messages['ja'] = array(
 	'rss-parse-error' => 'RSS の XML 解析エラー',
 );
 
+/** Georgian (ქართული)
+ * @author Dawid Deutschland
+ */
+$messages['ka'] = array(
+	'rss-invalid-url' => 'არასწორი URL: $1',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
@@ -450,6 +457,9 @@ $messages['tl'] = array(
 	'rss-desc' => 'Nagpapakita ng isang pakaing RSS sa isang pahina ng wiki',
 	'rss-error' => 'Nabigong ikarga ang pakaing RSS mula sa $1: $2',
 	'rss-empty' => 'Nabigong ikarga ang pakaing RSS mula sa $1!',
+	'rss-fetch-nourl' => 'Tinawag ang pagkuha na walang isang URL!',
+	'rss-invalid-url' => 'Hindi isang tanggap na URL: $1',
+	'rss-parse-error' => 'Mali ang pagbabanghay ng XML para sa RSS',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))

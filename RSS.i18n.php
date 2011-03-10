@@ -426,6 +426,18 @@ $messages['ru'] = array(
 	'rss-parse-error' => 'Ошибка разбора XML для RSS',
 );
 
+/** Yakut (Саха тыла)
+ * @author HalanTul
+ */
+$messages['sah'] = array(
+	'rss-desc' => 'Биики сирэйгэ RSS көрдөрөр',
+	'rss-error' => 'RSS-канаал мантан $1 кыайан хостоммото: $2',
+	'rss-empty' => 'RSS-канаал мантан $1 хостоммото!',
+	'rss-fetch-nourl' => 'Выборканы URL-ла суох көрдөөбүккүн!',
+	'rss-invalid-url' => 'Сатаммат URL: $1',
+	'rss-parse-error' => 'RSS аналлаах XML ырытыытын алҕаһа',
+);
+
 /** Slovenian (Slovenščina)
  * @author Dbc334
  */

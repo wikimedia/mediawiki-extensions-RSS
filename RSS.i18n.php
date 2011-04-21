@@ -298,6 +298,18 @@ $messages['lb'] = array(
 	'rss-invalid-url' => 'Keng valabel URL: $1',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Perkunas
+ */
+$messages['lt'] = array(
+	'rss-desc' => 'Rodo RSS kanalą wiki puslapyje',
+	'rss-error' => 'Nepavyko įkelti RSS kanalo iš $1: $2',
+	'rss-empty' => 'Nepavyko įkelti RSS kanalo iš $1!',
+	'rss-fetch-nourl' => 'Atsiuntimas iškviestas be nuorodos!',
+	'rss-invalid-url' => 'Nekorektiška nuoroda: $1',
+	'rss-parse-error' => "Klaida analizuojant RSS kanalo XML'ą",
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

@@ -120,6 +120,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'rss-desc' => 'Montras RSS-fluon en vikia paĝo',
+	'rss-invalid-url' => 'Malvalida URL-o: $1',
 );
 
 /** Spanish (Español)
@@ -424,6 +425,7 @@ $messages['roa-tara'] = array(
 	'rss-desc' => "Fà vedè 'nu feed RSS sus a 'na pàgene de uicchi",
 	'rss-error' => "Carecamende d'u feed RSS fallite da $1: $2",
 	'rss-empty' => "Carecamende d'u feed RSS fallite da $1!",
+	'rss-invalid-url' => "Non g'è 'na URL valide: $1",
 );
 
 /** Russian (Русский)
@@ -448,6 +450,18 @@ $messages['sah'] = array(
 	'rss-fetch-nourl' => 'Выборканы URL-ла суох көрдөөбүккүн!',
 	'rss-invalid-url' => 'Сатаммат URL: $1',
 	'rss-parse-error' => 'RSS аналлаах XML ырытыытын алҕаһа',
+);
+
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'rss-desc' => 'Zobrazí kanál RSS na wiki stránke',
+	'rss-error' => 'Nepodarilo sa načítať RSS kanál z $1: $2',
+	'rss-empty' => 'Nepodarilo sa načítať RSS kanál z $1!',
+	'rss-fetch-nourl' => 'Stiahnutie stránky zavolané bez URL!',
+	'rss-invalid-url' => 'Nie je platný URL: $1',
+	'rss-parse-error' => 'Chyba pri spracovaní XML pre RSS',
 );
 
 /** Slovenian (Slovenščina)

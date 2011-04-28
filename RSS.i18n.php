@@ -488,6 +488,14 @@ $messages['sv'] = array(
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
 );
 
+/** Telugu (తెలుగు)
+ * @author రహ్మానుద్దీన్
+ */
+$messages['te'] = array(
+	'rss-desc' => 'RSS ఫీడ్ ను ఒక వికీ పుటపై చూపుతుంది',
+	'rss-error' => '$1 నుండి RSS ఫీడ్ లోడ్ చేయడంలో అసమర్థత : $2',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */

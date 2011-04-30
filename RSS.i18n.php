@@ -120,7 +120,11 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'rss-desc' => 'Montras RSS-fluon en vikia paĝo',
+	'rss-error' => 'Malsukcesis ŝarĝi RSS-fonton de $1: $2',
+	'rss-empty' => 'Malsukcesis ŝarĝi RSS-fonton de $1!',
+	'rss-fetch-nourl' => 'Akiro vokita sen URL-o!',
 	'rss-invalid-url' => 'Malvalida URL-o: $1',
+	'rss-parse-error' => 'Eraro interpretante XML-on de RSS-o',
 );
 
 /** Spanish (Español)
@@ -328,6 +332,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'rss-desc' => 'വിക്കി താളിൽ ആർ.എസ്.എസ്. ഫീഡ് പ്രദർശിപ്പിക്കുന്നു',
+	'rss-error' => '$1 എന്നതിന്റെ ആർ.എസ്.എസ്. ഫീഡ് എടുക്കൽ പരാജയപ്പെട്ടു: $2',
 	'rss-empty' => '$1 എന്നതിന്റെ ആർ.എസ്.എസ്. ഫീഡ് എടുക്കൽ പരാജയപ്പെട്ടു!',
 	'rss-fetch-nourl' => 'യൂ.ആർ.എൽ. ഇല്ലാതെ ശേഖരിക്കാൻ ആവശ്യപ്പെട്ടിരിക്കുന്നു!',
 	'rss-invalid-url' => 'സാധുവായ യൂ.ആർ.എൽ. അല്ല: $1',

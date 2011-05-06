@@ -22,9 +22,9 @@ class RSSHooks {
 	static function renderRss( $input, $args, $parser, $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces;
 
-		if ( $wgRSSNamespaces !== null && is_array($wgRSSNamespaces) ) {
+		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
 			$ns = $parser->getTitle()->getNamespace();
-			$checkNS = array_flip($wgRSSNamespaces);
+			$checkNS = array_flip( $wgRSSNamespaces );
 
 			if( !isset( $checkNS[$ns] ) ) {
 				return wfMsg( 'rss-ns-permission' );

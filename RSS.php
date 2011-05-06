@@ -51,13 +51,16 @@ $wgHooks['ParserFirstCallInit'][] = 'RSSHooks::parserInit';
 
 $wgRSSCacheAge = 3600; // one hour
 $wgRSSCacheCompare = false; // Check cached content, if available, against remote.
-						   // $wgRSSCacheCompare should be set to false or a timeout
-						   // (less than $wgRSSCacheAge) after which a comparison will
-						   // be made.
-$wgRSSFetchTimeout = 5; // 5 second timeout
+ 						    // $wgRSSCacheCompare should be set to false or a timeout
+						    // (less than $wgRSSCacheAge) after which a comparison will
+						    // be made.
+$wgRSSFetchTimeout = 5;     // 5 second timeout
+$wgRSSNamespaces = null;    // Ignore the RSS tag in all but the namespaces listed here.
+						    // null (the default) means the <rss> tag can be used
+						    // anywhere.
 
 // Agent to use for fetching feeds
-$wgRSSUserAgent = 'MediaWikiRSS/0.01 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
+$wgRSSUserAgent = 'MediaWikiRSS/0.02 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
 
 // Proxy server to use for fetching feeds
 $wgRSSProxy = false;

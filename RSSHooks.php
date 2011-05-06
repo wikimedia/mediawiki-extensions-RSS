@@ -20,7 +20,16 @@ class RSSHooks {
 	 * @param $frame Frame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
-		global $wgRSSCacheAge, $wgRSSCacheCompare;
+		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces;
+
+		if ( $wgRSSNamespaces !== null && is_array($wgRSSNamespaces) ) {
+			$ns = $parser->getTitle()->getNamespace();
+			$checkNS = array_flip($wgRSSNamespaces);
+
+			if( !isset( $checkNS[$ns] ) ) {
+				return wfMsg( 'rss-ns-permission' );
+			}
+		}
 
 		if ( !Http::isValidURI( $input ) ) {
 			return wfMsg( 'rss-invalid-url', htmlspecialchars( $input ) );

@@ -480,6 +480,7 @@ $messages['sl'] = array(
 	'rss-fetch-nourl' => 'Pridobivanje klicano brez URL!',
 	'rss-invalid-url' => 'Neveljavni URL: $1',
 	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
+	'rss-ns-permission' => 'RSS v tem imenskem prostoru ni dovoljen',
 );
 
 /** Swedish (Svenska)

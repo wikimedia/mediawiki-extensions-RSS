@@ -34,6 +34,7 @@ $messages['af'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'rss-desc' => 'Паказвае RSS-стужкі на вікі-старонках',
@@ -42,6 +43,7 @@ $messages['be-tarask'] = array(
 	'rss-fetch-nourl' => 'Выбарка выкліканая без URL-адрасу!',
 	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
+	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
 );
 
 /** Breton (Brezhoneg)
@@ -83,6 +85,7 @@ $messages['cs'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Metalhead64
  */
 $messages['de'] = array(
 	'rss-desc' => 'Ermöglicht es, einen RSS-Feed auf einer Wikiseite anzuzeigen',
@@ -91,6 +94,7 @@ $messages['de'] = array(
 	'rss-fetch-nourl' => 'Abruf ohne Angabe einer URL!',
 	'rss-invalid-url' => 'Ungültige URL: $1',
 	'rss-parse-error' => 'Fehler beim Parsen von XML für RSS',
+	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht erlaubt',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -175,6 +179,7 @@ $messages['gl'] = array(
 	'rss-fetch-nourl' => 'Non deu ningún enderezo URL!',
 	'rss-invalid-url' => 'O enderezo URL non é válido: $1',
 	'rss-parse-error' => 'Erro analítico de XML para o RSS',
+	'rss-ns-permission' => 'O RSS non está permitido neste espazo de nomes',
 );
 
 /** Swiss German (Alemannisch)
@@ -199,6 +204,7 @@ $messages['he'] = array(
 	'rss-fetch-nourl' => 'קריאה לאחזור ללא כתובת URL!',
 	'rss-invalid-url' => 'כתובת URL לא תקינה: $1',
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
+	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
 );
 
 /** Croatian (Hrvatski)
@@ -235,6 +241,7 @@ $messages['ia'] = array(
 	'rss-fetch-nourl' => 'Tentativa de obtention sin URL!',
 	'rss-invalid-url' => 'URL non valide: $1',
 	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
+	'rss-ns-permission' => 'RSS non es permittite in iste spatio de nomines',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -326,6 +333,7 @@ $messages['mk'] = array(
 	'rss-fetch-nourl' => 'Повикувањето за добивање нема URL!',
 	'rss-invalid-url' => 'Не претставува важечка URL: $1',
 	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
+	'rss-ns-permission' => 'RSS не е допуштен во овој именски простор',
 );
 
 /** Malayalam (മലയാളം)
@@ -338,6 +346,7 @@ $messages['ml'] = array(
 	'rss-fetch-nourl' => 'യൂ.ആർ.എൽ. ഇല്ലാതെ ശേഖരിക്കാൻ ആവശ്യപ്പെട്ടിരിക്കുന്നു!',
 	'rss-invalid-url' => 'സാധുവായ യൂ.ആർ.എൽ. അല്ല: $1',
 	'rss-parse-error' => 'അർ.എസ്.എസിനായി എക്സ്.എം.എൽ. പാഴ്സ് ചെയ്തപ്പോൾ പിഴവുണ്ടായി',
+	'rss-ns-permission' => 'ഈ നാമമേഖലയിൽ ആർ.എസ്.എസ്. അനുവദിക്കപ്പെട്ടിട്ടില്ല',
 );
 
 /** Dutch (Nederlands)
@@ -351,6 +360,7 @@ $messages['nl'] = array(
 	'rss-fetch-nourl' => 'Fetch is aangeroepen zonder een URL!',
 	'rss-invalid-url' => 'Geen geldige URL: $1',
 	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',
+	'rss-ns-permission' => 'RSS is niet toegestaan in deze naamruimte',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -401,6 +411,7 @@ $messages['pt'] = array(
 	'rss-fetch-nourl' => 'Chamada fetch sem uma URL!',
 	'rss-invalid-url' => 'A URL não é válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
+	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -543,6 +554,7 @@ $messages['vi'] = array(
 	'rss-fetch-nourl' => 'Cần URL để tải!',
 	'rss-invalid-url' => 'URL không hợp lệ: $1',
 	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
+	'rss-ns-permission' => 'Không được phép xem RSS trong không gian tên này',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

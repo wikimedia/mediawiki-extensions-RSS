@@ -255,6 +255,7 @@ $messages['id'] = array(
 	'rss-fetch-nourl' => 'Pengambilan dilakukan tanpa URL!',
 	'rss-invalid-url' => 'Bukan URL yang sah: $1',
 	'rss-parse-error' => 'Kesalahan parsing XML untuk RSS',
+	'rss-ns-permission' => 'RSS tidak diizinkan pada ruang nama ini',
 );
 
 /** Italian (Italiano)
@@ -385,6 +386,7 @@ $messages['pl'] = array(
 	'rss-fetch-nourl' => 'Wywołano pobieranie bez adresu URL!',
 	'rss-invalid-url' => 'Nieprawidłowy adres URL – $1',
 	'rss-parse-error' => 'Błąd analizowania XML dla RSS',
+	'rss-ns-permission' => 'RSS nie jest dostępne w tej przestrzeni nazw',
 );
 
 /** Piedmontese (Piemontèis)

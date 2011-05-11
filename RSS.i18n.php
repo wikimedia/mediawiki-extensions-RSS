@@ -157,6 +157,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Faure.thomas
  * @author IAlex
  * @author Peter17
  */
@@ -167,6 +168,7 @@ $messages['fr'] = array(
 	'rss-fetch-nourl' => 'Appel passé sans fournir d’URL !',
 	'rss-invalid-url' => 'URL non valide : $1',
 	'rss-parse-error' => 'Erreur lors de l’analyse XML du RSS',
+	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
 );
 
 /** Galician (Galego)
@@ -457,6 +459,7 @@ $messages['ru'] = array(
 	'rss-fetch-nourl' => 'Выборка вызвана без URL!',
 	'rss-invalid-url' => 'Недопустимый URL: $1',
 	'rss-parse-error' => 'Ошибка разбора XML для RSS',
+	'rss-ns-permission' => 'RSS не допускается в этом пространстве имён',
 );
 
 /** Yakut (Саха тыла)

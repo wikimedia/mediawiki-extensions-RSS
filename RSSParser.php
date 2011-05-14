@@ -70,7 +70,8 @@ class RSSParser {
 			$article = new Article( $titleObject, 0 );
 			$this->itemTemplate = $article->fetchContent();
 		} else {
-			$this->itemTemplate = wfMsgNoTrans( 'rss-item' );
+			$templateName = isset( $args['templatename'] ) ? $args['templatename'] : 'RSSPost';
+			$this->itemTemplate = wfMsgNoTrans( 'rss-item', $templateName );
 		}
 	}
 

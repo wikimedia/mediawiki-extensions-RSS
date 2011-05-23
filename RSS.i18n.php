@@ -428,6 +428,7 @@ $messages['pt-br'] = array(
 	'rss-fetch-nourl' => 'Chamada fetch sem uma URL!',
 	'rss-invalid-url' => 'Não é uma URL válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
+	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
 );
 
 /** Romanian (Română)

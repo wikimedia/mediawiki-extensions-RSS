@@ -171,6 +171,13 @@ $messages['fr'] = array(
 	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'rss-invalid-url' => 'URL envalida : $1',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */

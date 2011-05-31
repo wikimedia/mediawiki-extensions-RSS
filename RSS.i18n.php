@@ -81,6 +81,7 @@ $messages['cs'] = array(
 	'rss-fetch-nourl' => 'Nebylo určeno URL, které se má načíst!',
 	'rss-invalid-url' => 'Není platné URL: $1',
 	'rss-parse-error' => 'Chyba parsování XML pro RSS',
+	'rss-ns-permission' => 'V tomto jmenném prostoru není RSS dovoleno',
 );
 
 /** German (Deutsch)

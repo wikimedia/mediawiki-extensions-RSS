@@ -70,6 +70,7 @@ $messages['bs'] = array(
 	'rss-fetch-nourl' => 'Akcija pozvana bez URL!',
 	'rss-invalid-url' => 'Nije valjan URL: $1',
 	'rss-parse-error' => 'Greška pri parsiranju XML za RSS',
+	'rss-ns-permission' => 'RSS nije dozvoljen u ovom imenskom prostoru',
 );
 
 /** Czech (Česky)

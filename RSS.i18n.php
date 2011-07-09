@@ -99,6 +99,7 @@ $messages['de'] = array(
 	'rss-invalid-url' => 'Ungültige URL: $1',
 	'rss-parse-error' => 'Fehler beim Parsen von XML für RSS',
 	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht erlaubt',
+	'rss-url-permission' => 'Diese URL darf nicht enthalten sein',
 );
 
 /** Lower Sorbian (Dolnoserbski)
@@ -509,6 +510,7 @@ $messages['sl'] = array(
 	'rss-invalid-url' => 'Neveljavni URL: $1',
 	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
 	'rss-ns-permission' => 'RSS v tem imenskem prostoru ni dovoljen',
+	'rss-url-permission' => 'Vključitev tega URL ni dovoljena',
 );
 
 /** Swedish (Svenska)

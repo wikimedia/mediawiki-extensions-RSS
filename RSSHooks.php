@@ -32,7 +32,7 @@ class RSSHooks {
 		}
 
 		if ( count( $wgRSSAllowedFeeds ) && !in_array( $input, $wgRSSAllowedFeeds ) ) {
-			return wfMsg( 'rss-url-permission ' );
+			return wfMsg( 'rss-url-permission' );
 		}
 
 		if ( !Http::isValidURI( $input ) ) {

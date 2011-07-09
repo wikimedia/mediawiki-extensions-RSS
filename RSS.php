@@ -59,6 +59,8 @@ $wgRSSNamespaces = null;    // Ignore the RSS tag in all but the namespaces list
 						    // null (the default) means the <rss> tag can be used
 						    // anywhere.
 
+$wgRSSAllowedFeeds = array();
+
 // Agent to use for fetching feeds
 $wgRSSUserAgent = 'MediaWikiRSS/0.02 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
 

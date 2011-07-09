@@ -19,6 +19,7 @@ $messages['en'] = array(
 	'rss-invalid-url' => 'Not a valid URL: $1',
 	'rss-parse-error' => 'Error parsing XML for RSS',
 	'rss-ns-permission' => 'RSS is not allowed in this namespace',
+	'rss-url-permission' => 'This URL is not allowed to be included',
 	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} }}',
 );
 

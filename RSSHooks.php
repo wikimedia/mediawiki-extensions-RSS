@@ -20,7 +20,7 @@ class RSSHooks {
 	 * @param $frame Frame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
-		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces;
+		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
 			$ns = $parser->getTitle()->getNamespace();
@@ -29,6 +29,10 @@ class RSSHooks {
 			if( !isset( $checkNS[$ns] ) ) {
 				return wfMsg( 'rss-ns-permission' );
 			}
+		}
+
+		if ( count( $wgRSSAllowedFeeds ) && !in_array( $input, $wgRSSAllowedFeeds ) ) {
+			return wfMsg( 'rss-url-permission ' );
 		}
 
 		if ( !Http::isValidURI( $input ) ) {

@@ -256,6 +256,7 @@ $messages['ia'] = array(
 	'rss-invalid-url' => 'URL non valide: $1',
 	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
 	'rss-ns-permission' => 'RSS non es permittite in iste spatio de nomines',
+	'rss-url-permission' => 'Le inclusion de iste URL es prohibite',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -349,6 +350,7 @@ $messages['mk'] = array(
 	'rss-invalid-url' => 'Не претставува важечка URL: $1',
 	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
 	'rss-ns-permission' => 'RSS не е допуштен во овој именски простор',
+	'rss-url-permission' => 'Оваа URL-адреса не е дозволена',
 );
 
 /** Malayalam (മലയാളം)
@@ -362,6 +364,7 @@ $messages['ml'] = array(
 	'rss-invalid-url' => 'സാധുവായ യൂ.ആർ.എൽ. അല്ല: $1',
 	'rss-parse-error' => 'അർ.എസ്.എസിനായി എക്സ്.എം.എൽ. പാഴ്സ് ചെയ്തപ്പോൾ പിഴവുണ്ടായി',
 	'rss-ns-permission' => 'ഈ നാമമേഖലയിൽ ആർ.എസ്.എസ്. അനുവദിക്കപ്പെട്ടിട്ടില്ല',
+	'rss-url-permission' => 'ഈ യൂ.ആർ.എൽ. ഉൾപ്പെടുത്തുന്നത് അനുവദനീയമല്ല',
 );
 
 /** Dutch (Nederlands)
@@ -428,6 +431,7 @@ $messages['pt'] = array(
 	'rss-invalid-url' => 'A URL não é válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
 	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
+	'rss-url-permission' => 'Não é permitido incluir a URL',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -473,6 +477,7 @@ $messages['ru'] = array(
 	'rss-invalid-url' => 'Недопустимый URL: $1',
 	'rss-parse-error' => 'Ошибка разбора XML для RSS',
 	'rss-ns-permission' => 'RSS не допускается в этом пространстве имён',
+	'rss-url-permission' => 'Этот URL-адрес не может быть добавлен',
 );
 
 /** Yakut (Саха тыла)

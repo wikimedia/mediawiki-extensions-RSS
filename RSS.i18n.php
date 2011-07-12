@@ -45,6 +45,7 @@ $messages['be-tarask'] = array(
 	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
+	'rss-url-permission' => 'Даданьне гэтага URL-адрасу не дазволенае',
 );
 
 /** Breton (Brezhoneg)

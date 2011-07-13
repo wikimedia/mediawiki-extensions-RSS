@@ -370,6 +370,7 @@ $messages['ml'] = array(
 
 /** Dutch (Nederlands)
  * @author Mitchel Corstjens
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
@@ -380,6 +381,7 @@ $messages['nl'] = array(
 	'rss-invalid-url' => 'Geen geldige URL: $1',
 	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',
 	'rss-ns-permission' => 'RSS is niet toegestaan in deze naamruimte',
+	'rss-url-permission' => 'Deze URL mag niet worden opgenomen',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)

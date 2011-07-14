@@ -220,6 +220,7 @@ $messages['he'] = array(
 	'rss-invalid-url' => 'כתובת URL לא תקינה: $1',
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
 	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
+	'rss-url-permission' => 'לא ניתן לכלול את הכתובת הזאת',
 );
 
 /** Croatian (Hrvatski)
@@ -326,6 +327,7 @@ $messages['lb'] = array(
 	'rss-error' => 'Den RSS-Feed vun $1 konnt net geluede ginn: $2',
 	'rss-empty' => 'Den RSS-Feed vun $1 konnt net geluede ginn!',
 	'rss-invalid-url' => 'Keng valabel URL: $1',
+	'rss-ns-permission' => 'RSS ass an dësem Nummraum net erlaabt',
 );
 
 /** Lithuanian (Lietuvių)

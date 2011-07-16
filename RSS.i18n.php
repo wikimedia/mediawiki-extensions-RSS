@@ -409,6 +409,7 @@ $messages['pl'] = array(
 	'rss-invalid-url' => 'Nieprawidłowy adres URL – $1',
 	'rss-parse-error' => 'Błąd analizowania XML dla RSS',
 	'rss-ns-permission' => 'RSS nie jest dostępne w tej przestrzeni nazw',
+	'rss-url-permission' => 'Tego adresu URL nie można załączyć',
 );
 
 /** Piedmontese (Piemontèis)

@@ -328,6 +328,7 @@ $messages['lb'] = array(
 	'rss-empty' => 'Den RSS-Feed vun $1 konnt net geluede ginn!',
 	'rss-invalid-url' => 'Keng valabel URL: $1',
 	'rss-ns-permission' => 'RSS ass an dësem Nummraum net erlaabt',
+	'rss-url-permission' => 'Dës URL däerf net dra sinn',
 );
 
 /** Lithuanian (Lietuvių)
@@ -368,6 +369,20 @@ $messages['ml'] = array(
 	'rss-parse-error' => 'അർ.എസ്.എസിനായി എക്സ്.എം.എൽ. പാഴ്സ് ചെയ്തപ്പോൾ പിഴവുണ്ടായി',
 	'rss-ns-permission' => 'ഈ നാമമേഖലയിൽ ആർ.എസ്.എസ്. അനുവദിക്കപ്പെട്ടിട്ടില്ല',
 	'rss-url-permission' => 'ഈ യൂ.ആർ.എൽ. ഉൾപ്പെടുത്തുന്നത് അനുവദനീയമല്ല',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'rss-desc' => 'Memaparkan suapan RSS pada laman wiki',
+	'rss-error' => 'Suapan RSS gagal dimuatkan dari $1: $2',
+	'rss-empty' => 'Suapan RSS gagal dimuatkan dari $1!',
+	'rss-fetch-nourl' => 'Ambilan dipanggil tanpa URL!',
+	'rss-invalid-url' => 'URL tidak sah: $1',
+	'rss-parse-error' => 'Ralat ketika menghurai XML untuk RSS',
+	'rss-ns-permission' => 'RSS tidak dibenarkan di ruang nama ini',
+	'rss-url-permission' => 'URL ini tidak dibenarkan untuk disertakan',
 );
 
 /** Dutch (Nederlands)
@@ -585,6 +600,7 @@ $messages['vi'] = array(
 	'rss-invalid-url' => 'URL không hợp lệ: $1',
 	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
 	'rss-ns-permission' => 'Không được phép xem RSS trong không gian tên này',
+	'rss-url-permission' => 'Không cho phép bao gồm URL này',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)

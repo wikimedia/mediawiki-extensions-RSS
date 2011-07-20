@@ -163,6 +163,7 @@ $messages['fi'] = array(
 );
 
 /** French (Français)
+ * @author Crochet.david
  * @author Faure.thomas
  * @author IAlex
  * @author Peter17
@@ -175,6 +176,7 @@ $messages['fr'] = array(
 	'rss-invalid-url' => 'URL non valide : $1',
 	'rss-parse-error' => 'Erreur lors de l’analyse XML du RSS',
 	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
+	'rss-url-permission' => 'Cette URL n’est pas autorisée à être incluse',
 );
 
 /** Franco-Provençal (Arpetan)

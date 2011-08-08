@@ -197,6 +197,7 @@ $messages['gl'] = array(
 	'rss-invalid-url' => 'O enderezo URL non é válido: $1',
 	'rss-parse-error' => 'Erro analítico de XML para o RSS',
 	'rss-ns-permission' => 'O RSS non está permitido neste espazo de nomes',
+	'rss-url-permission' => 'Non está permitido incluír ese enderezo URL',
 );
 
 /** Swiss German (Alemannisch)

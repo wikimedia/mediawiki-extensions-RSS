@@ -609,6 +609,7 @@ $messages['vi'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Chenxiaoqino
  * @author Hydra
+ * @author PhiLiP
  */
 $messages['zh-hans'] = array(
 	'rss-desc' => '在维基页面上显示一个RSS源',
@@ -617,6 +618,8 @@ $messages['zh-hans'] = array(
 	'rss-fetch-nourl' => '读取不网址的情况下调用！',
 	'rss-invalid-url' => '不是有效的网址：$1',
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
+	'rss-ns-permission' => '此名字空间不允许使用RSS',
+	'rss-url-permission' => '此URL已被禁止使用',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)

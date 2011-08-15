@@ -65,13 +65,42 @@ class RSSParser {
 			$this->filterOut = self::explodeOnSpaces( $args['filterout'] );
 		}
 
+		// 'template' is the pagename of a user's itemTemplate including
+		// a further pagename for the feedTemplate
+		// In that way everything is handled via these two pages
+		// and no default pages or templates are used.
+		
+		// 'templatename' is an optional pagename of a user's feedTemplate
+		// In that way it substitutes $1 (default: RSSPost) in MediaWiki:Rss-item
+
 		if ( isset( $args['template'] ) ) {
-			$titleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
-			$article = new Article( $titleObject, 0 );
-			$this->itemTemplate = $article->fetchContent();
+			$itemTemplateTitleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
+			$itemTemplateArticleObject = new Article( $itemTemplateTitleObject, 0 );
+			$this->itemTemplate = $itemTemplateArticleObject->fetchContent();
 		} else {
-			$templateName = isset( $args['templatename'] ) ? $args['templatename'] : 'RSSPost';
-			$this->itemTemplate = wfMsgNoTrans( 'rss-item', $templateName );
+			if ( isset( $args['templatename'] ) ) {
+				$feedTemplatePagename = $args['templatename'];
+			} else {
+
+				// compatibility patch for rss extension
+				
+                                $feedTemplatePagename = 'RSSPost';
+				$feedTemplateTitleObject = Title::newFromText( $feedTemplatePagename, NS_TEMPLATE );
+
+				if ( !$feedTemplateTitleObject->exists() ) {
+					$feedTemplatePagename = Title::makeTitleSafe( NS_MEDIAWIKI, 'Rss-feed' );
+				}
+			}
+
+			// MediaWiki:Rss-item = {{ feedTemplatePagename | title = {{{title}}} | ... }}
+
+			// if the attribute parameter templatename= is not present
+			// then it defaults to
+			// {{ Template:RSSPost | title = {{{title}}} | ... }} - if Template:RSSPost exists from pre-1.9 versions
+			// {{ MediaWiki:Rss-feed | title = {{{title}}} | ... }} - otherwise
+
+			$this->itemTemplate = wfMsgNoTrans( 'rss-item', $feedTemplatePagename );
+
 		}
 	}
 
@@ -213,8 +242,11 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
-		$output = '';
-		if ( isset( $this->itemTemplate ) ) {
+	
+		$renderedFeed = '';
+		
+		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
+		
 			$headcnt = 0;
 			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );
@@ -226,43 +258,48 @@ class RSSParser {
 				}
 
 				if ( $this->canDisplay( $item ) ) {
-					$output .= $this->renderItem( $item, $parser, $frame );
+					$renderedFeed .= $this->renderItem( $item ) . "\n";
 					$headcnt++;
 				}
 			}
-		}
-		return $output;
+
+			$renderedFeed = $parser->recursiveTagParse( $renderedFeed, $frame );
+
+        	}
+        	
+		return $renderedFeed;
 	}
 
 	/**
 	 * Render each item, filtering it out if necessary, applying any highlighting.
 	 *
-	 * @param $item Array: an array produced by RSSData where keys are the
-	 * 						names of the RSS elements
-	 * @param $parser Parser the parser param to pass to recursiveTagParse()
-	 * @param $frame the frame param to pass to recursiveTagParse()
+	 * @param $item Array: an array produced by RSSData where keys are the names of the RSS elements
 	 */
-	protected function renderItem( $item, $parser, $frame ) {
-		$output = "";
-		if ( isset( $parser ) && isset( $frame ) ) {
-			$rendered = $this->itemTemplate;
-			// $info will only be an XML element name, so we're safe
-			// using it.  $item[$info] is handled by the XML parser --
-			// and that means bad RSS with stuff like
-			// <description><script>alert("hi")</script></description> will find its
-			// rogue <script> tags neutered.
-			foreach ( array_keys( $item ) as $info ) {
-				if ( $info != 'link' ) {
-					$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
-				} else {
-					$txt = $this->sanitizeUrl( $item[ $info ] );
-				}
-				$rendered = str_replace( '{{{' . $info . '}}}', $txt, $rendered );
-			}
+	protected function renderItem( $item ) {
 
-			$output = $parser->recursiveTagParse( $rendered, $frame );
+		$renderedItem = $this->itemTemplate;
+
+		// $info will only be an XML element name, so we're safe using it.
+		// $item[$info] is handled by the XML parser --
+		// and that means bad RSS with stuff like
+		// <description><script>alert("hi")</script></description> will find its
+		// rogue <script> tags neutered.
+
+		foreach ( array_keys( $item ) as $info ) {
+			if ( $info != 'link' ) {
+				$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
+			} else {
+				$txt = $this->sanitizeUrl( $item[ $info ] );
+			}
+			$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
 		}
-		return $output;
+
+		// nullify all remaining info items in the template
+		// without a corresponding info in the current feed item
+
+		$renderedItem = preg_replace( "!{{{[^}]+}}}!U", "", $renderedItem );
+
+		return $renderedItem;
 	}
 
 	/**

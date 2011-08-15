@@ -12,7 +12,7 @@ $messages = array();
  * @author Łukasz Garczewski (TOR) <tor@wikia-inc.com>
  */
 $messages['en'] = array(
-	'rss-desc' => 'Displays an RSS feed on a wiki page',
+	'rss-desc' => 'Displays RSS feeds on MediaWiki pages in a standard or in user-definable formats using template pages',
 	'rss-error' => 'Failed to load RSS feed from $1: $2',
 	'rss-empty' => 'Failed to load RSS feed from $1!',
 	'rss-fetch-nourl' => 'Fetch called without a URL!',
@@ -20,7 +20,23 @@ $messages['en'] = array(
 	'rss-parse-error' => 'Error parsing XML for RSS',
 	'rss-ns-permission' => 'RSS is not allowed in this namespace',
 	'rss-url-permission' => 'This URL is not allowed to be included',
-	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} }}',
+	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} | description = {{{description}}} }}',
+	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
+);
+
+$messages['qqq'] = array(
+	'rss-item' => "
+; $1
+: ''not to be localised''
+: The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
+: It allows users to let RSS feeds rendered differently by using different (optional) 'template=<pagename>' parameters in the rss wiki tags.
+; title = {{{title}}} | link = {{{link}}} | ...
+: 'title' (left) is the variable name under which the content of an RSS feed field 'title' (right) is passed to the Template $1 where this is then used in the feed rendering.
+: This ''may'' be localised, but the content of the template $1 page (default [[MediaWiki:Rss-feed]] and potentially other RSS feed template pages on this wiki) needs then to be localised, too.
+: 'title' (right) is a name (property) of RSS feeds and is certainly not to be localised in any way.
+: ''I suggest not to localise anything.''",
 );
 
 /** Afrikaans (Afrikaans)

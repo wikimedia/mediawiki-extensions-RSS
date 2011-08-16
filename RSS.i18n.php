@@ -11,6 +11,7 @@ $messages = array();
 /** English
  * @author Łukasz Garczewski (TOR) <tor@wikia-inc.com>
  */
+
 $messages['en'] = array(
 	'rss-desc' => 'Displays RSS feeds on MediaWiki pages in a standard or in user-definable formats using template pages',
 	'rss-error' => 'Failed to load RSS feed from $1: $2',
@@ -21,7 +22,7 @@ $messages['en'] = array(
 	'rss-ns-permission' => 'RSS is not allowed in this namespace',
 	'rss-url-permission' => 'This URL is not allowed to be included',
 	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} | description = {{{description}}} }}',
-	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+ 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );

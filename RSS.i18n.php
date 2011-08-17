@@ -349,7 +349,9 @@ $messages['lb'] = array(
 	'rss-desc' => 'Weist en RSS-Feed op enger Wiki-Säit',
 	'rss-error' => 'Den RSS-Feed vun $1 konnt net geluede ginn: $2',
 	'rss-empty' => 'Den RSS-Feed vun $1 konnt net geluede ginn!',
+	'rss-fetch-nourl' => 'Ufro ouni URL!',
 	'rss-invalid-url' => 'Keng valabel URL: $1',
+	'rss-parse-error' => 'Feeler beim Parse vum XML fir RSS',
 	'rss-ns-permission' => 'RSS ass an dësem Nummraum net erlaabt',
 	'rss-url-permission' => 'Dës URL däerf net dra sinn',
 );
@@ -378,6 +380,9 @@ $messages['mk'] = array(
 	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
 	'rss-ns-permission' => 'RSS не е допуштен во овој именски простор',
 	'rss-url-permission' => 'Оваа URL-адреса не е дозволена',
+	'rss-feed' => "<!--  Ова се два алтернативни шаблона. Првиот е основно зададениот шаблон за канали -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- туак не вметнувајте нов ред --><!-- Вториот е подобрена верзија што бара Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Malayalam (മലയാളം)

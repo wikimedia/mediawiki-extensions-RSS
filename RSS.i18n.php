@@ -244,6 +244,9 @@ $messages['he'] = array(
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
 	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
 	'rss-url-permission' => 'לא ניתן לכלול את הכתובת הזאת',
+	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Croatian (Hrvatski)

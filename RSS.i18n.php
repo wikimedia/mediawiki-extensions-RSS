@@ -584,6 +584,7 @@ $messages['sl'] = array(
 
 /** Swedish (Svenska)
  * @author Ainali
+ * @author Lokal Profil
  */
 $messages['sv'] = array(
 	'rss-desc' => 'Visar en RSS-feed på en wiki-sida',
@@ -592,6 +593,7 @@ $messages['sv'] = array(
 	'rss-fetch-nourl' => 'Hämtningsförök utan en URL!',
 	'rss-invalid-url' => 'Inte en giltig URL: $1',
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
+	'rss-ns-permission' => 'RSS är inte tillåtet i denna namnrymden',
 );
 
 /** Telugu (తెలుగు)

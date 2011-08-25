@@ -185,6 +185,7 @@ $messages['fi'] = array(
 /** French (Français)
  * @author Crochet.david
  * @author Faure.thomas
+ * @author Gomoko
  * @author IAlex
  * @author Peter17
  */
@@ -197,6 +198,9 @@ $messages['fr'] = array(
 	'rss-parse-error' => 'Erreur lors de l’analyse XML du RSS',
 	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
 	'rss-url-permission' => 'Cette URL n’est pas autorisée à être incluse',
+	'rss-feed' => "<!--  ce qui suit est une alternative entre deux modèles. Le premier est le modèle de base par défaut pour les alimentations -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- ne pas mettre de retour à la ligne ici --><!-- Le second est une version améliorée qui requiert Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Franco-Provençal (Arpetan)
@@ -218,6 +222,9 @@ $messages['gl'] = array(
 	'rss-parse-error' => 'Erro analítico de XML para o RSS',
 	'rss-ns-permission' => 'O RSS non está permitido neste espazo de nomes',
 	'rss-url-permission' => 'Non está permitido incluír ese enderezo URL',
+	'rss-feed' => "<!--  os seguintes son dous modelos alternativos. O primeiro é o modelo por defecto básico para as fontes de novas -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- non empregar unha liña nova aquí --><!-- O segundo é unha versión mellora que necesita Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Swiss German (Alemannisch)

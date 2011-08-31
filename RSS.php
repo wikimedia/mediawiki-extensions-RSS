@@ -20,6 +20,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 // Extension credits that will show up on Special:Version
 $wgExtensionCredits['parserhook'][] = array(
+	'path' => __FILE__,
 	'name' => 'RSS feed',
 	'author' => array( 'Kellan Elliott-McCrea', 'mutante', 'Daniel Kinzler',
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',

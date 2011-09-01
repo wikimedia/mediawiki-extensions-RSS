@@ -27,9 +27,11 @@ $messages['en'] = array(
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Message documentation (Message documentation)
+ * @author Raymond
+ */
 $messages['qqq'] = array(
-	'rss-item' => "
-; $1
+	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
 : It allows users to let RSS feeds rendered differently by using different (optional) 'template=<pagename>' parameters in the rss wiki tags.

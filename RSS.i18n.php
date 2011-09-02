@@ -51,6 +51,23 @@ $messages['af'] = array(
 	'rss-empty' => 'Kon nie die RSS-voer van $1 laai nie!',
 );
 
+/** Arabic (العربية)
+ * @author زكريا
+ */
+$messages['ar'] = array(
+	'rss-desc' => 'اترك تعليقات RSS في صفحة الميدياويكي بصيغة عادية أو محددة الاستخدام باستعمال صفحات القوالب',
+	'rss-error' => 'فشل في تحميل تغذية RSS من $1: $2',
+	'rss-empty' => 'فشل في تحميل تغذية RSS من $1!',
+	'rss-fetch-nourl' => 'طلب تفحص بدون URL!',
+	'rss-invalid-url' => 'عنوان URL غير صالح: $1',
+	'rss-parse-error' => 'خطأ في تحليل XML من أجل RSS',
+	'rss-ns-permission' => 'RSS غير مسموح به في هذا النطاق',
+	'rss-url-permission' => 'URL لا يسمح بإدراجه',
+	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
@@ -173,7 +190,13 @@ $messages['es'] = array(
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'rss-error' => 'بارگیری خوراک آراس‌اس از $1 ناموفق بود: $2',
+	'rss-empty' => 'بارگیری خوراک آراس‌اس از $1 ناموفق بود!',
+	'rss-fetch-nourl' => 'دریافت بدون نشانی صدا زده شد!',
 	'rss-invalid-url' => 'نشانی اینترنتی نامعتبر: $1',
+	'rss-parse-error' => 'خطا در تجزیهٔ ایکس‌ام‌ال برای آراس‌اس',
+	'rss-ns-permission' => 'آراس‌اس برای این فضای نامی مجاز نمی‌باشد',
+	'rss-url-permission' => 'این نشانی برای شامل شدن مجاز نمی‌باشد',
 );
 
 /** Finnish (Suomi)
@@ -639,11 +662,15 @@ $messages['tt-cyrl'] = array(
 
 /** Ukrainian (Українська)
  * @author Arturyatsko
+ * @author Dim Grits
  */
 $messages['uk'] = array(
 	'rss-desc' => 'Відображає канал RSS на сторінці вікі',
 	'rss-error' => 'Не вдалося завантажити RSS-канал від $1: $2',
 	'rss-empty' => 'Не вдалося завантажити RSS-канал від $1!',
+	'rss-fetch-nourl' => 'Вибірка викликана без URL!',
+	'rss-invalid-url' => 'Неприпустима адреса URL: $1',
+	'rss-parse-error' => 'Помилка розбору XML для RSS',
 );
 
 /** Vietnamese (Tiếng Việt)

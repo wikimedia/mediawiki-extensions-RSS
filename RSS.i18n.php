@@ -71,6 +71,7 @@ $messages['ar'] = array(
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Renessaince
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -82,6 +83,9 @@ $messages['be-tarask'] = array(
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
 	'rss-url-permission' => 'Даданьне гэтага URL-адрасу не дазволенае',
+	'rss-feed' => "<!--  ніжэй прадстаўленыя два магчымыя шаблёны. Першы — асноўны дапомны шаблён для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- не ўжывайце тут новы радок --><!-- Другі — палепшаная вэрсія, якая патрабуе Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Breton (Brezhoneg)
@@ -190,6 +194,7 @@ $messages['es'] = array(
  * @author Mjbmr
  */
 $messages['fa'] = array(
+	'rss-desc' => 'خوراک‌های آراس‌اس را در صفحه‌های مدیاویکی به حالت استاندارد و حالت تعریف شده توسط کاربر با استفاده از صفحه‌های الگو، نشان می‌دهد',
 	'rss-error' => 'بارگیری خوراک آراس‌اس از $1 ناموفق بود: $2',
 	'rss-empty' => 'بارگیری خوراک آراس‌اس از $1 ناموفق بود!',
 	'rss-fetch-nourl' => 'دریافت بدون نشانی صدا زده شد!',
@@ -350,6 +355,7 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Iwai.masaharu
+ * @author Schu
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -359,6 +365,7 @@ $messages['ja'] = array(
 	'rss-fetch-nourl' => '取得する URL が指定されていません！',
 	'rss-invalid-url' => '無効な URL: $1',
 	'rss-parse-error' => 'RSS の XML 解析エラー',
+	'rss-ns-permission' => 'RSSは、この名前空間に許可されていません',
 );
 
 /** Georgian (ქართული)
@@ -541,12 +548,18 @@ $messages['pt-br'] = array(
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author Minisarm
  */
 $messages['ro'] = array(
 	'rss-desc' => 'Afișează un flux RSS pe o pagină wiki',
 	'rss-error' => 'Eroare la încărcarea fluxului RSS de la $1: $2',
 	'rss-empty' => 'Eroare la încărcarea fluxului RSS de la $1!',
+	'rss-fetch-nourl' => 'Apel trimis fără un URL!',
+	'rss-invalid-url' => 'Nu este un URL valid: $1',
+	'rss-parse-error' => 'Eroare de analiză XML pentru RSS',
+	'rss-ns-permission' => 'RSS nu este permis în acest spațiu de nume',
+	'rss-url-permission' => 'Acest URL nu este permis să fie inclus',
 );
 
 /** Tarandíne (Tarandíne)
@@ -671,6 +684,8 @@ $messages['uk'] = array(
 	'rss-fetch-nourl' => 'Вибірка викликана без URL!',
 	'rss-invalid-url' => 'Неприпустима адреса URL: $1',
 	'rss-parse-error' => 'Помилка розбору XML для RSS',
+	'rss-ns-permission' => 'RSS не дозволено в цьому просторі імен',
+	'rss-url-permission' => 'Ця URL-адреса не може бути включена',
 );
 
 /** Vietnamese (Tiếng Việt)

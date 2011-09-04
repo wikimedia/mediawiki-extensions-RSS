@@ -49,6 +49,10 @@ $messages['af'] = array(
 	'rss-desc' => "Bied 'n RSS-voer vir 'n wikibladsy",
 	'rss-error' => 'Kon nie die RSS-voer van $1 laai nie, fout: $2',
 	'rss-empty' => 'Kon nie die RSS-voer van $1 laai nie!',
+	'rss-invalid-url' => "Nie 'n geldige URL nie: $1",
+	'rss-parse-error' => 'Ontleding van die RSS se XML het gefaal',
+	'rss-ns-permission' => 'RSS word nie in die naamruimte toegelaat nie',
+	'rss-url-permission' => 'Hierdie URL mag nie ingesluit word nie',
 );
 
 /** Arabic (العربية)
@@ -128,6 +132,14 @@ $messages['cs'] = array(
 	'rss-ns-permission' => 'V tomto jmenném prostoru není RSS dovoleno',
 );
 
+/** Danish (Dansk)
+ * @author Peter Alberti
+ */
+$messages['da'] = array(
+	'rss-invalid-url' => 'Ikke en gyldig URL: $1',
+	'rss-ns-permission' => 'RSS er ikke tilladt i dette navnerum',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  * @author Metalhead64
@@ -179,6 +191,11 @@ $messages['eo'] = array(
 	'rss-fetch-nourl' => 'Akiro vokita sen URL-o!',
 	'rss-invalid-url' => 'Malvalida URL-o: $1',
 	'rss-parse-error' => 'Eraro interpretante XML-on de RSS-o',
+	'rss-ns-permission' => 'RSS-abonado ne estas permesita en ĉi tiu nomspaco',
+	'rss-url-permission' => 'Ĉi tiu URL-o ne estas permesita inkluzivi',
+	'rss-feed' => "<!-- Jen du alternativaj ŝablonoj. La unua estas la baza defaŭlta ŝablono por abonfontoj. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- ne uzu novlinio ĉi tie --><!-- La dua estas plibonigita versio kiu devigas ilon Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Spanish (Español)
@@ -206,10 +223,17 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Jack Phoenix <jack@countervandalism.net>
+ * @author Olli
  */
 $messages['fi'] = array(
+	'rss-desc' => 'Näyttää RSS-syötteitä MediaWiki-sivuilla yleisessä tai käyttäjän määrittämässä muodossa mallinesivuja käyttäen',
 	'rss-error' => 'RSS-syötteen lataaminen osoitteesta $1 epäonnistui: $2',
 	'rss-empty' => 'RSS-syötteen lataaminen osoitteesta $1 epäonnistui!',
+	'rss-fetch-nourl' => 'Syötettä kutsuttiin ilman osoitetta!',
+	'rss-invalid-url' => 'Ei kelpaava osoite: $1',
+	'rss-parse-error' => 'Virhe jäsennettäessä XML:ää RSS:ää varten',
+	'rss-ns-permission' => 'RSS ei ole sallittu tässä nimiavaruudessa',
+	'rss-url-permission' => 'Tätä osoitetta ei saa käyttää',
 );
 
 /** French (Français)
@@ -237,7 +261,17 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'rss-desc' => 'Montre los flux RSS sur les pâges MediaWiki dens un format estandârd ou ben dens un format dèfeni per l’utilisator avouéc les pâges du modèlo.',
+	'rss-error' => 'Empossiblo de chargiér lo flux RSS de $1 : $2',
+	'rss-empty' => 'Empossiblo de chargiér lo flux RSS de $1 !',
+	'rss-fetch-nourl' => 'Apèl passâ sen balyér d’URL !',
 	'rss-invalid-url' => 'URL envalida : $1',
+	'rss-parse-error' => 'Èrror pendent l’analise XML du RSS',
+	'rss-ns-permission' => 'Los flux RSS sont pas ôtorisâs dens cél èspâço de noms',
+	'rss-url-permission' => 'Cela URL est pas ôtorisâ a étre encllua',
+	'rss-feed' => "<!--  cen que siut est una altèrnativa entre doux modèlos. Lo premiér est lo modèlo de bâsa per dèfôt por los flux -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- pas betar de retôrn a la legne ique --><!-- Lo second est una vèrsion mèlyorâ qu’at fôta de l’Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Galician (Galego)
@@ -402,6 +436,7 @@ $messages['lb'] = array(
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Perkunas
  */
 $messages['lt'] = array(
@@ -411,6 +446,7 @@ $messages['lt'] = array(
 	'rss-fetch-nourl' => 'Atsiuntimas iškviestas be nuorodos!',
 	'rss-invalid-url' => 'Nekorektiška nuoroda: $1',
 	'rss-parse-error' => "Klaida analizuojant RSS kanalo XML'ą",
+	'rss-url-permission' => 'Šio URL neleidžiama įtraukti',
 );
 
 /** Macedonian (Македонски)
@@ -504,6 +540,9 @@ $messages['pl'] = array(
 	'rss-parse-error' => 'Błąd analizowania XML dla RSS',
 	'rss-ns-permission' => 'RSS nie jest dostępne w tej przestrzeni nazw',
 	'rss-url-permission' => 'Tego adresu URL nie można załączyć',
+	'rss-feed' => "<!--  Poniżej znajdują się dwa alternatywne szablony. Pierwszy jest podstawowym domyślnym szablonem dla kanałów. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- nie łam tutaj wiersza --><!-- Drugi to ulepszona wersja, która wymaga Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Piedmontese (Piemontèis)
@@ -536,6 +575,7 @@ $messages['pt'] = array(
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Giro720
+ * @author MetalBrasil
  */
 $messages['pt-br'] = array(
 	'rss-desc' => 'Mostra um feed RSS em uma página wiki',
@@ -545,6 +585,10 @@ $messages['pt-br'] = array(
 	'rss-invalid-url' => 'Não é uma URL válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
 	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
+	'rss-url-permission' => 'Não é permitido a inclusão desta URL',
+	'rss-feed' => "<!--  Os seguintes são dois modelos alternativos. O primeiro é o padrão básico para fontes novas -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- Não adicionar uma linha nova aqui --><!-- O segundo é uma versão melhorada quer requer Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Romanian (Română)
@@ -633,6 +677,7 @@ $messages['sl'] = array(
 /** Swedish (Svenska)
  * @author Ainali
  * @author Lokal Profil
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'rss-desc' => 'Visar en RSS-feed på en wiki-sida',
@@ -642,6 +687,7 @@ $messages['sv'] = array(
 	'rss-invalid-url' => 'Inte en giltig URL: $1',
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
 	'rss-ns-permission' => 'RSS är inte tillåtet i denna namnrymden',
+	'rss-url-permission' => 'Denna URL tillåts inte att inkluderas',
 );
 
 /** Telugu (తెలుగు)

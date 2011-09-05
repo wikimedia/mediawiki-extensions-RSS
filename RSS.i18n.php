@@ -556,6 +556,11 @@ $messages['pms'] = array(
 	'rss-fetch-nourl' => "Arcesta fàita sensa n'adrëssa dl'aragnà!",
 	'rss-invalid-url' => "Pa n'anliura bon-a: $1",
 	'rss-parse-error' => "Eror ant l'anàlisi XML për RSS",
+	'rss-ns-permission' => "RSS a l'é pa përmëttù an sto spassi nominal-sì",
+	'rss-url-permission' => 'As peul pa anserì sta URL',
+	'rss-feed' => "<!--  coj ch'a ven-o a son doi stamp alternativ. Ël prim a l'é lë stamp base ëd default për ij feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- dòvra pa ël newline ambelessì --><!-- Lë scond a l'é na vërsion mejorà ch'a ciama Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Portuguese (Português)

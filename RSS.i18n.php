@@ -556,8 +556,8 @@ $messages['pms'] = array(
 	'rss-fetch-nourl' => "Arcesta fàita sensa n'adrëssa dl'aragnà!",
 	'rss-invalid-url' => "Pa n'anliura bon-a: $1",
 	'rss-parse-error' => "Eror ant l'anàlisi XML për RSS",
-	'rss-ns-permission' => "RSS a l'é pa përmëttù an sto spassi nominal-sì",
-	'rss-url-permission' => 'As peul pa anserì sta URL',
+	'rss-ns-permission' => "RSS a l'é pa përmëttù an cost ëspassi nominal-sì",
+	'rss-url-permission' => "Costa adrëssa dl'aragnà a l'é pa autorisà a esse anserìa",
 	'rss-feed' => "<!--  coj ch'a ven-o a son doi stamp alternativ. Ël prim a l'é lë stamp base ëd default për ij feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- dòvra pa ël newline ambelessì --><!-- Lë scond a l'é na vërsion mejorà ch'a ciama Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -757,15 +757,16 @@ $messages['vi'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Anakmalaysia
  * @author Chenxiaoqino
  * @author Hydra
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
-	'rss-desc' => '在维基页面上显示一个RSS源',
+	'rss-desc' => '在MediaWiki页面上使用模板页面，以标准或使用者自订格式显示RSS源',
 	'rss-error' => '自$1: $2加载RSS失败',
 	'rss-empty' => '自$1加载RSS失败',
-	'rss-fetch-nourl' => '读取不网址的情况下调用！',
+	'rss-fetch-nourl' => '无网址情况中进行读取！',
 	'rss-invalid-url' => '不是有效的网址：$1',
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 	'rss-ns-permission' => '此名字空间不允许使用RSS',
@@ -773,12 +774,17 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Anakmalaysia
  * @author Mark85296341
  */
 $messages['zh-hant'] = array(
+	'rss-desc' => '在MediaWiki頁面上使用模板頁面，以標準或用戶自定義格式顯示RSS源',
 	'rss-error' => '自 $1：$2 載入 RSS 失敗',
 	'rss-empty' => '自 $1 載入 RSS 失敗',
+	'rss-fetch-nourl' => '無網址情況中進行讀取！',
 	'rss-invalid-url' => '不是有效的網址：$1',
 	'rss-parse-error' => 'RSS 解析 XML 時出現錯誤',
+	'rss-ns-permission' => '此名字空間不允許使用RSS',
+	'rss-url-permission' => '此網址已被禁止使用',
 );
 

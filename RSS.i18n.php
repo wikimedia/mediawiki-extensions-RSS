@@ -29,8 +29,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Raymond
+ * @author Yekrats
  */
 $messages['qqq'] = array(
+	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
@@ -619,6 +621,8 @@ $messages['roa-tara'] = array(
 	'rss-error' => "Carecamende d'u feed RSS fallite da $1: $2",
 	'rss-empty' => "Carecamende d'u feed RSS fallite da $1!",
 	'rss-invalid-url' => "Non g'è 'na URL valide: $1",
+	'rss-ns-permission' => "Le RSS non ge sonde permesse jndr'à stu namespace",
+	'rss-url-permission' => "Sta URL non g'è consendite pe essere ingluse",
 );
 
 /** Russian (Русский)

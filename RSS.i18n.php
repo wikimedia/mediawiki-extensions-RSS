@@ -620,7 +620,9 @@ $messages['roa-tara'] = array(
 	'rss-desc' => "Fà vedè 'nu feed RSS sus a 'na pàgene de uicchi",
 	'rss-error' => "Carecamende d'u feed RSS fallite da $1: $2",
 	'rss-empty' => "Carecamende d'u feed RSS fallite da $1!",
+	'rss-fetch-nourl' => 'Esecuzione chiamate senza URL!',
 	'rss-invalid-url' => "Non g'è 'na URL valide: $1",
+	'rss-parse-error' => "Errore analizzanne l'XML pu RSS",
 	'rss-ns-permission' => "Le RSS non ge sonde permesse jndr'à stu namespace",
 	'rss-url-permission' => "Sta URL non g'è consendite pe essere ingluse",
 );
@@ -775,6 +777,9 @@ $messages['zh-hans'] = array(
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 	'rss-ns-permission' => '此名字空间不允许使用RSS',
 	'rss-url-permission' => '此URL已被禁止使用',
+	'rss-feed' => "<!--  以下是两种可供选择的模板，第一种是默认的进料模板 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- don't use newline here --><!-- 第二种是需要Extension:ParserFunctions的改进版本 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
@@ -790,5 +795,8 @@ $messages['zh-hant'] = array(
 	'rss-parse-error' => 'RSS 解析 XML 時出現錯誤',
 	'rss-ns-permission' => '此名字空間不允許使用RSS',
 	'rss-url-permission' => '此網址已被禁止使用',
+	'rss-feed' => "<!-​​- 以下是兩種可供選擇的模板，第一種是默認的進料模板-->; '''<span class='plainlinks'>[{{{link}}} {{{title }}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- 在此切勿換行 --><!-- 第二種是需要Extension:ParserFunctions的改進版本--><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{ date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{ {date}}}}}|}} -->",
 );
 

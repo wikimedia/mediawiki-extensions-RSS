@@ -644,6 +644,23 @@ $messages['ru'] = array(
 : {{{author}}} {{{date}}}<!-- не используйте здесь перевод строки --><!-- Второй - улучшенная версия, требующая расширения Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Rusyn (Русиньскый)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'rss-desc' => 'Зобразує на вікісторінцї RSS канал',
+	'rss-error' => 'Не подарило ся начітати RSS канал з $1: $2',
+	'rss-empty' => 'Не подарило ся начітати RSS канал з $1!',
+	'rss-fetch-nourl' => 'Не быв становленый URL, котрый ся мать начітати!',
+	'rss-invalid-url' => 'Неправилне URL: $1',
+	'rss-parse-error' => 'Хыба парсованя XML про RSS',
+	'rss-ns-permission' => 'У тім просторї назв не є доволене RSS',
+	'rss-url-permission' => 'Тота URL не є доволена быти включена',
+	'rss-feed' => "<!--  ниже суть дві можны шаблоны. Перша - основна шаблона про каналы -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- не хоснуйте ту переход на новый рядок --><!-- Другый - вылїпшена верзія, котра потребує росшырїня Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
+);
+
 /** Sakha (Саха тыла)
  * @author HalanTul
  */
@@ -743,6 +760,9 @@ $messages['uk'] = array(
 	'rss-parse-error' => 'Помилка розбору XML для RSS',
 	'rss-ns-permission' => 'RSS не дозволено в цьому просторі імен',
 	'rss-url-permission' => 'Ця URL-адреса не може бути включена',
+	'rss-feed' => "<!--  нижче наведено два можливих шаблони. Перший - це основний шаблон для стрічки -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- не використовуйте тут перехід на новий рядок --><!-- Другий - покращена версія, що потребує розширення Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Vietnamese (Tiếng Việt)

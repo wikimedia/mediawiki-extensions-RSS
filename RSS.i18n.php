@@ -89,7 +89,7 @@ $messages['be-tarask'] = array(
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
 	'rss-url-permission' => 'Даданьне гэтага URL-адрасу не дазволенае',
-	'rss-feed' => "<!--  ніжэй прадстаўленыя два магчымыя шаблёны. Першы — асноўны дапомны шаблён для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+	'rss-feed' => "<!--  ніжэй рададзеныя два магчымыя шаблёны. Першы — асноўны шаблён па змоўчваньні для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не ўжывайце тут новы радок --><!-- Другі — палепшаная вэрсія, якая патрабуе Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
@@ -132,6 +132,10 @@ $messages['cs'] = array(
 	'rss-invalid-url' => 'Není platné URL: $1',
 	'rss-parse-error' => 'Chyba parsování XML pro RSS',
 	'rss-ns-permission' => 'V tomto jmenném prostoru není RSS dovoleno',
+	'rss-url-permission' => 'Není dovoleno vložit toto URL',
+	'rss-feed' => "<!--  Následují dvě alternativní šablony. První je základní implicitní šablona zdrojů -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- zde nevkládat nový řádek --><!-- Druhá je vylepšná verze, která vyžaduje rozšíření Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Danish (Dansk)
@@ -395,13 +399,17 @@ $messages['it'] = array(
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'rss-desc' => 'ウィキページのRSSフィードを表示',
+	'rss-desc' => '標準、又はテンプレートページを使用したユーザー定義可能なフォーマットで、MediaWiki ページにRSSフィードを表示します。',
 	'rss-error' => '$1からのRSSフィードの読み込みに失敗しました：$2',
 	'rss-empty' => '$1からのRSSフィードの読み込みに失敗しました！',
 	'rss-fetch-nourl' => '取得する URL が指定されていません！',
 	'rss-invalid-url' => '無効な URL: $1',
 	'rss-parse-error' => 'RSS の XML 解析エラー',
 	'rss-ns-permission' => 'RSSは、この名前空間に許可されていません',
+	'rss-url-permission' => 'この URL を含ませることは許可されていません',
+	'rss-feed' => "<!--  以下は、代替の2つのテンプレートです。 最初は、フィードの基本的な既定のテンプレートです。 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- 改行文字をここで使わないでください。 --><!-- 次は、拡張機能:パーサー関数が必要な改良されたバージョンです。 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Georgian (ქართული)

@@ -298,6 +298,7 @@ $messages['gl'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
@@ -307,6 +308,11 @@ $messages['gsw'] = array(
 	'rss-fetch-nourl' => 'Abruef ohni Aagab vun ere URL!',
 	'rss-invalid-url' => 'Uugiltigi URL: $1',
 	'rss-parse-error' => 'Fähler bim Parse vu XML fir RSS',
+	'rss-ns-permission' => 'RSS isch in däm Namensruum nit erlaubt',
+	'rss-url-permission' => 'Die URL derf nit enthalte sy',
+	'rss-feed' => "<!-- Die Vorlage wo folge sin zwei alternativ zuenander yysetzbari Vorlage. Die erst isch d Standardvorlag für Feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- Aa dere Stell bitte kei nöii Zyyle yyfiege. --><!-- D zweit isch e verbesserti Vorlag, wo für d Softwareerwyterig ParserFunctions bruucht wird. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Hebrew (עברית)

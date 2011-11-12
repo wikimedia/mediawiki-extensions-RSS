@@ -106,6 +106,7 @@ $messages['br'] = array(
 	'rss-invalid-url' => 'URL direizh : $1',
 	'rss-parse-error' => 'Fazi en dielfennañ XML evit RSS',
 	'rss-ns-permission' => "N'haller ket ober gant lanvadoù RSS en esaouenn anv-mañ",
+	'rss-url-permission' => "N'haller ket ober gant an URL-mañ.",
 );
 
 /** Bosnian (Bosanski)

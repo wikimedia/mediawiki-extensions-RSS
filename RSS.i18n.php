@@ -355,6 +355,11 @@ $messages['hsb'] = array(
 	'rss-fetch-nourl' => 'Wotwołanje bjez URL!',
 	'rss-invalid-url' => 'Njepłaćiwy URL: $1',
 	'rss-parse-error' => 'Zmylk při parsowanju XML za RSS',
+	'rss-ns-permission' => 'RSS njeje dowoleny w tutym mjenowym rumje',
+	'rss-url-permission' => 'Tutón URL njesmě wobsahowany być',
+	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Interlingua (Interlingua)

@@ -758,7 +758,7 @@ $messages['tl'] = array(
 	'rss-parse-error' => 'Mali ang pagbabanghay ng XML para sa RSS',
 );
 
-/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+/** Tatar (Cyrillic script) (Татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(

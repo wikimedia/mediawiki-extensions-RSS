@@ -27,7 +27,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
 	),
 	'version' => '1.90 20110815',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:RSS',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
 );
 

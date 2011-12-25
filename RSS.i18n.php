@@ -541,7 +541,7 @@ $messages['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'rss-desc' => 'Viser en RSS-mating på en wikiside',
 	'rss-error' => 'Kunne ikke laste RSS-mating fra $1: $2',
 	'rss-empty' => 'Kunne ikke laste RSS-mating fra $1.',

@@ -241,6 +241,9 @@ $messages['fi'] = array(
 	'rss-parse-error' => 'Virhe jäsennettäessä XML:ää RSS:ää varten',
 	'rss-ns-permission' => 'RSS ei ole sallittu tässä nimiavaruudessa',
 	'rss-url-permission' => 'Tätä osoitetta ei saa käyttää',
+	'rss-feed' => "<!--  seuraavat ovat kaksi vaihtoehtoista mallinetta. Ensimmäinen on perusmalline syötteille -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- älä käytä rivinvaihtoa tässä --><!-- Toinen on kehitetty versio, joka tarvitsee ParserFunctions-lisäosan --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** French (Français)
@@ -395,6 +398,7 @@ $messages['id'] = array(
 
 /** Italian (Italiano)
  * @author Beta16
+ * @author F. Cosoleto
  * @author Gianfranco
  */
 $messages['it'] = array(
@@ -403,6 +407,8 @@ $messages['it'] = array(
 	'rss-empty' => 'Non è stato possibile possibile caricare feed RSS da $1!',
 	'rss-invalid-url' => 'Non è un URL valido: $1',
 	'rss-parse-error' => 'Errore di parsing XML per RSS',
+	'rss-ns-permission' => 'RSS non è consentito in questo namespace',
+	'rss-url-permission' => 'Questo URL non può essere incluso',
 );
 
 /** Japanese (日本語)
@@ -519,6 +525,18 @@ $messages['ms'] = array(
 : {{{author}}} {{{date}}}<!-- jangan letak baris baru di sini --><!-- Yang kedua ialah versi diperkemas yang memerlukan Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'rss-desc' => 'Viser en RSS-mating på en wikiside',
+	'rss-error' => 'Kunne ikke laste RSS-mating fra $1: $2',
+	'rss-empty' => 'Kunne ikke laste RSS-mating fra $1.',
+	'rss-fetch-nourl' => 'Henting kallet uten en URL!',
+	'rss-invalid-url' => 'Ikke en gyldig URL: $1',
+	'rss-parse-error' => 'Feil ved XML-tolkning for RSS',
+);
+
 /** Dutch (Nederlands)
  * @author Mitchel Corstjens
  * @author SPQRobin
@@ -536,18 +554,6 @@ $messages['nl'] = array(
 	'rss-feed' => "<!--  Hieronder staan twee alternatieve sjablonen. Het eerste is het standaardsjabloon voor feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- Hier geen nieuwe regel starten. --><!-- Het tweede sjabloon is een verbeterde versie waarvoor de uitbreiding ParserFunctions nodig is. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'rss-desc' => 'Viser en RSS-mating på en wikiside',
-	'rss-error' => 'Kunne ikke laste RSS-mating fra $1: $2',
-	'rss-empty' => 'Kunne ikke laste RSS-mating fra $1.',
-	'rss-fetch-nourl' => 'Henting kallet uten en URL!',
-	'rss-invalid-url' => 'Ikke en gyldig URL: $1',
-	'rss-parse-error' => 'Feil ved XML-tolkning for RSS',
 );
 
 /** Polish (Polski)

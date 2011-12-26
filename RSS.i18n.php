@@ -405,6 +405,7 @@ $messages['it'] = array(
 	'rss-desc' => 'Visualizza un feed RSS in una pagina wiki',
 	'rss-error' => 'Non è stato possibile caricare da $1 il feed RSS: $2',
 	'rss-empty' => 'Non è stato possibile possibile caricare feed RSS da $1!',
+	'rss-fetch-nourl' => 'Chiamata sprovvista di un URL!',
 	'rss-invalid-url' => 'Non è un URL valido: $1',
 	'rss-parse-error' => 'Errore di parsing XML per RSS',
 	'rss-ns-permission' => 'RSS non è consentito in questo namespace',

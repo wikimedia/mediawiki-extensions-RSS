@@ -206,12 +206,14 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Imre
  * @author Locos epraix
  */
 $messages['es'] = array(
 	'rss-desc' => 'Muestra un feed RSS en una página wiki',
 	'rss-error' => 'No se pudo cargar el feed RSS desde $1: $2',
 	'rss-empty' => 'No se pudo cargar feed RSS desde $1!',
+	'rss-invalid-url' => 'No es una URL válida: $1',
 );
 
 /** Persian (فارسی)

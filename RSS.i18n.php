@@ -654,6 +654,9 @@ $messages['roa-tara'] = array(
 	'rss-parse-error' => "Errore analizzanne l'XML pu RSS",
 	'rss-ns-permission' => "Le RSS non ge sonde permesse jndr'à stu namespace",
 	'rss-url-permission' => "Sta URL non g'è consendite pe essere ingluse",
+	'rss-feed' => "<!--  le seguende sonde doje template alternative. 'U prime jè 'nu template de base pe le feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- no scè ausanne 'na linea nove aqquà --><!-- 'U seconde jè 'na versione migliorate ca vole le Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Russian (Русский)
@@ -700,6 +703,13 @@ $messages['sah'] = array(
 	'rss-fetch-nourl' => 'Выборканы URL-ла суох көрдөөбүккүн!',
 	'rss-invalid-url' => 'Сатаммат URL: $1',
 	'rss-parse-error' => 'RSS аналлаах XML ырытыытын алҕаһа',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'rss-invalid-url' => 'වලංගු URL ලිපිනයක් නොවේ: $1',
 );
 
 /** Slovak (Slovenčina)

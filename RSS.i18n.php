@@ -710,7 +710,11 @@ $messages['sah'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'rss-error' => '$1 ගෙන් RSS පෝෂණය පූරණය කිරීමට අපොහොසත් වුණි: $2',
+	'rss-empty' => '$1 ගෙන් RSS පෝෂණය පූරණය කිරීමට අපොහොසත් වුණි!',
 	'rss-invalid-url' => 'වලංගු URL ලිපිනයක් නොවේ: $1',
+	'rss-ns-permission' => 'මෙම නාමඅවකාශයෙහි RSS සඳහා ඉඩ ලබා නොදේ',
+	'rss-url-permission' => 'මෙම URL ලිපිනය අඩංගු කිරීමට ඉඩ නොදේ',
 );
 
 /** Slovak (Slovenčina)

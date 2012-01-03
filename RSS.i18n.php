@@ -712,7 +712,9 @@ $messages['sah'] = array(
 $messages['si'] = array(
 	'rss-error' => '$1 ගෙන් RSS පෝෂණය පූරණය කිරීමට අපොහොසත් වුණි: $2',
 	'rss-empty' => '$1 ගෙන් RSS පෝෂණය පූරණය කිරීමට අපොහොසත් වුණි!',
+	'rss-fetch-nourl' => 'URL ලිපිනයකින් තොරව පමුණුවන්න කියා ඇත!',
 	'rss-invalid-url' => 'වලංගු URL ලිපිනයක් නොවේ: $1',
+	'rss-parse-error' => 'RSS සඳහා XML සැකසීමේ දෝෂය',
 	'rss-ns-permission' => 'මෙම නාමඅවකාශයෙහි RSS සඳහා ඉඩ ලබා නොදේ',
 	'rss-url-permission' => 'මෙම URL ලිපිනය අඩංගු කිරීමට ඉඩ නොදේ',
 );

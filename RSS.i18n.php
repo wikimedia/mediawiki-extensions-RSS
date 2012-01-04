@@ -339,6 +339,13 @@ $messages['he'] = array(
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Hindi (हिन्दी)
+ * @author Ansumang
+ */
+$messages['hi'] = array(
+	'rss-invalid-url' => 'मान्य URL नहीं:$1',
+);
+
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  */

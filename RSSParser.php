@@ -84,7 +84,7 @@ class RSSParser {
 
 				// compatibility patch for rss extension
 				
-                                $feedTemplatePagename = 'RSSPost';
+				$feedTemplatePagename = 'RSSPost';
 				$feedTemplateTitleObject = Title::newFromText( $feedTemplatePagename, NS_TEMPLATE );
 
 				if ( !$feedTemplateTitleObject->exists() ) {

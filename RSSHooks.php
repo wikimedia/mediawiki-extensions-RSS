@@ -17,7 +17,7 @@ class RSSHooks {
 	 * @param $args Array: value associative list of the element attributes and
 	 * 						their values.
 	 * @param $parser Parser
-	 * @param $frame Frame parser context
+	 * @param $frame PPFrame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSAllowedFeeds;

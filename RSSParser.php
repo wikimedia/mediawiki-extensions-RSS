@@ -14,6 +14,11 @@ class RSSParser {
 	protected $error;
 	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
 
+	/**
+	 * @var RSSData
+	 */
+	public $rss;
+
 	public $client;
 
 	/**

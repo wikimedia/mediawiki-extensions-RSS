@@ -223,6 +223,7 @@ $messages['eo'] = array(
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Imre
  * @author Locos epraix
  */
@@ -231,6 +232,12 @@ $messages['es'] = array(
 	'rss-error' => 'No se pudo cargar el feed RSS desde $1: $2',
 	'rss-empty' => 'No se pudo cargar feed RSS desde $1!',
 	'rss-invalid-url' => 'No es una URL válida: $1',
+	'rss-parse-error' => 'Error al analizar el código XML del RSS',
+	'rss-ns-permission' => 'No está permitido el formato RSS en este espacio de nombres',
+	'rss-url-permission' => 'Esta URL no puede ser incluida',
+	'rss-feed' => "<!--  A continuación se muestran dos plantillas alternativas. The first is the basic default template forLa primera es la plantilla básica por defecto para fuentes web (feeds) -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- no use una nueva línea aquí --><!-- La segunda es una versión mejorada que requiere Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Persian (فارسی)

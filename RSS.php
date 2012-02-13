@@ -26,7 +26,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',
 		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
 	),
-	'version' => '1.91 20120213',
+	'version' => '1.92 20120213',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
 );
@@ -68,3 +68,7 @@ $wgRSSProxy = false;
 
 // default date format of item publication dates see http://www.php.net/date
 $wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
+
+// limit the number of characters in the item description
+// or set to false for unlimited length.
+// $wgRSSItemMaxLength = 100;

@@ -2,6 +2,8 @@
 
 class RSSParser {
 	protected $maxheads = 32;
+	protected $date = "Y-m-d H:i:s";
+	protected $ItemMaxLength = 200;
 	protected $reversed = false;
 	protected $highlight = array();
 	protected $filter = array();
@@ -37,7 +39,7 @@ class RSSParser {
 	 * and return an object that can produce rendered output.
 	 */
 	function __construct( $url, $args ) {
-		global $wgRSSDateDefaultFormat;
+		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
 		
 		$this->url = $url;
 
@@ -60,8 +62,6 @@ class RSSParser {
 		case ( isset( $wgRSSDateDefaultFormat ) ):
 			$this->date = $wgRSSDateDefaultFormat;
 			break;
-		default:
-			$this->date = "Y-m-d H:i:s";
 		}
 		
 		# Get highlight terms from argument array
@@ -75,6 +75,16 @@ class RSSParser {
 			$this->filter = self::explodeOnSpaces( $args['filter'] );
 		}
 
+		# Get a maximal length for item texts
+		switch ( true ) {
+		case ( isset( $args['item-max-length'] ) ):
+			$this->ItemMaxLength = $args['item-max-length'];
+			break;
+		case ( isset( $wgRSSItemMaxLength ) ):
+			$this->ItemMaxLength = $wgRSSItemMaxLength;
+			break;
+		}
+		
 		if ( isset( $args['filterout'] ) ) {
 			$this->filterOut = self::explodeOnSpaces( $args['filterout'] );
 		}
@@ -298,6 +308,7 @@ class RSSParser {
 		// and that means bad RSS with stuff like
 		// <description><script>alert("hi")</script></description> will find its
 		// rogue <script> tags neutered.
+		// use the overloaded multi byte wrapper functions in GlobalFunctions.php
 
 		foreach ( array_keys( $item ) as $info ) {
 			switch ( $info ) {
@@ -311,8 +322,12 @@ class RSSParser {
 				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item[ $info ] ) ) );
 				date_default_timezone_set( $tempTimezone );
 				break;
-			default: 
-				$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
+			default:
+				$str = $this->escapeTemplateParameter( $item[ $info ] ); 
+				if ( mb_strlen( $str ) > $this->ItemMaxLength ) {
+					$str = mb_substr( $str, 0, $this->ItemMaxLength ) . " ...";
+				}
+				$txt = $this->highlightTerms(  $str );
 			}
 			
 			$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );

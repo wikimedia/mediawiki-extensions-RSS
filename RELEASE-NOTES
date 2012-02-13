@@ -2,8 +2,6 @@ RELEASE NOTES of the MediaWiki extension RSS
 http://www.mediawiki.org/wiki/Extension:RSS
 
 === TO DO ===
-* bug 30377 add a new parameter to limit the number of characters when rendering
-  the channel item <description>
 * set an upper default limit for HttpRequest request size when fetching feeds
   doing a HEAD request first to ask for the size but that value may not be
   available. Check how much data is returned as its coming back
@@ -15,8 +13,11 @@ http://www.mediawiki.org/wiki/Extension:RSS
 * bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
   parsing differently flavoured RSS feeds
 
-=== Version 1.91 2012-02-13 ===
+=== Version 1.92 2012-02-13 ===
 * added optional date= attribute and $wgRSSDateDefaultFormat parameter
+* added optional item-max-length= attribute and $wgRSSItemMaxLength parameter
+  fixes bug 30377 add a new parameter to limit the number of characters when 
+  rendering the channel item <description>
 
 === Version 1.90 2011-08-15 ===
 * removed parsing of each single channel subelement (item)

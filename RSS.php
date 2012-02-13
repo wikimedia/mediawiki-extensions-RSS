@@ -26,7 +26,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',
 		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
 	),
-	'version' => '1.90 20110815',
+	'version' => '1.91 20120213',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
 );
@@ -65,3 +65,6 @@ $wgRSSUserAgent = 'MediaWikiRSS/0.02 (+http://www.mediawiki.org/wiki/Extension:R
 
 // Proxy server to use for fetching feeds
 $wgRSSProxy = false;
+
+// default date format of item publication dates see http://www.php.net/date
+$wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";

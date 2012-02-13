@@ -37,6 +37,8 @@ class RSSParser {
 	 * and return an object that can produce rendered output.
 	 */
 	function __construct( $url, $args ) {
+		global $wgRSSDateDefaultFormat;
+		
 		$this->url = $url;
 
 		# Get max number of headlines from argument-array
@@ -50,11 +52,18 @@ class RSSParser {
 		}
 
 		# Get date format from argument array
-		# FIXME: not used yet
-		if ( isset( $args['date'] ) ) {
+		# or use a default value
+		switch ( true ) {
+		case ( isset( $args['date'] ) ):
 			$this->date = $args['date'];
+			break;
+		case ( isset( $wgRSSDateDefaultFormat ) ):
+			$this->date = $wgRSSDateDefaultFormat;
+			break;
+		default:
+			$this->date = "Y-m-d H:i:s";
 		}
-
+		
 		# Get highlight terms from argument array
 		if ( isset( $args['highlight'] ) ) {
 			# mapping to lowercase here so the regex can be case insensitive below.
@@ -291,11 +300,21 @@ class RSSParser {
 		// rogue <script> tags neutered.
 
 		foreach ( array_keys( $item ) as $info ) {
-			if ( $info != 'link' ) {
-				$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
-			} else {
+			switch ( $info ) {
+			case 'link':
 				$txt = $this->sanitizeUrl( $item[ $info ] );
+				break;
+			case 'date':
+				// PHP > 5.3.0 users can better use date_create_from_format method to reformat a date string
+				$tempTimezone = date_default_timezone_get();
+				date_default_timezone_set( 'UTC' );
+				$txt = date( $this->date, strtotime( $item[ $info ] ) );
+				date_default_timezone_set( $tempTimezone );
+				break;
+			default: 
+				$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
 			}
+			
 			$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
 		}
 

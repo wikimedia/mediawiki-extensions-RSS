@@ -15,6 +15,9 @@ http://www.mediawiki.org/wiki/Extension:RSS
 * bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
   parsing differently flavoured RSS feeds
 
+=== Version 1.91 2012-02-13 ===
+* added optional date= attribute and $wgRSSDateDefaultFormat parameter
+
 === Version 1.90 2011-08-15 ===
 * removed parsing of each single channel subelement (item)
 * only the finally constructed feed is sent to the recursive parser:

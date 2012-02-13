@@ -55,11 +55,8 @@ class RSSData {
 	protected function rssTokenToName( $n ) {
 		switch( $n ) {
 			case 'dc:date':
-				return 'date';
-				# parse "2010-10-18T18:07:00Z"
 			case 'pubDate':
 				return 'date';
-				# parse RFC date
 			case 'dc:creator':
 				return 'author';
 			case 'title':

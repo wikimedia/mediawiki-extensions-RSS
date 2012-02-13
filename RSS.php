@@ -71,4 +71,5 @@ $wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
 
 // limit the number of characters in the item description
 // or set to false for unlimited length.
+// $wgRSSItemMaxLength = false;
 // $wgRSSItemMaxLength = 100;

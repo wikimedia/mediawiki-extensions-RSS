@@ -80,7 +80,7 @@ class RSSParser {
 		case ( isset( $args['item-max-length'] ) ):
 			$this->ItemMaxLength = $args['item-max-length'];
 			break;
-		case ( isset( $wgRSSItemMaxLength ) ):
+		case ( isset( $wgRSSItemMaxLength ) && is_numeric( $wgRSSItemMaxLength ) ):
 			$this->ItemMaxLength = $wgRSSItemMaxLength;
 			break;
 		}

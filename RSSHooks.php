@@ -1,6 +1,7 @@
 <?php
 
 class RSSHooks {
+
 	/**
 	 * Tell the parser how to handle <rss> elements
 	 * @param $parser Parser Object
@@ -21,25 +22,56 @@ class RSSHooks {
 	 * @param $frame PPFrame parser context
 	 * @return string
 	 */
-	static function renderRss( $input, $args, $parser, $frame ) {
-		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSAllowedFeeds;
+	static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
+		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces,
+			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
+
 			$ns = $parser->getTitle()->getNamespace();
 			$checkNS = array_flip( $wgRSSNamespaces );
 
 			if( !isset( $checkNS[$ns] ) ) {
-				return wfMessage( 'rss-ns-permission' )->text();
+				return RSSUtils::RSSError( 'rss-ns-permission' );
 			}
 		}
 
-		if ( count( $wgRSSAllowedFeeds ) && !in_array( $input, $wgRSSAllowedFeeds ) ) {
-			return wfMessage( 'rss-url-permission' )->text();
+		if ( isset( $wgRSSAllowedFeeds ) ) {
+			return RSSUtils::RSSError( 'rss-deprecated-wgrssallowedfeeds-found' );
+		}
+
+		# disallow because there is no whitelist at all or an empty whitelist
+
+		if ( !isset( $wgRSSUrlWhitelist )
+			|| !is_array( $wgRSSUrlWhitelist )
+			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ) {
+
+			return RSSUtils::RSSError( 'rss-empty-whitelist',
+				$input
+			);
+
+		}
+
+		# disallow the feed url because the url is not whitelisted;  or
+		# disallow because the wildcard joker is not present to allow any feed url
+		# which can be dangerous
+
+		if ( !( in_array( $input, $wgRSSUrlWhitelist ) )
+			&& !( in_array( "*", $wgRSSUrlWhitelist ) ) ) {
+
+			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
+			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
+
+			return RSSUtils::RSSError( 'rss-url-is-not-whitelisted',
+				array( $input, $listOfAllowed, $numberAllowed )
+			);
+
 		}
 
 		if ( !Http::isValidURI( $input ) ) {
-			return wfMessage( 'rss-invalid-url', htmlspecialchars( $input ) )->text();
+			return RSSUtils::RSSError( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
+
 		if ( $wgRSSCacheCompare ) {
 			$timeout = $wgRSSCacheCompare;
 		} else {
@@ -58,9 +90,10 @@ class RSSHooks {
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
-			return wfMessage( 'rss-empty', htmlspecialchars( $input ) )->text();
+			return RSSUtils::RSSError( 'rss-empty', htmlspecialchars( $input ) );
 		}
 
 		return $rss->renderFeed( $parser, $frame );
 	}
+
 }

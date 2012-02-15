@@ -316,7 +316,6 @@ class RSSParser {
 				$txt = $this->sanitizeUrl( $item[ $info ] );
 				break;
 			case 'date':
-				// PHP > 5.3.0 users can better use date_create_from_format method to reformat a date string
 				$tempTimezone = date_default_timezone_get();
 				date_default_timezone_set( 'UTC' );
 				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item[ $info ] ) ) );

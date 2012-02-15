@@ -795,6 +795,13 @@ $messages['sv'] = array(
 	'rss-url-permission' => 'Denna URL tillåts inte att inkluderas',
 );
 
+/** Tamil (தமிழ்)
+ * @author Shanmugamp7
+ */
+$messages['ta'] = array(
+	'rss-invalid-url' => 'செல்லாத இணையமுகவரி (URL):$1',
+);
+
 /** Telugu (తెలుగు)
  * @author రహ్మానుద్దీన్
  */

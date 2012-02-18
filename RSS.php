@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.90
+ * @version 1.93
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -26,7 +26,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',
 		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
 	),
-	'version' => '1.92 20120213',
+	'version' => '1.93 20120218',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
 );

@@ -55,13 +55,10 @@ class RSSParser {
 
 		# Get date format from argument array
 		# or use a default value
-		switch ( true ) {
-		case ( isset( $args['date'] ) ):
+		if ( isset( $args['date'] ) ) {
 			$this->date = $args['date'];
-			break;
-		case ( isset( $wgRSSDateDefaultFormat ) ):
+		} elseif ( isset( $wgRSSDateDefaultFormat ) ) {
 			$this->date = $wgRSSDateDefaultFormat;
-			break;
 		}
 		
 		# Get highlight terms from argument array
@@ -76,13 +73,10 @@ class RSSParser {
 		}
 
 		# Get a maximal length for item texts
-		switch ( true ) {
-		case ( isset( $args['item-max-length'] ) ):
+		if ( isset( $args['item-max-length'] ) ) {
 			$this->ItemMaxLength = $args['item-max-length'];
-			break;
-		case ( isset( $wgRSSItemMaxLength ) && is_numeric( $wgRSSItemMaxLength ) ):
+		} elseif ( isset( $wgRSSItemMaxLength ) && is_numeric( $wgRSSItemMaxLength ) ) {
 			$this->ItemMaxLength = $wgRSSItemMaxLength;
-			break;
 		}
 		
 		if ( isset( $args['filterout'] ) ) {

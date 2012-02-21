@@ -231,6 +231,7 @@ $messages['es'] = array(
 	'rss-desc' => 'Muestra un feed RSS en una página wiki',
 	'rss-error' => 'No se pudo cargar el feed RSS desde $1: $2',
 	'rss-empty' => 'No se pudo cargar feed RSS desde $1!',
+	'rss-fetch-nourl' => 'Comando "fetch" llamado sin dirección URL',
 	'rss-invalid-url' => 'No es una URL válida: $1',
 	'rss-parse-error' => 'Error al analizar el código XML del RSS',
 	'rss-ns-permission' => 'No está permitido el formato RSS en este espacio de nombres',

@@ -52,7 +52,7 @@ $wgRSSCacheAge = 3600;
 $wgRSSCacheCompare = false;
 
 // 5 second timeout
-$wgRSSFetchTimeout = 5;
+$wgRSSFetchTimeout = 15;
 
 // Ignore the RSS tag in all but the namespaces listed here.
 // null (the default) means the <rss> tag can be used anywhere.

@@ -34,7 +34,7 @@ class RSSHooks {
 
 		switch ( true ) {
 	
-		# disallow because there is no whitelist or emtpy whitelist
+		# disallow because there is no whitelist or empty whitelist
 		case ( !isset( $wgRSSUrlWhitelist ) 
 			|| !is_array( $wgRSSUrlWhitelist )
 			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ):

@@ -1,6 +1,7 @@
 <?php
 
 class RSSHooks {
+
 	/**
 	 * Tell the parser how to handle <rss> elements
 	 * @param $parser Parser Object
@@ -20,7 +21,7 @@ class RSSHooks {
 	 * @param $frame PPFrame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
-		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSAllowedFeeds;
+		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSUrlWhitelist;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
 			$ns = $parser->getTitle()->getNamespace();
@@ -31,10 +32,32 @@ class RSSHooks {
 			}
 		}
 
-		if ( count( $wgRSSAllowedFeeds ) && !in_array( $input, $wgRSSAllowedFeeds ) ) {
-			return wfMsg( 'rss-url-permission' );
-		}
+		switch ( true ) {
+	
+		# disallow because there is no whitelist or emtpy whitelist
+		case ( !isset( $wgRSSUrlWhitelist ) 
+			|| !is_array( $wgRSSUrlWhitelist )
+			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ):
+			return RSSUtils::RSSError( 'rss-empty-whitelist',
+				$input
+			);
+			break;
 
+		# allow
+		case ( in_array( "*", $wgRSSUrlWhitelist ) ):
+		case ( in_array( $input, $wgRSSUrlWhitelist ) ):
+			break;
+
+		# otherwise disallow
+		case ( !in_array( $input, $wgRSSUrlWhitelist ) ):
+		default:
+			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
+			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
+			return RSSUtils::RSSError( 'rss-url-is-not-whitelisted',
+				array( $input, $listOfAllowed, $numberAllowed )
+			);
+		}
+		
 		if ( !Http::isValidURI( $input ) ) {
 			return wfMsg( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
@@ -61,4 +84,5 @@ class RSSHooks {
 
 		return $rss->renderFeed( $parser, $frame );
 	}
+	
 }

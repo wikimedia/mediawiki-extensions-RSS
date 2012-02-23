@@ -20,7 +20,8 @@ $messages['en'] = array(
 	'rss-invalid-url' => 'Not a valid URL: $1',
 	'rss-parse-error' => 'Error parsing XML for RSS',
 	'rss-ns-permission' => 'RSS is not allowed in this namespace',
-	'rss-url-permission' => 'This URL is not allowed to be included',
+	'rss-url-is-not-whitelisted' => '"$1" is not in the whitelist of allowed feeds. {{PLURAL:$3|$2 is the only allowed feed|The allowed feeds are as follows: $2}}.',
+	'rss-empty-whitelist' => '"$1" is not in the whitelist of allowed feeds. There are no allowed feed URLs in the whitelist.',
 	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} | description = {{{description}}} }}',
  	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
@@ -33,6 +34,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
+	'etherpadlite-url-is-not-whitelisted' => "Error if url isn't in list of allowed urls. $1 is name of url specified by user, $2 is a comma separated list of allowed urls, $3 is the number of urls in the allowed list",
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.

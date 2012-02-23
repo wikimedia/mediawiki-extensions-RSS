@@ -13,6 +13,21 @@ http://www.mediawiki.org/wiki/Extension:RSS
 * bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
   parsing differently flavoured RSS feeds
 
+=== Version 1.94 2012-02-23 ===
+* changed white list definition and behaviour:
+
+  1. changed the name from $wgRSSAllowedFeeds to $wgRSSUrlWhitelist
+  2. behaviour has been changed
+
+  the new behaviour is:
+  $wgRSSUrlWhitelist is empty by default. Since version 1.94 it must be 
+  expressly set to an array( list-of-comma-separated-allowed-RSS-urls-strings )
+  or set to array( "*" ) if you want to allow any url
+
+  the old behaviour was:
+  $wgRSSAllowedFeeds was empty by default and empty meant that every Url
+  was allowed by default. This has been changed, see new behaviour.
+
 === Version 1.92 2012-02-13 ===
 * added optional date= attribute and $wgRSSDateDefaultFormat parameter
 * added optional item-max-length= attribute and $wgRSSItemMaxLength parameter

@@ -230,11 +230,33 @@ class RSSParser {
 			$headers['If-Modified-Since'] = $lm;
 		}
 
-		$client = HttpRequest::factory( $this->url, array( 
-			'timeout' => $wgRSSFetchTimeout,
-			'proxy' => $wgRSSProxy
+		/**
+		 * 'noProxy' can conditionally be set as shown in the commented
+		 * example below; in HttpRequest 'noProxy' takes precedence over
+		 * any value of 'proxy' and disables the use of a proxy.
+		 *
+		 * This is useful if you run the wiki in an intranet and need to
+		 * access external feed urls through a proxy but internal feed
+		 * urls must be accessed without a proxy. 
+		 *
+		 * The general handling of such cases will be subject of a
+		 * forthcoming version.
+		 */
 
-		) );
+ 		$url = $this->url;
+		$noProxy = false;
+		
+		// Example for disabling proxy use for certain urls
+		// $noProxy = preg_match( '!\.internal\.example\.com$!i', parse_url( $url, PHP_URL_HOST ) );
+		
+		$client = HttpRequest::factory( $url,
+			array( 
+				'timeout' => $wgRSSFetchTimeout,
+				'proxy'   => $wgRSSProxy,
+				'noProxy' => $noProxy,
+			) 
+		);
+
 		$client->setUserAgent( $wgRSSUserAgent );
 		foreach ( $headers as $header => $value ) {
 			$client->setHeader( $header, $value );
@@ -523,4 +545,26 @@ class RSSHighlighter {
 
 		return sprintf( $styleStart, $bgcolor[$index], $color[$index] ) . $match[0] . $styleEnd;
 	}
+}
+
+class RSSUtils {
+
+	/**
+	* Output an error message, all wraped up nicely.
+	* @param String $errorMessageName The system message that this error is
+	* @param String|Array $param Error parameter (or parameters)
+	* @return String Html that is the error.
+	*/
+	public static function RSSError( $errorMessageName, $param ) {
+
+		// Anything from a parser tag should use Content lang for message,
+		// since the cache doesn't vary by user language: do not use wfMsgForContent but wfMsgForContent
+		// The ->parse() part makes everything safe from an escaping standpoint.
+
+		return Html::rawElement( 'span', array( 'class' => 'error' ),
+			"Extension:RSS -- Error: " . wfMessage( $errorMessageName )->inContentLanguage()->params( $param )->parse()
+		);
+
+	}
+
 }

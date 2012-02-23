@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.93
+ * @version 1.94
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -13,6 +13,8 @@
  * @copyright © mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
+
+define( "EXTENSION_RSS_VERSION", "1.94 20120223" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -26,7 +28,7 @@ $wgExtensionCredits['parserhook'][] = array(
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',
 		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
 	),
-	'version' => '1.93 20120218',
+	'version' => EXTENSION_RSS_VERSION,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
 );
@@ -36,12 +38,13 @@ $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['RSS'] = $dir . 'RSS.i18n.php';
 $wgAutoloadClasses['RSSHooks'] = $dir . 'RSSHooks.php';
 $wgAutoloadClasses['RSSParser'] = $dir . 'RSSParser.php';
+$wgAutoloadClasses['RSSUtils'] = $dir . 'RSSParser.php';
 $wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
 
 $wgHooks['ParserFirstCallInit'][] = 'RSSHooks::parserInit';
 
- // one hour
- $wgRSSCacheAge = 3600;
+// one hour
+$wgRSSCacheAge = 3600;
 
 // Check cached content, if available, against remote.
 // $wgRSSCacheCompare should be set to false or a timeout
@@ -55,13 +58,26 @@ $wgRSSFetchTimeout = 5;
 // null (the default) means the <rss> tag can be used anywhere.
 $wgRSSNamespaces = null;
 
-// URL whitelist of RSS Feeds:
-// if there are items in the array, and the used URL isn't in the array,
-// it will not be allowed (originally proposed in bug 27768)
-$wgRSSAllowedFeeds = array();
+// Whitelist of allowed RSS Urls
+//
+// If there are items in the array, and the user supplied URL is not in the array,
+// the url will not be allowed
+//
+// Urls are case-sensitively tested against values in the array. 
+// They must exactly match including any trailing "/" character.
+//
+// Warning: Allowing all urls (not setting a whitelist)
+// may be a security concern.
+//
+// an empty or non-existent array means: no whitelist defined
+// this is the default: an empty whitelist. No servers are allowed by default.
+$wgRSSUrlWhitelist = array();
+
+// include "*" if you expressly want to allow all urls (you should not do this)
+// $wgRSSUrlWhitelist = array( "*" );
 
 // Agent to use for fetching feeds
-$wgRSSUserAgent = 'MediaWikiRSS/0.02 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension';
+$wgRSSUserAgent = "MediaWikiRSS/" . strtok( EXTENSION_RSS_VERSION, " " ) . " (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension";
 
 // Proxy server to use for fetching feeds
 $wgRSSProxy = false;

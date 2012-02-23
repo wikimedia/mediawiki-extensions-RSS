@@ -169,7 +169,7 @@ $messages['da'] = array(
  * @author Metalhead64
  */
 $messages['de'] = array(
-	'rss-desc' => 'Ermöglicht es, einen RSS-Feed auf einer Wikiseite anzuzeigen',
+	'rss-desc' => 'Ermöglicht die Anzeige eines oder mehrerer RSS/Atom-Newsfeeds auf Wikiseiten, entweder in einem Standardformat oder in benutzerdefinierten Formaten',
 	'rss-error' => 'Der RSS-Feed konnte nicht von $1 geladen werden: $2',
 	'rss-empty' => 'Der RSS-Feed konnte nicht von $1 geladen werden!',
 	'rss-fetch-nourl' => 'Abruf ohne Angabe einer URL!',

@@ -28,14 +28,12 @@ class RSSData {
 			$defaultNS = "";
 		}
 
-		$q = "/rss/channel/item";
-		$q = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $defaultNS . '$2', $q );
-		$items = $xpath->query( $q ); // is it an RSS feed ?
+		// is it an RSS feed ?
+		$items = $xpath->query( $this->namespacePrefixedQuery( "/rss/channel/item", $defaultNS ) ); 
 
 		if ( $items->length === 0 ) {
-			$q = "/feed/entry";
-			$q = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $defaultNS . '$2', $q );
-			$items = $xpath->query( $q ); // is it an ATOM feed ?
+			 // or is it an ATOM feed ?
+			$items = $xpath->query( $this->namespacePrefixedQuery( "/feed/entry", $defaultNS ) );
 		}
 
 		if( $items->length !== 0 ) {
@@ -63,6 +61,14 @@ class RSSData {
 		}
 	}
 
+	protected function namespacePrefixedQuery( $query, $namespace = "" ) {
+		if ( $namespace !== "" ) {
+			$ret = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $namespace . '$2', $query );
+		} else {
+			$ret = $query;
+		}
+		return $ret;
+	}
 	/**
 	 * Return a string that will be used to map RSS elements that
 	 * contain similar data (e.g. dc:date, date, and pubDate) to the

@@ -15,7 +15,28 @@ class RSSData {
 			return;
 		}
 		$xpath = new DOMXPath( $xml );
-		$items = $xpath->query( '/rss/channel/item' );
+	
+		// register namespace as below, and apply a regex to the expression
+		// http://de3.php.net/manual/en/domxpath.query.php#103461
+		$namespaceURI = $xml->lookupnamespaceURI( NULL );
+
+		if ( ( null !== $namespaceURI ) ) {
+			$defaultNS = "defaultNS";
+			$xpath->registerNamespace( $defaultNS, $namespaceURI );
+			$defaultNS = "defaultNS:";
+		} else {
+			$defaultNS = "";
+		}
+
+		$q = "/rss/channel/item";
+		$q = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $defaultNS . '$2', $q );
+		$items = $xpath->query( $q ); // is it an RSS feed ?
+
+		if ( $items->length === 0 ) {
+			$q = "/feed/entry";
+			$q = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $defaultNS . '$2', $q );
+			$items = $xpath->query( $q ); // is it an ATOM feed ?
+		}
 
 		if( $items->length !== 0 ) {
 			foreach ( $items as $item ) {
@@ -37,7 +58,7 @@ class RSSData {
 				$this->items[] = $bit;
 			}
 		} else {
-			$this->error = 'No RSS items found.';
+			$this->error = 'No RSS//ATOM items found.';
 			return;
 		}
 	}
@@ -52,10 +73,11 @@ class RSSData {
 	 * @param $n String: name of the element we have
 	 * @return String Name to map it to
 	 */
-	protected function rssTokenToName( $n ) {
-		switch( $n ) {
+	protected function rssTokenToName( $name ) {
+		switch( $name ) {
 			case 'dc:date':
 			case 'pubDate':
+			case 'updated':
 				return 'date';
 			case 'dc:creator':
 				return 'author';
@@ -73,9 +95,8 @@ class RSSData {
 			case 'comments':
 			case 'category':
 				return null;
-
 			default:
-				return $n;
+				return $name;
 		}
 	}
 }

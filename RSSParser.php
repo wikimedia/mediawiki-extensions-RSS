@@ -328,24 +328,32 @@ class RSSParser {
 
 		foreach ( array_keys( $item ) as $info ) {
 			switch ( $info ) {
+			// ATOM <id> elements and RSS <link> elements are item link urls
+			case 'id':
+				$txt = $this->sanitizeUrl( $item['id'] );
+				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
+				break;
 			case 'link':
-				$txt = $this->sanitizeUrl( $item[ $info ] );
+				if ( !isset( $item['id'] ) ) {
+					$txt = $this->sanitizeUrl( $item['link'] );
+				}
+				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
 				break;
 			case 'date':
 				$tempTimezone = date_default_timezone_get();
 				date_default_timezone_set( 'UTC' );
-				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item[ $info ] ) ) );
+				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
 				date_default_timezone_set( $tempTimezone );
+				$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
 				break;
 			default:
-				$str = $this->escapeTemplateParameter( $item[ $info ] ); 
+				$str = $this->escapeTemplateParameter( $item[$info] ); 
 				if ( mb_strlen( $str ) > $this->ItemMaxLength ) {
 					$str = mb_substr( $str, 0, $this->ItemMaxLength ) . " ...";
 				}
 				$txt = $this->highlightTerms(  $str );
+				$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
 			}
-			
-			$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
 		}
 
 		// nullify all remaining info items in the template

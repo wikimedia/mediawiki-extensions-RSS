@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 1.94
+ * @version 2.00
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "1.94 20120223" );
+define( "EXTENSION_RSS_VERSION", "2.00 20120224" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -49,6 +49,7 @@ $wgRSSCacheAge = 3600;
 // Check cached content, if available, against remote.
 // $wgRSSCacheCompare should be set to false or a timeout
 // (less than $wgRSSCacheAge) after which a comparison will be made.
+// for debugging set $wgRSSCacheCompare = 1;
 $wgRSSCacheCompare = false;
 
 // 5 second timeout

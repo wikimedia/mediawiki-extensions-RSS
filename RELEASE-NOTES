@@ -11,7 +11,12 @@ http://www.mediawiki.org/wiki/Extension:RSS
   (otherwise using the defaults - PHP will abort the entire program when your
   memory usage gets too high)
 * bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
-  parsing differently flavoured RSS feeds
+  parsing differently flavoured RSS feeds and ATOM feeds
+
+=== Version 2.00 2012-02-24 ===
+* first version which can parse RSS and at least some ATOM feeds
+  partial solution of bug 30028 "Error parsing XML for RSS" - improve and harden
+  Extension:RSS when parsing differently flavoured RSS feeds and ATOM feeds
 
 === Version 1.94 2012-02-23 ===
 * changed white list definition and behaviour:

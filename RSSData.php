@@ -81,8 +81,8 @@ class RSSData {
 				return 'date';
 			case 'dc:creator':
 				return 'author';
-			case 'title':
-				return 'title';
+			case 'summary':
+				return 'description';
 			case 'content:encoded':
 				return 'encodedContent';
 

@@ -13,6 +13,10 @@ http://www.mediawiki.org/wiki/Extension:RSS
 * bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
   parsing differently flavoured RSS feeds and ATOM feeds
 
+=== Version 2.01 2012-02-24 ===
+* "summary" element of ATOM feed items are shown
+  which is handled like "description" element of RSS
+* handling of basic HTML layout tags <p> <br> <b> <i> <u> <s> in item description
 === Version 2.00 2012-02-24 ===
 * first version which can parse RSS and at least some ATOM feeds
   partial solution of bug 30028 "Error parsing XML for RSS" - improve and harden

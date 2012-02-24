@@ -391,18 +391,46 @@ class RSSParser {
 
 	/**
 	 * Sanitize user input for inclusion as a template parameter.
+	 *
 	 * Unlike in wfEscapeWikiText() as of r77127, this escapes }} in addition
 	 * to the other kinds of markup, to avoid user input ending a template 
 	 * invocation.
+	 *
+	 * We change differently flavoured <p> and <br> tags to effective <br> tags,
+	 * other tags such as <a> will be rendered html-escaped.
+	 *
 	 */
 	protected function escapeTemplateParameter( $text ) {
-		return str_replace(
+		$text = str_replace(
 			array( '[',     '|',      ']',     '\'',    'ISBN ',     
-				'RFC ',     '://',     "\n=",     '{{',           '}}' ),
+				'RFC ',     '://',     "\n=",     '{{',           '}}',
+			),
 			array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
-				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;' ),
-			htmlspecialchars( $text )
+				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;',
+			),
+			htmlspecialchars( str_replace( "\n", "", $text ) )
 		);
+
+		// keep some basic layout tags
+		$text = str_replace(
+			array( '&lt;p&gt;', '&lt;/p&gt;',
+				'&lt;br/&gt;', '&lt;br&gt;', '&lt;/br&gt;',
+				'&lt;b&gt;', '&lt;/b&gt;',
+				'&lt;i&gt;', '&lt;/i&gt;',
+				'&lt;u&gt;', '&lt;/u&gt;',
+				'&lt;s&gt;', '&lt;/s&gt;',
+			),
+			array( "", "<br/>",
+				"<br/>", "<br/>", "<br/>",
+				"'''", "'''",
+				"''", "''",
+				"<u>", "</u>",
+				"<s>", "</s>",
+			),
+			$text
+		);
+
+		return $text;
 	}
 
 	/**

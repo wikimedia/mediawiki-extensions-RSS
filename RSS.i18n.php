@@ -34,7 +34,6 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
-	'etherpadlite-url-is-not-whitelisted' => "Error if url isn't in list of allowed urls. $1 is name of url specified by user, $2 is a comma separated list of allowed urls, $3 is the number of urls in the allowed list",
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
@@ -56,7 +55,6 @@ $messages['af'] = array(
 	'rss-invalid-url' => "Nie 'n geldige URL nie: $1",
 	'rss-parse-error' => 'Ontleding van die RSS se XML het gefaal',
 	'rss-ns-permission' => 'RSS word nie in die naamruimte toegelaat nie',
-	'rss-url-permission' => 'Hierdie URL mag nie ingesluit word nie',
 );
 
 /** Arabic (العربية)
@@ -70,7 +68,6 @@ $messages['ar'] = array(
 	'rss-invalid-url' => 'عنوان URL غير صالح: $1',
 	'rss-parse-error' => 'خطأ في تحليل XML من أجل RSS',
 	'rss-ns-permission' => 'RSS غير مسموح به في هذا النطاق',
-	'rss-url-permission' => 'URL لا يسمح بإدراجه',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -87,7 +84,6 @@ $messages['ast'] = array(
 	'rss-invalid-url' => 'Nun ye una URL válida: $1',
 	'rss-parse-error' => 'Fallu al analizar el XML pal RSS',
 	'rss-ns-permission' => 'El RSS nun ta permitíu nesti espaciu de nomes',
-	'rss-url-permission' => 'Nun se permite incluir esta URL',
 	'rss-feed' => "<!--  darréu vienen dos plantíes alternatives. La primera ye la plantía básica predeterminada pa fluxos -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- nun usar nueva llinia equí --><!-- La segunda ye una versión ameyorada que necesita Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -107,7 +103,6 @@ $messages['be-tarask'] = array(
 	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
-	'rss-url-permission' => 'Даданьне гэтага URL-адрасу не дазволенае',
 	'rss-feed' => "<!--  ніжэй рададзеныя два магчымыя шаблёны. Першы — асноўны шаблён па змоўчваньні для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не ўжывайце тут новы радок --><!-- Другі — палепшаная вэрсія, якая патрабуе Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -125,7 +120,6 @@ $messages['br'] = array(
 	'rss-invalid-url' => 'URL direizh : $1',
 	'rss-parse-error' => 'Fazi en dielfennañ XML evit RSS',
 	'rss-ns-permission' => "N'haller ket ober gant lanvadoù RSS en esaouenn anv-mañ",
-	'rss-url-permission' => "N'haller ket ober gant an URL-mañ.",
 );
 
 /** Bosnian (Bosanski)
@@ -152,7 +146,6 @@ $messages['cs'] = array(
 	'rss-invalid-url' => 'Není platné URL: $1',
 	'rss-parse-error' => 'Chyba parsování XML pro RSS',
 	'rss-ns-permission' => 'V tomto jmenném prostoru není RSS dovoleno',
-	'rss-url-permission' => 'Není dovoleno vložit toto URL',
 	'rss-feed' => "<!--  Následují dvě alternativní šablony. První je základní implicitní šablona zdrojů -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- zde nevkládat nový řádek --><!-- Druhá je vylepšná verze, která vyžaduje rozšíření Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -174,11 +167,12 @@ $messages['de'] = array(
 	'rss-desc' => 'Ermöglicht die Anzeige eines oder mehrerer RSS/Atom-Newsfeeds auf Wikiseiten, entweder in einem Standardformat oder in benutzerdefinierten Formaten',
 	'rss-error' => 'Der RSS-Feed konnte nicht von $1 geladen werden: $2',
 	'rss-empty' => 'Der RSS-Feed konnte nicht von $1 geladen werden!',
-	'rss-fetch-nourl' => 'Abruf ohne Angabe einer URL!',
-	'rss-invalid-url' => 'Ungültige URL: $1',
+	'rss-fetch-nourl' => 'Der Abruf erfolgte ohne Angabe einer URL!',
+	'rss-invalid-url' => 'Ungültige Feed-URL: $1',
 	'rss-parse-error' => 'Fehler beim Parsen von XML für RSS',
-	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht erlaubt',
-	'rss-url-permission' => 'Diese URL darf nicht enthalten sein',
+	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht zulässig',
+	'rss-url-is-not-whitelisted' => '„$1“ befindet sich nicht in der Liste zulässiger Feeds. {{PLURAL:$3|$2 ist der einzig zulässige Feed|Die zulässigen Feeds lauten: $2}}.',
+	'rss-empty-whitelist' => '„$1“ befindet sich nicht in der Liste zulässiger Feeds. Es befinden sich keine zulässigen Feed-URLs in dieser Liste.',
 	'rss-feed' => "<!-- Die folgenden Vorlagen sind zwei alternativ zueinander einsetzbare Vorlagen. Die erste ist die Standardvorlage für Feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- An dieser Stelle bitte keine neue Zeile einfügen. --><!-- Die zweite ist eine verbesserte Vorlage, für die die Softwareerweiterung ParserFunctions benötigt wird. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -218,7 +212,6 @@ $messages['eo'] = array(
 	'rss-invalid-url' => 'Malvalida URL-o: $1',
 	'rss-parse-error' => 'Eraro interpretante XML-on de RSS-o',
 	'rss-ns-permission' => 'RSS-abonado ne estas permesita en ĉi tiu nomspaco',
-	'rss-url-permission' => 'Ĉi tiu URL-o ne estas permesita inkluzivi',
 	'rss-feed' => "<!-- Jen du alternativaj ŝablonoj. La unua estas la baza defaŭlta ŝablono por abonfontoj. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- ne uzu novlinio ĉi tie --><!-- La dua estas plibonigita versio kiu devigas ilon Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -237,7 +230,6 @@ $messages['es'] = array(
 	'rss-invalid-url' => 'No es una URL válida: $1',
 	'rss-parse-error' => 'Error al analizar el código XML del RSS',
 	'rss-ns-permission' => 'No está permitido el formato RSS en este espacio de nombres',
-	'rss-url-permission' => 'Esta URL no puede ser incluida',
 	'rss-feed' => "<!--  A continuación se muestran dos plantillas alternativas. The first is the basic default template forLa primera es la plantilla básica por defecto para fuentes web (feeds) -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- no use una nueva línea aquí --><!-- La segunda es una versión mejorada que requiere Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -254,7 +246,6 @@ $messages['fa'] = array(
 	'rss-invalid-url' => 'نشانی اینترنتی نامعتبر: $1',
 	'rss-parse-error' => 'خطا در تجزیهٔ ایکس‌ام‌ال برای آراس‌اس',
 	'rss-ns-permission' => 'آراس‌اس برای این فضای نامی مجاز نمی‌باشد',
-	'rss-url-permission' => 'این نشانی برای شامل شدن مجاز نمی‌باشد',
 );
 
 /** Finnish (Suomi)
@@ -270,7 +261,6 @@ $messages['fi'] = array(
 	'rss-invalid-url' => 'Ei kelpaava osoite: $1',
 	'rss-parse-error' => 'Virhe jäsennettäessä XML:ää RSS:ää varten',
 	'rss-ns-permission' => 'RSS ei ole sallittu tässä nimiavaruudessa',
-	'rss-url-permission' => 'Tätä osoitetta ei saa käyttää',
 	'rss-feed' => "<!--  seuraavat ovat kaksi vaihtoehtoista mallinetta. Ensimmäinen on perusmalline syötteille -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- älä käytä rivinvaihtoa tässä --><!-- Toinen on kehittyneempi versio, joka tarvitsee ParserFunctions-laajennoksen --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -291,7 +281,6 @@ $messages['fr'] = array(
 	'rss-invalid-url' => 'URL non valide : $1',
 	'rss-parse-error' => 'Erreur lors de l’analyse XML du RSS',
 	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
-	'rss-url-permission' => 'Cette URL n’est pas autorisée à être incluse',
 	'rss-feed' => "<!--  ce qui suit est une alternative entre deux modèles. Le premier est le modèle de base par défaut pour les alimentations -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- ne pas mettre de retour à la ligne ici --><!-- Le second est une version améliorée qui requiert Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -301,14 +290,13 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'rss-desc' => 'Montre los flux RSS sur les pâges MediaWiki dens un format estandârd ou ben dens un format dèfeni per l’utilisator avouéc les pâges du modèlo.',
+	'rss-desc' => 'Montre los flux RSS sur les pâges MediaWiki dens un format estandârd ou ben dens un format dèfeni per l’usanciér avouéc les pâges du modèlo.',
 	'rss-error' => 'Empossiblo de chargiér lo flux RSS de $1 : $2',
 	'rss-empty' => 'Empossiblo de chargiér lo flux RSS de $1 !',
 	'rss-fetch-nourl' => 'Apèl passâ sen balyér d’URL !',
 	'rss-invalid-url' => 'URL envalida : $1',
 	'rss-parse-error' => 'Èrror pendent l’analise XML du RSS',
 	'rss-ns-permission' => 'Los flux RSS sont pas ôtorisâs dens cél èspâço de noms',
-	'rss-url-permission' => 'Cela URL est pas ôtorisâ a étre encllua',
 	'rss-feed' => "<!--  cen que siut est una altèrnativa entre doux modèlos. Lo premiér est lo modèlo de bâsa per dèfôt por los flux -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- pas betar de retôrn a la legne ique --><!-- Lo second est una vèrsion mèlyorâ qu’at fôta de l’Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -325,7 +313,6 @@ $messages['gl'] = array(
 	'rss-invalid-url' => 'O enderezo URL non é válido: $1',
 	'rss-parse-error' => 'Erro analítico de XML para o RSS',
 	'rss-ns-permission' => 'O RSS non está permitido neste espazo de nomes',
-	'rss-url-permission' => 'Non está permitido incluír ese enderezo URL',
 	'rss-feed' => "<!--  os seguintes son dous modelos alternativos. O primeiro é o modelo por defecto básico para as fontes de novas -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- non empregar unha liña nova aquí --><!-- O segundo é unha versión mellora que necesita Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -343,7 +330,6 @@ $messages['gsw'] = array(
 	'rss-invalid-url' => 'Uugiltigi URL: $1',
 	'rss-parse-error' => 'Fähler bim Parse vu XML fir RSS',
 	'rss-ns-permission' => 'RSS isch in däm Namensruum nit erlaubt',
-	'rss-url-permission' => 'Die URL derf nit enthalte sy',
 	'rss-feed' => "<!-- Die Vorlage wo folge sin zwei alternativ zuenander yysetzbari Vorlage. Die erst isch d Standardvorlag für Feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- Aa dere Stell bitte kei nöii Zyyle yyfiege. --><!-- D zweit isch e verbesserti Vorlag, wo für d Softwareerwyterig ParserFunctions bruucht wird. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -360,7 +346,6 @@ $messages['he'] = array(
 	'rss-invalid-url' => 'כתובת URL לא תקינה: $1',
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
 	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
-	'rss-url-permission' => 'לא ניתן לכלול את הכתובת הזאת',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -396,7 +381,6 @@ $messages['hsb'] = array(
 	'rss-invalid-url' => 'Njepłaćiwy URL: $1',
 	'rss-parse-error' => 'Zmylk při parsowanju XML za RSS',
 	'rss-ns-permission' => 'RSS njeje dowoleny w tutym mjenowym rumje',
-	'rss-url-permission' => 'Tutón URL njesmě wobsahowany być',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -413,7 +397,6 @@ $messages['ia'] = array(
 	'rss-invalid-url' => 'URL non valide: $1',
 	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
 	'rss-ns-permission' => 'RSS non es permittite in iste spatio de nomines',
-	'rss-url-permission' => 'Le inclusion de iste URL es prohibite',
 	'rss-feed' => "<!--  Ecce duo patronos alternative. Le prime es le patrono simple e standard pro syndicationes. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- non comenciar un nove linea hic --><!-- Le secunde es un version meliorate que require le extension ParserFunctions. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -446,7 +429,6 @@ $messages['it'] = array(
 	'rss-invalid-url' => 'Non è un URL valido: $1',
 	'rss-parse-error' => 'Errore di parsing XML per RSS',
 	'rss-ns-permission' => 'RSS non è consentito in questo namespace',
-	'rss-url-permission' => 'Questo URL non può essere incluso',
 );
 
 /** Japanese (日本語)
@@ -462,7 +444,6 @@ $messages['ja'] = array(
 	'rss-invalid-url' => '無効な URL: $1',
 	'rss-parse-error' => 'RSS の XML 解析エラー',
 	'rss-ns-permission' => 'RSSは、この名前空間に許可されていません',
-	'rss-url-permission' => 'この URL を含ませることは許可されていません',
 	'rss-feed' => "<!--  以下は、代替の2つのテンプレートです。 最初は、フィードの基本的な既定のテンプレートです。 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- 改行文字をここで使わないでください。 --><!-- 次は、拡張機能:パーサー関数が必要な改良されたバージョンです。 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -498,7 +479,6 @@ $messages['lb'] = array(
 	'rss-invalid-url' => 'Keng valabel URL: $1',
 	'rss-parse-error' => 'Feeler beim Parse vum XML fir RSS',
 	'rss-ns-permission' => 'RSS ass an dësem Nummraum net erlaabt',
-	'rss-url-permission' => 'Dës URL däerf net dra sinn',
 );
 
 /** Lithuanian (Lietuvių)
@@ -512,7 +492,6 @@ $messages['lt'] = array(
 	'rss-fetch-nourl' => 'Atsiuntimas iškviestas be nuorodos!',
 	'rss-invalid-url' => 'Nekorektiška nuoroda: $1',
 	'rss-parse-error' => "Klaida analizuojant RSS kanalo XML'ą",
-	'rss-url-permission' => 'Šio URL neleidžiama įtraukti',
 );
 
 /** Macedonian (Македонски)
@@ -526,7 +505,8 @@ $messages['mk'] = array(
 	'rss-invalid-url' => 'Не претставува важечка URL: $1',
 	'rss-parse-error' => 'Грешка при парсирање на XML за RSS',
 	'rss-ns-permission' => 'RSS не е допуштен во овој именски простор',
-	'rss-url-permission' => 'Оваа URL-адреса не е дозволена',
+	'rss-url-is-not-whitelisted' => '„$1“ не е на белиот список на дозволени канали. {{PLURAL:$3|Единствениот дозволен е $2|Дозволени се следниве: $2}}.',
+	'rss-empty-whitelist' => '„$1“ не е на белиост список на дозволени канали. На списокот нема URL-адреси на допуштени канали.',
 	'rss-feed' => "<!--  Ова се два алтернативни шаблона. Првиот е основно зададениот шаблон за канали -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- туак не вметнувајте нов ред --><!-- Вториот е подобрена верзија што бара Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -543,7 +523,6 @@ $messages['ml'] = array(
 	'rss-invalid-url' => 'സാധുവായ യൂ.ആർ.എൽ. അല്ല: $1',
 	'rss-parse-error' => 'അർ.എസ്.എസിനായി എക്സ്.എം.എൽ. പാഴ്സ് ചെയ്തപ്പോൾ പിഴവുണ്ടായി',
 	'rss-ns-permission' => 'ഈ നാമമേഖലയിൽ ആർ.എസ്.എസ്. അനുവദിക്കപ്പെട്ടിട്ടില്ല',
-	'rss-url-permission' => 'ഈ യൂ.ആർ.എൽ. ഉൾപ്പെടുത്തുന്നത് അനുവദനീയമല്ല',
 );
 
 /** Malay (Bahasa Melayu)
@@ -557,13 +536,12 @@ $messages['ms'] = array(
 	'rss-invalid-url' => 'URL tidak sah: $1',
 	'rss-parse-error' => 'Ralat ketika menghurai XML untuk RSS',
 	'rss-ns-permission' => 'RSS tidak dibenarkan di ruang nama ini',
-	'rss-url-permission' => 'URL ini tidak dibenarkan untuk disertakan',
 	'rss-feed' => "<!--  Berikut ialah dua templat alternatif. Yang pertama ialah templat asas untuk suapan -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- jangan letak baris baru di sini --><!-- Yang kedua ialah versi diperkemas yang memerlukan Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪Norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -588,7 +566,6 @@ $messages['nl'] = array(
 	'rss-invalid-url' => 'Geen geldige URL: $1',
 	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',
 	'rss-ns-permission' => 'RSS is niet toegestaan in deze naamruimte',
-	'rss-url-permission' => 'Deze URL mag niet worden opgenomen',
 	'rss-feed' => "<!--  Hieronder staan twee alternatieve sjablonen. Het eerste is het standaardsjabloon voor feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- Hier geen nieuwe regel starten. --><!-- Het tweede sjabloon is een verbeterde versie waarvoor de uitbreiding ParserFunctions nodig is. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -605,7 +582,6 @@ $messages['pl'] = array(
 	'rss-invalid-url' => 'Nieprawidłowy adres URL – $1',
 	'rss-parse-error' => 'Błąd analizowania XML dla RSS',
 	'rss-ns-permission' => 'RSS nie jest dostępne w tej przestrzeni nazw',
-	'rss-url-permission' => 'Tego adresu URL nie można załączyć',
 	'rss-feed' => "<!--  Poniżej znajdują się dwa alternatywne szablony. Pierwszy jest podstawowym domyślnym szablonem dla kanałów. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- nie łam tutaj wiersza --><!-- Drugi to ulepszona wersja, która wymaga Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -623,7 +599,6 @@ $messages['pms'] = array(
 	'rss-invalid-url' => "Pa n'anliura bon-a: $1",
 	'rss-parse-error' => "Eror ant l'anàlisi XML për RSS",
 	'rss-ns-permission' => "RSS a l'é pa përmëttù an cost ëspassi nominal-sì",
-	'rss-url-permission' => "Costa adrëssa dl'aragnà a l'é pa autorisà a esse anserìa",
 	'rss-feed' => "<!--  coj ch'a ven-o a son doi stamp alternativ. Ël prim a l'é lë stamp base ëd default për ij feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- dòvra pa ël newline ambelessì --><!-- Lë scond a l'é na vërsion mejorà ch'a ciama Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -641,7 +616,6 @@ $messages['pt'] = array(
 	'rss-invalid-url' => 'A URL não é válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
 	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
-	'rss-url-permission' => 'Não é permitido incluir a URL',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -656,7 +630,6 @@ $messages['pt-br'] = array(
 	'rss-invalid-url' => 'Não é uma URL válida: $1',
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
 	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
-	'rss-url-permission' => 'Não é permitido a inclusão desta URL',
 	'rss-feed' => "<!--  Os seguintes são dois modelos alternativos. O primeiro é o padrão básico para fontes novas -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- Não adicionar uma linha nova aqui --><!-- O segundo é uma versão melhorada quer requer Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -674,7 +647,6 @@ $messages['ro'] = array(
 	'rss-invalid-url' => 'Nu este un URL valid: $1',
 	'rss-parse-error' => 'Eroare de analiză XML pentru RSS',
 	'rss-ns-permission' => 'RSS nu este permis în acest spațiu de nume',
-	'rss-url-permission' => 'Acest URL nu este permis să fie inclus',
 );
 
 /** Tarandíne (Tarandíne)
@@ -688,7 +660,6 @@ $messages['roa-tara'] = array(
 	'rss-invalid-url' => "Non g'è 'na URL valide: $1",
 	'rss-parse-error' => "Errore analizzanne l'XML pu RSS",
 	'rss-ns-permission' => "Le RSS non ge sonde permesse jndr'à stu namespace",
-	'rss-url-permission' => "Sta URL non g'è consendite pe essere ingluse",
 	'rss-feed' => "<!--  le seguende sonde doje template alternative. 'U prime jè 'nu template de base pe le feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- no scè ausanne 'na linea nove aqquà --><!-- 'U seconde jè 'na versione migliorate ca vole le Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -705,7 +676,6 @@ $messages['ru'] = array(
 	'rss-invalid-url' => 'Недопустимый URL: $1',
 	'rss-parse-error' => 'Ошибка разбора XML для RSS',
 	'rss-ns-permission' => 'RSS не допускается в этом пространстве имён',
-	'rss-url-permission' => 'Этот URL-адрес не может быть добавлен',
 	'rss-feed' => "<!--  ниже представлены два возможных шаблона. Первый - это основной шаблон по умолчанию для ленты -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не используйте здесь перевод строки --><!-- Второй - улучшенная версия, требующая расширения Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -722,7 +692,6 @@ $messages['rue'] = array(
 	'rss-invalid-url' => 'Неправилне URL: $1',
 	'rss-parse-error' => 'Хыба парсованя XML про RSS',
 	'rss-ns-permission' => 'У тім просторї назв не є доволене RSS',
-	'rss-url-permission' => 'Тота URL не є доволена быти включена',
 	'rss-feed' => "<!--  ниже суть дві можны шаблоны. Перша - основна шаблона про каналы -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не хоснуйте ту переход на новый рядок --><!-- Другый - вылїпшена верзія, котра потребує росшырїня Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -750,7 +719,6 @@ $messages['si'] = array(
 	'rss-invalid-url' => 'වලංගු URL ලිපිනයක් නොවේ: $1',
 	'rss-parse-error' => 'RSS සඳහා XML සැකසීමේ දෝෂය',
 	'rss-ns-permission' => 'මෙම නාමඅවකාශයෙහි RSS සඳහා ඉඩ ලබා නොදේ',
-	'rss-url-permission' => 'මෙම URL ලිපිනය අඩංගු කිරීමට ඉඩ නොදේ',
 );
 
 /** Slovak (Slovenčina)
@@ -776,7 +744,6 @@ $messages['sl'] = array(
 	'rss-invalid-url' => 'Neveljavni URL: $1',
 	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
 	'rss-ns-permission' => 'RSS v tem imenskem prostoru ni dovoljen',
-	'rss-url-permission' => 'Vključitev tega URL ni dovoljena',
 	'rss-feed' => "<!--  sledita dve alternativni predlogi. Prva je osnovna privzeta predloga za vire -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- tukaj ne uporabi nove vrstice --><!-- Druga je izboljšana različica, ki potrebuje Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -795,7 +762,6 @@ $messages['sv'] = array(
 	'rss-invalid-url' => 'Inte en giltig URL: $1',
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
 	'rss-ns-permission' => 'RSS är inte tillåtet i denna namnrymden',
-	'rss-url-permission' => 'Denna URL tillåts inte att inkluderas',
 );
 
 /** Tamil (தமிழ்)
@@ -846,7 +812,6 @@ $messages['uk'] = array(
 	'rss-invalid-url' => 'Неприпустима адреса URL: $1',
 	'rss-parse-error' => 'Помилка розбору XML для RSS',
 	'rss-ns-permission' => 'RSS не дозволено в цьому просторі імен',
-	'rss-url-permission' => 'Ця URL-адреса не може бути включена',
 	'rss-feed' => "<!--  нижче наведено два можливих шаблони. Перший - це основний шаблон для стрічки -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не використовуйте тут перехід на новий рядок --><!-- Другий - покращена версія, що потребує розширення Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -863,7 +828,6 @@ $messages['vi'] = array(
 	'rss-invalid-url' => 'URL không hợp lệ: $1',
 	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
 	'rss-ns-permission' => 'Không được phép xem RSS trong không gian tên này',
-	'rss-url-permission' => 'Không cho phép bao gồm URL này',
 	'rss-feed' => "<!--  Sau đây có hai bản mẫu thay cho nhau. Thứ nhất là bản mẫu mặc định cơ bản dành cho các nguồn tin: -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- không ngắt dòng tại đây --><!-- Thứ hai là phiên bản cải tiến cần phần mở rộng Extension:ParserFunctions: --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: — {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: — {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -883,7 +847,6 @@ $messages['zh-hans'] = array(
 	'rss-invalid-url' => '不是有效的网址：$1',
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 	'rss-ns-permission' => '此名字空间不允许使用RSS',
-	'rss-url-permission' => '此URL已被禁止使用',
 	'rss-feed' => "<!--  以下是两种可供选择的模板，第一种是默认的进料模板 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- 第二种是需要Extension:ParserFunctions的改进版本 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -901,7 +864,6 @@ $messages['zh-hant'] = array(
 	'rss-invalid-url' => '不是有效的網址：$1',
 	'rss-parse-error' => 'RSS 解析 XML 時出現錯誤',
 	'rss-ns-permission' => '此名字空間不允許使用RSS',
-	'rss-url-permission' => '此網址已被禁止使用',
 	'rss-feed' => "<!-​​- 以下是兩種可供選擇的模板，第一種是默認的進料模板-->; '''<span class='plainlinks'>[{{{link}}} {{{title }}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- 在此切勿換行 --><!-- 第二種是需要Extension:ParserFunctions的改進版本--><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{ date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{ {date}}}}}|}} -->",

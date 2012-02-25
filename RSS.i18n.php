@@ -103,6 +103,8 @@ $messages['be-tarask'] = array(
 	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
+	'rss-url-is-not-whitelisted' => '«$1» ня зьмешчаны ў белым сьпісе дазволеных стужак. {{PLURAL:$3|«$2» — адзіная дазволеная стужка|Дазволеныя стужкі: $2}}.',
+	'rss-empty-whitelist' => '«$1» ня зьмешчаны ў белым сьпісе дазволеных стужак. Белы сьпіс увогуле не зьмяшчае дазволеныя URL стужак.',
 	'rss-feed' => "<!--  ніжэй рададзеныя два магчымыя шаблёны. Першы — асноўны шаблён па змоўчваньні для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не ўжывайце тут новы радок --><!-- Другі — палепшаная вэрсія, якая патрабуе Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -230,6 +232,8 @@ $messages['es'] = array(
 	'rss-invalid-url' => 'No es una URL válida: $1',
 	'rss-parse-error' => 'Error al analizar el código XML del RSS',
 	'rss-ns-permission' => 'No está permitido el formato RSS en este espacio de nombres',
+	'rss-url-is-not-whitelisted' => '"$1" no está en la lista blanca de canales web (feeds) permitidos.  {{PLURAL:$3|$2  es el único canal permitido|Los canales permitidos son los siguientes:  $2 }}.',
+	'rss-empty-whitelist' => '" $1 " no está en la lista blanca de canales web (feeds) permitidos. No hay ninguna dirección URL de canales permitidos en la lista blanca.',
 	'rss-feed' => "<!--  A continuación se muestran dos plantillas alternativas. The first is the basic default template forLa primera es la plantilla básica por defecto para fuentes web (feeds) -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- no use una nueva línea aquí --><!-- La segunda es una versión mejorada que requiere Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -346,6 +350,8 @@ $messages['he'] = array(
 	'rss-invalid-url' => 'כתובת URL לא תקינה: $1',
 	'rss-parse-error' => 'שגיאה בניתוח XML עבור RSS',
 	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
+	'rss-url-is-not-whitelisted' => 'הכתובת "$1" אינה מופיע ברשימה הלבנה של הזנות מותרות. {{PLURAL:$3|$2 היא ההזנה המותרת היחידה|ההזנות המותרות הן: $2}}.',
+	'rss-empty-whitelist' => 'הכתובת "$1" אינה מופיע ברשימה הלבנה של הזנות מותרות. אין כתובות הזנה מותרות ברשימה הלבנה.',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -397,6 +403,8 @@ $messages['ia'] = array(
 	'rss-invalid-url' => 'URL non valide: $1',
 	'rss-parse-error' => 'Error de syntaxe in XML de RSS',
 	'rss-ns-permission' => 'RSS non es permittite in iste spatio de nomines',
+	'rss-url-is-not-whitelisted' => '"$1" non es in le lista de syndicationes autorisate. {{PLURAL:$3|Solmente le syndication $2 es autorisate|Le syndicationes autorisate es: $2}}.',
+	'rss-empty-whitelist' => '"$1" non es in le lista de syndicationes autorisate. Nulle URL de syndication autorisate es presente in le lista blanc.',
 	'rss-feed' => "<!--  Ecce duo patronos alternative. Le prime es le patrono simple e standard pro syndicationes. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- non comenciar un nove linea hic --><!-- Le secunde es un version meliorate que require le extension ParserFunctions. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

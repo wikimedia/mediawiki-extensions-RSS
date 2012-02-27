@@ -22,6 +22,7 @@ $messages['en'] = array(
 	'rss-ns-permission' => 'RSS is not allowed in this namespace',
 	'rss-url-is-not-whitelisted' => '"$1" is not in the whitelist of allowed feeds. {{PLURAL:$3|$2 is the only allowed feed|The allowed feeds are as follows: $2}}.',
 	'rss-empty-whitelist' => '"$1" is not in the whitelist of allowed feeds. There are no allowed feed URLs in the whitelist.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'The deprecated variable $wgRSSAllowedFeeds has been detected. Since RSS version 2.0 this variable has to be replaced by $wgRSSUrlWhitelist as described in the manual page Extension:RSS.',
 	'rss-item' => '{{$1 | title = {{{title}}} | link = {{{link}}} | date = {{{date}}} | author = {{{author}}} | description = {{{description}}} }}',
  	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}

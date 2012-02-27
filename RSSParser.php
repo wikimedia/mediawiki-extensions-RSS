@@ -218,7 +218,8 @@ class RSSParser {
 	 * @return Status object
 	 */
 	protected function fetchRemote( $key, array $headers = array()) {
-		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy;
+		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy,
+			$wgRSSUrlNumberOfAllowedRedirects;
 
 		if ( $this->etag ) {
 			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
@@ -244,16 +245,54 @@ class RSSParser {
 		 */
 
  		$url = $this->url;
-		$noProxy = false;
+		$noProxy = !isset( $wgRSSProxy );
 		
 		// Example for disabling proxy use for certain urls
 		// $noProxy = preg_match( '!\.internal\.example\.com$!i', parse_url( $url, PHP_URL_HOST ) );
-		
+
+	/**
+	 * Copied from HttpFunctions.php
+	 * Perform an HTTP request
+	 *
+	 * @param $method String: HTTP method. Usually GET/POST
+	 * @param $url String: full URL to act on. If protocol-relative, will be expanded to an http:// URL
+	 * @param $options Array: options to pass to MWHttpRequest object.
+	 *	Possible keys for the array:
+	 *    - timeout             Timeout length in seconds
+	 *    - postData            An array of key-value pairs or a url-encoded form data
+	 *    - proxy               The proxy to use.
+	 *                          Otherwise it will use $wgHTTPProxy (if set)
+	 *                          Otherwise it will use the environment variable "http_proxy" (if set)
+	 *    - noProxy             Don't use any proxy at all. Takes precedence over proxy value(s).
+	 *    - sslVerifyHost       (curl only) Verify hostname against certificate
+	 *    - sslVerifyCert       (curl only) Verify SSL certificate
+	 *    - caInfo              (curl only) Provide CA information
+	 *    - maxRedirects        Maximum number of redirects to follow (defaults to 5)
+	 *    - followRedirects     Whether to follow redirects (defaults to false).
+	 *		                    Note: this should only be used when the target URL is trusted,
+	 *		                    to avoid attacks on intranet services accessible by HTTP.
+	 *    - userAgent           A user agent, if you want to override the default
+	 *                          MediaWiki/$wgVersion
+	 * @return Mixed: (bool)false on failure or a string on success
+	 */
+
+		if ( isset( $wgRSSUrlNumberOfAllowedRedirects ) 
+			&& is_numeric( $wgRSSUrlNumberOfAllowedRedirects ) ) {
+			$maxRedirects = $wgRSSUrlNumberOfAllowedRedirects;
+		} else {
+			$maxRedirects = 0;
+		}
+
+		// we set followRedirects intentionally to true to see error messages
+		// in cases where the maximum number of redirects is reached
 		$client = HttpRequest::factory( $url,
 			array( 
-				'timeout' => $wgRSSFetchTimeout,
-				'proxy'   => $wgRSSProxy,
-				'noProxy' => $noProxy,
+				'timeout'         => $wgRSSFetchTimeout,
+				'followRedirects' => true,
+				'maxRedirects'    => $maxRedirects,
+				'proxy'           => $wgRSSProxy,
+				'noProxy'         => $noProxy,
+				'userAgent'       => $wgRSSUserAgent,
 			) 
 		);
 
@@ -506,8 +545,8 @@ class RSSParser {
 	 *
 	 * @param $text String: the text to examine
 	 * @param $filterType String: "filterOut" to check for matches in the
-	 * 								filterOut member list.
-	 *								Otherwise, uses the filter member list.
+	 *   filterOut member list.
+	 *   Otherwise, uses the filter member list.
 	 * @return Boolean: decision to filter or not.
 	 */
 	protected function filter( $text, $filterType ) {
@@ -591,7 +630,7 @@ class RSSUtils {
 	* @param String|Array $param Error parameter (or parameters)
 	* @return String Html that is the error.
 	*/
-	public static function RSSError( $errorMessageName, $param ) {
+	public static function RSSError( $errorMessageName, $param = false ) {
 
 		// Anything from a parser tag should use Content lang for message,
 		// since the cache doesn't vary by user language: do not use wfMsgForContent but wfMsgForContent

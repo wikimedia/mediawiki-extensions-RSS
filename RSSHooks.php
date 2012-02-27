@@ -21,19 +21,24 @@ class RSSHooks {
 	 * @param $frame PPFrame parser context
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
-		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSUrlWhitelist;
+		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, 
+			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
 			$ns = $parser->getTitle()->getNamespace();
 			$checkNS = array_flip( $wgRSSNamespaces );
 
 			if( !isset( $checkNS[$ns] ) ) {
-				return wfMsg( 'rss-ns-permission' );
+				return RSSUtils::RSSError( 'rss-ns-permission' );
 			}
 		}
 
 		switch ( true ) {
 	
+		case ( isset( $wgRSSAllowedFeeds ) ): 
+			return RSSUtils::RSSError( 'rss-deprecated-wgrssallowedfeeds-found' );
+			break;
+
 		# disallow because there is no whitelist or empty whitelist
 		case ( !isset( $wgRSSUrlWhitelist ) 
 			|| !is_array( $wgRSSUrlWhitelist )
@@ -59,7 +64,7 @@ class RSSHooks {
 		}
 		
 		if ( !Http::isValidURI( $input ) ) {
-			return wfMsg( 'rss-invalid-url', htmlspecialchars( $input ) );
+			return RSSutils::RSSError( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 		if ( $wgRSSCacheCompare ) {
 			$timeout = $wgRSSCacheCompare;
@@ -79,7 +84,7 @@ class RSSHooks {
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
-			return wfMsg( 'rss-empty', htmlspecialchars( $input ) );
+			return RSSUtils::RSSError( 'rss-empty', htmlspecialchars( $input ) );
 		}
 
 		return $rss->renderFeed( $parser, $frame );

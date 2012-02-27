@@ -16,24 +16,11 @@ class RSSData {
 		}
 		$xpath = new DOMXPath( $xml );
 	
-		// register namespace as below, and apply a regex to the expression
-		// http://de3.php.net/manual/en/domxpath.query.php#103461
-		$namespaceURI = $xml->lookupnamespaceURI( NULL );
+		// namespace-safe method to find all elements
+		$items = $xpath->query( "//*[local-name() = 'item']" ); 
 
-		if ( ( null !== $namespaceURI ) ) {
-			$defaultNS = "defaultNS";
-			$xpath->registerNamespace( $defaultNS, $namespaceURI );
-			$defaultNS = "defaultNS:";
-		} else {
-			$defaultNS = "";
-		}
-
-		// is it an RSS feed ?
-		$items = $xpath->query( $this->namespacePrefixedQuery( "/rss/channel/item", $defaultNS ) ); 
-
-		if ( $items->length === 0 ) {
-			 // or is it an ATOM feed ?
-			$items = $xpath->query( $this->namespacePrefixedQuery( "/feed/entry", $defaultNS ) );
+		if ( $items->length == 0 ) {
+			$items = $xpath->query( "//*[local-name() = 'entry']" ); 
 		}
 
 		if( $items->length !== 0 ) {
@@ -61,14 +48,6 @@ class RSSData {
 		}
 	}
 
-	protected function namespacePrefixedQuery( $query, $namespace = "" ) {
-		if ( $namespace !== "" ) {
-			$ret = preg_replace( '#(::|/\s*|\A)(?![/@].+?|[a-z\-]+::)#', '$1' . $namespace . '$2', $query );
-		} else {
-			$ret = $query;
-		}
-		return $ret;
-	}
 	/**
 	 * Return a string that will be used to map RSS elements that
 	 * contain similar data (e.g. dc:date, date, and pubDate) to the

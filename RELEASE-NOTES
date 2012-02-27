@@ -10,13 +10,20 @@ http://www.mediawiki.org/wiki/Extension:RSS
   coming in. Then you could abort cleanly once it's gotten too much
   (otherwise using the defaults - PHP will abort the entire program when your
   memory usage gets too high)
-* bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
-  parsing differently flavoured RSS feeds and ATOM feeds
+
+=== Version 2.10 2012-02-27 ===
+* final solution of bug 30028 "Error parsing XML for RSS" - improve and harden
+  Extension:RSS when parsing differently flavoured RSS feeds and ATOM feeds
+* new parameter $wgRSSUrlNumberOfAllowedRedirects (default = 0)
+  Some feed urls redirect. The new RSS version can deal with redirects,
+  but it must be expressly enabled. For example, you can set
+  $wgRSSUrlNumberOfAllowedRedirects = 1;
 
 === Version 2.01 2012-02-24 ===
 * "summary" element of ATOM feed items are shown
   which is handled like "description" element of RSS
 * handling of basic HTML layout tags <p> <br> <b> <i> <u> <s> in item description
+
 === Version 2.00 2012-02-24 ===
 * first version which can parse RSS and at least some ATOM feeds
   partial solution of bug 30028 "Error parsing XML for RSS" - improve and harden

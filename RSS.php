@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.01
+ * @version 2.10
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.01 20120224" );
+define( "EXTENSION_RSS_VERSION", "2.10 20120227" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -52,7 +52,7 @@ $wgRSSCacheAge = 3600;
 // for debugging set $wgRSSCacheCompare = 1;
 $wgRSSCacheCompare = false;
 
-// 5 second timeout
+// 15 second timeout
 $wgRSSFetchTimeout = 15;
 
 // Ignore the RSS tag in all but the namespaces listed here.
@@ -77,6 +77,11 @@ $wgRSSUrlWhitelist = array();
 // include "*" if you expressly want to allow all urls (you should not do this)
 // $wgRSSUrlWhitelist = array( "*" );
 
+// Maximum number of redirects to follow (defaults to 0)
+// Note: this should only be used when the target URLs are trusted,
+// to avoid attacks on intranet services accessible by HTTP.
+$wgRSSUrlNumberOfAllowedRedirects = 0;
+
 // Agent to use for fetching feeds
 $wgRSSUserAgent = "MediaWikiRSS/" . strtok( EXTENSION_RSS_VERSION, " " ) . " (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension";
 
@@ -89,4 +94,4 @@ $wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
 // limit the number of characters in the item description
 // or set to false for unlimited length.
 // $wgRSSItemMaxLength = false;
-// $wgRSSItemMaxLength = 100;
+$wgRSSItemMaxLength = 200;

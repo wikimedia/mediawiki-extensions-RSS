@@ -176,6 +176,7 @@ $messages['de'] = array(
 	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht zulässig',
 	'rss-url-is-not-whitelisted' => '„$1“ befindet sich nicht in der Liste zulässiger Feeds. {{PLURAL:$3|$2 ist der einzig zulässige Feed|Die zulässigen Feeds lauten: $2}}.',
 	'rss-empty-whitelist' => '„$1“ befindet sich nicht in der Liste zulässiger Feeds. Es befinden sich keine zulässigen Feed-URLs in dieser Liste.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Die veraltete Variable <code>$wgRSSAllowedFeeds</code> wurde festgestellt. Seit Version 2 dieser Erweiterung muss sie durch die auf der Dokumentationsseite Extension:RSS beschriebene Variable <code>$wgRSSUrlWhitelist</code> ersetzt werden.',
 	'rss-feed' => "<!-- Die folgenden Vorlagen sind zwei alternativ zueinander einsetzbare Vorlagen. Die erste ist die Standardvorlage für Feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- An dieser Stelle bitte keine neue Zeile einfügen. --><!-- Die zweite ist eine verbesserte Vorlage, für die die Softwareerweiterung ParserFunctions benötigt wird. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -277,6 +278,7 @@ $messages['fi'] = array(
  * @author Gomoko
  * @author IAlex
  * @author Peter17
+ * @author Tpt
  */
 $messages['fr'] = array(
 	'rss-desc' => 'Affiche un flux RSS sur une page du wiki',
@@ -286,6 +288,8 @@ $messages['fr'] = array(
 	'rss-invalid-url' => 'URL non valide : $1',
 	'rss-parse-error' => 'Erreur lors de l’analyse XML du RSS',
 	'rss-ns-permission' => 'Les flux RSS ne sont pas autorisés dans cet espace de noms',
+	'rss-url-is-not-whitelisted' => '" $1 " n\'est pas dans la liste des flux autorisés.  {{PLURAL:$3|  $2  est le seul flux autorisé|Les flux autorisés sont :  $2}}.',
+	'rss-empty-whitelist' => '" $1 " n\'est pas dans la liste des flux autorisés.  Ils n\'y a aucune URL de flux autorisés dans la liste.',
 	'rss-feed' => "<!--  ce qui suit est une alternative entre deux modèles. Le premier est le modèle de base par défaut pour les alimentations -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- ne pas mettre de retour à la ligne ici --><!-- Le second est une version améliorée qui requiert Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -318,6 +322,9 @@ $messages['gl'] = array(
 	'rss-invalid-url' => 'O enderezo URL non é válido: $1',
 	'rss-parse-error' => 'Erro analítico de XML para o RSS',
 	'rss-ns-permission' => 'O RSS non está permitido neste espazo de nomes',
+	'rss-url-is-not-whitelisted' => '"$1" non se atopa na lista branca das fontes de novas permitidas. {{PLURAL:$3|$2 é a única fonte de novas permitida|As fontes de novas permitidas son as seguintes: $2}}.',
+	'rss-empty-whitelist' => '"$1" non se atopa na lista branca das fontes de novas permitidas. Non hai enderezos URL de fontes de novas permitidos na lista branca.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Detectouse a variable anticuada $wgRSSAllowedFeeds. Desde a versión 2.0 de RSS, cómpre substituír esta variable por $wgRSSUrlWhitelist segundo está descrito no manual Extension:RSS.',
 	'rss-feed' => "<!--  os seguintes son dous modelos alternativos. O primeiro é o modelo por defecto básico para as fontes de novas -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- non empregar unha liña nova aquí --><!-- O segundo é unha versión mellora que necesita Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -353,6 +360,7 @@ $messages['he'] = array(
 	'rss-ns-permission' => 'שימוש ב־RSS אינו מופעל במרחב השם הזה',
 	'rss-url-is-not-whitelisted' => 'הכתובת "$1" אינה מופיע ברשימה הלבנה של הזנות מותרות. {{PLURAL:$3|$2 היא ההזנה המותרת היחידה|ההזנות המותרות הן: $2}}.',
 	'rss-empty-whitelist' => 'הכתובת "$1" אינה מופיע ברשימה הלבנה של הזנות מותרות. אין כתובות הזנה מותרות ברשימה הלבנה.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'נמצא המשתנה המיושן ‎$wgRSSAllowedFeeds. מגרסת 2 של RSS יש להחליף משתנה זה ב־‎$wgRSSUrlWhitelist כפי שמתואר בדף תיאור ההרחבה Extension:RSS.',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -388,6 +396,9 @@ $messages['hsb'] = array(
 	'rss-invalid-url' => 'Njepłaćiwy URL: $1',
 	'rss-parse-error' => 'Zmylk při parsowanju XML za RSS',
 	'rss-ns-permission' => 'RSS njeje dowoleny w tutym mjenowym rumje',
+	'rss-url-is-not-whitelisted' => '"$1" njeje w lisćinje dowolenych kanalow. {{PLURAL:$3|$2 je jenički dowoleny kanal|Slědowacej kanalej stej móžno: $2|Slědowace kanale su móžno: $2|Slědowace kanale su móžno: $2}}.',
+	'rss-empty-whitelist' => '"$1" njeje w lisćinje dowolenych kanalow. W lisćinje žane URL dowolenych kanalow njejsu.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Zestarjena wariabla $wgRSSAllowedFeeds je so wotkryła. Wot RSS-wersije 2.0 dyrbi so tuta wariabla přez $wgRSSUrlWhitelist wuměnić, kaž n stronje pomocy Extension:RSS wopisane.',
 	'rss-feed' => "<!--  the following are two alternative templates. The first is the basic default template for feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -516,6 +527,7 @@ $messages['mk'] = array(
 	'rss-ns-permission' => 'RSS не е допуштен во овој именски простор',
 	'rss-url-is-not-whitelisted' => '„$1“ не е на белиот список на дозволени канали. {{PLURAL:$3|Единствениот дозволен е $2|Дозволени се следниве: $2}}.',
 	'rss-empty-whitelist' => '„$1“ не е на белиост список на дозволени канали. На списокот нема URL-адреси на допуштени канали.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Утврдена е застарената променлива $wgRSSAllowedFeeds. Од верзијата RSS 2.0 натаму, оваа променлива мора да се замени со $wgRSSUrlWhitelist според опишаното во прирачникот, на страницата Extension:RSS.',
 	'rss-feed' => "<!--  Ова се два алтернативни шаблона. Првиот е основно зададениот шаблон за канали -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- туак не вметнувајте нов ред --><!-- Вториот е подобрена верзија што бара Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -545,6 +557,9 @@ $messages['ms'] = array(
 	'rss-invalid-url' => 'URL tidak sah: $1',
 	'rss-parse-error' => 'Ralat ketika menghurai XML untuk RSS',
 	'rss-ns-permission' => 'RSS tidak dibenarkan di ruang nama ini',
+	'rss-url-is-not-whitelisted' => '"$1" tiada dalam senarai putih suapan yang dibenarkan. {{PLURAL:$3|$2 sahaja suapan yang dibenarkan|Suapan-suapan yang dibenarkan adalah seperti berikut: $2}}.',
+	'rss-empty-whitelist' => '"$1" tiada dalam senarai putih suapan yang dibenarkan. Tiadanya URL suapan yang dibenarkan dalam senarai putih.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Pembolehubah lapuk $wgRSSAllowedFeeds telah dikesan. Semenjak RSS versi 2.0, pembolehubah ini perlu digantikan oleh wgRSSUrlWhitelist seperti yang diterangkan dalam laman manual Extension:RSS.',
 	'rss-feed' => "<!--  Berikut ialah dua templat alternatif. Yang pertama ialah templat asas untuk suapan -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- jangan letak baris baru di sini --><!-- Yang kedua ialah versi diperkemas yang memerlukan Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

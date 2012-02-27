@@ -296,7 +296,6 @@ class RSSParser {
 			) 
 		);
 
-		$client->setUserAgent( $wgRSSUserAgent );
 		foreach ( $headers as $header => $value ) {
 			$client->setHeader( $header, $value );
 		}

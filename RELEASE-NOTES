@@ -11,6 +11,10 @@ http://www.mediawiki.org/wiki/Extension:RSS
   (otherwise using the defaults - PHP will abort the entire program when your
   memory usage gets too high)
 
+
+=== Version 2.11 2012-02-29 ===
+* function name typo correction
+
 === Version 2.10 2012-02-27 ===
 * final solution of bug 30028 "Error parsing XML for RSS" - improve and harden
   Extension:RSS when parsing differently flavoured RSS feeds and ATOM feeds

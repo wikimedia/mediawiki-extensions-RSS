@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.10
+ * @version 2.11
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.10 20120227" );
+define( "EXTENSION_RSS_VERSION", "2.11 20120229" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -94,4 +94,4 @@ $wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
 // limit the number of characters in the item description
 // or set to false for unlimited length.
 // $wgRSSItemMaxLength = false;
-$wgRSSItemMaxLength = 200;
+$wgRSSItemMaxLength = false;

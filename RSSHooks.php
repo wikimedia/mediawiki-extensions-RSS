@@ -64,7 +64,7 @@ class RSSHooks {
 		}
 		
 		if ( !Http::isValidURI( $input ) ) {
-			return RSSutils::RSSError( 'rss-invalid-url', htmlspecialchars( $input ) );
+			return RSSUtils::RSSError( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 		if ( $wgRSSCacheCompare ) {
 			$timeout = $wgRSSCacheCompare;

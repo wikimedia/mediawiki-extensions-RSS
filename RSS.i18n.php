@@ -420,6 +420,7 @@ $messages['ia'] = array(
 	'rss-ns-permission' => 'RSS non es permittite in iste spatio de nomines',
 	'rss-url-is-not-whitelisted' => '"$1" non es in le lista de syndicationes autorisate. {{PLURAL:$3|Solmente le syndication $2 es autorisate|Le syndicationes autorisate es: $2}}.',
 	'rss-empty-whitelist' => '"$1" non es in le lista de syndicationes autorisate. Nulle URL de syndication autorisate es presente in le lista blanc.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Le variabile obsolete $wgRSSAllowedFeeds ha essite detegite. Depost RSS version 2.0, iste variabile debe esser reimplaciate per $wgRSSUrlWhitelist como describite in le pagina de manual Extension:RSS.',
 	'rss-feed' => "<!--  Ecce duo patronos alternative. Le prime es le patrono simple e standard pro syndicationes. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- non comenciar un nove linea hic --><!-- Le secunde es un version meliorate que require le extension ParserFunctions. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

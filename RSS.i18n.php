@@ -594,6 +594,9 @@ $messages['nl'] = array(
 	'rss-invalid-url' => 'Geen geldige URL: $1',
 	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',
 	'rss-ns-permission' => 'RSS is niet toegestaan in deze naamruimte',
+	'rss-url-is-not-whitelisted' => '"$1" staat niet in de witte lijst met toegestane feeds. {{PLURAL:$3|$2 is de enige toegestane feed|De toegestane feeds zijn: $2}}.',
+	'rss-empty-whitelist' => '"$1" staat niet in de witte lijst met toegestane feeds. Er staan op het moment geen toegestane feed-URL\'s in de witte lijst.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'De uit te faseren variabele $wgRSSAllowedFeeds is aangetroffen. Sinds RSS versie 2.0 is deze variabele vervangen door $wgRSSUrlWhitelist zoals beschreven in de handleiding voor Extension:RSS.',
 	'rss-feed' => "<!--  Hieronder staan twee alternatieve sjablonen. Het eerste is het standaardsjabloon voor feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- Hier geen nieuwe regel starten. --><!-- Het tweede sjabloon is een verbeterde versie waarvoor de uitbreiding ParserFunctions nodig is. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -860,6 +863,9 @@ $messages['vi'] = array(
 	'rss-invalid-url' => 'URL không hợp lệ: $1',
 	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
 	'rss-ns-permission' => 'Không được phép xem RSS trong không gian tên này',
+	'rss-url-is-not-whitelisted' => '“$1” không có trong danh sách trắng nguồn tin. {{PLURAL:$3|$2 là nguồn tin duy nhất được cho phép.|Các nguồn tin sau được cho phép: $2.}}',
+	'rss-empty-whitelist' => '“$1” không có trong danh sách trắng nguồn tin. Danh sách trắng không cho phép URL nguồn tin nào.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Đã nhận ra biến số bị phản đối $wgRSSAllowedFeeds. Bắt đầu từ phiên bản 2.0 của RSS, biến số này được thay thế bằng $wgRSSUrlWhitelist theo lời miêu tả tại trang hướng dẫn Extension:RSS.',
 	'rss-feed' => "<!--  Sau đây có hai bản mẫu thay cho nhau. Thứ nhất là bản mẫu mặc định cơ bản dành cho các nguồn tin: -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- không ngắt dòng tại đây --><!-- Thứ hai là phiên bản cải tiến cần phần mở rộng Extension:ParserFunctions: --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: — {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: — {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

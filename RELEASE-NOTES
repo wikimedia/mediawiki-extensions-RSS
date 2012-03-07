@@ -11,6 +11,13 @@ http://www.mediawiki.org/wiki/Extension:RSS
   (otherwise using the defaults - PHP will abort the entire program when your
   memory usage gets too high)
 
+=== Version 2.12 2012-03-07 ===
+* bug fix 34763 "RSS feed items (HTML) are not rendered as HTML but htmlescaped"
+* regression bug 30377 "Add a new parameter to limit the number of characters 
+  when rendering the channel item <description>". Feed item string length
+  limitation is difficult when we allow HTML <a> or <img> tags, because a mere
+  content-unaware limitation breaks (can break) tags which results in disastrous
+  rendering results.
 
 === Version 2.11 2012-02-29 ===
 * function name typo correction

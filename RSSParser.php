@@ -312,6 +312,14 @@ class RSSParser {
 		return $ret;
 	}
 
+	function sandboxParse($wikiText) {
+		global $wgTitle, $wgUser;
+		$myParser = new Parser();
+		$myParserOptions = ParserOptions::newFromUser($wgUser);
+		$result = $myParser->parse($wikiText, $wgTitle, $myParserOptions);
+		return $result->getText();
+	}
+
 	/**
 	 * Render the entire feed so that each item is passed to the
 	 * template which the MediaWiki then displays.
@@ -320,7 +328,7 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
-	
+
 		$renderedFeed = '';
 		
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
@@ -336,15 +344,15 @@ class RSSParser {
 				}
 
 				if ( $this->canDisplay( $item ) ) {
-					$renderedFeed .= $this->renderItem( $item ) . "\n";
+					$renderedFeed .= $this->renderItem( $item, $parser ) . "\n";
 					$headcnt++;
 				}
 			}
 
-			$renderedFeed = $parser->recursiveTagParse( $renderedFeed, $frame );
+			$renderedFeed = $this->sandboxParse( $renderedFeed );
 
-        	}
-        	
+		}
+
 		return $renderedFeed;
 	}
 
@@ -353,7 +361,7 @@ class RSSParser {
 	 *
 	 * @param $item Array: an array produced by RSSData where keys are the names of the RSS elements
 	 */
-	protected function renderItem( $item ) {
+	protected function renderItem( $item, $parser ) {
 
 		$renderedItem = $this->itemTemplate;
 
@@ -385,12 +393,14 @@ class RSSParser {
 				$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
 				break;
 			default:
-				$str = $this->escapeTemplateParameter( $item[$info] ); 
+				$str = $this->escapeTemplateParameter( $item[$info] );
+				/***
 				if ( mb_strlen( $str ) > $this->ItemMaxLength ) {
 					$str = mb_substr( $str, 0, $this->ItemMaxLength ) . " ...";
 				}
+				***/
 				$txt = $this->highlightTerms(  $str );
-				$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
+				$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
 			}
 		}
 
@@ -434,41 +444,60 @@ class RSSParser {
 	 * to the other kinds of markup, to avoid user input ending a template 
 	 * invocation.
 	 *
-	 * We change differently flavoured <p> and <br> tags to effective <br> tags,
-	 * other tags such as <a> will be rendered html-escaped.
+	 * If you want to allow clickable link Urls (HTML <a> tag) in RSS feeds:
+	 * $wgRSSAllowLinkTag = true;
+	 *
+	 * If you want to allow images (HTML <img> tag) in RSS feeds:
+	 * $wgAllowImageTag = true;
 	 *
 	 */
 	protected function escapeTemplateParameter( $text ) {
-		$text = str_replace(
-			array( '[',     '|',      ']',     '\'',    'ISBN ',     
-				'RFC ',     '://',     "\n=",     '{{',           '}}',
-			),
-			array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
-				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;',
-			),
-			htmlspecialchars( str_replace( "\n", "", $text ) )
-		);
+		global $wgRSSAllowLinkTag, $wgAllowImageTag;
 
-		// keep some basic layout tags
-		$text = str_replace(
-			array( '&lt;p&gt;', '&lt;/p&gt;',
-				'&lt;br/&gt;', '&lt;br&gt;', '&lt;/br&gt;',
-				'&lt;b&gt;', '&lt;/b&gt;',
-				'&lt;i&gt;', '&lt;/i&gt;',
-				'&lt;u&gt;', '&lt;/u&gt;',
-				'&lt;s&gt;', '&lt;/s&gt;',
-			),
-			array( "", "<br/>",
-				"<br/>", "<br/>", "<br/>",
-				"'''", "'''",
-				"''", "''",
-				"<u>", "</u>",
-				"<s>", "</s>",
-			),
-			$text
-		);
+		if ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag ) {
+			$extra = array( "a" );
+		} else {
+			$extra = array();
+		}
 
-		return $text;
+		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
+			|| ( isset( $wgAllowImageTag ) && $wgAllowImageTag ) ) {
+
+			$ret = Sanitizer::removeHTMLtags( $text, null, array(), $extra, array( "iframe" ) );
+
+		} else { // use the old escape method for a while
+
+			$text = str_replace(
+				array( '[',     '|',      ']',     '\'',    'ISBN ',     
+					'RFC ',     '://',     "\n=",     '{{',           '}}',
+				),
+				array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
+					'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;',
+				),
+				htmlspecialchars( str_replace( "\n", "", $text ) )
+			);
+
+			// keep some basic layout tags
+			$ret = str_replace(
+				array( '&lt;p&gt;', '&lt;/p&gt;',
+					'&lt;br/&gt;', '&lt;br&gt;', '&lt;/br&gt;',
+					'&lt;b&gt;', '&lt;/b&gt;',
+					'&lt;i&gt;', '&lt;/i&gt;',
+					'&lt;u&gt;', '&lt;/u&gt;',
+					'&lt;s&gt;', '&lt;/s&gt;',
+				),
+				array( "", "<br/>",
+					"<br/>", "<br/>", "<br/>",
+					"'''", "'''",
+					"''", "''",
+					"<u>", "</u>",
+					"<s>", "</s>",
+				),
+				$text
+			);
+		}
+
+		return $ret;
 	}
 
 	/**

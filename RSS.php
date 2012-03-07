@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.11
+ * @version 2.12
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.11 20120229" );
+define( "EXTENSION_RSS_VERSION", "2.12 20120307" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -93,5 +93,12 @@ $wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
 
 // limit the number of characters in the item description
 // or set to false for unlimited length.
-// $wgRSSItemMaxLength = false;
+// THIS IS CURRENTLY NOT WORKING (bug 30377)
 $wgRSSItemMaxLength = false;
+
+// You can choose to allow active links in feed items; default: false
+$wgRSSAllowLinkTag = false;
+
+// If you want to see images in feed items, then you need to globally allow
+// image tags in your wiki by using the MediaWiki parameter; default: false
+// $wgAllowImageTag = true;

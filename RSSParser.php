@@ -75,7 +75,7 @@ class RSSParser {
 		# Get a maximal length for item texts
 		if ( isset( $args['item-max-length'] ) ) {
 			$this->ItemMaxLength = $args['item-max-length'];
-		} elseif ( isset( $wgRSSItemMaxLength ) && is_numeric( $wgRSSItemMaxLength ) ) {
+		} elseif ( is_numeric( $wgRSSItemMaxLength ) ) {
 			$this->ItemMaxLength = $wgRSSItemMaxLength;
 		}
 		
@@ -328,6 +328,7 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
+		global $wgRSSTrackingCategory;
 
 		$renderedFeed = '';
 		
@@ -351,6 +352,11 @@ class RSSParser {
 
 			$renderedFeed = $this->sandboxParse( $renderedFeed );
 
+		}
+		if ( $wgRSSTrackingCategory === true ) {
+			$parser->addTrackingCategory( 'rss-tracking-category' );
+		} elseif ( is_string( $wgRSSTrackingCategory ) ) {
+			$parser->addTrackingCategory( $wgRSSTrackingCategory );
 		}
 
 		return $renderedFeed;

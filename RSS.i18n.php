@@ -14,7 +14,7 @@ $messages = array();
 
 $messages['en'] = array(
 	'rss-desc' => 'Displays RSS feeds on MediaWiki pages in a standard or in user-definable formats using template pages',
-	'rss-tracking-category' => 'RSS',
+	'rss-tracking-category' => 'Pages with RSS feeds',
 	'rss-error' => 'Failed to load RSS feed from $1: $2',
 	'rss-empty' => 'Failed to load RSS feed from $1!',
 	'rss-fetch-nourl' => 'Fetch called without a URL!',

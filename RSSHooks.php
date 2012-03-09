@@ -20,7 +20,7 @@ class RSSHooks {
 	 * @param $parser Parser
 	 * @param $frame PPFrame parser context
 	 */
-	static function renderRss( $input, $args, $parser, $frame ) {
+	static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, 
 			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 

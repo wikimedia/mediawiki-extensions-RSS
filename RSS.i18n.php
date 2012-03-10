@@ -100,15 +100,17 @@ $messages['ast'] = array(
  */
 $messages['be-tarask'] = array(
 	'rss-desc' => 'Паказвае RSS-стужкі на вікі-старонках',
+	'rss-tracking-category' => 'Старонкі з RSS-стужкамі',
 	'rss-error' => 'Памылка загрузкі RSS-стужкі з $1: $2',
-	'rss-empty' => 'Памылка загрузкі RSS-стужкі з $1!',
+	'rss-empty' => 'Не атрымалася загрузіць RSS-стужку з $1!',
 	'rss-fetch-nourl' => 'Выбарка выкліканая без URL-адрасу!',
 	'rss-invalid-url' => 'Няслушны URL-адрас: $1',
 	'rss-parse-error' => 'Памылка аналізу XML для RSS',
 	'rss-ns-permission' => 'RSS у гэтай прасторы назваў не дазволены',
 	'rss-url-is-not-whitelisted' => '«$1» ня зьмешчаны ў белым сьпісе дазволеных стужак. {{PLURAL:$3|«$2» — адзіная дазволеная стужка|Дазволеныя стужкі: $2}}.',
 	'rss-empty-whitelist' => '«$1» ня зьмешчаны ў белым сьпісе дазволеных стужак. Белы сьпіс увогуле не зьмяшчае дазволеныя URL стужак.',
-	'rss-feed' => "<!--  ніжэй рададзеныя два магчымыя шаблёны. Першы — асноўны шаблён па змоўчваньні для стужкі -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Заўважанае выкарыстаньне састарэлай зьменнай $wgRSSAllowedFeeds. Ад вэрсіі RSS 2.0 гэтая зьменная была замененая на $wgRSSUrlWhitelist, пра што гаворыцца ў дапаможніку Extension:RSS.',
+	'rss-feed' => "<!--  ніжэй пададзеныя два магчымыя шаблёны. Першы — асноўны перадвызначаны шаблён для стужак -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не ўжывайце тут новы радок --><!-- Другі — палепшаная вэрсія, якая патрабуе Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
@@ -171,6 +173,7 @@ $messages['da'] = array(
  */
 $messages['de'] = array(
 	'rss-desc' => 'Ermöglicht die Anzeige eines oder mehrerer RSS/Atom-Newsfeeds auf Wikiseiten, entweder in einem Standardformat oder in benutzerdefinierten Formaten',
+	'rss-tracking-category' => 'Seiten mit RSS-Feeds',
 	'rss-error' => 'Der RSS-Feed von $1 konnte nicht geladen werden: $2',
 	'rss-empty' => 'Der RSS-Feed von $1 konnte nicht geladen werden!',
 	'rss-fetch-nourl' => 'Der Abruf erfolgte ohne Angabe einer URL!',
@@ -190,11 +193,13 @@ $messages['de'] = array(
  */
 $messages['dsb'] = array(
 	'rss-desc' => 'Zwobraznjujo RSS-kanal na wikiboku',
+	'rss-tracking-category' => 'Boki z RSS-kanalami',
 	'rss-error' => 'RSS-kanal njejo dał se z $1 zacytaś: $2',
 	'rss-empty' => 'RSS-kanal njejo dał se z $1 zacytaś!',
 	'rss-fetch-nourl' => 'Wótwołanje bźez URL!',
 	'rss-invalid-url' => 'Njepłaśiwy URL: $1',
 	'rss-parse-error' => 'Zmólka pśi parsowanju XML za RSS',
+	'rss-ns-permission' => 'RSS njejo w toś tom mjenjowem rumje dowólony.',
 );
 
 /** Greek (Ελληνικά)
@@ -231,6 +236,7 @@ $messages['eo'] = array(
  */
 $messages['es'] = array(
 	'rss-desc' => 'Muestra un feed RSS en una página wiki',
+	'rss-tracking-category' => 'Páginas con fuentes RSS',
 	'rss-error' => 'No se pudo cargar el feed RSS desde $1: $2',
 	'rss-empty' => 'No se pudo cargar feed RSS desde $1!',
 	'rss-fetch-nourl' => 'Comando "fetch" llamado sin dirección URL',
@@ -395,6 +401,7 @@ $messages['hr'] = array(
  */
 $messages['hsb'] = array(
 	'rss-desc' => 'Zwobraznja RSS-kanal na wikistronje',
+	'rss-tracking-category' => 'Strony z RSS-kanalemi',
 	'rss-error' => 'Začitowanje RSS-kanala z $1 je so njeporadźiło: $2',
 	'rss-empty' => 'Začitowanje RSS-kanala z $1 je so njeporadźiło!',
 	'rss-fetch-nourl' => 'Wotwołanje bjez URL!',
@@ -414,6 +421,7 @@ $messages['hsb'] = array(
  */
 $messages['ia'] = array(
 	'rss-desc' => 'Monstra un syndication RSS in un pagina wiki',
+	'rss-tracking-category' => 'Paginas con syndication RSS',
 	'rss-error' => 'Falleva de cargar le syndication RSS de $1: $2',
 	'rss-empty' => 'Falleva de cargar le syndication RSS de $1!',
 	'rss-fetch-nourl' => 'Tentativa de obtention sin URL!',
@@ -525,6 +533,7 @@ $messages['lt'] = array(
  */
 $messages['mk'] = array(
 	'rss-desc' => 'Прикажува RSS-канал на викистраница',
+	'rss-tracking-category' => 'Страници со RSS-канали',
 	'rss-error' => 'Не успеав да го вчитам RSS-каналот од $1: $2',
 	'rss-empty' => 'Не успеав да го вчитам RSS-каналот од $1!',
 	'rss-fetch-nourl' => 'Повикувањето за добивање нема URL!',
@@ -610,6 +619,7 @@ $messages['nl'] = array(
  */
 $messages['pl'] = array(
 	'rss-desc' => 'Wyświetla kanał RSS na stronie wiki',
+	'rss-tracking-category' => 'Strony z kanałami informacyjnymi RSS',
 	'rss-error' => 'Nie udało się odczytać kanału $1: $2',
 	'rss-empty' => 'Nie udało się odczytać kanału $1!',
 	'rss-fetch-nourl' => 'Wywołano pobieranie bez adresu URL!',
@@ -859,6 +869,7 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'rss-desc' => 'Hiển thị nguồn cấp RSS trên trang wiki',
+	'rss-tracking-category' => 'Trang có nguồn tin RSS',
 	'rss-error' => 'Thất bại khi tải nguồn cấp RSS từ $1: $2',
 	'rss-empty' => 'Thất bại khi tải nguồn cấp RSS từ $1!',
 	'rss-fetch-nourl' => 'Cần URL để tải!',

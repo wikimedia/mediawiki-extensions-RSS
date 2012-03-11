@@ -81,12 +81,16 @@ $messages['ar'] = array(
  */
 $messages['ast'] = array(
 	'rss-desc' => 'Amuesa fluxos RSS nes páxines de Mediawiki en formatu estándar o configurable pol usuariu usando páxines de plantía',
+	'rss-tracking-category' => 'Páxines con canales RSS',
 	'rss-error' => 'Nun se pudo cargar el fluxu RSS dende $1: $2',
 	'rss-empty' => '¡Nun se pudo cargar el fluxu RSS dende $1!',
 	'rss-fetch-nourl' => '¡Se llamó a la baxada ensin una URL!',
 	'rss-invalid-url' => 'Nun ye una URL válida: $1',
 	'rss-parse-error' => 'Fallu al analizar el XML pal RSS',
 	'rss-ns-permission' => 'El RSS nun ta permitíu nesti espaciu de nomes',
+	'rss-url-is-not-whitelisted' => '"$1" nun ta na llista blanca de canales web permitíes.  {{PLURAL:$3|$2  ye la única canal permitida|Les canales permitíes son les siguientes:  $2 }}.',
+	'rss-empty-whitelist' => '" $1 " nun ta na llista blanca de canales web permitíes. Nun hai denguna URL de canales permitíes na llista blanca.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Se detectó la variable anticuada $wgRSSAllowedFeeds. Dende la versión 2.0 de RSS esta variable tien de sustituise por $wgRSSUrlWhitelist como se describe na páxina Extension:RSS del manual.',
 	'rss-feed' => "<!--  darréu vienen dos plantíes alternatives. La primera ye la plantía básica predeterminada pa fluxos -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- nun usar nueva llinia equí --><!-- La segunda ye una versión ameyorada que necesita Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -363,6 +367,7 @@ $messages['gsw'] = array(
  */
 $messages['he'] = array(
 	'rss-desc' => 'מציג הזנת RSS על דף ויקי',
+	'rss-tracking-category' => 'דפים עם הזנות RSS',
 	'rss-error' => 'נכשלה טעינת הזנת RSS מ־$1: $2',
 	'rss-empty' => 'נכשלה טעינת הזנת RSS מ־$1!',
 	'rss-fetch-nourl' => 'קריאה לאחזור ללא כתובת URL!',

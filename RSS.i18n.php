@@ -296,6 +296,7 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'rss-desc' => 'Affiche un flux RSS sur une page du wiki',
+	'rss-tracking-category' => 'Pages avec des flux RSS',
 	'rss-error' => 'Impossible de charger le flux RSS de $1 : $2',
 	'rss-empty' => 'Impossible de charger le flux RSS de $1 !',
 	'rss-fetch-nourl' => 'Appel passé sans fournir d’URL !',
@@ -331,6 +332,7 @@ $messages['frp'] = array(
  */
 $messages['gl'] = array(
 	'rss-desc' => 'Mostra unha fonte de novas RSS nunha páxina wiki',
+	'rss-tracking-category' => 'Páxinas con fontes de novas RSS',
 	'rss-error' => 'Erro ao cargar a fonte de novas RSS de "$1": $2',
 	'rss-empty' => 'Erro ao cargar a fonte de novas RSS de "$1"!',
 	'rss-fetch-nourl' => 'Non deu ningún enderezo URL!',
@@ -571,6 +573,7 @@ $messages['ml'] = array(
  */
 $messages['ms'] = array(
 	'rss-desc' => 'Memaparkan suapan RSS pada laman wiki',
+	'rss-tracking-category' => 'Laman-laman dengan suapan RSS',
 	'rss-error' => 'Suapan RSS gagal dimuatkan dari $1: $2',
 	'rss-empty' => 'Suapan RSS gagal dimuatkan dari $1!',
 	'rss-fetch-nourl' => 'Ambilan dipanggil tanpa URL!',
@@ -604,6 +607,7 @@ $messages['nb'] = array(
  */
 $messages['nl'] = array(
 	'rss-desc' => 'Biedt een RSS-feed voor een wikipagina',
+	'rss-tracking-category' => "Pagina's met RSS-feeds",
 	'rss-error' => 'Kon RSS feed van $1 niet laden, fout: $2',
 	'rss-empty' => 'Kon RSS feed van $1 niet laden!',
 	'rss-fetch-nourl' => 'Fetch is aangeroepen zonder een URL!',

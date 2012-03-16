@@ -794,6 +794,7 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'rss-desc' => 'Prikaže vir RSS na wikistrani',
+	'rss-tracking-category' => 'Strani z viri RSS',
 	'rss-error' => 'Napaka pri nalaganju RSS z $1: $2',
 	'rss-empty' => 'Napaka pri nalaganju RSS z $1!',
 	'rss-fetch-nourl' => 'Pridobivanje klicano brez URL!',

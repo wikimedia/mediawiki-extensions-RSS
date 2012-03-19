@@ -328,7 +328,6 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
-		global $wgRSSTrackingCategory;
 
 		$renderedFeed = '';
 		
@@ -353,12 +352,8 @@ class RSSParser {
 			$renderedFeed = $this->sandboxParse( $renderedFeed );
 
 		}
-		if ( $wgRSSTrackingCategory === true ) {
-			$parser->addTrackingCategory( 'rss-tracking-category' );
-		} elseif ( is_string( $wgRSSTrackingCategory ) ) {
-			$parser->addTrackingCategory( $wgRSSTrackingCategory );
-		}
 
+		$parser->addTrackingCategory( 'rss-tracking-category' );
 		return $renderedFeed;
 	}
 

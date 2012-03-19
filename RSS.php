@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.14
+ * @version 2.15
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.14 20120309" );
+define( "EXTENSION_RSS_VERSION", "2.15 20120319" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -98,20 +98,3 @@ $wgRSSItemMaxLength = false;
 
 // You can choose to allow active links in feed items; default: false
 $wgRSSAllowLinkTag = false;
-
-// If you want to see images in feed items, then you need to globally allow
-// image tags in your wiki by using the MediaWiki parameter; default: false
-// $wgAllowImageTag = true;
-
-// Parameter to enable the automatic tracking category
-// for all pages using this parser extension
-//
-// Category name [[MediaWiki:Rss-tracking-category]] (default)
-// $wgRSSTrackingCategory = true;
-//
-// you can assign a specific category name [[MediaWiki:Rss-mycategory]]
-// $wgRSSTrackingCategory = 'rss-mycategory';
-//
-// you can disable the use of a tracking category
-// $wgRSSTrackingCategory = false;
-$wgRSSTrackingCategory = true;

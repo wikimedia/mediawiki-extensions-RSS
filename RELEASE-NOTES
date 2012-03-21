@@ -2,6 +2,8 @@ RELEASE NOTES of the MediaWiki extension RSS
 http://www.mediawiki.org/wiki/Extension:RSS
 
 === TO DO ===
+* bug 30377 add a new parameter to limit the number of characters when rendering
+  the channel item <description>
 * set an upper default limit for HttpRequest request size when fetching feeds
   doing a HEAD request first to ask for the size but that value may not be
   available. Check how much data is returned as its coming back
@@ -10,56 +12,8 @@ http://www.mediawiki.org/wiki/Extension:RSS
   coming in. Then you could abort cleanly once it's gotten too much
   (otherwise using the defaults - PHP will abort the entire program when your
   memory usage gets too high)
-
-=== Version 2.12 2012-03-07 ===
-* bug fix 34763 "RSS feed items (HTML) are not rendered as HTML but htmlescaped"
-* regression bug 30377 "Add a new parameter to limit the number of characters 
-  when rendering the channel item <description>". Feed item string length
-  limitation is difficult when we allow HTML <a> or <img> tags, because a mere
-  content-unaware limitation breaks (can break) tags which results in disastrous
-  rendering results.
-
-=== Version 2.11 2012-02-29 ===
-* function name typo correction
-
-=== Version 2.10 2012-02-27 ===
-* final solution of bug 30028 "Error parsing XML for RSS" - improve and harden
-  Extension:RSS when parsing differently flavoured RSS feeds and ATOM feeds
-* new parameter $wgRSSUrlNumberOfAllowedRedirects (default = 0)
-  Some feed urls redirect. The new RSS version can deal with redirects,
-  but it must be expressly enabled. For example, you can set
-  $wgRSSUrlNumberOfAllowedRedirects = 1;
-
-=== Version 2.01 2012-02-24 ===
-* "summary" element of ATOM feed items are shown
-  which is handled like "description" element of RSS
-* handling of basic HTML layout tags <p> <br> <b> <i> <u> <s> in item description
-
-=== Version 2.00 2012-02-24 ===
-* first version which can parse RSS and at least some ATOM feeds
-  partial solution of bug 30028 "Error parsing XML for RSS" - improve and harden
-  Extension:RSS when parsing differently flavoured RSS feeds and ATOM feeds
-
-=== Version 1.94 2012-02-23 ===
-* changed white list definition and behaviour:
-
-  1. changed the name from $wgRSSAllowedFeeds to $wgRSSUrlWhitelist
-  2. behaviour has been changed
-
-  the new behaviour is:
-  $wgRSSUrlWhitelist is empty by default. Since version 1.94 it must be 
-  expressly set to an array( list-of-comma-separated-allowed-RSS-urls-strings )
-  or set to array( "*" ) if you want to allow any url
-
-  the old behaviour was:
-  $wgRSSAllowedFeeds was empty by default and empty meant that every Url
-  was allowed by default. This has been changed, see new behaviour.
-
-=== Version 1.92 2012-02-13 ===
-* added optional date= attribute and $wgRSSDateDefaultFormat parameter
-* added optional item-max-length= attribute and $wgRSSItemMaxLength parameter
-  fixes bug 30377 add a new parameter to limit the number of characters when 
-  rendering the channel item <description>
+* bug 30028 "Error parsing XML for RSS" - improve and harden Extension:RSS when
+  parsing differently flavoured RSS feeds
 
 === Version 1.90 2011-08-15 ===
 * removed parsing of each single channel subelement (item)

@@ -15,13 +15,7 @@ class RSSData {
 			return;
 		}
 		$xpath = new DOMXPath( $xml );
-	
-		// namespace-safe method to find all elements
-		$items = $xpath->query( "//*[local-name() = 'item']" ); 
-
-		if ( $items->length == 0 ) {
-			$items = $xpath->query( "//*[local-name() = 'entry']" ); 
-		}
+		$items = $xpath->query( '/rss/channel/item' );
 
 		if( $items->length !== 0 ) {
 			foreach ( $items as $item ) {
@@ -43,7 +37,7 @@ class RSSData {
 				$this->items[] = $bit;
 			}
 		} else {
-			$this->error = 'No RSS//ATOM items found.';
+			$this->error = 'No RSS items found.';
 			return;
 		}
 	}
@@ -58,16 +52,18 @@ class RSSData {
 	 * @param $n String: name of the element we have
 	 * @return String Name to map it to
 	 */
-	protected function rssTokenToName( $name ) {
-		switch( $name ) {
+	protected function rssTokenToName( $n ) {
+		switch( $n ) {
 			case 'dc:date':
-			case 'pubDate':
-			case 'updated':
 				return 'date';
+				# parse "2010-10-18T18:07:00Z"
+			case 'pubDate':
+				return 'date';
+				# parse RFC date
 			case 'dc:creator':
 				return 'author';
-			case 'summary':
-				return 'description';
+			case 'title':
+				return 'title';
 			case 'content:encoded':
 				return 'encodedContent';
 
@@ -80,8 +76,9 @@ class RSSData {
 			case 'comments':
 			case 'category':
 				return null;
+
 			default:
-				return $name;
+				return $n;
 		}
 	}
 }

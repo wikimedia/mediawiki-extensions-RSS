@@ -2,8 +2,6 @@
 
 class RSSParser {
 	protected $maxheads = 32;
-	protected $date = "Y-m-d H:i:s";
-	protected $ItemMaxLength = 200;
 	protected $reversed = false;
 	protected $highlight = array();
 	protected $filter = array();
@@ -39,8 +37,6 @@ class RSSParser {
 	 * and return an object that can produce rendered output.
 	 */
 	function __construct( $url, $args ) {
-		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
-		
 		$this->url = $url;
 
 		# Get max number of headlines from argument-array
@@ -54,13 +50,11 @@ class RSSParser {
 		}
 
 		# Get date format from argument array
-		# or use a default value
+		# FIXME: not used yet
 		if ( isset( $args['date'] ) ) {
 			$this->date = $args['date'];
-		} elseif ( isset( $wgRSSDateDefaultFormat ) ) {
-			$this->date = $wgRSSDateDefaultFormat;
 		}
-		
+
 		# Get highlight terms from argument array
 		if ( isset( $args['highlight'] ) ) {
 			# mapping to lowercase here so the regex can be case insensitive below.
@@ -72,13 +66,6 @@ class RSSParser {
 			$this->filter = self::explodeOnSpaces( $args['filter'] );
 		}
 
-		# Get a maximal length for item texts
-		if ( isset( $args['item-max-length'] ) ) {
-			$this->ItemMaxLength = $args['item-max-length'];
-		} elseif ( is_numeric( $wgRSSItemMaxLength ) ) {
-			$this->ItemMaxLength = $wgRSSItemMaxLength;
-		}
-		
 		if ( isset( $args['filterout'] ) ) {
 			$this->filterOut = self::explodeOnSpaces( $args['filterout'] );
 		}
@@ -218,8 +205,7 @@ class RSSParser {
 	 * @return Status object
 	 */
 	protected function fetchRemote( $key, array $headers = array()) {
-		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy,
-			$wgRSSUrlNumberOfAllowedRedirects;
+		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy;
 
 		if ( $this->etag ) {
 			wfDebugLog( 'RSS', 'Used etag: ' . $this->etag );
@@ -231,71 +217,12 @@ class RSSParser {
 			$headers['If-Modified-Since'] = $lm;
 		}
 
-		/**
-		 * 'noProxy' can conditionally be set as shown in the commented
-		 * example below; in HttpRequest 'noProxy' takes precedence over
-		 * any value of 'proxy' and disables the use of a proxy.
-		 *
-		 * This is useful if you run the wiki in an intranet and need to
-		 * access external feed urls through a proxy but internal feed
-		 * urls must be accessed without a proxy. 
-		 *
-		 * The general handling of such cases will be subject of a
-		 * forthcoming version.
-		 */
+		$client = HttpRequest::factory( $this->url, array( 
+			'timeout' => $wgRSSFetchTimeout,
+			'proxy' => $wgRSSProxy
 
- 		$url = $this->url;
-		$noProxy = !isset( $wgRSSProxy );
-		
-		// Example for disabling proxy use for certain urls
-		// $noProxy = preg_match( '!\.internal\.example\.com$!i', parse_url( $url, PHP_URL_HOST ) );
-
-	/**
-	 * Copied from HttpFunctions.php
-	 * Perform an HTTP request
-	 *
-	 * @param $method String: HTTP method. Usually GET/POST
-	 * @param $url String: full URL to act on. If protocol-relative, will be expanded to an http:// URL
-	 * @param $options Array: options to pass to MWHttpRequest object.
-	 *	Possible keys for the array:
-	 *    - timeout             Timeout length in seconds
-	 *    - postData            An array of key-value pairs or a url-encoded form data
-	 *    - proxy               The proxy to use.
-	 *                          Otherwise it will use $wgHTTPProxy (if set)
-	 *                          Otherwise it will use the environment variable "http_proxy" (if set)
-	 *    - noProxy             Don't use any proxy at all. Takes precedence over proxy value(s).
-	 *    - sslVerifyHost       (curl only) Verify hostname against certificate
-	 *    - sslVerifyCert       (curl only) Verify SSL certificate
-	 *    - caInfo              (curl only) Provide CA information
-	 *    - maxRedirects        Maximum number of redirects to follow (defaults to 5)
-	 *    - followRedirects     Whether to follow redirects (defaults to false).
-	 *		                    Note: this should only be used when the target URL is trusted,
-	 *		                    to avoid attacks on intranet services accessible by HTTP.
-	 *    - userAgent           A user agent, if you want to override the default
-	 *                          MediaWiki/$wgVersion
-	 * @return Mixed: (bool)false on failure or a string on success
-	 */
-
-		if ( isset( $wgRSSUrlNumberOfAllowedRedirects ) 
-			&& is_numeric( $wgRSSUrlNumberOfAllowedRedirects ) ) {
-			$maxRedirects = $wgRSSUrlNumberOfAllowedRedirects;
-		} else {
-			$maxRedirects = 0;
-		}
-
-		// we set followRedirects intentionally to true to see error messages
-		// in cases where the maximum number of redirects is reached
-		$client = HttpRequest::factory( $url,
-			array( 
-				'timeout'         => $wgRSSFetchTimeout,
-				'followRedirects' => true,
-				'maxRedirects'    => $maxRedirects,
-				'proxy'           => $wgRSSProxy,
-				'noProxy'         => $noProxy,
-				'userAgent'       => $wgRSSUserAgent,
-			) 
-		);
-
+		) );
+		$client->setUserAgent( $wgRSSUserAgent );
 		foreach ( $headers as $header => $value ) {
 			$client->setHeader( $header, $value );
 		}
@@ -312,14 +239,6 @@ class RSSParser {
 		return $ret;
 	}
 
-	function sandboxParse($wikiText) {
-		global $wgTitle, $wgUser;
-		$myParser = new Parser();
-		$myParserOptions = ParserOptions::newFromUser($wgUser);
-		$result = $myParser->parse($wikiText, $wgTitle, $myParserOptions);
-		return $result->getText();
-	}
-
 	/**
 	 * Render the entire feed so that each item is passed to the
 	 * template which the MediaWiki then displays.
@@ -328,7 +247,7 @@ class RSSParser {
 	 * @param $frame the frame param to pass to recursiveTagParse()
 	 */
 	function renderFeed( $parser, $frame ) {
-
+	
 		$renderedFeed = '';
 		
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
@@ -344,16 +263,15 @@ class RSSParser {
 				}
 
 				if ( $this->canDisplay( $item ) ) {
-					$renderedFeed .= $this->renderItem( $item, $parser ) . "\n";
+					$renderedFeed .= $this->renderItem( $item ) . "\n";
 					$headcnt++;
 				}
 			}
 
-			$renderedFeed = $this->sandboxParse( $renderedFeed );
+			$renderedFeed = $parser->recursiveTagParse( $renderedFeed, $frame );
 
-		}
-
-		$parser->addTrackingCategory( 'rss-tracking-category' );
+        	}
+        	
 		return $renderedFeed;
 	}
 
@@ -362,7 +280,7 @@ class RSSParser {
 	 *
 	 * @param $item Array: an array produced by RSSData where keys are the names of the RSS elements
 	 */
-	protected function renderItem( $item, $parser ) {
+	protected function renderItem( $item ) {
 
 		$renderedItem = $this->itemTemplate;
 
@@ -371,38 +289,14 @@ class RSSParser {
 		// and that means bad RSS with stuff like
 		// <description><script>alert("hi")</script></description> will find its
 		// rogue <script> tags neutered.
-		// use the overloaded multi byte wrapper functions in GlobalFunctions.php
 
 		foreach ( array_keys( $item ) as $info ) {
-			switch ( $info ) {
-			// ATOM <id> elements and RSS <link> elements are item link urls
-			case 'id':
-				$txt = $this->sanitizeUrl( $item['id'] );
-				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-				break;
-			case 'link':
-				if ( !isset( $item['id'] ) ) {
-					$txt = $this->sanitizeUrl( $item['link'] );
-				}
-				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-				break;
-			case 'date':
-				$tempTimezone = date_default_timezone_get();
-				date_default_timezone_set( 'UTC' );
-				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
-				date_default_timezone_set( $tempTimezone );
-				$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
-				break;
-			default:
-				$str = $this->escapeTemplateParameter( $item[$info] );
-				/***
-				if ( mb_strlen( $str ) > $this->ItemMaxLength ) {
-					$str = mb_substr( $str, 0, $this->ItemMaxLength ) . " ...";
-				}
-				***/
-				$txt = $this->highlightTerms(  $str );
-				$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
+			if ( $info != 'link' ) {
+				$txt = $this->highlightTerms( $this->escapeTemplateParameter( $item[ $info ] ) );
+			} else {
+				$txt = $this->sanitizeUrl( $item[ $info ] );
 			}
+			$renderedItem = str_replace( '{{{' . $info . '}}}', $txt, $renderedItem );
 		}
 
 		// nullify all remaining info items in the template
@@ -440,65 +334,18 @@ class RSSParser {
 
 	/**
 	 * Sanitize user input for inclusion as a template parameter.
-	 *
 	 * Unlike in wfEscapeWikiText() as of r77127, this escapes }} in addition
 	 * to the other kinds of markup, to avoid user input ending a template 
 	 * invocation.
-	 *
-	 * If you want to allow clickable link Urls (HTML <a> tag) in RSS feeds:
-	 * $wgRSSAllowLinkTag = true;
-	 *
-	 * If you want to allow images (HTML <img> tag) in RSS feeds:
-	 * $wgAllowImageTag = true;
-	 *
 	 */
 	protected function escapeTemplateParameter( $text ) {
-		global $wgRSSAllowLinkTag, $wgAllowImageTag;
-
-		if ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag ) {
-			$extra = array( "a" );
-		} else {
-			$extra = array();
-		}
-
-		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
-			|| ( isset( $wgAllowImageTag ) && $wgAllowImageTag ) ) {
-
-			$ret = Sanitizer::removeHTMLtags( $text, null, array(), $extra, array( "iframe" ) );
-
-		} else { // use the old escape method for a while
-
-			$text = str_replace(
-				array( '[',     '|',      ']',     '\'',    'ISBN ',     
-					'RFC ',     '://',     "\n=",     '{{',           '}}',
-				),
-				array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
-					'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;',
-				),
-				htmlspecialchars( str_replace( "\n", "", $text ) )
-			);
-
-			// keep some basic layout tags
-			$ret = str_replace(
-				array( '&lt;p&gt;', '&lt;/p&gt;',
-					'&lt;br/&gt;', '&lt;br&gt;', '&lt;/br&gt;',
-					'&lt;b&gt;', '&lt;/b&gt;',
-					'&lt;i&gt;', '&lt;/i&gt;',
-					'&lt;u&gt;', '&lt;/u&gt;',
-					'&lt;s&gt;', '&lt;/s&gt;',
-				),
-				array( "", "<br/>",
-					"<br/>", "<br/>", "<br/>",
-					"'''", "'''",
-					"''", "''",
-					"<u>", "</u>",
-					"<s>", "</s>",
-				),
-				$text
-			);
-		}
-
-		return $ret;
+		return str_replace(
+			array( '[',     '|',      ']',     '\'',    'ISBN ',     
+				'RFC ',     '://',     "\n=",     '{{',           '}}' ),
+			array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;', 
+				'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;' ),
+			htmlspecialchars( $text )
+		);
 	}
 
 	/**
@@ -574,8 +421,8 @@ class RSSParser {
 	 *
 	 * @param $text String: the text to examine
 	 * @param $filterType String: "filterOut" to check for matches in the
-	 *   filterOut member list.
-	 *   Otherwise, uses the filter member list.
+	 * 								filterOut member list.
+	 *								Otherwise, uses the filter member list.
 	 * @return Boolean: decision to filter or not.
 	 */
 	protected function filter( $text, $filterType ) {
@@ -649,26 +496,4 @@ class RSSHighlighter {
 
 		return sprintf( $styleStart, $bgcolor[$index], $color[$index] ) . $match[0] . $styleEnd;
 	}
-}
-
-class RSSUtils {
-
-	/**
-	* Output an error message, all wraped up nicely.
-	* @param String $errorMessageName The system message that this error is
-	* @param String|Array $param Error parameter (or parameters)
-	* @return String Html that is the error.
-	*/
-	public static function RSSError( $errorMessageName, $param = false ) {
-
-		// Anything from a parser tag should use Content lang for message,
-		// since the cache doesn't vary by user language: do not use wfMsgForContent but wfMsgForContent
-		// The ->parse() part makes everything safe from an escaping standpoint.
-
-		return Html::rawElement( 'span', array( 'class' => 'error' ),
-			"Extension:RSS -- Error: " . wfMessage( $errorMessageName )->inContentLanguage()->params( $param )->parse()
-		);
-
-	}
-
 }

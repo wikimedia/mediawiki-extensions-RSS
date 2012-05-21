@@ -452,6 +452,9 @@ $messages['it'] = array(
 	'rss-parse-error' => 'Errore di parsing XML per RSS',
 	'rss-ns-permission' => 'RSS non è consentito in questo namespace',
 	'rss-url-permission' => 'Questo URL non può essere incluso',
+	'rss-feed' => "<!--  Di seguito sono mostrati due modelli alternativi. Il primo è quello basilare predefinito per i feed -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- NON andare a capo qui --><!-- Il secondo è una versione migliorata che richiede Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Japanese (日本語)

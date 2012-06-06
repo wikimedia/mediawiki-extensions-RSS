@@ -460,10 +460,11 @@ $messages['it'] = array(
 /** Japanese (日本語)
  * @author Iwai.masaharu
  * @author Schu
+ * @author Shirayuki
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'rss-desc' => '標準、又はテンプレートページを使用したユーザー定義可能なフォーマットで、MediaWiki ページにRSSフィードを表示します。',
+	'rss-desc' => '標準、またはテンプレートページを使用したユーザー定義可能な形式で、MediaWiki ページにRSSフィードを表示する',
 	'rss-error' => '$1からのRSSフィードの読み込みに失敗しました：$2',
 	'rss-empty' => '$1からのRSSフィードの読み込みに失敗しました！',
 	'rss-fetch-nourl' => '取得する URL が指定されていません！',

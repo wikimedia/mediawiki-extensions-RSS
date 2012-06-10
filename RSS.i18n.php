@@ -852,7 +852,7 @@ $messages['tt-cyrl'] = array(
 	'rss-empty' => '$1: битеннән  RSS-тасманы ачып булмады',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Arturyatsko
  * @author Dim Grits
  */

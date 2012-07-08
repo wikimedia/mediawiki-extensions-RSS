@@ -28,6 +28,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Purodha
  * @author Raymond
  * @author Yekrats
  */
@@ -36,7 +37,7 @@ $messages['qqq'] = array(
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
-: It allows users to let RSS feeds rendered differently by using different (optional) 'template=<pagename>' parameters in the rss wiki tags.
+: It allows users to let RSS feeds be rendered differently by using different (optional) 'template=<pagename>' parameters in the rss wiki tags.
 ; title = {{{title}}} | link = {{{link}}} | ...
 : 'title' (left) is the variable name under which the content of an RSS feed field 'title' (right) is passed to the Template $1 where this is then used in the feed rendering.
 : This ''may'' be localised, but the content of the template $1 page (default [[MediaWiki:Rss-feed]] and potentially other RSS feed template pages on this wiki) needs then to be localised, too.
@@ -177,7 +178,7 @@ $messages['de'] = array(
 	'rss-invalid-url' => 'Ungültige Feed-URL: $1',
 	'rss-parse-error' => 'Fehler beim Parsen von XML für RSS',
 	'rss-ns-permission' => 'RSS ist in diesem Namensraum nicht zulässig',
-	'rss-url-permission' => 'Diese URL darf nicht enthalten sein',
+	'rss-url-permission' => 'Diese URL darf nicht zum Eingefügen aufgerufen werden',
 	'rss-feed' => "<!-- Die folgenden Vorlagen sind zwei alternativ zueinander einsetzbare Vorlagen. Die erste ist die Standardvorlage für Feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- An dieser Stelle bitte keine neue Zeile einfügen. --><!-- Die zweite ist eine verbesserte Vorlage, für die die Softwareerweiterung ParserFunctions benötigt wird. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
@@ -511,6 +512,12 @@ $messages['ksh'] = array(
 	'rss-fetch-nourl' => 'Et Affroofe (<code lang="en">fetch</code>) der ohne ene URL jeiht nit!',
 	'rss-invalid-url' => '„$1“ es keine jöltijje URL.',
 	'rss-parse-error' => 'Ene Fähler es opjetrodde beim Ongersöhke vun dämm XML för dat RSS.',
+	'rss-ns-permission' => 'RSS es nit zohjelohße en dämm Appachtemang heh',
+	'rss-url-permission' => 'Heh dä <i lang="en">URL</i> darf nit enjeföösch wääde',
+	'rss-feed' => "<!-- Heh kumme zwei Schabloone, wohvun Er nur ein bruche künnt.
+  De eetsde es de Schtandatt-Schabloon för de RSS-Kanääl. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- Heh sull kein neue Reih aanfange --><!-- De zweite Schabloon es en bäßere Väsjohn, di dat Zohsazprojramm Extension:ParserFunctions nüüdesch hät --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -858,6 +865,11 @@ $messages['tl'] = array(
 	'rss-fetch-nourl' => 'Tinawag ang pagkuha na walang isang URL!',
 	'rss-invalid-url' => 'Hindi isang tanggap na URL: $1',
 	'rss-parse-error' => 'Mali ang pagbabanghay ng XML para sa RSS',
+	'rss-ns-permission' => 'Hindi pinapayagan ang RSS sa loob ng puwang na pampangalang ito',
+	'rss-url-permission' => 'Ang URL na ito ay hindi pinapayagang maisama',
+	'rss-feed' => "<!--  ang sumusunod ay mga suleras na panghalili. Ang una ay ang saligang likas na nakatakdang suleras para sa mga pagpapakain -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- huwag gamitin dito ang bagong linya --><!-- Ang pangalawa ay ang pinainam na bersiyon na nangangailangan ng Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Tatar (Cyrillic script) (татарча)

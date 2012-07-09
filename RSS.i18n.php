@@ -408,6 +408,23 @@ $messages['hsb'] = array(
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- The second is an improved version which requires Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Hungarian (magyar)
+ * @author TK-999
+ */
+$messages['hu'] = array(
+	'rss-desc' => 'RSS.hírcsatornákat jelenít meg MediaWiki oldalakon szabványos vagy felhasználó által meghatározott formátumban sablonok használatával',
+	'rss-error' => 'Nem sikerült betölteni az RSS-hírcsatornát innen: $1 ($2)',
+	'rss-empty' => 'Nem sikerült betölteni az RSS-hírcsatornát innen: $1!',
+	'rss-fetch-nourl' => 'Nincs megadva URL!',
+	'rss-invalid-url' => '"$1" nem egy érvényes URL',
+	'rss-parse-error' => 'Hiba történt az RSS XML-kódjának feldolgozása közben',
+	'rss-ns-permission' => 'Az RSS használata nem megengedett ebben a névtérben',
+	'rss-url-permission' => 'Ez az URL-cím nem ágyazható be',
+	'rss-feed' => "<!-- Az alábbi kód két alternatív sablont határoz meg. Az első a hírcsatronákhoz használt alapértelmezett -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- ne szúrj be üres sort itt --><!-- A második a ParserFunctions kiegészítést igénylő fejlettebb változat  --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
+);
+
 /** Interlingua (interlingua)
  * @author McDutchie
  */

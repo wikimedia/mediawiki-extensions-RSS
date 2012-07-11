@@ -616,7 +616,8 @@ $messages['ms'] = array(
 : {{{author}}} {{{date}}}<!-- jangan letak baris baru di sini --><!-- Yang kedua ialah versi diperkemas yang memerlukan Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
-/** Norwegian Bokmål (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
+ * @author Event
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -626,6 +627,10 @@ $messages['nb'] = array(
 	'rss-fetch-nourl' => 'Henting kallet uten en URL!',
 	'rss-invalid-url' => 'Ikke en gyldig URL: $1',
 	'rss-parse-error' => 'Feil ved XML-tolkning for RSS',
+	'rss-ns-permission' => 'RSS er ikke tillatt i dette navnerommet.',
+	'rss-feed' => "<!--  Under finner du to alternative maler. Den første er den grunnleggende standardmalen for matinger -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- ikke bruk linjeskift her --><!-- Den andre er en forbedret versjon som krever Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Dutch (Nederlands)

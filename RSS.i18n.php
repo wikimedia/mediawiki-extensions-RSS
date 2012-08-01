@@ -693,7 +693,7 @@ $messages['pms'] = array(
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
-	'rss-desc' => 'Mostra um feed RSS numa página wiki',
+	'rss-desc' => 'Mostra feeds RSS em páginas MediaWiki, em formato padrão ou personalizado, usando modelos predefinidos',
 	'rss-error' => 'Não foi possível carregar o feed RSS de $1: $2',
 	'rss-empty' => 'Não foi possível carregar o feed RSS de $1!',
 	'rss-fetch-nourl' => 'Chamada fetch sem uma URL!',
@@ -701,6 +701,9 @@ $messages['pt'] = array(
 	'rss-parse-error' => 'Erro ao analisar XML para o RSS',
 	'rss-ns-permission' => 'O RSS não é permitido neste espaço nominal',
 	'rss-url-permission' => 'Não é permitido incluir a URL',
+	'rss-feed' => "<!--  Estes são dois modelos alternativos. O primeiro é o padrão básico para feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- não adicionar uma linha nova aqui --><!-- O segundo é uma versão melhorada quer requer a extensão Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Brazilian Portuguese (português do Brasil)

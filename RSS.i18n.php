@@ -248,6 +248,13 @@ $messages['es'] = array(
 : {{{author}}} {{{date}}}<!-- no use una nueva línea aquí --><!-- La segunda es una versión mejorada que requiere Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Estonian (eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'rss-invalid-url' => 'Sobimatu internetiaadress: $1',
+);
+
 /** Persian (فارسی)
  * @author Mjbmr
  */
@@ -863,6 +870,13 @@ $messages['sv'] = array(
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
 	'rss-ns-permission' => 'RSS är inte tillåtet i denna namnrymden',
 	'rss-url-permission' => 'Denna URL tillåts inte att inkluderas',
+);
+
+/** Swahili (Kiswahili)
+ * @author Stephenwanjau
+ */
+$messages['sw'] = array(
+	'rss-invalid-url' => 'KISARA ni batili: $1',
 );
 
 /** Tamil (தமிழ்)

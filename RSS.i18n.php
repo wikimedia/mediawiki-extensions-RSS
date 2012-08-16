@@ -502,6 +502,20 @@ $messages['ja'] = array(
 : {{{author}}} {{{date}}}<!-- 改行文字をここで使わないでください。 --><!-- 次は、拡張機能:パーサー関数が必要な改良されたバージョンです。 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Javanese (Basa Jawa)
+ * @author NoiX180
+ */
+$messages['jv'] = array(
+	'rss-desc' => 'Tampilaké lebon saran RSS standar nèng kaca MediaWiki utawa format kekarepané panganggo mawa kaca templat',
+	'rss-error' => 'Gagal ngemot lebon saran RSS saka $1: $2',
+	'rss-empty' => 'Gagal ngemot lebon saran RSS saka $1!',
+	'rss-fetch-nourl' => 'Panjupukan dilakokaké tanpa URL!',
+	'rss-invalid-url' => 'Dudu URL sing sah: $1',
+	'rss-parse-error' => 'Kasalahan nguraèkaké XML kanggo RSS',
+	'rss-ns-permission' => 'RSS ora dililakaké nèng bilik panganggo iki',
+	'rss-url-permission' => 'URL iki ora dililakaké dilebokaké',
+);
+
 /** Georgian (ქართული)
  * @author Dawid Deutschland
  */

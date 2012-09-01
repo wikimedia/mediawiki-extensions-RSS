@@ -661,8 +661,8 @@ $messages['nb'] = array(
  */
 $messages['nl'] = array(
 	'rss-desc' => 'Biedt een RSS-feed voor een wikipagina',
-	'rss-error' => 'Kon RSS feed van $1 niet laden, fout: $2',
-	'rss-empty' => 'Kon RSS feed van $1 niet laden!',
+	'rss-error' => 'Kon RSS-feed van $1 niet laden, fout: $2',
+	'rss-empty' => 'Kon RSS-feed van $1 niet laden!',
 	'rss-fetch-nourl' => 'Fetch is aangeroepen zonder een URL!',
 	'rss-invalid-url' => 'Geen geldige URL: $1',
 	'rss-parse-error' => 'Fout bij het verwerken van de XML voor RSS',

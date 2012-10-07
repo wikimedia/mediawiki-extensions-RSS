@@ -7,7 +7,7 @@ class RSSData {
 	/**
 	 * Constructor, takes a DOMDocument and returns an array of parsed items.
 	 * @param $xml DOMDocument: the pre-parsed XML Document
-	 * @return Object RSSData object with a member items that is an array of parsed items,
+	 * @return RSSData object with a member items that is an array of parsed items,
 	 */
 	function __construct( $xml ) {
 		if ( !( $xml instanceof DOMDocument ) ) {

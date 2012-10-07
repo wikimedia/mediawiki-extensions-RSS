@@ -19,6 +19,9 @@ class RSSParser {
 	 */
 	public $rss;
 
+	/**
+	 * @var CurlHttpRequest|PhpHttpRequest
+	 */
 	public $client;
 
 	/**
@@ -50,7 +53,7 @@ class RSSParser {
 		}
 
 		# Get date format from argument array
-		# FIXME: not used yet
+		# @todo FIXME: not used yet
 		if ( isset( $args['date'] ) ) {
 			$this->date = $args['date'];
 		}
@@ -104,7 +107,7 @@ class RSSParser {
 			// {{ Template:RSSPost | title = {{{title}}} | ... }} - if Template:RSSPost exists from pre-1.9 versions
 			// {{ MediaWiki:Rss-feed | title = {{{title}}} | ... }} - otherwise
 
-			$this->itemTemplate = wfMsgNoTrans( 'rss-item', $feedTemplatePagename );
+			$this->itemTemplate = wfMessage( 'rss-item', $feedTemplatePagename )->plain();
 
 		}
 	}
@@ -243,15 +246,14 @@ class RSSParser {
 	 * Render the entire feed so that each item is passed to the
 	 * template which the MediaWiki then displays.
 	 *
-	 * @param $parser the parser param to pass to recursiveTagParse()
-	 * @param $frame the frame param to pass to recursiveTagParse()
+	 * @param Parser $parser
+	 * @param string $frame The frame param to pass to recursiveTagParse()
+	 * @return string
 	 */
 	function renderFeed( $parser, $frame ) {
-	
 		$renderedFeed = '';
 		
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
-		
 			$headcnt = 0;
 			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );
@@ -269,8 +271,7 @@ class RSSParser {
 			}
 
 			$renderedFeed = $parser->recursiveTagParse( $renderedFeed, $frame );
-
-        	}
+        }
         	
 		return $renderedFeed;
 	}
@@ -279,9 +280,9 @@ class RSSParser {
 	 * Render each item, filtering it out if necessary, applying any highlighting.
 	 *
 	 * @param $item Array: an array produced by RSSData where keys are the names of the RSS elements
+	 * @return mixed
 	 */
 	protected function renderItem( $item ) {
-
 		$renderedItem = $this->itemTemplate;
 
 		// $info will only be an XML element name, so we're safe using it.
@@ -317,7 +318,6 @@ class RSSParser {
 		# Remove control characters
 		$url = preg_replace( '/[\000-\037\177]/', '', $url );
 		# Escape other problematic characters
-		$i = 0;
 		$out = '';
 		for ( $i = 0; $i < strlen( $url ); $i++ ) {
 			$boringLength = strcspn( $url, '<>"[|]\ {', $i );
@@ -352,7 +352,7 @@ class RSSParser {
 	 * Parse an HTTP response object into an array of relevant RSS data
 	 *
 	 * @param $key String: the key to use to store the parsed response in the cache
-	 * @return parsed RSS object (see RSSParse) or false
+	 * @return string|bool parsed RSS object (see RSSParse) or false
 	 */
 	protected function responseToXML( $key ) {
 		wfDebugLog( 'RSS', "Got '" . $this->client->getStatus() . "', updating cache for $key" );
@@ -460,7 +460,6 @@ class RSSParser {
 		return preg_replace_callback( $highlight, 'RSSHighlighter::highlightThis', $text );
 	}
 }
-
 
 class RSSHighlighter {
 	static $terms = array();

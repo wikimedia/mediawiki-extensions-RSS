@@ -4,6 +4,7 @@ class RSSHooks {
 	/**
 	 * Tell the parser how to handle <rss> elements
 	 * @param $parser Parser Object
+	 * @return bool
 	 */
 	static function parserInit( $parser ) {
 		# Install parser hook for <rss> tags
@@ -18,6 +19,7 @@ class RSSHooks {
 	 * 						their values.
 	 * @param $parser Parser
 	 * @param $frame PPFrame parser context
+	 * @return string
 	 */
 	static function renderRss( $input, $args, $parser, $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces, $wgRSSAllowedFeeds;
@@ -27,16 +29,16 @@ class RSSHooks {
 			$checkNS = array_flip( $wgRSSNamespaces );
 
 			if( !isset( $checkNS[$ns] ) ) {
-				return wfMsg( 'rss-ns-permission' );
+				return wfMessage( 'rss-ns-permission' )->text();
 			}
 		}
 
 		if ( count( $wgRSSAllowedFeeds ) && !in_array( $input, $wgRSSAllowedFeeds ) ) {
-			return wfMsg( 'rss-url-permission' );
+			return wfMessage( 'rss-url-permission' )->text();
 		}
 
 		if ( !Http::isValidURI( $input ) ) {
-			return wfMsg( 'rss-invalid-url', htmlspecialchars( $input ) );
+			return wfMessage( 'rss-invalid-url', htmlspecialchars( $input ) )->text();
 		}
 		if ( $wgRSSCacheCompare ) {
 			$timeout = $wgRSSCacheCompare;
@@ -52,11 +54,11 @@ class RSSHooks {
 
 		# Check for errors.
 		if ( !$status->isGood() ) {
-			return wfMsg( 'rss-error', htmlspecialchars( $input ), $status->getWikiText() );
+			return wfMessage( 'rss-error', htmlspecialchars( $input ), $status->getWikiText() )->text();
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
-			return wfMsg( 'rss-empty', htmlspecialchars( $input ) );
+			return wfMessage( 'rss-empty', htmlspecialchars( $input ) )->text();
 		}
 
 		return $rss->renderFeed( $parser, $frame );

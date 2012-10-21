@@ -11,7 +11,6 @@ $messages = array();
 /** English
  * @author Łukasz Garczewski (TOR) <tor@wikia-inc.com>
  */
-
 $messages['en'] = array(
 	'rss-desc' => 'Displays RSS feeds on MediaWiki pages in a standard or in user-definable formats using template pages',
 	'rss-error' => 'Failed to load RSS feed from $1: $2',

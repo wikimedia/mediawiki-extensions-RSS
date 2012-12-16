@@ -29,10 +29,12 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  * @author Umherirrender
  * @author Yekrats
  */
 $messages['qqq'] = array(
+	'rss-desc' => '{{desc|name=RSS|url=http://www.mediawiki.org/wiki/Extension:RSS}}',
 	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
 	'rss-item' => '{{notranslate}}',
 	'rss-feed' => "; $1

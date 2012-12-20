@@ -894,6 +894,9 @@ $messages['sv'] = array(
 	'rss-parse-error' => 'Fel vid parsning av XML för RSS',
 	'rss-ns-permission' => 'RSS är inte tillåtet i denna namnrymden',
 	'rss-url-permission' => 'Denna URL tillåts inte att inkluderas',
+	'rss-feed' => "<!--  Nedan finns två alternativa mallar. Den första är den grundläggande standardmallen för flöden -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+: {{{description}}}
+: {{{author}}} {{{date}}}<!-- Använd ingen radbrytning här --><!-- Den andra mallen är en förbättrad version som kräver tillägget Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
 /** Swahili (Kiswahili)

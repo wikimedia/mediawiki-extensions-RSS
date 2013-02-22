@@ -542,13 +542,15 @@ $messages['ka'] = array(
  */
 $messages['ko'] = array(
 	'rss-desc' => '틀 문서를 사용하여 표준 또는 사용자 정의 형식의 미디어위키 문서에 RSS 피드 표시',
+	'rss-tracking-category' => 'RSS 피드를 포함한 문서',
 	'rss-error' => '$1에서 RSS 피드 불러오기 실패했습니다: $2',
 	'rss-empty' => '$1에서 RSS 피드를 불러오는 데 실패했습니다!',
 	'rss-fetch-nourl' => 'URL 없이 가져오기가 호출되었습니다.',
 	'rss-invalid-url' => '유효한 URL이 아닙니다: $1',
 	'rss-parse-error' => 'RSS에 대한 XML을 분석하는 중 오류',
 	'rss-ns-permission' => 'RSS는 이 이름공간에서 허용하지 않습니다',
-	'rss-url-permission' => '이 URL은 포함하는 것을 허용하지 않습니다',
+	'rss-url-is-not-whitelisted' => '"$1"(은)는 허용한 피드의 화이트리스트에 있지 않습니다. {{PLURAL:$3|$2만 허용한 피드입니다.|다음 허용한 피드가 있습니다: $2}}',
+	'rss-empty-whitelist' => '"$1"(은)는 허용한 피드의 화이트리스트에 있지 않습니다. 화이트리스트에 허용한 피드가 없습니다.',
 	'rss-feed' => "<!--  다음과 같은 두 가지 대체 틀입니다. 첫번째는 피드를 위한 기본적인 기본 틀입니다 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- 여기에 줄바꿈을 사용하지 마십시오 --><!-- 두 번째는 Extension:ParserFunctions을 필요로 하는 향상된 버전입니다 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

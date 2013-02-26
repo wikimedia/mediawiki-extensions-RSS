@@ -426,22 +426,31 @@ class RSSParser {
 	 * $wgRSSAllowLinkTag = true;
 	 *
 	 * If you want to allow images (HTML <img> tag) in RSS feeds:
-	 * $wgAllowImageTag = true;
+	 * $wgRSSAllowImageTag = true;
 	 *
 	 */
 	protected function escapeTemplateParameter( $text ) {
-		global $wgRSSAllowLinkTag, $wgAllowImageTag;
+		global $wgRSSAllowLinkTag, $wgRSSAllowImageTag;
+
+		$extraInclude = array();
+		$extraExclude = array( "iframe" );
 
 		if ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag ) {
-			$extra = array( "a" );
+			$extraInclude[] = "a";
 		} else {
-			$extra = array();
+			$extraExclude[] = "a";
+		}
+
+		if ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) {
+			$extraInclude[] = "img";
+		} else {
+			$extraExclude[] = "img";
 		}
 
 		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
-			|| ( isset( $wgAllowImageTag ) && $wgAllowImageTag ) ) {
+			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
 
-			$ret = Sanitizer::removeHTMLtags( $text, null, array(), $extra, array( "iframe" ) );
+			$ret = Sanitizer::removeHTMLtags( $text, null, array(), $extraInclude, $extraExclude );
 
 		} else { // use the old escape method for a while
 

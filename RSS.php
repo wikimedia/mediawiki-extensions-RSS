@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.18 20130220" );
+define( "EXTENSION_RSS_VERSION", "2.19 20130226" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -83,7 +83,8 @@ $wgRSSUrlWhitelist = array();
 $wgRSSUrlNumberOfAllowedRedirects = 0;
 
 // Agent to use for fetching feeds
-$wgRSSUserAgent = "MediaWikiRSS/" . strtok( EXTENSION_RSS_VERSION, " " ) . " (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension";
+$wgRSSUserAgent = "MediaWikiRSS/" . strtok( EXTENSION_RSS_VERSION, " " ) .
+	" (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension";
 
 // Proxy server to use for fetching feeds
 $wgRSSProxy = false;
@@ -98,3 +99,6 @@ $wgRSSItemMaxLength = false;
 
 // You can choose to allow active links in feed items; default: false
 $wgRSSAllowLinkTag = false;
+
+// If you want to allow images (HTML <img> tag) in RSS feeds; default: false
+$wgRSSAllowImageTag = false;

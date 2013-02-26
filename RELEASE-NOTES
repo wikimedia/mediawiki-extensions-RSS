@@ -1,6 +1,6 @@
 RELEASE NOTES of the MediaWiki extension RSS
 
-Version 2.18 20130220
+Version 2.19 20130226
 
 Manual http://www.mediawiki.org/wiki/Extension:RSS
 
@@ -26,6 +26,11 @@ git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
   https://bugzilla.wikimedia.org/show_bug.cgi?id=30377#c5
   The length limitation must be HTML tag-safe, but it is not at the moment.
   Length limitation is disabled by default.
+
+=== 2.19 2013-02-26 ===
+* (bug 45387) $wgAllowImageTag variable name changed to $wgRSSAllowImageTag
+* problem that $wgRSSAllowImageTag was ignored (fixed)
+* (bug 45388) definition of all variables in RSS.php (fixed)
 
 === Version 2.18 2013-02-20 ===
 * release version

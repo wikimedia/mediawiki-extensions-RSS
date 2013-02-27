@@ -38,13 +38,14 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'rss-desc' => '{{desc|name=RSS|url=http://www.mediawiki.org/wiki/Extension:RSS}}',
-	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
 	'rss-tracking-category' => 'The name of a category for all pages which use the &lt;rss&gt; parser extension tag. The category is automatically added unless the feature is disabled.',
+	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
 	'rss-item' => '{{notranslate}}',
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.
 : It allows users to let RSS feeds be rendered differently by using different (optional) 'template=<pagename>' parameters in the rss wiki tags.
+
 ; title = {{{title}}} | link = {{{link}}} | ...
 : 'title' (left) is the variable name under which the content of an RSS feed field 'title' (right) is passed to the Template $1 where this is then used in the feed rendering.
 : This ''may'' be localised, but the content of the template $1 page (default [[MediaWiki:Rss-feed]] and potentially other RSS feed template pages on this wiki) needs then to be localised, too.

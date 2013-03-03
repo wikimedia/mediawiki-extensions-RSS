@@ -263,7 +263,7 @@ class RSSParser {
 
 		// we set followRedirects intentionally to true to see error messages
 		// in cases where the maximum number of redirects is reached
-		$client = HttpRequest::factory( $url,
+		$client = MWHttpRequest::factory( $url,
 			array(
 				'timeout'         => $wgRSSFetchTimeout,
 				'followRedirects' => true,

@@ -90,7 +90,7 @@ $wgRSSUserAgent = "MediaWikiRSS/" . strtok( EXTENSION_RSS_VERSION, " " ) .
 $wgRSSProxy = false;
 
 // default date format of item publication dates see http://www.php.net/date
-$wgRSSDateDefaultFormat = "(Y-m-d H:i:s)";
+$wgRSSDateDefaultFormat = "Y-m-d H:i:s";
 
 // limit the number of characters in the item description
 // or set to false for unlimited length.

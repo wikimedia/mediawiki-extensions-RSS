@@ -40,6 +40,7 @@ $messages['qqq'] = array(
 	'rss-desc' => '{{desc|name=RSS|url=http://www.mediawiki.org/wiki/Extension:RSS}}',
 	'rss-tracking-category' => 'The name of a category for all pages which use the &lt;rss&gt; parser extension tag. The category is automatically added unless the feature is disabled.',
 	'rss-invalid-url' => '$1 is the invalid URL for the RSS feed',
+	'rss-deprecated-wgrssallowedfeeds-found' => '{{doc-important|Do not translate <code>$wgRSSAllowedFeeds</code> and <code>$wgRSSUrlWhitelist</code>.}}',
 	'rss-item' => '{{notranslate}}',
 	'rss-feed' => "; $1
 : ''not to be localised''

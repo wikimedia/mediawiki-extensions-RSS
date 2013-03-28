@@ -1014,16 +1014,19 @@ $messages['vi'] = array(
  * @author Chenxiaoqino
  * @author Hydra
  * @author PhiLiP
+ * @author Zhuyifei1999
  */
 $messages['zh-hans'] = array(
 	'rss-desc' => '在MediaWiki页面上使用模板页面，以标准或使用者自订格式显示RSS源',
+	'rss-tracking-category' => '有RSS源的页面',
 	'rss-error' => '自$1: $2加载RSS失败',
 	'rss-empty' => '自$1加载RSS失败',
 	'rss-fetch-nourl' => '无网址情况中进行读取！',
 	'rss-invalid-url' => '不是有效的网址：$1',
 	'rss-parse-error' => 'RSS 的解析 XML 时出现错误',
 	'rss-ns-permission' => '此名字空间不允许使用RSS',
-	'rss-url-permission' => '此URL已被禁止使用',
+	'rss-url-is-not-whitelisted' => '"$1"不在允许订阅的源的白名单中。 {{PLURAL:$3|$2是唯一允许的源|允许订阅的源如下所示：$2}}。',
+	'rss-empty-whitelist' => '"$1"不在允许订阅的源的白名单中。没有任何允许订阅的源的地址在白名单中。',
 	'rss-feed' => "<!--  以下是两种可供选择的模板，第一种是默认的进料模板 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- 第二种是需要Extension:ParserFunctions的改进版本 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

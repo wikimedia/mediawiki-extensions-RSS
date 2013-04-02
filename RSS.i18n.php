@@ -1014,6 +1014,7 @@ $messages['vi'] = array(
  * @author Chenxiaoqino
  * @author Hydra
  * @author PhiLiP
+ * @author Yfdyh000
  * @author Zhuyifei1999
  */
 $messages['zh-hans'] = array(
@@ -1027,6 +1028,7 @@ $messages['zh-hans'] = array(
 	'rss-ns-permission' => '此名字空间不允许使用RSS',
 	'rss-url-is-not-whitelisted' => '"$1"不在允许订阅的源的白名单中。 {{PLURAL:$3|$2是唯一允许的源|允许订阅的源如下所示：$2}}。',
 	'rss-empty-whitelist' => '"$1"不在允许订阅的源的白名单中。没有任何允许订阅的源的地址在白名单中。',
+	'rss-deprecated-wgrssallowedfeeds-found' => '检测到已废弃的变量 $wgRSSAllowedFeeds。自RSS 2.0版本，此变量已被 $wgRSSUrlWhitelist 所替代，见Extension:RSS手册页面中的描述。',
 	'rss-feed' => "<!--  以下是两种可供选择的模板，第一种是默认的进料模板 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- don't use newline here --><!-- 第二种是需要Extension:ParserFunctions的改进版本 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

@@ -528,7 +528,7 @@ $messages['ja'] = array(
 	'rss-fetch-nourl' => '取得する URL が指定されていません!',
 	'rss-invalid-url' => '無効な URL: $1',
 	'rss-parse-error' => 'RSS の XML 解析エラー',
-	'rss-ns-permission' => 'RSSは、この名前空間に許可されていません',
+	'rss-ns-permission' => 'RSS はこの名前空間では許可されていません。',
 	'rss-empty-whitelist' => '「$1」は、許可されたフィードのホワイトリスト内にありません。許可されたフィードの URL がホワイトリスト内にありません。',
 	'rss-feed' => "<!--  以下は、代替の2つのテンプレートです。 最初は、フィードの基本的な既定のテンプレートです。 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}

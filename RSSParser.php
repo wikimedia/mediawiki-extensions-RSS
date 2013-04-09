@@ -508,7 +508,10 @@ class RSSParser {
 			}
 
 			wfSuppressWarnings();
+			// Prevent loading external entities when parsing the XML (bug 46932)
+			$oldDisable = libxml_disable_entity_loader( true );
 			$this->xml->loadXML( $raw_xml );
+			libxml_disable_entity_loader( $oldDisable );
 			wfRestoreWarnings();
 
 			$this->rss = new RSSData( $this->xml );

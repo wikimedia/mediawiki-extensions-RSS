@@ -985,17 +985,18 @@ $messages['tt-cyrl'] = array(
 
 /** Ukrainian (українська)
  * @author Arturyatsko
+ * @author Base
  * @author Dim Grits
  */
 $messages['uk'] = array(
 	'rss-desc' => 'Відображає канал RSS на сторінці вікі',
+	'rss-tracking-category' => 'Сторінки із RSS-стрічками',
 	'rss-error' => 'Не вдалося завантажити RSS-канал від $1: $2',
 	'rss-empty' => 'Не вдалося завантажити RSS-канал від $1!',
 	'rss-fetch-nourl' => 'Вибірка викликана без URL!',
 	'rss-invalid-url' => 'Неприпустима адреса URL: $1',
 	'rss-parse-error' => 'Помилка розбору XML для RSS',
 	'rss-ns-permission' => 'RSS не дозволено в цьому просторі імен',
-	'rss-url-permission' => 'Ця URL-адреса не може бути включена',
 	'rss-feed' => "<!--  нижче наведено два можливих шаблони. Перший - це основний шаблон для стрічки -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не використовуйте тут перехід на новий рядок --><!-- Другий - покращена версія, що потребує розширення Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

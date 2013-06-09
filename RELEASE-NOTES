@@ -1,6 +1,6 @@
 RELEASE NOTES of the MediaWiki extension RSS
 
-Version 2.21 20130415
+Version 2.22 20130609
 
 Manual http://www.mediawiki.org/wiki/Extension:RSS
 
@@ -26,6 +26,9 @@ git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
   https://bugzilla.wikimedia.org/show_bug.cgi?id=30377#c5
   The length limitation must be HTML tag-safe, but it is not at the moment.
   Length limitation is disabled by default.
+
+=== Version 2.22 2013-06-09 ==
+* removing white spaces aroung urls in feed item <link> or <id> tags
 
 === Version 2.21 2013-04-15 ==
 * (bug 47251) fix of an XXE problem

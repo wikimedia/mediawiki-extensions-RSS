@@ -399,7 +399,7 @@ class RSSParser {
 	 */
 	protected function sanitizeUrl( $url ) {
 		# Remove control characters
-		$url = preg_replace( '/[\000-\037\177]/', '', $url );
+		$url = preg_replace( '/[\000-\037\177]/', '', trim( $url ) );
 		# Escape other problematic characters
 		$out = '';
 		for ( $i = 0; $i < strlen( $url ); $i++ ) {

@@ -936,6 +936,7 @@ $messages['sl'] = array(
 	'rss-invalid-url' => 'Neveljavni URL: $1',
 	'rss-parse-error' => 'Napaka pri razčlenjevanju XML za RSS',
 	'rss-ns-permission' => 'RSS v tem imenskem prostoru ni dovoljen',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Zaznal sem nepodprto spremenljivko $wgRSSAllowedFeeds. Od RSS različice 2.0 morate spremenljivko zamenjati z $wgRSSUrlWhitelist, kot je opisano na strani priročnika Extension:RSS.',
 	'rss-feed' => "<!--  sledita dve alternativni predlogi. Prva je osnovna privzeta predloga za vire -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- tukaj ne uporabi nove vrstice --><!-- Druga je izboljšana različica, ki potrebuje Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

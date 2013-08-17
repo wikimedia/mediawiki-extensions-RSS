@@ -583,7 +583,7 @@ $messages['ko'] = array(
 	'rss-error' => '$1에서 RSS 피드 불러오기 실패했습니다: $2',
 	'rss-empty' => '$1에서 RSS 피드를 불러오는 데 실패했습니다!',
 	'rss-fetch-nourl' => 'URL 없이 가져오기가 호출되었습니다.',
-	'rss-invalid-url' => '유효한 URL이 아닙니다: $1',
+	'rss-invalid-url' => '올바른 URL이 아닙니다: $1',
 	'rss-parse-error' => 'RSS에 대한 XML을 분석하는 중 오류',
 	'rss-ns-permission' => 'RSS는 이 이름공간에서 허용하지 않습니다',
 	'rss-url-is-not-whitelisted' => '"$1"(은)는 허용한 피드의 화이트리스트에 있지 않습니다. {{PLURAL:$3|$2만 허용한 피드입니다.|다음 허용한 피드가 있습니다: $2}}',
@@ -1013,6 +1013,7 @@ $messages['tt-cyrl'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Andriykopanytsia
  * @author Arturyatsko
  * @author Base
  * @author Dim Grits
@@ -1026,6 +1027,9 @@ $messages['uk'] = array(
 	'rss-invalid-url' => 'Неприпустима адреса URL: $1',
 	'rss-parse-error' => 'Помилка розбору XML для RSS',
 	'rss-ns-permission' => 'RSS не дозволено в цьому просторі імен',
+	'rss-url-is-not-whitelisted' => '„$1“ не входить до білого списку дозволених каналів. {{PLURAL:$3|Тільки канал $2 є дозволеним|Доступними є наступні канали: $2}}.',
+	'rss-empty-whitelist' => '„$1 не входить до білого списку дозволених каналів. У білому списку немає жодного дозволеного каналу.',
+	'rss-deprecated-wgrssallowedfeeds-found' => 'Застаріла змінна $wgRSSAllowedFeeds вже виявлена. Починаючи з RSS версії 2.0 ця змінна має бути замінена на  $wgRSSUrlWhitelist як описано на сторінці підручника Extension:RSS.',
 	'rss-feed' => "<!--  нижче наведено два можливих шаблони. Перший - це основний шаблон для стрічки -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- не використовуйте тут перехід на новий рядок --><!-- Другий - покращена версія, що потребує розширення Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",

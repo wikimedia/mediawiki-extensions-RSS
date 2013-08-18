@@ -578,9 +578,9 @@ $messages['ka'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'rss-desc' => '틀 문서를 사용하여 표준 또는 사용자 정의 형식의 미디어위키 문서에 RSS 피드 표시',
+	'rss-desc' => '틀 문서를 사용하여 표준 또는 사용자 정의 형식의 미디어위키 문서에 RSS 피드를 보여줍니다',
 	'rss-tracking-category' => 'RSS 피드를 포함한 문서',
-	'rss-error' => '$1에서 RSS 피드 불러오기 실패했습니다: $2',
+	'rss-error' => '$1에서 RSS 피드를 불러오는 데 실패했습니다: $2',
 	'rss-empty' => '$1에서 RSS 피드를 불러오는 데 실패했습니다!',
 	'rss-fetch-nourl' => 'URL 없이 가져오기가 호출되었습니다.',
 	'rss-invalid-url' => '올바른 URL이 아닙니다: $1',

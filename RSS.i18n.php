@@ -58,7 +58,9 @@ Maybe followed by any one of the following messages: "No XML content", "Not pass
 	'rss-empty-whitelist' => 'Used as error message. Parameters:
 * $1 - URL of RSS feed',
 	'rss-deprecated-wgrssallowedfeeds-found' => '{{doc-important|Do not translate <code>$wgRSSAllowedFeeds</code> and <code>$wgRSSUrlWhitelist</code>.}}',
-	'rss-item' => '{{notranslate}}',
+	'rss-item' => '{{notranslate}}
+Parameters:
+* $1 - feed template pagename',
 	'rss-feed' => "; $1
 : ''not to be localised''
 : The RSS extension substitutes this placeholder with the name of a template page. The content of this template page determines the final layout of the RSS feed on the rendered wiki page. The Extension:RSS currently uses 'MediaWiki:Rss-feed' as default for $1. This means that the content of [[MediaWiki:Rss-feed]] determines how RSS feed items are rendered.

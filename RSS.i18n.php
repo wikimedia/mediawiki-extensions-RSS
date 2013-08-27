@@ -1042,17 +1042,17 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'rss-desc' => 'Hiển thị nguồn cấp RSS trên trang wiki',
-	'rss-tracking-category' => 'Trang có nguồn tin RSS',
+	'rss-tracking-category' => 'Trang có nguồn cấp RSS',
 	'rss-error' => 'Thất bại khi tải nguồn cấp RSS từ $1: $2',
 	'rss-empty' => 'Thất bại khi tải nguồn cấp RSS từ $1!',
 	'rss-fetch-nourl' => 'Cần URL để tải!',
 	'rss-invalid-url' => 'URL không hợp lệ: $1',
 	'rss-parse-error' => 'Lỗi phân tích XML như RSS',
 	'rss-ns-permission' => 'Không được phép xem RSS trong không gian tên này',
-	'rss-url-is-not-whitelisted' => '“$1” không có trong danh sách trắng nguồn tin. {{PLURAL:$3|$2 là nguồn tin duy nhất được cho phép.|Các nguồn tin sau được cho phép: $2.}}',
-	'rss-empty-whitelist' => '“$1” không có trong danh sách trắng nguồn tin. Danh sách trắng không cho phép URL nguồn tin nào.',
+	'rss-url-is-not-whitelisted' => '“$1” không có trong danh sách trắng nguồn cấp dữ liệu. {{PLURAL:$3|$2 là nguồn cấp dữ liệu duy nhất được cho phép.|Các nguồn cấp dữ liệu sau được cho phép: $2.}}',
+	'rss-empty-whitelist' => '“$1” không có trong danh sách trắng nguồn cấp dữ liệu. Danh sách trắng không cho phép URL nguồn cấp dữ liệu nào.',
 	'rss-deprecated-wgrssallowedfeeds-found' => 'Đã nhận ra biến số bị phản đối $wgRSSAllowedFeeds. Bắt đầu từ phiên bản 2.0 của RSS, biến số này được thay thế bằng $wgRSSUrlWhitelist theo lời miêu tả tại trang hướng dẫn Extension:RSS.',
-	'rss-feed' => "<!--  Sau đây có hai bản mẫu thay cho nhau. Thứ nhất là bản mẫu mặc định cơ bản dành cho các nguồn tin: -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
+	'rss-feed' => "<!--  Sau đây có hai bản mẫu thay cho nhau. Thứ nhất là bản mẫu mặc định cơ bản dành cho các nguồn cấp dữ liệu: -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''
 : {{{description}}}
 : {{{author}}} {{{date}}}<!-- không ngắt dòng tại đây --><!-- Thứ hai là phiên bản cải tiến cần phần mở rộng Extension:ParserFunctions: --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: — {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: — {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );

@@ -27,6 +27,10 @@ git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
   The length limitation must be HTML tag-safe, but it is not at the moment.
   Length limitation is disabled by default.
 
+=== Version 2.23 2013-09-03 ===
+* Fix parsing from CLI:
+  removed references to $wgTitle, $wgUser, and $wgLang.
+
 === Version 2.22 2013-06-09 ==
 * removing white spaces aroung urls in feed item <link> or <id> tags
 

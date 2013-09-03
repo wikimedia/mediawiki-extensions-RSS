@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.22" );
+define( "EXTENSION_RSS_VERSION", "2.23" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );

@@ -290,11 +290,19 @@ class RSSParser {
 		return $ret;
 	}
 
-	function sandboxParse($wikiText) {
-		global $wgTitle, $wgUser;
+	/**
+	 * @see https://bugzilla.wikimedia.org/show_bug.cgi?id=34763
+	 * @param string $wikiText
+	 * @param Parser $origParser
+	 * @return string
+	 */
+	protected function sandboxParse( $wikiText, $origParser ) {
 		$myParser = new Parser();
-		$myParserOptions = ParserOptions::newFromUser($wgUser);
-		$result = $myParser->parse($wikiText, $wgTitle, $myParserOptions);
+		$result = $myParser->parse(
+			$wikiText,
+			$origParser->getTitle(),
+			$origParser->getOptions()
+		);
 		return $result->getText();
 	}
 
@@ -328,7 +336,7 @@ class RSSParser {
 				}
 			}
 
-			$renderedFeed = $this->sandboxParse( $renderedFeed );
+			$renderedFeed = $this->sandboxParse( $renderedFeed, $parser );
 
 		}
 
@@ -376,8 +384,7 @@ class RSSParser {
 				break;
 			default:
 				$str = $this->escapeTemplateParameter( $item[$info] );
-				global $wgLang;
-				$str = $wgLang->truncate( $str, $this->ItemMaxLength );
+				$str = $parser->getFunctionLang()->truncate( $str, $this->ItemMaxLength );
 				$str = $this->highlightTerms( $str );
 				$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
 			}

@@ -49,7 +49,10 @@ $messages['qqq'] = array(
 * $1 - the invalid URL for the RSS feed',
 	'rss-parse-error' => 'Used as fatal error message.
 
-Maybe followed by any one of the following messages: "No XML content", "Not passed DOMDocument object.", "No RSS/ATOM items found."',
+Maybe followed by any one of the following messages (hard-coded):
+* No XML content
+* Not passed DOMDocument object.
+* No RSS/ATOM items found.',
 	'rss-ns-permission' => 'Used as error message if this namespace is not allowed (the variable <code>$wgRSSNamespaces</code>).',
 	'rss-url-is-not-whitelisted' => 'Used as error message. Parameters:
 * $1 - URL of RSS feed

@@ -38,7 +38,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'rss-desc' => '{{desc|name=RSS|url=http://www.mediawiki.org/wiki/Extension:RSS}}',
-	'rss-tracking-category' => 'The name of a category for all pages which use the &lt;rss&gt; parser extension tag. The category is automatically added unless the feature is disabled.',
+	'rss-tracking-category' => 'The name of a category for all pages which use the <code><nowiki><rss></nowiki></code> parser extension tag. The category is automatically added unless the feature is disabled.',
 	'rss-error' => 'Used as error message. Parameters:
 * $1 - URL of RSS feed
 * $2 - result which the RSS parser returned',

@@ -300,6 +300,7 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Ebraminio
  * @author Mjbmr
  */
 $messages['fa'] = array(
@@ -309,7 +310,7 @@ $messages['fa'] = array(
 	'rss-fetch-nourl' => 'دریافت بدون نشانی صدا زده شد!',
 	'rss-invalid-url' => 'نشانی اینترنتی نامعتبر: $1',
 	'rss-parse-error' => 'خطا در تجزیهٔ ایکس‌ام‌ال برای آراس‌اس',
-	'rss-ns-permission' => 'آراس‌اس برای این فضای نامی مجاز نمی‌باشد',
+	'rss-ns-permission' => 'آراس‌اس در این فضای نامی مجاز نیست',
 );
 
 /** Finnish (suomi)

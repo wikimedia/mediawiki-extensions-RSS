@@ -363,30 +363,30 @@ class RSSParser {
 		// use the overloaded multi byte wrapper functions in GlobalFunctions.php
 
 		foreach ( array_keys( $item ) as $info ) {
-			switch ( $info ) {
-			// ATOM <id> elements and RSS <link> elements are item link urls
-			case 'id':
-				$txt = $this->sanitizeUrl( $item['id'] );
-				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-				break;
-			case 'link':
-				if ( !isset( $item['id'] ) ) {
+			if ( $item[$info] != "" ) {
+				switch ( $info ) {
+				// ATOM <id> elements and RSS <link> elements are item link urls
+				case 'id':
+					$txt = $this->sanitizeUrl( $item['id'] );
+					$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
+					break;
+				case 'link':
 					$txt = $this->sanitizeUrl( $item['link'] );
+					$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
+					break;
+				case 'date':
+					$tempTimezone = date_default_timezone_get();
+					date_default_timezone_set( 'UTC' );
+					$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
+					date_default_timezone_set( $tempTimezone );
+					$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
+					break;
+				default:
+					$str = $this->escapeTemplateParameter( $item[$info] );
+					$str = $parser->getFunctionLang()->truncate( $str, $this->ItemMaxLength );
+					$str = $this->highlightTerms( $str );
+					$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
 				}
-				$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-				break;
-			case 'date':
-				$tempTimezone = date_default_timezone_get();
-				date_default_timezone_set( 'UTC' );
-				$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
-				date_default_timezone_set( $tempTimezone );
-				$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
-				break;
-			default:
-				$str = $this->escapeTemplateParameter( $item[$info] );
-				$str = $parser->getFunctionLang()->truncate( $str, $this->ItemMaxLength );
-				$str = $this->highlightTerms( $str );
-				$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
 			}
 		}
 

@@ -41,7 +41,7 @@ class RSSData {
 					 * mark up their RSS, some more precautions are
 					 * needed.
 					 */
-					$bit[$name] = $n->nodeValue;
+					$bit[$name] = trim( $n->nodeValue );
 				}
 			}
 			$this->items[] = $bit;

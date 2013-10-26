@@ -190,6 +190,13 @@ $messages['cs'] = array(
 : {{{author}}} {{{date}}}<!-- zde nevkládat nový řádek --><!-- Druhá je vylepšná verze, která vyžaduje rozšíření Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->",
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'rss-invalid-url' => 'URL annilys: $1',
+);
+
 /** Danish (dansk)
  * @author Peter Alberti
  */

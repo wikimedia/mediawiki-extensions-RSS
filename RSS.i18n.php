@@ -194,6 +194,7 @@ $messages['cs'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'rss-tracking-category' => 'Tudalennau a phorthiant RSS iddynt',
 	'rss-invalid-url' => 'URL annilys: $1',
 );
 

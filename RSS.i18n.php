@@ -174,7 +174,7 @@ $messages['bs'] = array(
 	'rss-ns-permission' => 'RSS nije dozvoljen u ovom imenskom prostoru',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Mormegil
  */
 $messages['cs'] = array(

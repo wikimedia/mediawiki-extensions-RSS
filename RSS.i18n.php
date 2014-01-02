@@ -200,6 +200,7 @@ $messages['cs'] = array(
 $messages['cy'] = array(
 	'rss-tracking-category' => 'Tudalennau a phorthiant RSS iddynt',
 	'rss-invalid-url' => 'URL annilys: $1',
+	'rss-ns-permission' => 'Ni chaniateir RSS yn y parth hwn.',
 );
 
 /** Danish (dansk)

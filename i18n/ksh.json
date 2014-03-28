@@ -1,0 +1,15 @@
+{
+    "@metadata": {
+        "authors": [
+            "Purodha"
+        ]
+    },
+    "rss-desc": "Zeisch ene RSS-Kannaal op en Sigg em Wiki.",
+    "rss-error": "Mer kunnte dä RSS-Kannaal vun $1 nit laade: $2",
+    "rss-empty": "Mer kunnte dä RSS-Kannaal vun $1 nit laade.",
+    "rss-fetch-nourl": "Et Affroofe (<code lang=\"en\">fetch</code>) der ohne ene URL jeiht nit!",
+    "rss-invalid-url": "„$1“ es keine jöltijje URL.",
+    "rss-parse-error": "Ene Fähler es opjetrodde beim Ongersöhke vun dämm XML för dat RSS.",
+    "rss-ns-permission": "RSS es nit zohjelohße en dämm Appachtemang heh",
+    "rss-feed": "<!-- Heh kumme zwei Schabloone, wohvun Er nur ein bruche künnt.\n  De eetsde es de Schtandatt-Schabloon för de RSS-Kanääl. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- Heh sull kein neue Reih aanfange --><!-- De zweite Schabloon es en bäßere Väsjohn, di dat Zohsazprojramm Extension:ParserFunctions nüüdesch hät --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
+}

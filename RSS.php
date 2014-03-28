@@ -14,7 +14,7 @@
  * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
-define( "EXTENSION_RSS_VERSION", "2.24" );
+define( "EXTENSION_RSS_VERSION", "2.25.0" );
 
 if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "This is not a valid entry point.\n" );
@@ -34,7 +34,8 @@ $wgExtensionCredits['parserhook'][] = array(
 );
 
 // Internationalization file and autoloadable classes
-$dir = dirname( __FILE__ ) . '/';
+$dir = __DIR__ . '/';
+$wgMessagesDirs['RSS'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['RSS'] = $dir . 'RSS.i18n.php';
 $wgAutoloadClasses['RSSHooks'] = $dir . 'RSSHooks.php';
 $wgAutoloadClasses['RSSParser'] = $dir . 'RSSParser.php';

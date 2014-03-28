@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "Anakmalaysia",
+            "Mark85296341"
+        ]
+    },
+    "rss-desc": "在MediaWiki頁面上使用模板頁面，以標準或用戶自定義格式顯示RSS源",
+    "rss-error": "自 $1：$2 載入 RSS 失敗",
+    "rss-empty": "自 $1 載入 RSS 失敗",
+    "rss-fetch-nourl": "無網址情況中進行讀取！",
+    "rss-invalid-url": "不是有效的網址：$1",
+    "rss-parse-error": "RSS 解析 XML 時出現錯誤",
+    "rss-ns-permission": "此名字空間不允許使用RSS",
+    "rss-feed": "<!-​​- 以下是兩種可供選擇的模板，第一種是默認的進料模板-->; '''<span class='plainlinks'>[{{{link}}} {{{title }}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- 在此切勿換行 --><!-- 第二種是需要Extension:ParserFunctions的改進版本--><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{ date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{ {date}}}}}|}} -->"
+}

@@ -42,6 +42,9 @@ $wgAutoloadClasses['RSSParser'] = $dir . 'RSSParser.php';
 $wgAutoloadClasses['RSSUtils'] = $dir . 'RSSParser.php';
 $wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
 
+// List tracking category on Special:TrackingCategories
+$wgTrackingCategories[] = 'rss-tracking-category';
+
 $wgHooks['ParserFirstCallInit'][] = 'RSSHooks::parserInit';
 
 // one hour

@@ -4,10 +4,12 @@
             "Iwai.masaharu",
             "Schu",
             "Shirayuki",
-            "青子守歌"
+            "青子守歌",
+            "Dude1717"
         ]
     },
     "rss-desc": "標準、またはテンプレートページを使用したユーザー定義可能な形式で、MediaWiki ページにRSSフィードを表示する",
+    "rss-tracking-category-desc": "ページの RSS フィードを生成します。",
     "rss-error": "$1からのRSSフィードの読み込みに失敗しました: $2",
     "rss-empty": "$1からのRSSフィードの読み込みに失敗しました!",
     "rss-fetch-nourl": "取得する URL が指定されていません!",

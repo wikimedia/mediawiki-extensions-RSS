@@ -6,6 +6,7 @@
     },
     "rss-desc": "Zobrazuje na wikistránce RSS kanál",
     "rss-tracking-category": "Stránky s RSS kanály",
+    "rss-tracking-category-desc": "Tato stránka má RSS kanál.",
     "rss-error": "Nepodařilo se načíst RSS kanál z $1: $2",
     "rss-empty": "Nepodařilo se načíst RSS kanál z $1!",
     "rss-fetch-nourl": "Nebylo určeno URL, které se má načíst!",

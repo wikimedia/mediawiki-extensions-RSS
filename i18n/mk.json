@@ -6,6 +6,7 @@
     },
     "rss-desc": "Прикажува RSS-канал на викистраница",
     "rss-tracking-category": "Страници со RSS-канали",
+    "rss-tracking-category-desc": "Страницата има RSS-канал.",
     "rss-error": "Не успеав да го вчитам RSS-каналот од $1: $2",
     "rss-empty": "Не успеав да го вчитам RSS-каналот од $1!",
     "rss-fetch-nourl": "Повикувањето за добивање нема URL!",

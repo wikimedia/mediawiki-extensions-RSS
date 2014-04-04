@@ -6,6 +6,7 @@
     },
     "rss-desc": "Mostra unha fonte de novas RSS nunha páxina wiki",
     "rss-tracking-category": "Páxinas con fontes de novas RSS",
+    "rss-tracking-category-desc": "A páxina ten unha fonte de novas RSS.",
     "rss-error": "Erro ao cargar a fonte de novas RSS de \"$1\": $2",
     "rss-empty": "Erro ao cargar a fonte de novas RSS de \"$1\"!",
     "rss-fetch-nourl": "Non deu ningún enderezo URL!",

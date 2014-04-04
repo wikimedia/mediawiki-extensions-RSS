@@ -3,11 +3,13 @@
         "authors": [
             "Mitchel Corstjens",
             "SPQRobin",
-            "Siebrand"
+            "Siebrand",
+            "Southparkfan"
         ]
     },
     "rss-desc": "Biedt een RSS-feed voor een wikipagina",
     "rss-tracking-category": "Pagina's met RSS-feeds",
+    "rss-tracking-category-desc": "De pagina heeft een RSS-feed.",
     "rss-error": "Kon RSS-feed van $1 niet laden, fout: $2",
     "rss-empty": "Kon RSS-feed van $1 niet laden!",
     "rss-fetch-nourl": "Fetch is aangeroepen zonder een URL!",

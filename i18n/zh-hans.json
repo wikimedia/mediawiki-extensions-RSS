@@ -6,11 +6,13 @@
             "Hydra",
             "PhiLiP",
             "Yfdyh000",
-            "Zhuyifei1999"
+            "Zhuyifei1999",
+            "Liuxinyu970226"
         ]
     },
     "rss-desc": "在MediaWiki页面上使用模板页面，以标准或使用者自订格式显示RSS源",
     "rss-tracking-category": "有RSS源的页面",
+    "rss-tracking-category-desc": "页面有RSS订阅。",
     "rss-error": "自$1: $2加载RSS失败",
     "rss-empty": "自$1加载RSS失败",
     "rss-fetch-nourl": "无网址情况中进行读取！",

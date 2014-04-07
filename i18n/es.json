@@ -3,11 +3,13 @@
         "authors": [
             "Armando-Martin",
             "Imre",
-            "Locos epraix"
+            "Locos epraix",
+            "Fitoschido"
         ]
     },
     "rss-desc": "Muestra un feed RSS en una página wiki",
     "rss-tracking-category": "Páginas con fuentes RSS",
+    "rss-tracking-category-desc": "La página contiene un canal RSS.",
     "rss-error": "No se pudo cargar el feed RSS desde $1: $2",
     "rss-empty": "No se pudo cargar feed RSS desde $1!",
     "rss-fetch-nourl": "Comando \"fetch\" llamado sin dirección URL",

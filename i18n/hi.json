@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Ansumang"
-        ]
-    },
-    "rss-invalid-url": "मान्य URL नहीं:$1"
+	"@metadata": {
+		"authors": [
+			"Ansumang"
+		]
+	},
+	"rss-invalid-url": "मान्य URL नहीं:$1"
 }

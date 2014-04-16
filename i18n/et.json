@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Pikne"
-        ]
-    },
-    "rss-invalid-url": "Sobimatu internetiaadress: $1"
+	"@metadata": {
+		"authors": [
+			"Pikne"
+		]
+	},
+	"rss-invalid-url": "Sobimatu internetiaadress: $1"
 }

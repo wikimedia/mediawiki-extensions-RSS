@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Dawid Deutschland"
-        ]
-    },
-    "rss-invalid-url": "არასწორი URL: $1"
+	"@metadata": {
+		"authors": [
+			"Dawid Deutschland"
+		]
+	},
+	"rss-invalid-url": "არასწორი URL: $1"
 }

@@ -6,6 +6,7 @@
 	},
 	"rss-desc": "Zwobraznja RSS-kanal na wikistronje",
 	"rss-tracking-category": "Strony z RSS-kanalemi",
+	"rss-tracking-category-desc": "Strona ma RSS-kanal.",
 	"rss-error": "Začitowanje RSS-kanala z $1 je so njeporadźiło: $2",
 	"rss-empty": "Začitowanje RSS-kanala z $1 je so njeporadźiło!",
 	"rss-fetch-nourl": "Wotwołanje bjez URL!",

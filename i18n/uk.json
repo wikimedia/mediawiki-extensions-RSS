@@ -4,11 +4,13 @@
 			"Andriykopanytsia",
 			"Arturyatsko",
 			"Base",
-			"Dim Grits"
+			"Dim Grits",
+			"Ата"
 		]
 	},
 	"rss-desc": "Відображає канал RSS на сторінці вікі",
 	"rss-tracking-category": "Сторінки із RSS-стрічками",
+	"rss-tracking-category-desc": "Ця сторінка має RSS-стрічку.",
 	"rss-error": "Не вдалося завантажити RSS-канал від $1: $2",
 	"rss-empty": "Не вдалося завантажити RSS-канал від $1!",
 	"rss-fetch-nourl": "Вибірка викликана без URL!",

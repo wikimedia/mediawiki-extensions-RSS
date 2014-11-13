@@ -3,7 +3,8 @@
 		"authors": [
 			"Anakmalaysia",
 			"Mark85296341",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"LNDDYL"
 		]
 	},
 	"rss-desc": "在MediaWiki頁面上使用模板頁面，以標準或用戶自定義格式顯示RSS源",
@@ -14,7 +15,7 @@
 	"rss-fetch-nourl": "無網址情況中進行讀取！",
 	"rss-invalid-url": "不是有效的網址：$1",
 	"rss-parse-error": "RSS 解析 XML 時出現錯誤",
-	"rss-ns-permission": "此名字空間不允許使用RSS",
+	"rss-ns-permission": "此命名空間不允許使用RSS",
 	"rss-url-is-not-whitelisted": "「$1」不在允許訂閱白名單中。{{PLURAL:$3|僅$2被允許訂閱|以下被允許訂閱：$2}}。",
 	"rss-empty-whitelist": "「$1」不在允許訂閱白名單中。此白名單並無允許訂閱之URL。",
 	"rss-deprecated-wgrssallowedfeeds-found": "已檢測到棄用變量$wgRSSAllowedFeeds。由RSS 2.0版本起此變量已被替換為$wgRSSUrlWhitelist，請參見手冊頁面Extension:RSS。",

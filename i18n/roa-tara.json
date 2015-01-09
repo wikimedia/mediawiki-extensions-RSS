@@ -6,6 +6,7 @@
 	},
 	"rss-desc": "Fà vedè 'nu feed RSS sus a 'na pàgene de uicchi",
 	"rss-tracking-category": "Pàggene cu le feed RSS",
+	"rss-tracking-category-desc": "Sta pàgene tène 'nu feed RSS.",
 	"rss-error": "Carecamende d'u feed RSS fallite da $1: $2",
 	"rss-empty": "Carecamende d'u feed RSS fallite da $1!",
 	"rss-fetch-nourl": "Esecuzione chiamate senza URL!",

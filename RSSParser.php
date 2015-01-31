@@ -626,45 +626,24 @@ class RSSParser {
 			return $text;
 		}
 
-		RSSHighlighter::setTerms( $this->highlight );
+		$terms = array_flip( array_map( 'strtolower', $this->highlight ) );
 		$highlight = ':'. implode( '|', array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
-		return preg_replace_callback( $highlight, 'RSSHighlighter::highlightThis', $text );
-	}
-}
+		return preg_replace_callback( $highlight, function ( $match ) use ( $terms ) {
+			$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
+			$styleEnd   = '</span>';
 
-class RSSHighlighter {
-	static $terms = array();
+			# bg colors cribbed from Google's highlighting of search terms
+			$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
+				'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
+				'0, 70, 153', '153, 0, 153' );
+			# Spelling out the fg colors instead of using processing time to create this list
+			$color = array( 'black', 'black', 'black', 'black', 'black',
+				'white', 'white', 'white', 'white', 'white' );
 
-	/**
-	 * Set the list of terms to match for the next highlighting session
-	 * @param $terms Array: list of words to match.
-	 */
-	static function setTerms( array $terms ) {
-		self::$terms = array_flip( array_map( 'strtolower', $terms ) );
-	}
+			$index = $terms[strtolower( $match[0] )] % count( $bgcolor );
 
-	/**
-	 * Actually replace the supplied list of words with HTML code to highlight the words.
-	 * @param $match Array: list of matched words to highlight.
-	 *	The words are assigned colors based upon the order
-	 *	they were supplied in setTerms()
-	 * @return String word wrapped in HTML code.
-	 */
-	static function highlightThis( $match ) {
-		$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
-		$styleEnd   = '</span>';
-
-		# bg colors cribbed from Google's highlighting of search terms
-		$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
-			'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
-			'0, 70, 153', '153, 0, 153' );
-		# Spelling out the fg colors instead of using processing time to create this list
-		$color = array( 'black', 'black', 'black', 'black', 'black',
-			'white', 'white', 'white', 'white', 'white' );
-
-		$index = self::$terms[strtolower( $match[0] )] % count( $bgcolor );
-
-		return sprintf( $styleStart, $bgcolor[$index], $color[$index] ) . $match[0] . $styleEnd;
+			return sprintf( $styleStart, $bgcolor[$index], $color[$index] ) . $match[0] . $styleEnd;
+		}, $text );
 	}
 }
 

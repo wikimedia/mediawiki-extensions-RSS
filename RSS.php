@@ -40,6 +40,7 @@ $wgExtensionMessagesFiles['RSS'] = $dir . 'RSS.i18n.php';
 $wgAutoloadClasses['RSSHooks'] = $dir . 'RSSHooks.php';
 $wgAutoloadClasses['RSSParser'] = $dir . 'RSSParser.php';
 $wgAutoloadClasses['RSSUtils'] = $dir . 'RSSParser.php';
+$wgAutoloadClasses['RSSHighlighter'] = $dir . 'RSSParser.php';
 $wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
 
 // List tracking category on Special:TrackingCategories

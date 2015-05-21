@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Giro720",
-			"MetalBrasil"
+			"MetalBrasil",
+			"Araceletorres"
 		]
 	},
 	"rss-desc": "Mostra um feed RSS em uma página wiki",
+	"rss-tracking-category": "Páginas com feeds RSS",
+	"rss-tracking-category-desc": "A página tem um feed RSS.",
 	"rss-error": "Falha ao carregar feed RSS de $1: $2",
 	"rss-empty": "Falha ao carregar feed RSS de $1!",
 	"rss-fetch-nourl": "Chamada fetch sem uma URL!",

@@ -15,6 +15,9 @@ class RSSParser {
 	protected $xml;
 	protected $error;
 	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
+	protected $stripItems;
+	protected $markerString;
+
 
 	/**
 	 * @var RSSData
@@ -45,6 +48,9 @@ class RSSParser {
 		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
 
 		$this->url = $url;
+
+		$this->markerString = wfRandomString( 32 );
+		$this->stripItems = array();
 
 		# Get max number of headlines from argument-array
 		if ( isset( $args['max'] ) ) {
@@ -124,6 +130,13 @@ class RSSParser {
 			$this->itemTemplate = wfMessage( 'rss-item', $feedTemplatePagename )->plain();
 
 		}
+	}
+
+
+	function insertStripItem( $item ) {
+		$this->stripItems[] = $item;
+		$itemIndex = count( $this->stripItems ) - 1;
+		return "{$this->markerString}-{$itemIndex}-{$this->markerString}";
 	}
 
 	/**
@@ -303,7 +316,17 @@ class RSSParser {
 			$origParser->getTitle(),
 			$origParser->getOptions()
 		);
-		return $result->getText();
+
+		$stripItems = $this->stripItems;
+		$text = preg_replace_callback(
+			"/{$this->markerString}-(\d+)-{$this->markerString}/",
+			function ( array $matches ) use ( $stripItems ) {
+				$markerIndex = (int) $matches[1];
+				return $stripItems[$markerIndex];
+			},
+			$result->getText()
+		);
+		return $text;
 	}
 
 	/**
@@ -385,7 +408,7 @@ class RSSParser {
 					$str = $this->escapeTemplateParameter( $item[$info] );
 					$str = $parser->getFunctionLang()->truncate( $str, $this->ItemMaxLength );
 					$str = $this->highlightTerms( $str );
-					$renderedItem = str_replace( '{{{' . $info . '}}}', $parser->insertStripItem( $str ), $renderedItem );
+					$renderedItem = str_replace( '{{{' . $info . '}}}', $this->insertStripItem( $str ), $renderedItem );
 				}
 			}
 		}

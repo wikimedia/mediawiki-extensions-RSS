@@ -10,6 +10,7 @@
 	},
 	"rss-desc": "Паказвае RSS-стужкі на вікі-старонках",
 	"rss-tracking-category": "Старонкі з RSS-стужкамі",
+	"rss-tracking-category-desc": "Старонка мае RSS-стужку.",
 	"rss-error": "Памылка загрузкі RSS-стужкі з $1: $2",
 	"rss-empty": "Не атрымалася загрузіць RSS-стужку з $1!",
 	"rss-fetch-nourl": "Выбарка выкліканая без URL-адрасу!",

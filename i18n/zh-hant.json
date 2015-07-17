@@ -9,7 +9,7 @@
 			"Zhxy 519"
 		]
 	},
-	"rss-desc": "在MediaWiki頁面上使用模板頁面，以標準或用戶自定義格式顯示RSS源",
+	"rss-desc": "在MediaWiki頁面上使用模板頁面，以標準或使用者定義格式顯示RSS源",
 	"rss-tracking-category": "帶 RSS 源頁面",
 	"rss-tracking-category-desc": "頁面有 RSS 源。",
 	"rss-error": "自 $1：$2 載入 RSS 失敗",

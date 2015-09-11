@@ -15,6 +15,6 @@
 	"rss-ns-permission": "V tomto mennom priestore nie je RSS povolené",
 	"rss-url-is-not-whitelisted": "\"$1\" nie je na zozname povolených kanálov. {{PLURAL:$3|$2 je jediný povolený kanál|Povolené kanály: $2}}.",
 	"rss-empty-whitelist": "\"$1\" nie je na zozname povolených kanálov. Zoznam povolených kanálov je prázdny.",
-	"rss-deprecated-wgrssallowedfeeds-found": "Nastavená premenná $wgRSSAllowedFeeds je zastaraná. Od RSS verzie 2.0 treba túto premenný nahradiť s $wgRSSUrlWhitelist, ako je vysvetlené v návode, v časti Extension:RSS.",
+	"rss-deprecated-wgrssallowedfeeds-found": "Nastavená premenná <var>$wgRSSAllowedFeeds</var> je zastaraná. Od RSS verzie 2.0 treba túto premenný nahradiť s <var>$wgRSSUrlWhitelist</var>, ako je vysvetlené v návode, v časti [https://www.mediawiki.org/wiki/Extension:RSS Extension:RSS].",
 	"rss-feed": "<!--  Nižšie sú uvedené dve alternatívne šablóny. Prvá je základná implicitná šablóna pre kanály -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- sem nevkladať nový riadok --><!-- Druhá je vylepšná verzia, ktorá vyžaduje rozšírenie Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
 }

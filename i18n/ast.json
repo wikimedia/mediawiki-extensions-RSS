@@ -6,7 +6,7 @@
 	},
 	"rss-desc": "Amuesa fluxos RSS nes páxines de Mediawiki en formatu estándar o configurable pol usuariu usando páxines de plantía",
 	"rss-tracking-category": "Páxines con canales RSS",
-	"rss-tracking-category-desc": "La páxina contién una canal RSS.",
+	"rss-tracking-category-desc": "La páxina contien una canal RSS.",
 	"rss-error": "Nun se pudo cargar el fluxu RSS dende $1: $2",
 	"rss-empty": "¡Nun se pudo cargar el fluxu RSS dende $1!",
 	"rss-fetch-nourl": "¡Se llamó a la baxada ensin una URL!",

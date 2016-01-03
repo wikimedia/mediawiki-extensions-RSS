@@ -658,7 +658,7 @@ class RSSUtils {
 	public static function RSSError( $errorMessageName, $param = false ) {
 
 		// Anything from a parser tag should use Content lang for message,
-		// since the cache doesn't vary by user language: do not use wfMsgForContent but wfMsgForContent
+		// since the cache doesn't vary by user language: use ->inContentLanguage()
 		// The ->parse() part makes everything safe from an escaping standpoint.
 
 		return Html::rawElement( 'span', array( 'class' => 'error' ),

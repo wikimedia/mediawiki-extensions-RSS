@@ -7,7 +7,7 @@ class RSSHooks {
 	 * @param $parser Parser Object
 	 * @return bool
 	 */
-	static function parserInit( $parser ) {
+	static function onParserFirstCallInit( $parser ) {
 		# Install parser hook for <rss> tags
 		$parser->setHook( 'rss', array( __CLASS__, 'renderRss' ) );
 		return true;

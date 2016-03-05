@@ -1,8 +1,8 @@
 RELEASE NOTES of the MediaWiki extension RSS
 
-Version 2.24 20131017
+Version 2.25 2014-03-28
 
-Manual http://www.mediawiki.org/wiki/Extension:RSS
+Manual https://www.mediawiki.org/wiki/Extension:RSS
 
 Browser view
 https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/RSS.git;a=tree
@@ -26,6 +26,11 @@ git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/RSS.git
   https://bugzilla.wikimedia.org/show_bug.cgi?id=30377#c5
   The length limitation must be HTML tag-safe, but it is not at the moment.
   Length limitation is disabled by default.
+
+=== Version 2.25 2014-03-28 ===
+* Migrated I18n to use json-files
+* Provide backwards compatible shim up to version MW 1.17+ and higher
+* Drops compatibility with MW 1.16+ and lower
 
 === Version 2.24 2013-10-17 ==
 * fix for Bug 55763 Undefined variable: txt in RSSParser.php on line 376

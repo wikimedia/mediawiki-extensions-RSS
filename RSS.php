@@ -4,14 +4,14 @@
  *
  * @file
  * @ingroup Extensions
- * @version 2.24
+ * @version 2.25.0
  * @author mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
  * @author Kellan Elliott-McCrea <kellan@protest.net> -- author of MagpieRSS
  * @author Jeroen De Dauw
  * @author Jack Phoenix <jack@countervandalism.net>
  * @copyright © Kellan Elliott-McCrea <kellan@protest.net>
  * @copyright © mutante, Daniel Kinzler, Rdb, Mafs, Thomas Gries, Alxndr, Chris Reigrut, K001
- * @link http://www.mediawiki.org/wiki/Extension:RSS Documentation
+ * @link https://www.mediawiki.org/wiki/Extension:RSS Documentation
  */
 
 define( "EXTENSION_RSS_VERSION", "2.25.0" );
@@ -26,21 +26,22 @@ $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'RSS feed',
 	'author' => array( 'Kellan Elliott-McCrea', 'mutante', 'Daniel Kinzler',
 		'Rdb', 'Mafs', 'Alxndr', 'Thomas Gries', 'Chris Reigrut',
-		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger'
+		'K001', 'Jack Phoenix', 'Jeroen De Dauw', 'Mark A. Hershberger',
+		'...'
 	),
 	'version' => EXTENSION_RSS_VERSION,
 	'url' => 'https://www.mediawiki.org/wiki/Extension:RSS',
 	'descriptionmsg' => 'rss-desc',
+	'license-name' => 'GPL-2.0+'
 );
 
 // Internationalization file and autoloadable classes
-$dir = __DIR__ . '/';
 $wgMessagesDirs['RSS'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['RSS'] = $dir . 'RSS.i18n.php';
-$wgAutoloadClasses['RSSHooks'] = $dir . 'RSSHooks.php';
-$wgAutoloadClasses['RSSParser'] = $dir . 'RSSParser.php';
-$wgAutoloadClasses['RSSUtils'] = $dir . 'RSSParser.php';
-$wgAutoloadClasses['RSSData'] = $dir . 'RSSData.php';
+$wgExtensionMessagesFiles['RSS'] = __DIR__ . '/RSS.i18n.php';
+$wgAutoloadClasses['RSSHooks'] = __DIR__ . '/RSSHooks.php';
+$wgAutoloadClasses['RSSParser'] = __DIR__ . '/RSSParser.php';
+$wgAutoloadClasses['RSSUtils'] = __DIR__ . '/RSSParser.php';
+$wgAutoloadClasses['RSSData'] = __DIR__ . '/RSSData.php';
 
 // List tracking category on Special:TrackingCategories
 $wgTrackingCategories[] = 'rss-tracking-category';

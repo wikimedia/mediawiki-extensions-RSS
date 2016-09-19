@@ -103,8 +103,15 @@ class RSSParser {
 
 		if ( isset( $args['template'] ) ) {
 			$itemTemplateTitleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
-			$itemTemplateArticleObject = new Article( $itemTemplateTitleObject, 0 );
-			$this->itemTemplate = $itemTemplateArticleObject->fetchContent();
+
+			if ( $itemTemplateTitleObject->exists() ) {
+				$itemTemplatePageObject = WikiPage::factory( $itemTemplateTitleObject );
+				$itemTemplateContentObject = $itemTemplatePageObject->getContent();
+
+				if ( $itemTemplateContentObject instanceof TextContent ) {
+					$this->itemTemplate = $itemTemplateContentObject->getNativeData();
+				}
+			}
 		} else {
 			if ( isset( $args['templatename'] ) ) {
 				$feedTemplatePagename = $args['templatename'];

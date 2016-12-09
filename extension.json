@@ -18,7 +18,7 @@
 	"url": "https://www.mediawiki.org/wiki/Extension:RSS",
 	"descriptionmsg": "rss-desc",
 	"type": "parserhook",
-	"MessageDirs": {
+	"MessagesDirs": {
 		"RSS": [
 			"i18n"
 		]

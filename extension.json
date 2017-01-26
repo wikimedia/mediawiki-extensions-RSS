@@ -14,7 +14,7 @@
 		"Jeroen De Dauw",
 		"Mark A. Hershberger"
 	],
-	"version": "2.25.0",
+	"version": "2.25.1",
 	"url": "https://www.mediawiki.org/wiki/Extension:RSS",
 	"descriptionmsg": "rss-desc",
 	"type": "parserhook",
@@ -44,7 +44,7 @@
 		"RSSNamespaces": null,
 		"RSSUrlWhitelist": [],
 		"RSSUrlNumberOfAllowedRedirects": 0,
-		"RSSUserAgent": "MediaWikiRSS/2.25.0 (+http://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension",
+		"RSSUserAgent": "MediaWikiRSS/2.25.1 (+https://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension",
 		"RSSProxy": false,
 		"RSSDateDefaultFormat": "Y-m-d H:i:s",
 		"RSSItemMaxLength": false,

@@ -29,7 +29,7 @@ class RSSData {
 		}
 
 		foreach ( $items as $item ) {
-			$bit = array();
+			$bit = [];
 			foreach ( $item->childNodes as $n ) {
 				$name = $this->rssTokenToName( $n->nodeName );
 				if ( $name != null ) {
@@ -60,7 +60,7 @@ class RSSData {
 	 */
 	protected function rssTokenToName( $name ) {
 
-		$tokenNames = array(
+		$tokenNames = [
 			'dc:date' => 'date',
 			'pubDate' => 'date',
 			'updated' => 'date',
@@ -75,7 +75,7 @@ class RSSData {
 			'slash:hit_parade' => null,
 			'slash:section' => null,
 			'wfw:commentRss' => null,
-		);
+		];
 
 		if ( array_key_exists( $name, $tokenNames ) ) {
 			return $tokenNames[ $name ];

@@ -8,8 +8,8 @@ class RSSHooks {
 	 * @return bool
 	 */
 	static function onParserFirstCallInit( $parser ) {
-		# Install parser hook for <rss> tags
-		$parser->setHook( 'rss', array( __CLASS__, 'renderRss' ) );
+		// Install parser hook for <rss> tags
+		$parser->setHook( 'rss', [ __CLASS__, 'renderRss' ] );
 		return true;
 	}
 
@@ -31,7 +31,7 @@ class RSSHooks {
 			$ns = $parser->getTitle()->getNamespace();
 			$checkNS = array_flip( $wgRSSNamespaces );
 
-			if( !isset( $checkNS[$ns] ) ) {
+			if ( !isset( $checkNS[$ns] ) ) {
 				return RSSUtils::RSSError( 'rss-ns-permission' );
 			}
 		}
@@ -63,7 +63,7 @@ class RSSHooks {
 			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
 
 			return RSSUtils::RSSError( 'rss-url-is-not-whitelisted',
-				array( $input, $listOfAllowed, $numberAllowed )
+				[ $input, $listOfAllowed, $numberAllowed ]
 			);
 
 		}

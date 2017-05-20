@@ -5,19 +5,18 @@ class RSSParser {
 	protected $date = "Y-m-d H:i:s";
 	protected $ItemMaxLength = 200;
 	protected $reversed = false;
-	protected $highlight = array();
-	protected $filter = array();
-	protected $filterOut = array();
+	protected $highlight = [];
+	protected $filter = [];
+	protected $filterOut = [];
 	protected $itemTemplate;
 	protected $url;
 	protected $etag;
 	protected $lastModified;
 	protected $xml;
 	protected $error;
-	protected $displayFields = array( 'author', 'title', 'encodedContent', 'description' );
+	protected $displayFields = [ 'author', 'title', 'encodedContent', 'description' ];
 	protected $stripItems;
 	protected $markerString;
-
 
 	/**
 	 * @var RSSData
@@ -36,7 +35,7 @@ class RSSParser {
 	 */
 	private static function explodeOnSpaces( $str ) {
 		$found = preg_split( '# +#', $str );
-		return is_array( $found ) ? $found : array();
+		return is_array( $found ) ? $found : [];
 	}
 
 	/**
@@ -50,7 +49,7 @@ class RSSParser {
 		$this->url = $url;
 
 		$this->markerString = wfRandomString( 32 );
-		$this->stripItems = array();
+		$this->stripItems = [];
 
 		# Get max number of headlines from argument-array
 		if ( isset( $args['max'] ) ) {
@@ -131,14 +130,14 @@ class RSSParser {
 
 			// if the attribute parameter templatename= is not present
 			// then it defaults to
-			// {{ Template:RSSPost | title = {{{title}}} | ... }} - if Template:RSSPost exists from pre-1.9 versions
-			// {{ MediaWiki:Rss-feed | title = {{{title}}} | ... }} - otherwise
+			// {{ Template:RSSPost | title = {{{title}}} | ... }}
+			//     - if Template:RSSPost exists from pre-1.9 versions
+			// {{ MediaWiki:Rss-feed | title = {{{title}}} | ... }}
+			//     - otherwise
 
 			$this->itemTemplate = wfMessage( 'rss-item', $feedTemplatePagename )->plain();
-
 		}
 	}
-
 
 	function insertStripItem( $item ) {
 		$this->stripItems[] = $item;
@@ -228,10 +227,10 @@ class RSSParser {
 			return false;
 		}
 		$r = $wgMemc->set( $key,
-			array( $this->etag, $this->lastModified, $this->rss ),
+			[ $this->etag, $this->lastModified, $this->rss ],
 			$wgRSSCacheAge );
 
-		wfDebugLog( 'RSS', "Stored '$key' as in cache? $r");
+		wfDebugLog( 'RSS', "Stored '$key' as in cache? $r" );
 		return true;
 	}
 
@@ -241,7 +240,7 @@ class RSSParser {
 	 * @param $headers Array: headers to send along with the request
 	 * @return Status object
 	 */
-	protected function fetchRemote( $key, array $headers = array()) {
+	protected function fetchRemote( $key, array $headers = [] ) {
 		global $wgRSSFetchTimeout, $wgRSSUserAgent, $wgRSSProxy,
 			$wgRSSUrlNumberOfAllowedRedirects;
 
@@ -268,7 +267,7 @@ class RSSParser {
 		 * forthcoming version.
 		 */
 
- 		$url = $this->url;
+		$url = $this->url;
 		$noProxy = !isset( $wgRSSProxy );
 
 		// Example for disabling proxy use for certain urls
@@ -284,14 +283,14 @@ class RSSParser {
 		// we set followRedirects intentionally to true to see error messages
 		// in cases where the maximum number of redirects is reached
 		$client = MWHttpRequest::factory( $url,
-			array(
+			[
 				'timeout'         => $wgRSSFetchTimeout,
 				'followRedirects' => true,
 				'maxRedirects'    => $maxRedirects,
 				'proxy'           => $wgRSSProxy,
 				'noProxy'         => $noProxy,
 				'userAgent'       => $wgRSSUserAgent,
-			)
+			]
 		);
 
 		foreach ( $headers as $header => $value ) {
@@ -407,7 +406,8 @@ class RSSParser {
 				case 'date':
 					$tempTimezone = date_default_timezone_get();
 					date_default_timezone_set( 'UTC' );
-					$txt = date( $this->date, strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
+					$txt = date( $this->date,
+						strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
 					date_default_timezone_set( $tempTimezone );
 					$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
 					break;
@@ -415,7 +415,8 @@ class RSSParser {
 					$str = $this->escapeTemplateParameter( $item[$info] );
 					$str = $parser->getFunctionLang()->truncate( $str, $this->ItemMaxLength );
 					$str = $this->highlightTerms( $str );
-					$renderedItem = str_replace( '{{{' . $info . '}}}', $this->insertStripItem( $str ), $renderedItem );
+					$renderedItem = str_replace( '{{{' . $info . '}}}',
+						$this->insertStripItem( $str ), $renderedItem );
 				}
 			}
 		}
@@ -439,13 +440,13 @@ class RSSParser {
 		$url = preg_replace( '/[\000-\037\177]/', '', trim( $url ) );
 		# Escape other problematic characters
 		$out = '';
-		for ( $i = 0; $i < strlen( $url ); $i++ ) {
+		for ( $i = 0, $len = strlen( $url ); $i < $len; $i++ ) {
 			$boringLength = strcspn( $url, '<>"[|]\ {', $i );
 			if ( $boringLength ) {
 				$out .= substr( $url, $i, $boringLength );
 				$i += $boringLength;
 			}
-			if ( $i < strlen( $url ) ) {
+			if ( $i < $len ) {
 				$out .= rawurlencode( $url[$i] );
 			}
 		}
@@ -469,8 +470,8 @@ class RSSParser {
 	protected function escapeTemplateParameter( $text ) {
 		global $wgRSSAllowLinkTag, $wgRSSAllowImageTag;
 
-		$extraInclude = array();
-		$extraExclude = array( "iframe" );
+		$extraInclude = [];
+		$extraExclude = [ "iframe" ];
 
 		if ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag ) {
 			$extraInclude[] = "a";
@@ -487,36 +488,40 @@ class RSSParser {
 		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
 			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
 
-			$ret = Sanitizer::removeHTMLtags( $text, null, array(), $extraInclude, $extraExclude );
+			$ret = Sanitizer::removeHTMLtags( $text, null, [], $extraInclude, $extraExclude );
 
 		} else { // use the old escape method for a while
 
 			$text = str_replace(
-				array( '[',     '|',      ']',     '\'',    'ISBN ',
+				[
+					'[',     '|',      ']',     '\'',    'ISBN ',
 					'RFC ',     '://',     "\n=",     '{{',           '}}',
-				),
-				array( '&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;',
+				],
+				[
+					'&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;',
 					'RFC&#32;', '&#58;//', "\n&#61;", '&#123;&#123;', '&#125;&#125;',
-				),
+				],
 				htmlspecialchars( str_replace( "\n", "", $text ) )
 			);
 
 			// keep some basic layout tags
 			$ret = str_replace(
-				array( '&lt;p&gt;', '&lt;/p&gt;',
+				[
+					'&lt;p&gt;', '&lt;/p&gt;',
 					'&lt;br/&gt;', '&lt;br&gt;', '&lt;/br&gt;',
 					'&lt;b&gt;', '&lt;/b&gt;',
 					'&lt;i&gt;', '&lt;/i&gt;',
 					'&lt;u&gt;', '&lt;/u&gt;',
 					'&lt;s&gt;', '&lt;/s&gt;',
-				),
-				array( "", "<br/>",
+				],
+				[
+					 "", "<br/>",
 					"<br/>", "<br/>", "<br/>",
 					"'''", "'''",
 					"''", "''",
 					"<u>", "</u>",
 					"<s>", "</s>",
-				),
+				],
 				$text
 			);
 		}
@@ -540,7 +545,7 @@ class RSSParser {
 			$this->xml = new DOMDocument;
 			$raw_xml = $this->client->getContent();
 
-			if( $raw_xml == '' ) {
+			if ( $raw_xml == '' ) {
 				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
@@ -615,7 +620,8 @@ class RSSParser {
 		}
 
 		/* Using : for delimiter here since it'll be quoted automatically. */
-		$match = preg_match( ':(' . implode( '|', array_map( 'preg_quote', $filter ) ) . '):i', $text ) ;
+		$match = preg_match( ':(' . implode( '|',
+			array_map( 'preg_quote', $filter ) ) . '):i', $text );
 		if ( $match ) {
 			return true;
 		}
@@ -634,18 +640,20 @@ class RSSParser {
 		}
 
 		$terms = array_flip( array_map( 'strtolower', $this->highlight ) );
-		$highlight = ':'. implode( '|', array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
+		$highlight = ':' . implode( '|',
+			array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
 		return preg_replace_callback( $highlight, function ( $match ) use ( $terms ) {
-			$styleStart = "<span style='font-weight: bold; background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
-			$styleEnd   = '</span>';
+			$styleStart = "<span style='font-weight: bold; " .
+				"background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
+			$styleEnd = '</span>';
 
 			# bg colors cribbed from Google's highlighting of search terms
-			$bgcolor = array( '255, 255, 102', '160, 255, 255', '153, 255, 153',
+			$bgcolor = [ '255, 255, 102', '160, 255, 255', '153, 255, 153',
 				'255, 153, 153', '255, 102, 255', '136, 0, 0', '0, 170, 0', '136, 104, 0',
-				'0, 70, 153', '153, 0, 153' );
+				'0, 70, 153', '153, 0, 153' ];
 			# Spelling out the fg colors instead of using processing time to create this list
-			$color = array( 'black', 'black', 'black', 'black', 'black',
-				'white', 'white', 'white', 'white', 'white' );
+			$color = [ 'black', 'black', 'black', 'black', 'black',
+				'white', 'white', 'white', 'white', 'white' ];
 
 			$index = $terms[strtolower( $match[0] )] % count( $bgcolor );
 
@@ -668,8 +676,9 @@ class RSSUtils {
 		// since the cache doesn't vary by user language: use ->inContentLanguage()
 		// The ->parse() part makes everything safe from an escaping standpoint.
 
-		return Html::rawElement( 'span', array( 'class' => 'error' ),
-			"Extension:RSS -- Error: " . wfMessage( $errorMessageName )->inContentLanguage()->params( $param )->parse()
+		return Html::rawElement( 'span', [ 'class' => 'error' ],
+			"Extension:RSS -- Error: " . wfMessage( $errorMessageName )
+				->inContentLanguage()->params( $param )->parse()
 		);
 
 	}

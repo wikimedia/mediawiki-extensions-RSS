@@ -131,9 +131,9 @@ class RSSParser {
 			// if the attribute parameter templatename= is not present
 			// then it defaults to
 			// {{ Template:RSSPost | title = {{{title}}} | ... }}
-			//     - if Template:RSSPost exists from pre-1.9 versions
+			// - if Template:RSSPost exists from pre-1.9 versions
 			// {{ MediaWiki:Rss-feed | title = {{{title}}} | ... }}
-			//     - otherwise
+			// - otherwise
 
 			$this->itemTemplate = wfMessage( 'rss-item', $feedTemplatePagename )->plain();
 		}
@@ -327,7 +327,7 @@ class RSSParser {
 		$text = preg_replace_callback(
 			"/{$this->markerString}-(\d+)-{$this->markerString}/",
 			function ( array $matches ) use ( $stripItems ) {
-				$markerIndex = (int) $matches[1];
+				$markerIndex = (int)$matches[1];
 				return $stripItems[$markerIndex];
 			},
 			$result->getText()
@@ -344,11 +344,9 @@ class RSSParser {
 	 * @return string
 	 */
 	function renderFeed( $parser, $frame ) {
-
 		$renderedFeed = '';
 
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
-
 			$headcnt = 0;
 			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );
@@ -381,7 +379,6 @@ class RSSParser {
 	 * @return mixed
 	 */
 	protected function renderItem( $item, $parser ) {
-
 		$renderedItem = $this->itemTemplate;
 
 		// $info will only be an XML element name, so we're safe using it.
@@ -487,7 +484,6 @@ class RSSParser {
 
 		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
 			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
-
 			$ret = Sanitizer::removeHTMLtags( $text, null, [], $extraInclude, $extraExclude );
 
 		} else { // use the old escape method for a while
@@ -671,7 +667,6 @@ class RSSUtils {
 	* @return String Html that is the error.
 	*/
 	public static function RSSError( $errorMessageName, $param = false ) {
-
 		// Anything from a parser tag should use Content lang for message,
 		// since the cache doesn't vary by user language: use ->inContentLanguage()
 		// The ->parse() part makes everything safe from an escaping standpoint.
@@ -680,7 +675,6 @@ class RSSUtils {
 			"Extension:RSS -- Error: " . wfMessage( $errorMessageName )
 				->inContentLanguage()->params( $param )->parse()
 		);
-
 	}
 
 }

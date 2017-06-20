@@ -59,7 +59,6 @@ class RSSData {
 	 * @return String Name to map it to
 	 */
 	protected function rssTokenToName( $name ) {
-
 		$tokenNames = [
 			'dc:date' => 'date',
 			'pubDate' => 'date',
@@ -82,7 +81,6 @@ class RSSData {
 		}
 
 	return $name;
-
 	}
 
 }

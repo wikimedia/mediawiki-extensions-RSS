@@ -27,7 +27,6 @@ class RSSHooks {
 			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
-
 			$ns = $parser->getTitle()->getNamespace();
 			$checkNS = array_flip( $wgRSSNamespaces );
 
@@ -45,7 +44,6 @@ class RSSHooks {
 		if ( !isset( $wgRSSUrlWhitelist )
 			|| !is_array( $wgRSSUrlWhitelist )
 			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ) {
-
 			return RSSUtils::RSSError( 'rss-empty-whitelist',
 				$input
 			);
@@ -58,7 +56,6 @@ class RSSHooks {
 
 		if ( !( in_array( $input, $wgRSSUrlWhitelist ) )
 			&& !( in_array( "*", $wgRSSUrlWhitelist ) ) ) {
-
 			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
 			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
 

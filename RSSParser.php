@@ -182,7 +182,7 @@ class RSSParser {
 	/**
 	 * Retrieve the URL from the cache
 	 * @param $key String: lookup key to associate with this item
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function loadFromCache( $key ) {
 		global $wgMemc, $wgRSSCacheCompare;
@@ -218,7 +218,7 @@ class RSSParser {
 	/**
 	 * Store these objects (i.e. etag, lastModified, and RSS) in the cache.
 	 * @param $key String: lookup key to associate with this item
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function storeInCache( $key ) {
 		global $wgMemc, $wgRSSCacheAge;
@@ -575,7 +575,7 @@ class RSSParser {
 	 * Determine if a given item should or should not be displayed
 	 *
 	 * @param $item Array: associative array that RSSData produced for an <item>
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function canDisplay( array $item ) {
 		$check = '';
@@ -602,7 +602,7 @@ class RSSParser {
 	 * @param $text String: the text to examine
 	 * @param $filterType String: "filterOut" to check for matches in the filterOut member list.
 	 *	Otherwise, uses the filter member list.
-	 * @return Boolean: decision to filter or not.
+	 * @return bool Decision to filter or not.
 	 */
 	protected function filter( $text, $filterType ) {
 		if ( $filterType === 'filterOut' ) {

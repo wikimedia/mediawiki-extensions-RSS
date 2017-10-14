@@ -30,8 +30,8 @@ class RSSParser {
 
 	/**
 	 * Convenience function that takes a space-separated string and returns an array of words
-	 * @param $str String: list of words
-	 * @return Array words found
+	 * @param string $str list of words
+	 * @return array words found
 	 */
 	private static function explodeOnSpaces( $str ) {
 		$found = preg_split( '# +#', $str );
@@ -42,6 +42,8 @@ class RSSParser {
 	 * Take a bit of WikiText that looks like
 	 *   <rss max=5>http://example.com/</rss>
 	 * and return an object that can produce rendered output.
+	 * @param string $url
+	 * @param array $args
 	 */
 	function __construct( $url, $args ) {
 		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
@@ -181,7 +183,7 @@ class RSSParser {
 
 	/**
 	 * Retrieve the URL from the cache
-	 * @param $key String: lookup key to associate with this item
+	 * @param string $key lookup key to associate with this item
 	 * @return bool
 	 */
 	protected function loadFromCache( $key ) {
@@ -217,7 +219,7 @@ class RSSParser {
 
 	/**
 	 * Store these objects (i.e. etag, lastModified, and RSS) in the cache.
-	 * @param $key String: lookup key to associate with this item
+	 * @param string $key lookup key to associate with this item
 	 * @return bool
 	 */
 	protected function storeInCache( $key ) {
@@ -236,8 +238,8 @@ class RSSParser {
 
 	/**
 	 * Retrieve a feed.
-	 * @param $key String:
-	 * @param $headers Array: headers to send along with the request
+	 * @param string $key
+	 * @param array $headers headers to send along with the request
 	 * @return Status object
 	 */
 	protected function fetchRemote( $key, array $headers = [] ) {
@@ -375,7 +377,8 @@ class RSSParser {
 	/**
 	 * Render each item, filtering it out if necessary, applying any highlighting.
 	 *
-	 * @param $item Array: an array produced by RSSData where keys are the names of the RSS elements
+	 * @param array $item an array produced by RSSData where keys are the names of the RSS elements
+	 * @param Parser $parser
 	 * @return mixed
 	 */
 	protected function renderItem( $item, $parser ) {
@@ -431,6 +434,8 @@ class RSSParser {
 	 * a special meaning in wikitext, replacing them with URL escape codes, so
 	 * that arbitrary input can be included as a free or bracketed external
 	 * link and both work and be safe.
+	 * @param string $url
+	 * @return string
 	 */
 	protected function sanitizeUrl( $url ) {
 		# Remove control characters
@@ -462,7 +467,8 @@ class RSSParser {
 	 *
 	 * If you want to allow images (HTML <img> tag) in RSS feeds:
 	 * $wgRSSAllowImageTag = true;
-	 *
+	 * @param string $text
+	 * @return string
 	 */
 	protected function escapeTemplateParameter( $text ) {
 		global $wgRSSAllowLinkTag, $wgRSSAllowImageTag;
@@ -528,7 +534,7 @@ class RSSParser {
 	/**
 	 * Parse an HTTP response object into an array of relevant RSS data
 	 *
-	 * @param $key String: the key to use to store the parsed response in the cache
+	 * @param string $key the key to use to store the parsed response in the cache
 	 * @return string|bool parsed RSS object (see RSSParse) or false
 	 */
 	protected function responseToXML( $key ) {
@@ -574,7 +580,7 @@ class RSSParser {
 	/**
 	 * Determine if a given item should or should not be displayed
 	 *
-	 * @param $item Array: associative array that RSSData produced for an <item>
+	 * @param array $item associative array that RSSData produced for an <item>
 	 * @return bool
 	 */
 	protected function canDisplay( array $item ) {
@@ -599,9 +605,9 @@ class RSSParser {
 	/**
 	 * Filters items in or out if the match a string we're looking for.
 	 *
-	 * @param $text String: the text to examine
-	 * @param $filterType String: "filterOut" to check for matches in the filterOut member list.
-	 *	Otherwise, uses the filter member list.
+	 * @param string $text the text to examine
+	 * @param string $filterType "filterOut" to check for matches in the filterOut member list.
+	 *  Otherwise, uses the filter member list.
 	 * @return bool Decision to filter or not.
 	 */
 	protected function filter( $text, $filterType ) {
@@ -627,8 +633,8 @@ class RSSParser {
 	/**
 	 * Highlight the words we're supposed to be looking for
 	 *
-	 * @param $text String: the text to look in.
-	 * @return String with matched text highlighted in a <span> element
+	 * @param string $text the text to look in.
+	 * @return string with matched text highlighted in a <span> element
 	 */
 	protected function highlightTerms( $text ) {
 		if ( count( $this->highlight ) === 0 ) {
@@ -661,11 +667,11 @@ class RSSParser {
 class RSSUtils {
 
 	/**
-	* Output an error message, all wraped up nicely.
-	* @param String $errorMessageName The system message that this error is
-	* @param String|Array $param Error parameter (or parameters)
-	* @return String Html that is the error.
-	*/
+	 * Output an error message, all wraped up nicely.
+	 * @param String $errorMessageName The system message that this error is
+	 * @param String|Array $param Error parameter (or parameters)
+	 * @return String Html that is the error.
+	 */
 	public static function RSSError( $errorMessageName, $param = false ) {
 		// Anything from a parser tag should use Content lang for message,
 		// since the cache doesn't vary by user language: use ->inContentLanguage()

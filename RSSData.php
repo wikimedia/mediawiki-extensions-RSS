@@ -6,7 +6,7 @@ class RSSData {
 
 	/**
 	 * Constructor, takes a DOMDocument and returns an array of parsed items.
-	 * @param $xml DOMDocument: the pre-parsed XML Document
+	 * @param DOMDocument $xml the pre-parsed XML Document
 	 * @return RSSData object with a member items that is an array of parsed items,
 	 */
 	function __construct( $xml ) {
@@ -55,8 +55,8 @@ class RSSData {
 	 * probably needs a way to concert dc:date format dates to be the
 	 * same as pubDate.
 	 *
-	 * @param $n String: name of the element we have
-	 * @return String Name to map it to
+	 * @param string $name name of the element we have
+	 * @return string Name to map it to
 	 */
 	protected function rssTokenToName( $name ) {
 		$tokenNames = [

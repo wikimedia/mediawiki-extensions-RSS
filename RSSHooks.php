@@ -4,7 +4,7 @@ class RSSHooks {
 
 	/**
 	 * Tell the parser how to handle <rss> elements
-	 * @param $parser Parser Object
+	 * @param Parser $parser Parser Object
 	 * @return bool
 	 */
 	static function onParserFirstCallInit( $parser ) {
@@ -15,11 +15,11 @@ class RSSHooks {
 
 	/**
 	 * Static function wrapping RSSParser to handle rendering of RSS elements
-	 * @param $input String: text inside the tags.
-	 * @param $args Array: value associative list of the element attributes and
+	 * @param string $input text inside the tags.
+	 * @param array $args value associative list of the element attributes and
 	 * 						their values.
-	 * @param $parser Parser
-	 * @param $frame PPFrame parser context
+	 * @param Parser $parser
+	 * @param PPFrame $frame parser context
 	 * @return string
 	 */
 	static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {

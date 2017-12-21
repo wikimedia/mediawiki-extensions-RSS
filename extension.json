@@ -27,7 +27,7 @@
 	"AutoloadClasses": {
 		"RSSHooks": "RSSHooks.php",
 		"RSSParser": "RSSParser.php",
-		"RSSUtils": "RSSParser.php",
+		"RSSUtils": "RSSUtils.php",
 		"RSSData": "RSSData.php"
 	},
 	"Hooks": {

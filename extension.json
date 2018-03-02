@@ -15,7 +15,7 @@
 		"Mark A. Hershberger"
 	],
 	"version": "2.25.1",
-	"license-name": "GPL-2.0+",
+	"license-name": "GPL-2.0-or-later",
 	"url": "https://www.mediawiki.org/wiki/Extension:RSS",
 	"descriptionmsg": "rss-desc",
 	"type": "parserhook",

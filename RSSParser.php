@@ -342,7 +342,7 @@ class RSSParser {
 	 * template which the MediaWiki then displays.
 	 *
 	 * @param Parser $parser
-	 * @param string $frame The frame param to pass to recursiveTagParse()
+	 * @param PPFrame $frame The frame param to pass to recursiveTagParse()
 	 * @return string
 	 */
 	function renderFeed( $parser, $frame ) {

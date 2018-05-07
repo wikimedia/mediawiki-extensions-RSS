@@ -303,7 +303,7 @@ class RSSParser {
 		$this->client = $client;
 
 		if ( !$fetch->isGood() ) {
-			wfDebug( 'RSS', 'Request Failed: ' . $fetch->getWikiText() );
+			wfDebug( 'RSS', 'Request Failed: ' . Status::wrap( $fetch )->getWikitext() );
 			return $fetch;
 		}
 

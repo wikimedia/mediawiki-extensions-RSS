@@ -3,10 +3,13 @@
 		"authors": [
 			"Jack Phoenix",
 			"Nike",
-			"Olli"
+			"Olli",
+			"01miki10"
 		]
 	},
 	"rss-desc": "Näyttää RSS-syötteitä MediaWiki-sivuilla yleisessä tai käyttäjän määrittämässä muodossa mallinesivuja käyttäen",
+	"rss-tracking-category": "Sivut, joissa on RSS-syötteitä",
+	"rss-tracking-category-desc": "Sivulla on RSS-syöte.",
 	"rss-error": "RSS-syötteen lataaminen osoitteesta $1 epäonnistui: $2",
 	"rss-empty": "RSS-syötteen lataaminen osoitteesta $1 epäonnistui!",
 	"rss-fetch-nourl": "Syötettä kutsuttiin ilman osoitetta!",

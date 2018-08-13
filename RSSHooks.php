@@ -85,7 +85,7 @@ class RSSHooks {
 		if ( !$status->isGood() ) {
 			return wfMessage(
 				'rss-error', htmlspecialchars( $input ), Status::wrap( $status )->getWikitext()
-			)->text();
+			)->escaped();
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {

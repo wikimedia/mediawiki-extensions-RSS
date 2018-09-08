@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
-	"rss-desc": "Mostra unha fonte de novas RSS nunha páxina wiki",
+	"rss-desc": "Amosa fluxos RSS en páxinas de MediaWiki, ben nun formato estándar ou ben en formatos personalizables mediante modelos",
 	"rss-tracking-category": "Páxinas con fontes de novas RSS",
 	"rss-tracking-category-desc": "A páxina ten unha fonte de novas RSS.",
 	"rss-error": "Erro ao cargar a fonte de novas RSS de \"$1\": $2",

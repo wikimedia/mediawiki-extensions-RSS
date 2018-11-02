@@ -7,7 +7,7 @@ class RSSHooks {
 	 * @param Parser $parser Parser Object
 	 * @return bool
 	 */
-	static function onParserFirstCallInit( $parser ) {
+	public static function onParserFirstCallInit( $parser ) {
 		// Install parser hook for <rss> tags
 		$parser->setHook( 'rss', [ __CLASS__, 'renderRss' ] );
 		return true;
@@ -23,7 +23,7 @@ class RSSHooks {
 	 * @return string
 	 * @suppress SecurityCheck-XSS see T203210
 	 */
-	static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
+	public static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces,
 			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 

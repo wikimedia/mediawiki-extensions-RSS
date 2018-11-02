@@ -8,7 +8,7 @@ class RSSData {
 	 * Constructor, takes a DOMDocument and returns an array of parsed items.
 	 * @param DOMDocument $xml the pre-parsed XML Document
 	 */
-	function __construct( $xml ) {
+	public function __construct( $xml ) {
 		if ( !( $xml instanceof DOMDocument ) ) {
 			$this->error = "Not passed DOMDocument object.";
 			return;

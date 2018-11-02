@@ -45,7 +45,7 @@ class RSSParser {
 	 * @param string $url
 	 * @param array $args
 	 */
-	function __construct( $url, $args ) {
+	public function __construct( $url, $args ) {
 		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
 
 		$this->url = $url;
@@ -141,7 +141,7 @@ class RSSParser {
 		}
 	}
 
-	function insertStripItem( $item ) {
+	private function insertStripItem( $item ) {
 		$this->stripItems[] = $item;
 		$itemIndex = count( $this->stripItems ) - 1;
 		return "{$this->markerString}-{$itemIndex}-{$this->markerString}";
@@ -159,7 +159,7 @@ class RSSParser {
 	 *
 	 * @return Status object
 	 */
-	function fetch() {
+	public function fetch() {
 		if ( !isset( $this->url ) ) {
 			return Status::newFatal( 'rss-fetch-nourl' );
 		}
@@ -345,7 +345,7 @@ class RSSParser {
 	 * @param PPFrame $frame The frame param to pass to recursiveTagParse()
 	 * @return string
 	 */
-	function renderFeed( $parser, $frame ) {
+	public function renderFeed( $parser, $frame ) {
 		$renderedFeed = '';
 
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {

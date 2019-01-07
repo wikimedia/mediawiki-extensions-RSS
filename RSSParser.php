@@ -492,7 +492,8 @@ class RSSParser {
 			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
 			$ret = Sanitizer::removeHTMLtags( $text, null, [], $extraInclude, $extraExclude );
 
-		} else { // use the old escape method for a while
+		} else {
+			// use the old escape method for a while
 
 			$text = str_replace(
 				[

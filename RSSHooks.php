@@ -32,12 +32,12 @@ class RSSHooks {
 			$checkNS = array_flip( $wgRSSNamespaces );
 
 			if ( !isset( $checkNS[$ns] ) ) {
-				return RSSUtils::RSSError( 'rss-ns-permission' );
+				return RSSUtils::getErrorHtml( 'rss-ns-permission' );
 			}
 		}
 
 		if ( isset( $wgRSSAllowedFeeds ) ) {
-			return RSSUtils::RSSError( 'rss-deprecated-wgrssallowedfeeds-found' );
+			return RSSUtils::getErrorHtml( 'rss-deprecated-wgrssallowedfeeds-found' );
 		}
 
 		# disallow because there is no whitelist at all or an empty whitelist
@@ -45,7 +45,7 @@ class RSSHooks {
 		if ( !isset( $wgRSSUrlWhitelist )
 			|| !is_array( $wgRSSUrlWhitelist )
 			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ) {
-			return RSSUtils::RSSError( 'rss-empty-whitelist',
+			return RSSUtils::getErrorHtml( 'rss-empty-whitelist',
 				$input
 			);
 
@@ -60,14 +60,14 @@ class RSSHooks {
 			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
 			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
 
-			return RSSUtils::RSSError( 'rss-url-is-not-whitelisted',
+			return RSSUtils::getErrorHtml( 'rss-url-is-not-whitelisted',
 				[ $input, $listOfAllowed, $numberAllowed ]
 			);
 
 		}
 
 		if ( !Http::isValidURI( $input ) ) {
-			return RSSUtils::RSSError( 'rss-invalid-url', htmlspecialchars( $input ) );
+			return RSSUtils::getErrorHtml( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 
 		if ( $wgRSSCacheCompare ) {
@@ -90,7 +90,7 @@ class RSSHooks {
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
-			return RSSUtils::RSSError( 'rss-empty', htmlspecialchars( $input ) );
+			return RSSUtils::getErrorHtml( 'rss-empty', htmlspecialchars( $input ) );
 		}
 
 		return $rss->renderFeed( $parser, $frame );

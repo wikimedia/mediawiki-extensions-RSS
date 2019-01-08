@@ -228,11 +228,11 @@ class RSSParser {
 		if ( !isset( $this->rss ) ) {
 			return false;
 		}
-		$r = $wgMemc->set( $key,
+		$ret = $wgMemc->set( $key,
 			[ $this->etag, $this->lastModified, $this->rss ],
 			$wgRSSCacheAge );
 
-		wfDebugLog( 'RSS', "Stored '$key' as in cache? $r" );
+		wfDebugLog( 'RSS', "Stored '$key' as in cache? $ret" );
 		return true;
 	}
 
@@ -251,9 +251,9 @@ class RSSParser {
 			$headers['If-None-Match'] = $this->etag;
 		}
 		if ( $this->lastModified ) {
-			$lm = gmdate( 'r', $this->lastModified );
-			wfDebugLog( 'RSS', "Used last modified: $lm" );
-			$headers['If-Modified-Since'] = $lm;
+			$lastModified = gmdate( 'r', $this->lastModified );
+			wfDebugLog( 'RSS', "Used last modified: $lastModified" );
+			$headers['If-Modified-Since'] = $lastModified;
 		}
 
 		/**
@@ -546,16 +546,16 @@ class RSSParser {
 			$this->storeInCache( $key );
 		} else {
 			$this->xml = new DOMDocument;
-			$raw_xml = $this->client->getContent();
+			$rawXML = $this->client->getContent();
 
-			if ( $raw_xml == '' ) {
+			if ( $rawXML == '' ) {
 				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
 			wfSuppressWarnings();
 			// Prevent loading external entities when parsing the XML (bug 46932)
 			$oldDisable = libxml_disable_entity_loader( true );
-			$this->xml->loadXML( $raw_xml );
+			$this->xml->loadXML( $rawXML );
 			libxml_disable_entity_loader( $oldDisable );
 			wfRestoreWarnings();
 

@@ -28,10 +28,10 @@ class RSSHooks {
 			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
-			$ns = $parser->getTitle()->getNamespace();
-			$checkNS = array_flip( $wgRSSNamespaces );
+			$nsUsed = $parser->getTitle()->getNamespace();
+			$authorizedNamespace = array_flip( $wgRSSNamespaces );
 
-			if ( !isset( $checkNS[$ns] ) ) {
+			if ( !isset( $authorizedNamespace[$nsUsed] ) ) {
 				return RSSUtils::getErrorHtml( 'rss-ns-permission' );
 			}
 		}

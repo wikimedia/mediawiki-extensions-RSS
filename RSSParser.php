@@ -552,12 +552,12 @@ class RSSParser {
 				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
-			wfSuppressWarnings();
+			Wikimedia\suppressWarnings();
 			// Prevent loading external entities when parsing the XML (bug 46932)
 			$oldDisable = libxml_disable_entity_loader( true );
 			$this->xml->loadXML( $rawXML );
 			libxml_disable_entity_loader( $oldDisable );
-			wfRestoreWarnings();
+			Wikimedia\restoreWarnings();
 
 			$this->rss = new RSSData( $this->xml );
 

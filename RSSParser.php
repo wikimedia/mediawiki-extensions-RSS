@@ -110,7 +110,7 @@ class RSSParser {
 				$itemTemplateContentObject = $itemTemplatePageObject->getContent();
 
 				if ( $itemTemplateContentObject instanceof TextContent ) {
-					$this->itemTemplate = $itemTemplateContentObject->getNativeData();
+					$this->itemTemplate = $itemTemplateContentObject->getText();
 				}
 			}
 		} else {

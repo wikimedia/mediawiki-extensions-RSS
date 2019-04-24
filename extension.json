@@ -28,10 +28,10 @@
 		]
 	},
 	"AutoloadClasses": {
-		"RSSHooks": "RSSHooks.php",
-		"RSSParser": "RSSParser.php",
-		"RSSUtils": "RSSUtils.php",
-		"RSSData": "RSSData.php"
+		"RSSHooks": "includes/RSSHooks.php",
+		"RSSParser": "includes/RSSParser.php",
+		"RSSUtils": "includes/RSSUtils.php",
+		"RSSData": "includes/RSSData.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [

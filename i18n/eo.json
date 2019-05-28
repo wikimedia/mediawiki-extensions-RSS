@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yekrats"
+			"Yekrats",
+			"Mirin"
 		]
 	},
 	"rss-desc": "Montras RSS-fluon en vikia paĝo",
+	"rss-tracking-category": "Paĝoj kun RSS-abonfluoj",
+	"rss-tracking-category-desc": "Ĉi tiu paĝo havas RSS-abonfluon.",
 	"rss-error": "Malsukcesis ŝarĝi RSS-fonton de $1: $2",
 	"rss-empty": "Malsukcesis ŝarĝi RSS-fonton de $1!",
 	"rss-fetch-nourl": "Akiro vokita sen URL-o!",

@@ -55,7 +55,7 @@ class RSSData {
 	 * same as pubDate.
 	 *
 	 * @param string $name name of the element we have
-	 * @return string Name to map it to
+	 * @return string|null Name to map it to
 	 */
 	protected function rssTokenToName( $name ) {
 		$tokenNames = [
@@ -79,7 +79,7 @@ class RSSData {
 			return $tokenNames[ $name ];
 		}
 
-	return $name;
+		return $name;
 	}
 
 }

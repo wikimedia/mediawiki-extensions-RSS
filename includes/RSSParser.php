@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class RSSParser {
 	protected $maxheads = 32;
 	protected $date = "Y-m-d H:i:s";
@@ -17,6 +19,11 @@ class RSSParser {
 	protected $displayFields = [ 'author', 'title', 'encodedContent', 'description' ];
 	protected $stripItems;
 	protected $markerString;
+
+	/**
+	 * @var WANObjectCache
+	 */
+	private $cache;
 
 	/**
 	 * @var RSSData
@@ -52,6 +59,7 @@ class RSSParser {
 
 		$this->markerString = wfRandomString( 32 );
 		$this->stripItems = [];
+		$this->cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 
 		# Get max number of headlines from argument-array
 		if ( isset( $args['max'] ) ) {
@@ -169,7 +177,7 @@ class RSSParser {
 		// 2. if there is a hit, make sure its fresh
 		// 3. if cached obj fails freshness check, fetch remote
 		// 4. if remote fails, return stale object, or error
-		$key = wfMemcKey( 'rss', $this->url );
+		$key = $this->cache->makeKey( 'rss-fetch', $this->url );
 		$cachedFeed = $this->loadFromCache( $key );
 		if ( $cachedFeed !== false ) {
 			wfDebugLog( 'RSS', 'Outputting cached feed for ' . $this->url );
@@ -187,16 +195,14 @@ class RSSParser {
 	 * @return bool
 	 */
 	protected function loadFromCache( $key ) {
-		global $wgMemc, $wgRSSCacheCompare;
+		global $wgRSSCacheCompare;
 
-		$data = $wgMemc->get( $key );
+		$data = $this->cache->get( $key );
 		if ( !is_array( $data ) ) {
 			return false;
 		}
 
-		list( $etag, $lastModified, $rss ) =
-			$data;
-
+		list( $etag, $lastModified, $rss ) = $data;
 		if ( !isset( $rss->items ) ) {
 			return false;
 		}
@@ -223,22 +229,26 @@ class RSSParser {
 	 * @return bool
 	 */
 	protected function storeInCache( $key ) {
-		global $wgMemc, $wgRSSCacheAge;
+		global $wgRSSCacheAge;
 
 		if ( !isset( $this->rss ) ) {
 			return false;
 		}
-		$ret = $wgMemc->set( $key,
-			[ $this->etag, $this->lastModified, $this->rss ],
-			$wgRSSCacheAge );
 
-		wfDebugLog( 'RSS', "Stored '$key' as in cache? $ret" );
+		$this->cache->set(
+			$key,
+			[ $this->etag, $this->lastModified, $this->rss ],
+			$wgRSSCacheAge
+		);
+
+		wfDebugLog( 'RSS', "Stored '$key' as in cache" );
+
 		return true;
 	}
 
 	/**
 	 * Retrieve a feed.
-	 * @param string $key
+	 * @param string $key Cache key
 	 * @param array $headers headers to send along with the request
 	 * @return Status object
 	 */
@@ -536,7 +546,7 @@ class RSSParser {
 	 * Parse an HTTP response object into an array of relevant RSS data
 	 *
 	 * @param string $key the key to use to store the parsed response in the cache
-	 * @return string|bool parsed RSS object (see RSSParse) or false
+	 * @return Status parsed RSS object (see RSSParse) or false
 	 */
 	protected function responseToXML( $key ) {
 		wfDebugLog( 'RSS', "Got '" . $this->client->getStatus() . "', updating cache for $key" );

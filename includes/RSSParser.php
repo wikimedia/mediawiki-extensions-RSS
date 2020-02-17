@@ -328,7 +328,7 @@ class RSSParser {
 	 * @return string
 	 */
 	protected function sandboxParse( $wikiText, $origParser ) {
-		$myParser = new Parser();
+		$myParser = $origParser->getFreshParser();
 		$result = $myParser->parse(
 			$wikiText,
 			$origParser->getTitle(),

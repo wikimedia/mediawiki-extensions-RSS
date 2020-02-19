@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Yekrats",
-			"Mirin"
+			"Mirin",
+			"Robin van der Vliet"
 		]
 	},
 	"rss-desc": "Montras RSS-fluon en vikia paĝo",
@@ -11,7 +12,7 @@
 	"rss-error": "Malsukcesis ŝarĝi RSS-fonton de $1: $2",
 	"rss-empty": "Malsukcesis ŝarĝi RSS-fonton de $1!",
 	"rss-fetch-nourl": "Akiro vokita sen URL-o!",
-	"rss-invalid-url": "Malvalida URL-o: $1",
+	"rss-invalid-url": "Nevalida URL-o: $1",
 	"rss-parse-error": "Eraro interpretante XML-on de RSS-o",
 	"rss-ns-permission": "RSS-abonado ne estas permesita en ĉi tiu nomspaco",
 	"rss-url-is-not-whitelisted": "\"$1\" ne estas en la listo de permesataj abonfluoj. {{PLURAL:$3|$2 estas la ununura permesata abonfluo|Jen la permesataj abonfluoj: $2}}.",

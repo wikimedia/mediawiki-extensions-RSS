@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Giro720",
-			"MetalBrasil",
-			"Araceletorres",
 			"!Silent",
-			"Felipe L. Ewald"
+			"Araceletorres",
+			"Felipe L. Ewald",
+			"Giro720",
+			"MetalBrasil"
 		]
 	},
 	"rss-desc": "Mostra um feed RSS em uma página wiki",

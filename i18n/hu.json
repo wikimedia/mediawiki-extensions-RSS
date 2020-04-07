@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"TK-999",
-			"Bencemac"
+			"Bencemac",
+			"TK-999"
 		]
 	},
 	"rss-desc": "RSS.hírcsatornákat jelenít meg MediaWiki oldalakon szabványos vagy felhasználó által meghatározott formátumban sablonok használatával",

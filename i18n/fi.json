@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"01miki10",
 			"Jack Phoenix",
 			"Nike",
-			"Olli",
-			"01miki10"
+			"Olli"
 		]
 	},
 	"rss-desc": "Näyttää RSS-syötteitä MediaWiki-sivuilla yleisessä tai käyttäjän määrittämässä muodossa mallinesivuja käyttäen",

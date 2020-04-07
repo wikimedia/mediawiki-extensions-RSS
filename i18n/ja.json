@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dude1717",
 			"Iwai.masaharu",
 			"Schu",
 			"Shirayuki",
-			"青子守歌",
-			"Dude1717"
+			"青子守歌"
 		]
 	},
 	"rss-desc": "標準、またはテンプレートページを使用したユーザー定義可能な形式で、MediaWiki ページにRSSフィードを表示する",

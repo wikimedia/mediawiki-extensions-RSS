@@ -14,5 +14,6 @@
 	"rss-fetch-nourl": "Galvadenn klask hep URL !",
 	"rss-invalid-url": "URL direizh : $1",
 	"rss-parse-error": "Fazi en dielfennañ XML evit RSS",
-	"rss-ns-permission": "N'haller ket ober gant lanvadoù RSS en esaouenn anv-mañ"
+	"rss-ns-permission": "N'haller ket ober gant lanvadoù RSS en esaouenn anv-mañ",
+	"rss-deprecated-wgrssallowedfeeds-found": "Detektet eo bet an argemenn dispredet <var>$wgRSSAllowedFeeds</var>. Abaoe stumm 2.0 RSS emañ an argemenn-se da vezañ erlec'hiet gant <var>$wgRSSUrlWhitelist</var> evel deskrivet e pajenn an dornlevr [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]."
 }

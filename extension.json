@@ -42,18 +42,42 @@
 		"rss-tracking-category"
 	],
 	"config": {
-		"RSSCacheAge": 3600,
-		"RSSCacheCompare": false,
-		"RSSFetchTimeout": 15,
-		"RSSNamespaces": null,
-		"RSSUrlWhitelist": [],
-		"RSSUrlNumberOfAllowedRedirects": 0,
-		"RSSUserAgent": "MediaWikiRSS/2.25.1 (+https://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension",
-		"RSSProxy": false,
-		"RSSDateDefaultFormat": "Y-m-d H:i:s",
-		"RSSItemMaxLength": false,
-		"RSSAllowLinkTag": false,
-		"RSSAllowImageTag": false
+		"RSSCacheAge": {
+			"value": 3600
+		},
+		"RSSCacheCompare": {
+			"value": false
+		},
+		"RSSFetchTimeout": {
+			"value": 15
+		},
+		"RSSNamespaces": {
+			"value": null
+		},
+		"RSSUrlWhitelist": {
+			"value": []
+		},
+		"RSSUrlNumberOfAllowedRedirects": {
+			"value": 0
+		},
+		"RSSUserAgent": {
+			"value": "MediaWikiRSS/2.25.1 (+https://www.mediawiki.org/wiki/Extension:RSS) / MediaWiki RSS extension"
+		},
+		"RSSProxy": {
+			"value": false
+		},
+		"RSSDateDefaultFormat": {
+			"value": "Y-m-d H:i:s"
+		},
+		"RSSItemMaxLength": {
+			"value": false
+		},
+		"RSSAllowLinkTag": {
+			"value": false
+		},
+		"RSSAllowImageTag": {
+			"value": false
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

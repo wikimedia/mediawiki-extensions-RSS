@@ -294,7 +294,7 @@ class RSSParser {
 
 		// we set followRedirects intentionally to true to see error messages
 		// in cases where the maximum number of redirects is reached
-		$client = MWHttpRequest::factory( $url,
+		$client = MediaWikiServices::getInstance()->getHttpRequestFactory()->create( $url,
 			[
 				'timeout'         => $wgRSSFetchTimeout,
 				'followRedirects' => true,
@@ -302,7 +302,8 @@ class RSSParser {
 				'proxy'           => $wgRSSProxy,
 				'noProxy'         => $noProxy,
 				'userAgent'       => $wgRSSUserAgent,
-			]
+			],
+			__METHOD__
 		);
 
 		foreach ( $headers as $header => $value ) {

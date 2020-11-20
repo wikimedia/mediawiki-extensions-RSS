@@ -21,7 +21,6 @@ class RSSHooks {
 	 * @param Parser $parser
 	 * @param PPFrame $frame parser context
 	 * @return string
-	 * @suppress SecurityCheck-XSS see T203210
 	 */
 	public static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces,

@@ -564,10 +564,17 @@ class RSSParser {
 			}
 
 			Wikimedia\suppressWarnings();
-			// Prevent loading external entities when parsing the XML (bug 46932)
-			$oldDisable = libxml_disable_entity_loader( true );
+
+			$oldDisable = false;
+			if ( LIBXML_VERSION < 20900 ) {
+				// Prevent loading external entities when parsing the XML (bug 46932)
+				$oldDisable = libxml_disable_entity_loader( true );
+			}
 			$this->xml->loadXML( $rawXML );
-			libxml_disable_entity_loader( $oldDisable );
+			if ( LIBXML_VERSION < 20900 ) {
+				libxml_disable_entity_loader( $oldDisable );
+			}
+
 			Wikimedia\restoreWarnings();
 
 			$this->rss = new RSSData( $this->xml );

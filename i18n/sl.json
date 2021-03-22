@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
-	"rss-desc": "Prikaže vir RSS na wikistrani",
+	"rss-desc": "Prikaže vire RSS na strani Mediaiki v standardnem ali uporabniško določljivem formatu z uporabo strani predlog",
 	"rss-tracking-category": "Strani z viri RSS",
 	"rss-tracking-category-desc": "Stran ima vir RSS.",
 	"rss-error": "Napaka pri nalaganju RSS z $1: $2",

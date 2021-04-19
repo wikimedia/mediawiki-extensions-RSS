@@ -44,13 +44,13 @@ class RSSHooks {
 		if ( !isset( $wgRSSUrlWhitelist )
 			|| !is_array( $wgRSSUrlWhitelist )
 			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ) {
-			return RSSUtils::getErrorHtml( 'rss-empty-whitelist',
+			return RSSUtils::getErrorHtml( 'rss-empty-allow-list',
 				$input
 			);
 
 		}
 
-		# disallow the feed url because the url is not whitelisted;  or
+		# disallow the feed url because the url is not allowed;  or
 		# disallow because the wildcard joker is not present to allow any feed url
 		# which can be dangerous
 
@@ -59,7 +59,7 @@ class RSSHooks {
 			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
 			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
 
-			return RSSUtils::getErrorHtml( 'rss-url-is-not-whitelisted',
+			return RSSUtils::getErrorHtml( 'rss-url-is-not-allowed',
 				[ $input, $listOfAllowed, $numberAllowed ]
 			);
 

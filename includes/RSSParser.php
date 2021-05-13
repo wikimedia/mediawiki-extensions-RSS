@@ -339,7 +339,7 @@ class RSSParser {
 		$stripItems = $this->stripItems;
 		$text = preg_replace_callback(
 			"/{$this->markerString}-(\d+)-{$this->markerString}/",
-			function ( array $matches ) use ( $stripItems ) {
+			static function ( array $matches ) use ( $stripItems ) {
 				$markerIndex = (int)$matches[1];
 				return $stripItems[$markerIndex];
 			},
@@ -663,7 +663,7 @@ class RSSParser {
 		$terms = array_flip( array_map( 'strtolower', $this->highlight ) );
 		$highlight = ':' . implode( '|',
 			array_map( 'preg_quote', array_values( $this->highlight ) ) ) . ':i';
-		return preg_replace_callback( $highlight, function ( $match ) use ( $terms ) {
+		return preg_replace_callback( $highlight, static function ( $match ) use ( $terms ) {
 			$styleStart = "<span style='font-weight: bold; " .
 				"background: none repeat scroll 0%% 0%% rgb(%s); color: %s;'>";
 			$styleEnd = '</span>';

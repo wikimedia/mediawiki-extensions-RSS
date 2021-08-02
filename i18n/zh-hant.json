@@ -19,8 +19,8 @@
 	"rss-invalid-url": "不是有效的網址：$1",
 	"rss-parse-error": "RSS 解析 XML 時出現錯誤",
 	"rss-ns-permission": "此命名空間不允許使用 RSS",
-	"rss-url-is-not-allowed": " \"$1\" 不在允許訂閱白名單中。{{PLURAL:$3|僅 $2 被允許訂閱|以下被允許訂閱：$2}}。",
-	"rss-empty-allow-list": " \"$1\" 不在允許訂閱白名單中。此白名單並無允許訂閱之 URL。",
+	"rss-url-is-not-allowed": " \"$1\" 不在允許訂閱清單中。{{PLURAL:$3|僅 $2 被允許訂閱|以下被允許訂閱：$2}}。",
+	"rss-empty-allow-list": "\"$1\" 不在允許訂閱清單中。此清單並無允許訂閱之 URL。",
 	"rss-deprecated-wgrssallowedfeeds-found": "已檢測到已停用的變數 <var>$wgRSSAllowedFeeds</var>。由 RSS 2.0 版本起此變數已被替換為 <var>$wgRSSUrlWhitelist</var>，請請參考手冊頁面 [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]。",
 	"rss-feed": "<!-- 以下是兩種可供選擇的樣板，第一種是預設的進料樣板 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- 在此切勿換行 --><!-- 第二種是需要 Extension:ParserFunctions 的改進版本 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
 }

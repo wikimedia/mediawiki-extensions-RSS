@@ -499,8 +499,10 @@ class RSSParser {
 			$extraExclude[] = "img";
 		}
 
+		// @phan-suppress-next-line PhanRedundantCondition
 		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
 			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
+			// @phan-suppress-previous-line PhanRedundantCondition
 			$ret = Sanitizer::removeHTMLtags( $text, null, [], $extraInclude, $extraExclude );
 
 		} else {

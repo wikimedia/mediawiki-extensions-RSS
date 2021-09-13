@@ -15,8 +15,8 @@
 	"rss-invalid-url": "O URL não é válido: $1",
 	"rss-parse-error": "Erro ao analisar XML para o RSS",
 	"rss-ns-permission": "O RSS não é permitido neste espaço nominal",
-	"rss-url-is-not-allowed": "\"$1\" não está na lista branca de feeds. {{PLURAL:$3|$2 é o único feed permitido|Os feeds permitidos são os seguintes: $2}}.",
-	"rss-empty-allow-list": "\"$1\" não está na lista branca de feeds. Não existem URL de feeds permitidos na lista branca.",
+	"rss-url-is-not-allowed": "\"$1\" não está na lista de feeds permitidos. {{PLURAL:$3|$2 é o único feed permitido|Os feeds permitidos são os seguintes: $2}}.",
+	"rss-empty-allow-list": "\"$1\" não está na lista de feeds permitidos. Não existe nenhum URL de feeds permitidos na lista.",
 	"rss-deprecated-wgrssallowedfeeds-found": "Foi detetada a variável obsoleta <var>$wgRSSAllowedFeeds</var>. Desde a versão 2.0 do RSS que esta variável tem de ser substituída por <var>$wgRSSUrlWhitelist</var>, conforme descrito na página do manual [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS].",
 	"rss-feed": "<!--  Estes são dois modelos alternativos. O primeiro é o padrão básico para feeds -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- não adicionar uma linha nova aqui --><!-- O segundo é uma versão melhorada quer requer a extensão Extension:ParserFunctions --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
 }

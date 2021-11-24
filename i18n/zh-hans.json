@@ -8,7 +8,8 @@
 			"Liuxinyu970226",
 			"PhiLiP",
 			"Yfdyh000",
-			"Zhuyifei1999"
+			"Zhuyifei1999",
+			"Xiplus"
 		]
 	},
 	"rss-desc": "在MediaWiki页面上使用模板页面，以标准或使用者自订格式显示RSS源",
@@ -19,7 +20,7 @@
 	"rss-fetch-nourl": "无网址情况中进行读取！",
 	"rss-invalid-url": "不是有效的网址：$1",
 	"rss-parse-error": "为RSS解析XML时出错",
-	"rss-ns-permission": "此名字空间不允许RSS。",
+	"rss-ns-permission": "此命名空间不允许RSS。",
 	"rss-url-is-not-allowed": "\"$1\"不在允许订阅的源的名单中。 {{PLURAL:$3|$2是唯一允许的源|允许订阅的源如下所示：$2}}。",
 	"rss-empty-allow-list": "\"$1\"不在允许订阅的源的名单中。没有任何允许订阅的源的地址在名单中。",
 	"rss-deprecated-wgrssallowedfeeds-found": "检测到已弃用的变量<var>$wgRSSAllowedFeeds</var>。自RSS 2.0版本开始，此变量已替换为<var>$wgRSSUrlWhitelist</var>，见[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]手册页面中的描述。",

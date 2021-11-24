@@ -6,7 +6,8 @@
 			"PonkoSasuke",
 			"SPQRobin",
 			"Siebrand",
-			"Southparkfan"
+			"Southparkfan",
+			"Krinkle"
 		]
 	},
 	"rss-desc": "Biedt een RSS-feed voor een wikipagina",
@@ -21,5 +22,5 @@
 	"rss-url-is-not-allowed": "\"$1\" staat niet in de lijst met toegestane feeds. {{PLURAL:$3|$2 is de enige toegestane feed|De toegestane feeds zijn: $2}}.",
 	"rss-empty-allow-list": "\"$1\" staat niet in de lijst met toegestane feeds. Er staan op het moment geen toegestane feed-URL's in de lijst.",
 	"rss-deprecated-wgrssallowedfeeds-found": "De afgekeurde variabel <var>$wgRSSAllowedFeeds</var> is aangetroffen. Sinds RSS versie 2.0 is deze variabel vervangen door <var>$wgRSSUrlWhitelist</var> zoals beschreven in de handleiding pagina [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS].",
-	"rss-feed": "<!--  Hieronder staan twee alternatieve sjablonen. Het eerste is het standaardsjabloon voor feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- Hier geen nieuwe regel starten. --><!-- Het tweede sjabloon is een verbeterde versie waarvoor de uitbreiding ParserFunctions nodig is. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
+	"rss-feed": "<!--  Hieronder staan twee alternatieve sjablonen. Het eerste is het standaardsjabloon voor feeds. -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- Hier geen nieuwe regel starten. --><!-- Het tweede sjabloon is een verbeterde versie waarvoor de ParserFunctions extensie nodig is. --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
 }

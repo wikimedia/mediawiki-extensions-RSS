@@ -114,7 +114,9 @@ class RSSParser {
 			$itemTemplateTitleObject = Title::newFromText( $args['template'], NS_TEMPLATE );
 
 			if ( $itemTemplateTitleObject->exists() ) {
-				$itemTemplatePageObject = WikiPage::factory( $itemTemplateTitleObject );
+				$itemTemplatePageObject = MediaWikiServices::getInstance()
+					->getWikiPageFactory()
+					->newFromTitle( $itemTemplateTitleObject );
 				$itemTemplateContentObject = $itemTemplatePageObject->getContent();
 
 				if ( $itemTemplateContentObject instanceof TextContent ) {

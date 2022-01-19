@@ -2,14 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Farras",
-			"IvanLanin"
+			"IvanLanin",
+			"Daud I.F. Argana"
 		]
 	},
 	"rss-desc": "Menampilkan arus RSS di halaman wiki",
+	"rss-tracking-category": "Halaman dengan umpan RSS",
+	"rss-tracking-category-desc": "Halaman berikut memiliki sebuah umpan RSS.",
 	"rss-error": "Gagal memuat arus RSS dari $1: $2",
 	"rss-empty": "Gagal memuat arus RSS dari $1!",
 	"rss-fetch-nourl": "Pengambilan dilakukan tanpa URL!",
 	"rss-invalid-url": "Bukan URL yang sah: $1",
 	"rss-parse-error": "Kesalahan parsing XML untuk RSS",
-	"rss-ns-permission": "RSS tidak diizinkan pada ruang nama ini"
+	"rss-ns-permission": "RSS tidak diizinkan pada ruang nama ini",
+	"rss-url-is-not-allowed": "\"$1\" tidak ada dalam daftar umpan yang dibolehkan. {{PLURAL:$3|$2 adalah satu-satunya umpan yang dibolehkan|Umpan-umpan yang dibolehkan adalah sebagai berikut: $2}}.",
+	"rss-empty-allow-list": "\"$1\" tidak ada dalam daftar umpan yang dibolehkan. Tidak ada URL umpan yang dibolehkan di dalam daftar.",
+	"rss-deprecated-wgrssallowedfeeds-found": "Variabel usang <var>$wgRSSAllowedFeeds</var> terdeteksi. Sejak RSS versi 2.0, variabel ini telah diganti dengan <var>$wgRSSUrlWhitelist</var> sebagaimana yang dijelaskan di halaman manual [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]."
 }

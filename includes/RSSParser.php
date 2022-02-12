@@ -31,7 +31,7 @@ class RSSParser {
 	public $rss;
 
 	/**
-	 * @var CurlHttpRequest|PhpHttpRequest
+	 * @var MWHttpRequest
 	 */
 	public $client;
 

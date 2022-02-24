@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use Wikimedia\AtEase\AtEase;
 
 class RSSParser {
 	protected $maxheads = 32;
@@ -567,7 +568,7 @@ class RSSParser {
 				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
-			Wikimedia\suppressWarnings();
+			AtEase::suppressWarnings();
 
 			$oldDisable = false;
 			if ( LIBXML_VERSION < 20900 ) {
@@ -579,7 +580,7 @@ class RSSParser {
 				libxml_disable_entity_loader( $oldDisable );
 			}
 
-			Wikimedia\restoreWarnings();
+			AtEase::restoreWarnings();
 
 			$this->rss = new RSSData( $this->xml );
 

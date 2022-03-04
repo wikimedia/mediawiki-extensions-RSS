@@ -506,7 +506,10 @@ class RSSParser {
 		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
 			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
 			// @phan-suppress-previous-line PhanRedundantCondition
-			$ret = Sanitizer::removeHTMLtags( $text, null, [], $extraInclude, $extraExclude );
+			$ret = Sanitizer::removeSomeTags( $text, [
+				'extraTags' => $extraInclude,
+				'removeTags' => $extraExclude,
+			] );
 
 		} else {
 			// use the old escape method for a while

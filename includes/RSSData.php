@@ -1,5 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\RSS;
+
+use DOMDocument;
+use DOMXPath;
+
 class RSSData {
 	public $error;
 	public $items;

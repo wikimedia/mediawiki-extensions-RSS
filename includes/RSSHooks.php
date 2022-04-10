@@ -65,7 +65,7 @@ class RSSHooks {
 
 		}
 
-		if ( !Http::isValidURI( $input ) ) {
+		if ( !MWHttpRequest::isValidURI( $input ) ) {
 			return RSSUtils::getErrorHtml( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 

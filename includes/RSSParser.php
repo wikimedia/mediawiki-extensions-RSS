@@ -50,7 +50,8 @@ class RSSParser {
 
 		$this->url = $url;
 
-		$this->markerString = wfRandomString( 32 );
+		// Quote marks to prevent XSS (T307028)
+		$this->markerString = "'\"" . wfRandomString( 32 );
 		$this->stripItems = [];
 
 		# Get max number of headlines from argument-array

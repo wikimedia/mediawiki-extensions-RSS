@@ -58,7 +58,8 @@ class RSSParser {
 
 		$this->url = $url;
 
-		$this->markerString = wfRandomString( 32 );
+		// Quote marks to prevent XSS (T307028)
+		$this->markerString = "'\"" . wfRandomString( 32 );
 		$this->stripItems = [];
 		$this->cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 

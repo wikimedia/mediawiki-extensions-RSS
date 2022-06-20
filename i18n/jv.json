@@ -6,7 +6,7 @@
 			"Sumbukompor"
 		]
 	},
-	"rss-desc": "Tampilaké lebon saran RSS standar nèng kaca MédiaWiki utawa format kekarepané naraguna mawa kaca cithakan",
+	"rss-desc": "Tampilaké lebon saran RSS standar nèng kaca MediaWiki utawa format kekarepané naraguna mawa kaca cithakan",
 	"rss-error": "Gagal ngemot lebon saran RSS saka $1: $2",
 	"rss-empty": "Gagal ngemot lebon saran RSS saka $1!",
 	"rss-fetch-nourl": "Panjupukan dilakokaké tanpa URL!",

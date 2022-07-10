@@ -1,6 +1,13 @@
 <?php
 
-class RSSHooks {
+namespace MediaWiki\Extension\RSS;
+
+use MWHttpRequest;
+use Parser;
+use PPFrame;
+use Status;
+
+class Hooks {
 
 	/**
 	 * Tell the parser how to handle <rss> elements
@@ -31,23 +38,23 @@ class RSSHooks {
 			$authorizedNamespace = array_flip( $wgRSSNamespaces );
 
 			if ( !isset( $authorizedNamespace[$nsUsed] ) ) {
-				return RSSUtils::getErrorHtml( 'rss-ns-permission' );
+				return Utils::getErrorHtml( 'rss-ns-permission' );
 			}
 		}
 
 		if ( isset( $wgRSSAllowedFeeds ) ) {
-			return RSSUtils::getErrorHtml( 'rss-deprecated-wgrssallowedfeeds-found' );
+			return Utils::getErrorHtml( 'rss-deprecated-wgrssallowedfeeds-found' );
 		}
 
 		# disallow because there is no whitelist at all or an empty whitelist
 
 		if ( !isset( $wgRSSUrlWhitelist )
 			|| !is_array( $wgRSSUrlWhitelist )
-			|| ( count( $wgRSSUrlWhitelist ) === 0 ) ) {
-			return RSSUtils::getErrorHtml( 'rss-empty-allow-list',
+			|| ( count( $wgRSSUrlWhitelist ) === 0 )
+		) {
+			return Utils::getErrorHtml( 'rss-empty-allow-list',
 				$input
 			);
-
 		}
 
 		# disallow the feed url because the url is not allowed;  or
@@ -59,14 +66,14 @@ class RSSHooks {
 			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
 			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
 
-			return RSSUtils::getErrorHtml( 'rss-url-is-not-allowed',
+			return Utils::getErrorHtml( 'rss-url-is-not-allowed',
 				[ $input, $listOfAllowed, $numberAllowed ]
 			);
 
 		}
 
 		if ( !MWHttpRequest::isValidURI( $input ) ) {
-			return RSSUtils::getErrorHtml( 'rss-invalid-url', htmlspecialchars( $input ) );
+			return Utils::getErrorHtml( 'rss-invalid-url', htmlspecialchars( $input ) );
 		}
 
 		if ( $wgRSSCacheCompare ) {
@@ -89,7 +96,7 @@ class RSSHooks {
 		}
 
 		if ( !is_object( $rss->rss ) || !is_array( $rss->rss->items ) ) {
-			return RSSUtils::getErrorHtml( 'rss-empty', htmlspecialchars( $input ) );
+			return Utils::getErrorHtml( 'rss-empty', htmlspecialchars( $input ) );
 		}
 
 		return $rss->renderFeed( $parser, $frame );

@@ -1,6 +1,17 @@
 <?php
 
+namespace MediaWiki\Extension\RSS;
+
+use DOMDocument;
 use MediaWiki\MediaWikiServices;
+use MWHttpRequest;
+use Parser;
+use PPFrame;
+use Sanitizer;
+use Status;
+use TextContent;
+use Title;
+use WANObjectCache;
 use Wikimedia\AtEase\AtEase;
 
 class RSSParser {
@@ -189,8 +200,7 @@ class RSSParser {
 		}
 		wfDebugLog( 'RSS', 'Cache Failed, fetching ' . $this->url . ' from remote.' );
 
-		$status = $this->fetchRemote( $key );
-		return $status;
+		return $this->fetchRemote( $key );
 	}
 
 	/**
@@ -322,8 +332,7 @@ class RSSParser {
 			return $fetch;
 		}
 
-		$ret = $this->responseToXML( $key );
-		return $ret;
+		return $this->responseToXML( $key );
 	}
 
 	/**
@@ -341,7 +350,7 @@ class RSSParser {
 		);
 
 		$stripItems = $this->stripItems;
-		$text = preg_replace_callback(
+		return preg_replace_callback(
 			"/{$this->markerString}-(\d+)-{$this->markerString}/",
 			static function ( array $matches ) use ( $stripItems ) {
 				$markerIndex = (int)$matches[1];
@@ -349,7 +358,6 @@ class RSSParser {
 			},
 			$result->getText()
 		);
-		return $text;
 	}
 
 	/**
@@ -439,9 +447,7 @@ class RSSParser {
 		// nullify all remaining info items in the template
 		// without a corresponding info in the current feed item
 
-		$renderedItem = preg_replace( "!{{{[^}]+}}}!U", "", $renderedItem );
-
-		return $renderedItem;
+		return preg_replace( "!{{{[^}]+}}}!U", "", $renderedItem );
 	}
 
 	/**
@@ -491,22 +497,19 @@ class RSSParser {
 		$extraInclude = [];
 		$extraExclude = [ "iframe" ];
 
-		if ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag ) {
+		if ( $wgRSSAllowLinkTag ) {
 			$extraInclude[] = "a";
 		} else {
 			$extraExclude[] = "a";
 		}
 
-		if ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) {
+		if ( $wgRSSAllowImageTag ) {
 			$extraInclude[] = "img";
 		} else {
 			$extraExclude[] = "img";
 		}
 
-		// @phan-suppress-next-line PhanRedundantCondition
-		if ( ( isset( $wgRSSAllowLinkTag ) && $wgRSSAllowLinkTag )
-			|| ( isset( $wgRSSAllowImageTag ) && $wgRSSAllowImageTag ) ) {
-			// @phan-suppress-previous-line PhanRedundantCondition
+		if ( $wgRSSAllowLinkTag || $wgRSSAllowImageTag ) {
 			$ret = Sanitizer::removeSomeTags( $text, [
 				'extraTags' => $extraInclude,
 				'removeTags' => $extraExclude,

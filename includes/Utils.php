@@ -1,6 +1,10 @@
 <?php
 
-class RSSUtils {
+namespace MediaWiki\Extension\RSS;
+
+use Html;
+
+class Utils {
 
 	/**
 	 * Output an error message, all wrapped up nicely in HTML.

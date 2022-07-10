@@ -27,15 +27,12 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"RSSHooks": "includes/RSSHooks.php",
-		"RSSParser": "includes/RSSParser.php",
-		"RSSUtils": "includes/RSSUtils.php",
-		"RSSData": "includes/RSSData.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\RSS\\": "includes/"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
-			"RSSHooks::onParserFirstCallInit"
+			"MediaWiki\\Extension\\RSS\\Hooks::onParserFirstCallInit"
 		]
 	},
 	"TrackingCategories": [

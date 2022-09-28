@@ -436,7 +436,7 @@ class RSSParser {
 					break;
 				default:
 					$str = $this->escapeTemplateParameter( $item[$info] );
-					$str = $parser->getFunctionLang()->truncateForVisual( $str, $this->ItemMaxLength );
+					$str = $parser->getTargetLanguage()->truncateForVisual( $str, $this->ItemMaxLength );
 					$str = $this->highlightTerms( $str );
 					$renderedItem = str_replace( '{{{' . $info . '}}}',
 						$this->insertStripItem( $str ), $renderedItem );

@@ -63,8 +63,8 @@ class Hooks {
 
 		if ( !( in_array( $input, $wgRSSUrlWhitelist ) )
 			&& !( in_array( "*", $wgRSSUrlWhitelist ) ) ) {
-			$listOfAllowed = $parser->getFunctionLang()->listToText( $wgRSSUrlWhitelist );
-			$numberAllowed = $parser->getFunctionLang()->formatNum( count( $wgRSSUrlWhitelist ) );
+			$listOfAllowed = $parser->getTargetLanguage()->listToText( $wgRSSUrlWhitelist );
+			$numberAllowed = $parser->getTargetLanguage()->formatNum( count( $wgRSSUrlWhitelist ) );
 
 			return Utils::getErrorHtml( 'rss-url-is-not-allowed',
 				[ $input, $listOfAllowed, $numberAllowed ]

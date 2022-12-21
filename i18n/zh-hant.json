@@ -7,7 +7,8 @@
 			"LNDDYL",
 			"Liuxinyu970226",
 			"Mark85296341",
-			"Zhxy 519"
+			"Zhxy 519",
+			"捍粵者"
 		]
 	},
 	"rss-desc": "在 MediaWiki 頁面上使用模板頁面，以標準或使用者定義格式顯示 RSS 源",
@@ -15,7 +16,7 @@
 	"rss-tracking-category-desc": "頁面有 RSS 源。",
 	"rss-error": "自 $1：$2 載入 RSS 失敗",
 	"rss-empty": "自 $1 載入 RSS 失敗",
-	"rss-fetch-nourl": "無網址情況中進行讀取！",
+	"rss-fetch-nourl": "無網址時不能讀取",
 	"rss-invalid-url": "不是有效的網址：$1",
 	"rss-parse-error": "RSS 解析 XML 時出現錯誤",
 	"rss-ns-permission": "此命名空間不允許使用 RSS",

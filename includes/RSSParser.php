@@ -6,6 +6,7 @@ use DOMDocument;
 use MediaWiki\MediaWikiServices;
 use MWHttpRequest;
 use Parser;
+use ParserFactory;
 use PPFrame;
 use Sanitizer;
 use Status;
@@ -36,6 +37,11 @@ class RSSParser {
 	 * @var WANObjectCache
 	 */
 	private $cache;
+
+	/**
+	 * @var ParserFactory
+	 */
+	private $parserFactory;
 
 	/**
 	 * @var RSSData
@@ -73,6 +79,7 @@ class RSSParser {
 		$this->markerString = "'\"" . wfRandomString( 32 );
 		$this->stripItems = [];
 		$this->cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$this->parserFactory = MediaWikiServices::getInstance()->getParserFactory();
 
 		# Get max number of headlines from argument-array
 		if ( isset( $args['max'] ) ) {
@@ -342,7 +349,7 @@ class RSSParser {
 	 * @return string
 	 */
 	protected function sandboxParse( $wikiText, $origParser ) {
-		$myParser = $origParser->getFreshParser();
+		$myParser = $this->parserFactory->getInstance();
 		$result = $myParser->parse(
 			$wikiText,
 			$origParser->getTitle(),

@@ -5,10 +5,11 @@
 			"Iwai.masaharu",
 			"Schu",
 			"Shirayuki",
-			"青子守歌"
+			"青子守歌",
+			"Yamagata Yusuke"
 		]
 	},
-	"rss-desc": "標準、またはテンプレートページを使用したユーザー定義可能な形式で、MediaWiki ページにRSSフィードを表示する",
+	"rss-desc": "標準、またはテンプレートページを使用した利用者定義可能な形式で、MediaWiki ページに RSS フィードを表示する",
 	"rss-tracking-category-desc": "ページの RSS フィードを生成します。",
 	"rss-error": "$1からのRSSフィードの読み込みに失敗しました: $2",
 	"rss-empty": "$1からのRSSフィードの読み込みに失敗しました!",

@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\RSS;
 
 use DOMDocument;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MWHttpRequest;
 use Parser;
 use ParserFactory;
@@ -11,7 +12,6 @@ use PPFrame;
 use Sanitizer;
 use Status;
 use TextContent;
-use Title;
 use WANObjectCache;
 use Wikimedia\AtEase\AtEase;
 

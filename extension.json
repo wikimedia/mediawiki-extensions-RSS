@@ -16,7 +16,7 @@
 	],
 	"version": "2.25.1",
 	"requires": {
-		"MediaWiki": ">= 1.38.0"
+		"MediaWiki": ">= 1.41"
 	},
 	"license-name": "GPL-2.0-or-later",
 	"url": "https://www.mediawiki.org/wiki/Extension:RSS",

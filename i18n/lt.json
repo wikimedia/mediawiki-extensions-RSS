@@ -2,13 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"Eitvys200",
-			"Perkunas"
+			"Perkunas",
+			"Nokeoo"
 		]
 	},
 	"rss-desc": "Rodo RSS kanalą wiki puslapyje",
+	"rss-tracking-category": "Puslapiai su RSS srautais",
+	"rss-tracking-category-desc": "Puslapis turi RSS srautą",
 	"rss-error": "Nepavyko įkelti RSS kanalo iš $1: $2",
 	"rss-empty": "Nepavyko įkelti RSS kanalo iš $1!",
 	"rss-fetch-nourl": "Atsiuntimas iškviestas be nuorodos!",
 	"rss-invalid-url": "Nekorektiška nuoroda: $1",
-	"rss-parse-error": "Klaida analizuojant RSS kanalo XML'ą"
+	"rss-parse-error": "Klaida analizuojant RSS kanalo XML'ą",
+	"rss-ns-permission": "RSS šioje vardų srityje neleidžiamas.",
+	"rss-deprecated-wgrssallowedfeeds-found": "Aptiktas nebenaudojamas kintamasis <var>$wgRSSAllowedFeeds</var>. Nuo RSS 2.0 versijos šis kintamasis turi būti pakeistas į <var>$wgRSSUrlWhitelist</var>, kaip aprašyta instrukcijos puslapyje [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Plėtinys:RSS]."
 }

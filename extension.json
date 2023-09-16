@@ -31,9 +31,12 @@
 		"MediaWiki\\Extension\\RSS\\": "includes/"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"MediaWiki\\Extension\\RSS\\Hooks::onParserFirstCallInit"
-		]
+		"ParserFirstCallInit": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\RSS\\Hooks"
+		}
 	},
 	"TrackingCategories": [
 		"rss-tracking-category"

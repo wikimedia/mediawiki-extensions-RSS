@@ -2,22 +2,21 @@
 
 namespace MediaWiki\Extension\RSS;
 
+use MediaWiki\Hook\ParserFirstCallInitHook;
 use MWHttpRequest;
 use Parser;
 use PPFrame;
 use Status;
 
-class Hooks {
+class Hooks implements ParserFirstCallInitHook {
 
 	/**
 	 * Tell the parser how to handle <rss> elements
 	 * @param Parser $parser Parser Object
-	 * @return bool
 	 */
-	public static function onParserFirstCallInit( $parser ) {
+	public function onParserFirstCallInit( $parser ) {
 		// Install parser hook for <rss> tags
 		$parser->setHook( 'rss', [ __CLASS__, 'renderRss' ] );
-		return true;
 	}
 
 	/**

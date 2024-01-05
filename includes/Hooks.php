@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\RSS;
 
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Status\Status;
 use MWHttpRequest;
 use Parser;
 use PPFrame;
-use Status;
 
 class Hooks implements ParserFirstCallInitHook {
 

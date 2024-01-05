@@ -4,13 +4,13 @@ namespace MediaWiki\Extension\RSS;
 
 use DOMDocument;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MWHttpRequest;
 use Parser;
 use ParserFactory;
 use PPFrame;
-use Sanitizer;
-use Status;
 use TextContent;
 use WANObjectCache;
 use Wikimedia\AtEase\AtEase;

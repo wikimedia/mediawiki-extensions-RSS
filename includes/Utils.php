@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\RSS;
 
-use Html;
+use MediaWiki\Html\Html;
 
 class Utils {
 

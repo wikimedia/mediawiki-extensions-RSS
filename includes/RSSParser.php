@@ -71,7 +71,7 @@ class RSSParser {
 	 * @param array $args
 	 */
 	public function __construct( $url, $args ) {
-		global $wgRSSDateDefaultFormat,$wgRSSItemMaxLength;
+		global $wgRSSDateDefaultFormat, $wgRSSItemMaxLength;
 
 		$this->url = $url;
 
@@ -223,7 +223,7 @@ class RSSParser {
 			return false;
 		}
 
-		list( $etag, $lastModified, $rss ) = $data;
+		[ $etag, $lastModified, $rss ] = $data;
 		if ( !isset( $rss->items ) ) {
 			return false;
 		}
@@ -424,29 +424,29 @@ class RSSParser {
 		foreach ( array_keys( $item ) as $info ) {
 			if ( $item[$info] != "" ) {
 				switch ( $info ) {
-				// ATOM <id> elements and RSS <link> elements are item link urls
-				case 'id':
-					$txt = $this->sanitizeUrl( $item['id'] );
-					$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-					break;
-				case 'link':
-					$txt = $this->sanitizeUrl( $item['link'] );
-					$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
-					break;
-				case 'date':
-					$tempTimezone = date_default_timezone_get();
-					date_default_timezone_set( 'UTC' );
-					$txt = date( $this->date,
-						strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
-					date_default_timezone_set( $tempTimezone );
-					$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
-					break;
-				default:
-					$str = $this->escapeTemplateParameter( $item[$info] );
-					$str = $parser->getTargetLanguage()->truncateForVisual( $str, $this->ItemMaxLength );
-					$str = $this->highlightTerms( $str );
-					$renderedItem = str_replace( '{{{' . $info . '}}}',
-						$this->insertStripItem( $str ), $renderedItem );
+					// ATOM <id> elements and RSS <link> elements are item link urls
+					case 'id':
+						$txt = $this->sanitizeUrl( $item['id'] );
+						$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
+						break;
+					case 'link':
+						$txt = $this->sanitizeUrl( $item['link'] );
+						$renderedItem = str_replace( '{{{link}}}', $txt, $renderedItem );
+						break;
+					case 'date':
+						$tempTimezone = date_default_timezone_get();
+						date_default_timezone_set( 'UTC' );
+						$txt = date( $this->date,
+							strtotime( $this->escapeTemplateParameter( $item['date'] ) ) );
+						date_default_timezone_set( $tempTimezone );
+						$renderedItem = str_replace( '{{{date}}}', $txt, $renderedItem );
+						break;
+					default:
+						$str = $this->escapeTemplateParameter( $item[$info] );
+						$str = $parser->getTargetLanguage()->truncateForVisual( $str, $this->ItemMaxLength );
+						$str = $this->highlightTerms( $str );
+						$renderedItem = str_replace( '{{{' . $info . '}}}',
+							$this->insertStripItem( $str ), $renderedItem );
 				}
 			}
 		}
@@ -527,8 +527,8 @@ class RSSParser {
 
 			$text = str_replace(
 				[
-					'[',     '|',      ']',     '\'',    'ISBN ',
-					'RFC ',     '://',     "\n=",     '{{',           '}}',
+					'[', '|', ']', '\'', 'ISBN ',
+					'RFC ', '://', "\n=", '{{', '}}',
 				],
 				[
 					'&#91;', '&#124;', '&#93;', '&#39;', 'ISBN&#32;',

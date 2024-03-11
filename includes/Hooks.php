@@ -30,7 +30,7 @@ class Hooks implements ParserFirstCallInitHook {
 	 */
 	public static function renderRss( $input, array $args, Parser $parser, PPFrame $frame ) {
 		global $wgRSSCacheAge, $wgRSSCacheCompare, $wgRSSNamespaces,
-			$wgRSSUrlWhitelist,$wgRSSAllowedFeeds;
+			$wgRSSUrlWhitelist, $wgRSSAllowedFeeds;
 
 		if ( is_array( $wgRSSNamespaces ) && count( $wgRSSNamespaces ) ) {
 			$nsUsed = $parser->getTitle()->getNamespace();

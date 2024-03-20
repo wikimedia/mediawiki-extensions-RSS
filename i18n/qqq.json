@@ -10,7 +10,7 @@
 		]
 	},
 	"rss-desc": "{{desc|name=RSS|url=https://www.mediawiki.org/wiki/Extension:RSS}}",
-	"rss-tracking-category": "The name of a category for all pages which use the <code><nowiki><rss></nowiki></code> parser extension tag. The category is automatically added unless the feature is disabled.",
+	"rss-tracking-category": "The name of a category for all pages which use the <code>&lt;rss></code> parser extension tag. The category is automatically added unless the feature is disabled.",
 	"rss-tracking-category-desc": "Description on [[Special:TrackingCategories]] for the {{msg-mw|rss-tracking-category}} tracking category.",
 	"rss-error": "Used as error message. Parameters:\n* $1 - URL of RSS feed\n* $2 - result which the RSS parser returned",
 	"rss-empty": "Used as error message. Parameters:\n* $1 - URL of RSS feed",

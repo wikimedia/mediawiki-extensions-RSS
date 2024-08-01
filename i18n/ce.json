@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"rss-desc": "Гойту RSS-канал вики-агӀонан тӀехь",
+	"rss-tracking-category": "RSS-каналаш йолу агӀонаш",
+	"rss-tracking-category-desc": "АгӀонан тӀехь RSS-канал йу.",
+	"rss-error": "$1: $2 тӀера RSS-канал чуйаккха аьтто ца баьлла.",
+	"rss-empty": "$1 тӀера RSS-канал чуйаккха аьтто ца баьлла!",
+	"rss-fetch-nourl": "URL йоцуш кхайкхина схьаэца!",
+	"rss-invalid-url": "Магийна йоцу URL: $1",
+	"rss-parse-error": "RSS-на XML вовшахкъастош гӀалат",
+	"rss-ns-permission": "RSS лело магош дац хӀокху цӀерийн меттигехь",
+	"rss-url-is-not-allowed": "«$1» магийначу  веб-каналийн йукъа ца йогӀу. {{PLURAL:$3|1=Цхьаъ канал бен магийна йац «$2»|Магийна каналаш: $2}}.",
+	"rss-empty-allow-list": "«$1» магийначу веб-каналийн могӀаман йукъа ца йогӀу. хӀокху могӀамехь магийна URL-адресаш дац.",
+	"rss-deprecated-wgrssallowedfeeds-found": "Шира хийцам гучубаьлла <var>$wgRSSAllowedFeeds</var>. RSS 2.0 верси тӀера дуьйна, и хийцам хийцина <var>$wgRSSUrlWhitelist</var>-ца, агӀонан тӀехь мадарра [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]."
+}

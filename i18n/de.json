@@ -7,7 +7,7 @@
 		]
 	},
 	"rss-desc": "Ermöglicht die Anzeige eines oder mehrerer RSS/Atom-Newsfeeds auf Wikiseiten, entweder in einem Standardformat oder in benutzerdefinierten Formaten",
-	"rss-tracking-category": "Seiten mit RSS-Feeds",
+	"rss-tracking-category": "Seiten, die die mit RSS-Erweiterung verwenden",
 	"rss-tracking-category-desc": "Die Seite hat einen RSS-Feed.",
 	"rss-error": "Der RSS-Feed von $1 konnte nicht geladen werden: $2",
 	"rss-empty": "Der RSS-Feed von $1 konnte nicht geladen werden!",

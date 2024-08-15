@@ -6,7 +6,7 @@
 		]
 	},
 	"rss-desc": "Weist en RSS-Feed op enger Wiki-Säit",
-	"rss-tracking-category": "Säite mat RSS-Feeds",
+	"rss-tracking-category": "Säiten, déi d'RSS-Erweiderung benotzen",
 	"rss-tracking-category-desc": "Dës Säit huet en RSS-Feed.",
 	"rss-error": "Den RSS-Feed vun $1 konnt net geluede ginn: $2",
 	"rss-empty": "Den RSS-Feed vun $1 konnt net geluede ginn!",

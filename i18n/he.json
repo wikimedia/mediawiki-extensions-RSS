@@ -5,7 +5,7 @@
 		]
 	},
 	"rss-desc": "מציגה הזנות RSS על דפים מדיה־ויקי בתסדיר תקני או מוגדר על־ידי משתמש באמצעות דפי תבנית",
-	"rss-tracking-category": "דפים עם הזנות RSS",
+	"rss-tracking-category": "דפים שמשתמשים בהרחבה RSS",
 	"rss-tracking-category-desc": "לדף הזה יש הזנת RSS.",
 	"rss-error": "נכשלה טעינת הזנת RSS מ־$1: $2",
 	"rss-empty": "נכשלה טעינת הזנת RSS מ־$1!",

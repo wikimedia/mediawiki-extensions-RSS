@@ -3,11 +3,12 @@
 		"authors": [
 			"Daud I.F. Argana",
 			"Farras",
-			"IvanLanin"
+			"IvanLanin",
+			"Rtnf"
 		]
 	},
 	"rss-desc": "Menampilkan arus RSS di halaman wiki",
-	"rss-tracking-category": "Halaman dengan umpan RSS",
+	"rss-tracking-category": "Halaman yang menggunakan ekstensi RSS",
 	"rss-tracking-category-desc": "Halaman berikut memiliki sebuah umpan RSS.",
 	"rss-error": "Gagal memuat arus RSS dari $1: $2",
 	"rss-empty": "Gagal memuat arus RSS dari $1!",

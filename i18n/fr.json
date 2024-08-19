@@ -4,6 +4,7 @@
 			"Crochet.david",
 			"Faure.thomas",
 			"Gomoko",
+			"Goombiis",
 			"IAlex",
 			"Peter17",
 			"Tpt",
@@ -13,7 +14,7 @@
 		]
 	},
 	"rss-desc": "Affiche des flux RSS concernant des pages MediaWiki, dans un format standard ou défini par l’utilisateur au moyen de pages de modèle.",
-	"rss-tracking-category": "Pages avec des flux RSS",
+	"rss-tracking-category": "Pages utilisant l'extension RSS",
 	"rss-tracking-category-desc": "La page a un flux RSS.",
 	"rss-error": "Impossible de charger le flux RSS de $1 : $2",
 	"rss-empty": "Impossible de charger le flux RSS de $1 !",

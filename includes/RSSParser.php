@@ -16,20 +16,35 @@ use WANObjectCache;
 use Wikimedia\AtEase\AtEase;
 
 class RSSParser {
+	/** @var int */
 	protected $maxheads = 32;
+	/** @var string */
 	protected $date = "Y-m-d H:i:s";
+	/** @var int */
 	protected $ItemMaxLength = 200;
+	/** @var bool */
 	protected $reversed = false;
+	/** @var string[] */
 	protected $highlight = [];
+	/** @var string[] */
 	protected $filter = [];
+	/** @var string[] */
 	protected $filterOut = [];
+	/** @var string */
 	protected $itemTemplate;
+	/** @var string */
 	protected $url;
+	/** @var string */
 	protected $etag;
+	/** @var int */
 	protected $lastModified;
+	/** @var DOMDocument */
 	protected $xml;
+	/** @var string[] */
 	protected $displayFields = [ 'author', 'title', 'encodedContent', 'description' ];
+	/** @var string[] */
 	protected $stripItems;
+	/** @var string */
 	protected $markerString;
 
 	/**

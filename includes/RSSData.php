@@ -6,7 +6,9 @@ use DOMDocument;
 use DOMXPath;
 
 class RSSData {
+	/** @var string */
 	public $error;
+	/** @var string[][] */
 	public $items;
 
 	/**

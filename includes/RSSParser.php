@@ -28,7 +28,6 @@ class RSSParser {
 	protected $etag;
 	protected $lastModified;
 	protected $xml;
-	protected $error;
 	protected $displayFields = [ 'author', 'title', 'encodedContent', 'description' ];
 	protected $stripItems;
 	protected $markerString;

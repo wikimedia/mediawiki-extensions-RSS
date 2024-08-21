@@ -7,7 +7,7 @@
 		]
 	},
 	"rss-desc": "Visualizza un feed RSS in una pagina wiki",
-	"rss-tracking-category": "Pagine con feed RSS",
+	"rss-tracking-category": "Pagine che utilizzano l'estensione RSS",
 	"rss-tracking-category-desc": "La pagina ha un feed RSS.",
 	"rss-error": "Non è stato possibile caricare da $1 il feed RSS: $2",
 	"rss-empty": "Non è stato possibile possibile caricare feed RSS da $1!",

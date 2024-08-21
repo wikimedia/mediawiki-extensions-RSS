@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"-jem-",
 			"ArenaL5",
 			"Armando-Martin",
 			"Fitoschido",
@@ -11,7 +12,7 @@
 		]
 	},
 	"rss-desc": "Muestra suministros RSS en páginas de MediaWiki, bien en un formato estándar o bien en formatos personalizables mediante plantillas",
-	"rss-tracking-category": "Páginas con suministros RSS",
+	"rss-tracking-category": "Páginas que usan la extensión RSS",
 	"rss-tracking-category-desc": "La página contiene un suministro RSS.",
 	"rss-error": "Falló la carga del suministro RSS desde $1: $2",
 	"rss-empty": "Falló la carga del suministro RSS desde $1.",

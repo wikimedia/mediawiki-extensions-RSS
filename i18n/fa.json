@@ -5,13 +5,14 @@
 			"Beginneruser",
 			"Ebrahim",
 			"Ebraminio",
+			"Jeeputer",
 			"Mahdy Saffar",
 			"Mjbmr",
 			"MohammadtheEditor"
 		]
 	},
 	"rss-desc": "خوراک‌های آراس‌اس را در صفحه‌های مدیاویکی به حالت استاندارد و حالت تعریف شده توسط کاربر با استفاده از صفحه‌های الگو، نشان می‌دهد",
-	"rss-tracking-category": "صفحه‌های با آر‌اس‌اس‌ها",
+	"rss-tracking-category": "صفحه‌هایی که از افزونه آراس‌اس استفاده می‌کنند",
 	"rss-tracking-category-desc": "این صفحه دارای یک فید آراس‌اس است.",
 	"rss-error": "بارگیری خوراک آراس‌اس از $1 ناموفق بود: $2",
 	"rss-empty": "بارگیری خوراک آراس‌اس از $1 ناموفق بود!",

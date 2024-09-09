@@ -5,7 +5,7 @@
 		]
 	},
 	"rss-desc": "Monstra un syndication RSS in un pagina wiki",
-	"rss-tracking-category": "Paginas con syndication RSS",
+	"rss-tracking-category": "Paginas que usa le extension RSS",
 	"rss-tracking-category-desc": "Le pagina ha un syndication RSS.",
 	"rss-error": "Falleva de cargar le syndication RSS de $1: $2",
 	"rss-empty": "Falleva de cargar le syndication RSS de $1!",

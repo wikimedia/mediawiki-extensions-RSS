@@ -98,7 +98,6 @@ class Hooks implements ParserFirstCallInitHook {
 			return Utils::getErrorHtml( 'rss-empty', htmlspecialchars( $input ) );
 		}
 
-		// @phan-suppress-next-line SecurityCheck-XSS
 		return $rss->renderFeed( $parser, $frame );
 	}
 

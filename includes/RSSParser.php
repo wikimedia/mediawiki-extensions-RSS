@@ -391,6 +391,7 @@ class RSSParser {
 	 */
 	public function renderFeed( $parser, $frame ) {
 		$renderedFeed = '';
+		$wikitextFeed = '';
 
 		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
 			$headcnt = 0;
@@ -404,12 +405,12 @@ class RSSParser {
 				}
 
 				if ( $this->canDisplay( $item ) ) {
-					$renderedFeed .= $this->renderItem( $item, $parser ) . "\n";
+					$wikitextFeed .= $this->renderItem( $item, $parser ) . "\n";
 					$headcnt++;
 				}
 			}
 
-			$renderedFeed = $this->sandboxParse( $renderedFeed, $parser );
+			$renderedFeed = $this->sandboxParse( $wikitextFeed, $parser );
 
 		}
 

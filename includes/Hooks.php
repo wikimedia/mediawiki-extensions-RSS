@@ -4,9 +4,9 @@ namespace MediaWiki\Extension\RSS;
 
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Status\Status;
 use MWHttpRequest;
-use PPFrame;
 
 class Hooks implements ParserFirstCallInitHook {
 

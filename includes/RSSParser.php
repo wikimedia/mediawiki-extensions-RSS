@@ -3,17 +3,17 @@
 namespace MediaWiki\Extension\RSS;
 
 use DOMDocument;
+use MediaWiki\Content\TextContent;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\ParserFactory;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MWHttpRequest;
-use ParserFactory;
-use PPFrame;
-use TextContent;
-use WANObjectCache;
 use Wikimedia\AtEase\AtEase;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 class RSSParser {
 	/** @var int */

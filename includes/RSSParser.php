@@ -30,9 +30,9 @@ class RSSParser {
 	protected $filter = [];
 	/** @var string[] */
 	protected $filterOut = [];
-	/** @var string */
+	/** @var string|null */
 	protected $itemTemplate;
-	/** @var string */
+	/** @var string|null */
 	protected $url;
 	/** @var string */
 	protected $etag;
@@ -58,7 +58,7 @@ class RSSParser {
 	private $parserFactory;
 
 	/**
-	 * @var RSSData
+	 * @var RSSData|null
 	 */
 	public $rss;
 
@@ -204,7 +204,7 @@ class RSSParser {
 	 * @return Status object
 	 */
 	public function fetch() {
-		if ( !isset( $this->url ) ) {
+		if ( $this->url === null ) {
 			return Status::newFatal( 'rss-fetch-nourl' );
 		}
 
@@ -266,7 +266,7 @@ class RSSParser {
 	protected function storeInCache( $key ) {
 		global $wgRSSCacheAge;
 
-		if ( !isset( $this->rss ) ) {
+		if ( $this->rss === null ) {
 			return false;
 		}
 
@@ -393,7 +393,7 @@ class RSSParser {
 		$renderedFeed = '';
 		$wikitextFeed = '';
 
-		if ( isset( $this->itemTemplate ) && isset( $parser ) && isset( $frame ) ) {
+		if ( $this->itemTemplate !== null && $parser && $frame ) {
 			$headcnt = 0;
 			if ( $this->reversed ) {
 				$this->rss->items = array_reverse( $this->rss->items );
@@ -427,7 +427,7 @@ class RSSParser {
 	 * @return mixed
 	 */
 	protected function renderItem( $item, $parser ) {
-		$renderedItem = $this->itemTemplate;
+		$renderedItem = $this->itemTemplate ?? '';
 
 		// $info will only be an XML element name, so we're safe using it.
 		// $item[$info] is handled by the XML parser --

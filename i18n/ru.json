@@ -8,7 +8,7 @@
 		]
 	},
 	"rss-desc": "Показывает RSS-канал на викистранице",
-	"rss-tracking-category": "Страницы с RSS-каналами",
+	"rss-tracking-category": "Страницы, использующие расширение RSS",
 	"rss-tracking-category-desc": "На странице имеется RSS-канал.",
 	"rss-error": "Не удалось загрузить RSS-канал из $1: $2",
 	"rss-empty": "Не удалось загрузить RSS-канал из $1!",

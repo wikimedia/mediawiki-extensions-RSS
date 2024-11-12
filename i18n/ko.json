@@ -7,7 +7,7 @@
 		]
 	},
 	"rss-desc": "틀 문서를 사용하여 표준 또는 사용자 정의 형식의 미디어위키 문서에 RSS 피드를 보여줍니다",
-	"rss-tracking-category": "RSS 피드를 포함한 문서",
+	"rss-tracking-category": "RSS 확장 기능을 사용하는 문서",
 	"rss-tracking-category-desc": "페이지에 RSS 피드가 있습니다.",
 	"rss-error": "$1에서 RSS 피드를 불러오는 데 실패했습니다: $2",
 	"rss-empty": "$1에서 RSS 피드를 불러오는 데 실패했습니다!",

@@ -185,7 +185,7 @@ class RSSParser {
 		}
 	}
 
-	private function insertStripItem( $item ) {
+	private function insertStripItem( string $item ): string {
 		$this->stripItems[] = $item;
 		$itemIndex = count( $this->stripItems ) - 1;
 		return "{$this->markerString}-{$itemIndex}-{$this->markerString}";

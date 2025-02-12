@@ -3,11 +3,12 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
+			"Huñvreüs",
 			"Y-M D"
 		]
 	},
 	"rss-desc": "Diskouez ur gwazh RSS war ur bajenn eus ar wiki",
-	"rss-tracking-category": "Pajennoù gant gwazhioù RSS",
+	"rss-tracking-category": "Pajennoù a ra gant an astenn RSS",
 	"rss-tracking-category-desc": "Ar bajenn he deus ur wazh RSS.",
 	"rss-error": "Dibosupl eo kargañ ar gwazh RSS eus $1 : $2",
 	"rss-empty": "Dibosupl eo kargañ gwazh RSS eus $1 !",

@@ -110,7 +110,7 @@ class RSSParser {
 		# @todo FIXME: not used yet
 		if ( isset( $args['date'] ) ) {
 			$this->date = $args['date'];
-		} elseif ( isset( $wgRSSDateDefaultFormat ) ) {
+		} elseif ( $wgRSSDateDefaultFormat !== null ) {
 			$this->date = $wgRSSDateDefaultFormat;
 		}
 
@@ -315,12 +315,12 @@ class RSSParser {
 		 */
 
 		$url = $this->url;
-		$noProxy = !isset( $wgRSSProxy );
+		$noProxy = $wgRSSProxy === null;
 
 		// Example for disabling proxy use for certain urls
 		// $noProxy = preg_match( '!\.internal\.example\.com$!i', parse_url( $url, PHP_URL_HOST ) );
 
-		if ( isset( $wgRSSUrlNumberOfAllowedRedirects )
+		if ( $wgRSSUrlNumberOfAllowedRedirects !== null
 			&& is_numeric( $wgRSSUrlNumberOfAllowedRedirects ) ) {
 			$maxRedirects = $wgRSSUrlNumberOfAllowedRedirects;
 		} else {

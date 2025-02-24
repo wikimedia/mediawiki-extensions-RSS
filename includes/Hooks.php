@@ -41,13 +41,13 @@ class Hooks implements ParserFirstCallInitHook {
 			}
 		}
 
-		if ( isset( $wgRSSAllowedFeeds ) ) {
+		if ( $wgRSSAllowedFeeds !== null ) {
 			return Utils::getErrorHtml( 'rss-deprecated-wgrssallowedfeeds-found' );
 		}
 
 		# disallow because there is no whitelist at all or an empty whitelist
 
-		if ( !isset( $wgRSSUrlWhitelist )
+		if ( $wgRSSUrlWhitelist === null
 			|| !is_array( $wgRSSUrlWhitelist )
 			|| ( count( $wgRSSUrlWhitelist ) === 0 )
 		) {

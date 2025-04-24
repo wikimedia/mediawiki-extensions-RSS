@@ -594,12 +594,11 @@ class RSSParser {
 			// if RSS parsed successfully
 			if ( $this->rss && !$this->rss->error ) {
 				$this->etag = $this->client->getResponseHeader( 'Etag' );
-				$this->lastModified =
-					strtotime( $this->client->getResponseHeader( 'Last-Modified' ) );
+				$lastModifiedHeader = $this->client->getResponseHeader( 'Last-Modified' ) ?? '';
+				$this->lastModified = strtotime( $lastModifiedHeader );
 
 				wfDebugLog( 'RSS', 'Stored etag (' . $this->etag . ') and Last-Modified (' .
-					$this->client->getResponseHeader( 'Last-Modified' ) . ') and items (' .
-					count( $this->rss->items ) . ')!' );
+					$lastModifiedHeader . ') and items (' . count( $this->rss->items ) . ')!' );
 				$this->storeInCache( $key );
 			} else {
 				return Status::newFatal( 'rss-parse-error', $this->rss->error );

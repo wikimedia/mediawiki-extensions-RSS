@@ -10,7 +10,7 @@
 			"Shulmj"
 		]
 	},
-	"rss-desc": "標準、またはテンプレートページを使用した利用者定義可能な形式で、MediaWiki ページに RSS フィードを表示する",
+	"rss-desc": "標準またはテンプレートページを用いたユーザー定義可能な形式で、RSSフィードを MediaWiki ページに表示する",
 	"rss-tracking-category-desc": "ページの RSS フィードを生成します。",
 	"rss-error": "$1からのRSSフィードの読み込みに失敗しました: $2",
 	"rss-empty": "$1からのRSSフィードの読み込みに失敗しました!",
@@ -18,6 +18,8 @@
 	"rss-invalid-url": "無効な URL: $1",
 	"rss-parse-error": "RSS の XML 解析エラー",
 	"rss-ns-permission": "RSS はこの名前空間では許可されていません。",
+	"rss-url-is-not-allowed": "「$1」は許可されたフィードのリストにありません。{{PLURAL:$3|許可されたフィードは $2 のみです|許可されたフィードは次の通りです: $2}}。",
 	"rss-empty-allow-list": "「$1」は、許可されたフィード一覧内にありません。許可されたフィードの URL がそのリスト内にありません。",
+	"rss-deprecated-wgrssallowedfeeds-found": "非推奨の変数 <var>$wgRSSAllowedFeeds</var> が見つかりました。[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]のマニュアルに記載されている通り、RSSバージョン2.0以降、この変数は <var>$wgRSSUrlWhitelist</var> に置き換える必要があります。",
 	"rss-feed": "<!-- 以下は、代替の2つのテンプレートです。 最初は、フィードの基本的な既定のテンプレートです。 -->; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''\n: {{{description}}}\n: {{{author}}} {{{date}}}<!-- 改行文字をここで使わないでください。 --><!-- 次は、拡張機能:パーサー関数が必要な改良されたバージョンです。 --><!-- ; '''<span class='plainlinks'>[{{{link}}} {{{title}}}]</span>'''{{#if: {{{description|}}}|: {{{description}}}}}{{#if: {{{author|}}} | {{#if: {{{date|}}} |: &mdash; {{{author}}} {{{date}}}}} | {{#if: {{{author|}}}|: &mdash; {{{author}}}}} {{#if: {{{date|}}}|:{{{date}}}}}|}} -->"
 }

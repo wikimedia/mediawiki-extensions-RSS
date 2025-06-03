@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
-	"rss-tracking-category": "د آر اس اس کتنو برخمن مخونه",
+	"rss-tracking-category": "د آر‌اېس‌اېس پراختيا کاروونکي مخونه",
 	"rss-tracking-category-desc": "دا مخ يوه آر اس اس کتنه لري.",
 	"rss-invalid-url": "يو سم يو آر ال (URL) نه دی: $1"
 }

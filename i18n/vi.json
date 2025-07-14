@@ -6,7 +6,7 @@
 		]
 	},
 	"rss-desc": "Hiển thị nguồn cấp RSS trên trang wiki",
-	"rss-tracking-category": "Trang có nguồn cấp RSS",
+	"rss-tracking-category": "Trang sử dụng phần mở rộng RSS",
 	"rss-tracking-category-desc": "Trang này có nguồn cấp RSS.",
 	"rss-error": "Thất bại khi tải nguồn cấp RSS từ $1: $2",
 	"rss-empty": "Thất bại khi tải nguồn cấp RSS từ $1!",

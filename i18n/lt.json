@@ -3,11 +3,12 @@
 		"authors": [
 			"Eitvys200",
 			"Nokeoo",
-			"Perkunas"
+			"Perkunas",
+			"Tomasdd"
 		]
 	},
 	"rss-desc": "Rodo RSS kanalą wiki puslapyje",
-	"rss-tracking-category": "Puslapiai su RSS srautais",
+	"rss-tracking-category": "Puslapiai, naudojantys RSS plėtinį",
 	"rss-tracking-category-desc": "Puslapis turi RSS srautą",
 	"rss-error": "Nepavyko įkelti RSS kanalo iš $1: $2",
 	"rss-empty": "Nepavyko įkelti RSS kanalo iš $1!",

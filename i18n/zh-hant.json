@@ -12,7 +12,7 @@
 		]
 	},
 	"rss-desc": "在 MediaWiki 頁面上使用模板頁面，以標準或使用者定義格式顯示 RSS 源",
-	"rss-tracking-category": "帶 RSS 源頁面",
+	"rss-tracking-category": "使用 RSS 擴充功能頁面",
 	"rss-tracking-category-desc": "頁面有 RSS 源。",
 	"rss-error": "自 $1：$2 載入 RSS 失敗",
 	"rss-empty": "自 $1 載入 RSS 失敗",

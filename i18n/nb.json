@@ -7,7 +7,7 @@
 		]
 	},
 	"rss-desc": "Viser en RSS-mating på en wikiside",
-	"rss-tracking-category": "Sider med RSS-mating",
+	"rss-tracking-category": "Sider som bruker RSS-utvidelsen",
 	"rss-tracking-category-desc": "Denne siden har en RSS-mating.",
 	"rss-error": "Kunne ikke laste RSS-mating fra $1: $2",
 	"rss-empty": "Kunne ikke laste RSS-mating fra $1.",

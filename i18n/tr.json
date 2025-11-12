@@ -3,11 +3,12 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Joseph",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"SaldırganSincap"
 		]
 	},
 	"rss-desc": "RSS beslemelerini MediaWiki sayfalarındaki standart veya kullanıcı tanımlı biçimlerde şablon sayfalarını kullanarak görüntüler",
-	"rss-tracking-category": "RSS besleme olan sayfalar",
+	"rss-tracking-category": "RSS uzantısını kullanan sayfalar",
 	"rss-tracking-category-desc": "Sayfada bir RSS beslemesi var.",
 	"rss-error": "RSS beslemesi $1 bağlantısına yüklenemedi: $2",
 	"rss-empty": "$1 RSS beslemesi yüklenemedi!",

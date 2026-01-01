@@ -9,7 +9,7 @@
 		]
 	},
 	"rss-desc": "Visar en RSS-feed på en wiki-sida",
-	"rss-tracking-category": "Sidor som använder RSS tillägget",
+	"rss-tracking-category": "Sidor med RSS-flöden",
 	"rss-tracking-category-desc": "Denna sida har ett RSS-flöde.",
 	"rss-error": "Det gick inte att läsa in RSS-feed från $1: $2",
 	"rss-empty": "Det gick inte att läsa in RSS-feed från $1!",

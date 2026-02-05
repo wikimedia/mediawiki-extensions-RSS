@@ -12,7 +12,6 @@ use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use MWHttpRequest;
-use Wikimedia\AtEase\AtEase;
 use Wikimedia\ObjectCache\WANObjectCache;
 
 class RSSParser {
@@ -597,19 +596,16 @@ class RSSParser {
 				return Status::newFatal( 'rss-parse-error', 'No XML content' );
 			}
 
-			AtEase::suppressWarnings();
-
 			$oldDisable = false;
 			if ( LIBXML_VERSION < 20900 ) {
 				// Prevent loading external entities when parsing the XML (bug 46932)
 				$oldDisable = libxml_disable_entity_loader( true );
 			}
-			$this->xml->loadXML( $rawXML );
+			// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+			@$this->xml->loadXML( $rawXML );
 			if ( LIBXML_VERSION < 20900 ) {
 				libxml_disable_entity_loader( $oldDisable );
 			}
-
-			AtEase::restoreWarnings();
 
 			$this->rss = new RSSData( $this->xml );
 

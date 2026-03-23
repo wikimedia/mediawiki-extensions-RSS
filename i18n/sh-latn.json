@@ -5,9 +5,9 @@
 			"Winston Sung"
 		]
 	},
-	"rss-desc": "Prikazuje RSS dovode na stranicama MediaWikija u stadanrdnom ili korisnički opredjeljenom formatu koristeći šablonske stranice",
-	"rss-error": "Nije uspjelo učitavanje RSS dovoda iz $1: $2",
-	"rss-empty": "Nije uspjelo učitavanje RSS dovoda iz $1!",
+	"rss-desc": "Prikazuje RSS kanale na stranicama MediaWikija u standardnom ili korisnički opredjeljenom formatu koristeći šablonske stranice",
+	"rss-error": "Nije uspjelo učitavanje RSS kanala iz $1: $2",
+	"rss-empty": "Nije uspjelo učitavanje RSS kanala iz $1.",
 	"rss-fetch-nourl": "Radnja je pozvana bez URL-a.",
 	"rss-invalid-url": "Neispravan URL: $1",
 	"rss-parse-error": "Greška pri parsiranju XML za RSS",

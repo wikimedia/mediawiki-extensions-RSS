@@ -2,11 +2,11 @@
 
 namespace MediaWiki\Extension\RSS;
 
-use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Http\MWHttpRequest;
+use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Status\Status;
-use MWHttpRequest;
 
 class Hooks implements ParserFirstCallInitHook {
 

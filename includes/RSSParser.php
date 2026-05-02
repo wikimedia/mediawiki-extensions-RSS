@@ -376,7 +376,7 @@ class RSSParser {
 				$markerIndex = (int)$matches[1];
 				return $stripItems[$markerIndex];
 			},
-			$result->getRawText()
+			$result->getContentHolderText()
 		);
 	}
 

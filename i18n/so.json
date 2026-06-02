@@ -1,0 +1,19 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"rss-desc": "Waxay ku soo bandhigtaa RSS feeds bogagga MediaWiki qaab caadi ah ama qaab uu isticmaaluhu qeexan karo iyadoo la adeegsanayo bogag tusmada ah",
+	"rss-tracking-category": "Bogagga isticmaalaya kordhinta RSS",
+	"rss-tracking-category-desc": "Boggan wuxuu leeyahay RSS feed.",
+	"rss-error": "Waa ku guuldareystay in la soo shubo RSS feed-ka $1: $2",
+	"rss-empty": "Waa ku guuldareystay in la soo shubo RSS feed-ka $1!",
+	"rss-fetch-nourl": "Fetch waxaa la wacay iyada oo aan URL lahayn!",
+	"rss-invalid-url": "Ma aha URL sax ah: $1",
+	"rss-parse-error": "Khalad ku yimid falanqaynta XML ee RSS",
+	"rss-ns-permission": "RSS lagama oggola magac-meel.",
+	"rss-url-is-not-allowed": "\"$1\" kuma jiro liiska feeds-ka la oggol yahay. {{PLURAL:$3|$2 waa feed-ka kaliya ee la oggol yahay|Feeds-ka la oggol yahay waa sida soo socota: $2}}.",
+	"rss-empty-allow-list": "\"$1\" kuma jiro liiska feeds-ka la oggol yahay. Ma jiraan URL-yada feed-ka ee la oggol yahay ee liiska ku jira.",
+	"rss-deprecated-wgrssallowedfeeds-found": "Doorsoomaha la joojiyay ee <var>$wgRSSAllowedFeeds</var> ayaa la ogaaday. Tan iyo RSS version 2.0 waa in lagu beddelaa <var>$wgRSSUrlWhitelist</var> sida lagu sharaxay bogga buugga [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:RSS Extension:RSS]."
+}

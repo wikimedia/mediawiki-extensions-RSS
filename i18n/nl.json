@@ -17,7 +17,7 @@
 	"rss-error": "Kon RSS-feed van $1 niet laden, fout: $2",
 	"rss-empty": "Kon RSS-feed van $1 niet laden!",
 	"rss-fetch-nourl": "Fetch is aangeroepen zonder een URL!",
-	"rss-invalid-url": "Geen geldige URL: $1",
+	"rss-invalid-url": "Geen correctie url: $1",
 	"rss-parse-error": "Fout bij het verwerken van de XML voor RSS",
 	"rss-ns-permission": "RSS is niet toegestaan in deze naamruimte",
 	"rss-url-is-not-allowed": "\"$1\" staat niet in de lijst met toegestane feeds. {{PLURAL:$3|$2 is de enige toegestane feed|De toegestane feeds zijn: $2}}.",

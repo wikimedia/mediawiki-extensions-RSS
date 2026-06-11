@@ -5,6 +5,7 @@
 			"Jim-by",
 			"Red Winged Duck",
 			"Renessaince",
+			"Ucukor",
 			"Wizardist"
 		]
 	},
@@ -12,7 +13,7 @@
 	"rss-tracking-category": "Старонкі, якія карыстаюцца пашырэньнямі RSS",
 	"rss-tracking-category-desc": "Старонка мае RSS-стужку.",
 	"rss-error": "Памылка загрузкі RSS-стужкі з $1: $2",
-	"rss-empty": "Не атрымалася загрузіць RSS-стужку з $1!",
+	"rss-empty": "Не ўдалося загрузіць RSS-стужку з $1!",
 	"rss-fetch-nourl": "Выбарка выкліканая без URL-адрасу!",
 	"rss-invalid-url": "Няслушны URL-адрас: $1",
 	"rss-parse-error": "Памылка аналізу XML для RSS",

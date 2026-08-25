@@ -9,6 +9,7 @@
 	},
 	"rss-desc": "Zobrazí kanál RSS na wiki stránke",
 	"rss-tracking-category": "Stránky používajúce rozšírenie RSS",
+	"rss-tracking-category-desc": "Stránka obsahuje RSS kanál.",
 	"rss-error": "Nepodarilo sa načítať RSS kanál z $1: $2",
 	"rss-empty": "Nepodarilo sa načítať RSS kanál z $1!",
 	"rss-fetch-nourl": "Stiahnutie stránky zavolané bez URL!",
